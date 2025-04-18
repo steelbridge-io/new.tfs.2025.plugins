@@ -1,0 +1,77 @@
+/* TFS Parent Theme Options */
+
+.accordion-cmf {
+  margin: 1em auto;
+}
+
+.grid-label {
+  width: 100px;
+}
+
+#meta-wrapper {
+  padding: 1.618em .5em;
+}
+
+.meta-cont {
+  min-height: 100px;
+  background-color: #eee;
+  margin: .7em auto;
+  padding: 1em;
+}
+
+.meta-cont h3 {
+  padding: 0;
+  margin: 0;
+}
+#landing-page-logo, #landing-page-image {
+  margin: 1em .2em 1em 0;
+}
+
+#landing-page-logo-button, #landing-page-image-button {
+ /* margin: 1em .2em 1em;*/
+
+}
+
+.img-preview-cont {
+  width: 120px;
+  height: auto;
+}
+
+.image-preview {
+  width: 100px;
+}
+
+.image-preview-grid {
+  width: 30px;
+  margin-left: 1.618em;
+}
+
+.input-cont .landing-inputs {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 100px;
+}
+
+.input-cont .landing-inputs label,
+.input-cont .landing-inputs input,
+.input-cont .landing-inputs img {
+  /*margin-right: 20px;*/ /* adjust as needed */
+}
+
+.input-cont .landing-inputs img {
+  margin-left: 1em;
+}
+
+.input-cont .landing-inputs label {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  width: 16%;
+}
+
+.accordion-item {
+  margin: .5em 0 .5em;
+  background-color: #eee !important;
+}

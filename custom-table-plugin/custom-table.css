@@ -1,0 +1,23 @@
+#custom_table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#custom_table th,
+#custom_table td {
+    padding: 5px;
+    border: 1px solid #ccc;
+}
+
+#custom_table th {
+    background-color: #f0f0f0;
+}
+
+#add-row {
+    margin-top: 10px;
+}
+
+.delete-row {
+    color: #f00;
+    cursor: pointer;
+}

@@ -1,0 +1,51 @@
+#editor-publication-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.form-row {
+  background-color: #ccc;
+  display: grid;
+  grid-template-columns: 1fr;
+  padding: .5rem;
+}
+
+.form-label {
+  margin-top: .5rem;
+}
+
+.button.form-input {
+  margin-bottom: .5rem;
+  margin-top: .5rem;
+  width: 150px;
+}
+
+.carousel-wrap {
+  max-width: 1200px;
+  padding: 3.168em;
+  position: relative;
+  margin: 0 auto;
+  width: 100%;
+  z-index: 1;
+}
+
+.carousel-cont {
+  align-items: center;
+  background-color: rgba(210, 215, 211, 0.8);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1.618em;
+  position: relative;
+  z-index: 2;
+}
+
+.carousel-cont p {
+  font-size: 1.2rem;
+}
+
+.carousel-control {
+  position: relative;
+  z-index: 4;
+}

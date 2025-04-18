@@ -1,0 +1,24 @@
+/**
+ * #.# Styles
+ *
+ * CSS for both Frontend+Backend.
+ */
+
+.wp-block-cgb-block-call-to-action  {
+  background: #e6e6e6;
+  color: #000;
+  margin: 0 auto;
+  max-width: 740px;
+  padding: 2rem;
+}
+.wp-block-cgb-block-call-to-action.alignwide {
+  max-width: 100%;
+}
+
+#content-page.entry-content {
+	margin-bottom:0 !important;
+}
+
+.edit-link {
+	position: absolute;
+}

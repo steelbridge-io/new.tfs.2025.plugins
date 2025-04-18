@@ -1,0 +1,151 @@
+/* Custom styles for tables on the admin site */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+th,
+td {
+    padding: 10px;
+    border: 1px solid #e0e0e0;
+}
+
+th {
+    font-weight: bold;
+    background-color: #f0f0f0;
+}
+
+.fly-list-table-class tbody tr td input[type="text"] {
+    width: 100%;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+/* Custom styles for buttons on the admin site */
+button {
+    display: inline-block;
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    white-space: nowrap;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+#fly_list_travel_doc_january .postbox-header,
+#fly_list_travel_doc_february .postbox-header,
+#fly_list_travel_doc_march .postbox-header,
+#fly_list_travel_doc_april .postbox-header,
+#fly_list_travel_doc_may .postbox-header,
+#fly_list_travel_doc_june .postbox-header,
+#fly_list_travel_doc_july .postbox-header,
+#fly_list_travel_doc_august .postbox-header,
+#fly_list_travel_doc_september .postbox-header,
+#fly_list_travel_doc_october .postbox-header,
+#fly_list_travel_doc_november .postbox-header,
+#fly_list_travel_doc_december .postbox-header {
+    background-color: #45a049;
+}
+
+#fly_list_travel_doc_january .handle-order-higher,
+#fly_list_travel_doc_january .handle-order-lower,
+#fly_list_travel_doc_january .handlediv .toggle-indicator,
+#fly_list_travel_doc_january h2.hndle.ui-sortable-handle {
+    color: #f5f5f5;
+}
+
+#fly_list_travel_doc_february .handle-order-higher,
+#fly_list_travel_doc_february .handle-order-lower,
+#fly_list_travel_doc_february .handlediv .toggle-indicator,
+#fly_list_travel_doc_february h2.hndle.ui-sortable-handle {
+    color: #f5f5f5;
+}
+
+#fly_list_travel_doc_march .handle-order-higher,
+#fly_list_travel_doc_march .handle-order-lower,
+#fly_list_travel_doc_march .handlediv .toggle-indicator,
+#fly_list_travel_doc_march h2.hndle.ui-sortable-handle {
+    color: #f5f5f5;
+}
+
+#fly_list_travel_doc_april .handle-order-higher,
+#fly_list_travel_doc_april .handle-order-lower,
+#fly_list_travel_doc_april .handlediv .toggle-indicator,
+#fly_list_travel_doc_april h2.hndle.ui-sortable-handle {
+    color: #f5f5f5;
+}
+
+#fly_list_travel_doc_may .handle-order-higher,
+#fly_list_travel_doc_may .handle-order-lower,
+#fly_list_travel_doc_may .handlediv .toggle-indicator,
+#fly_list_travel_doc_may h2.hndle.ui-sortable-handle {
+    color: #f5f5f5;
+}
+
+#fly_list_travel_doc_june .handle-order-higher,
+#fly_list_travel_doc_june .handle-order-lower,
+#fly_list_travel_doc_june .handlediv .toggle-indicator,
+#fly_list_travel_doc_june h2.hndle.ui-sortable-handle {
+    color: #f5f5f5;
+}
+
+#fly_list_travel_doc_july .handle-order-higher,
+#fly_list_travel_doc_july .handle-order-lower,
+#fly_list_travel_doc_july .handlediv .toggle-indicator,
+#fly_list_travel_doc_july h2.hndle.ui-sortable-handle {
+    color: #f5f5f5;
+}
+
+#fly_list_travel_doc_august .handle-order-higher,
+#fly_list_travel_doc_august .handle-order-lower,
+#fly_list_travel_doc_august .handlediv .toggle-indicator,
+#fly_list_travel_doc_august h2.hndle.ui-sortable-handle {
+    color: #f5f5f5;
+}
+
+#fly_list_travel_doc_september .handle-order-higher,
+#fly_list_travel_doc_september .handle-order-lower,
+#fly_list_travel_doc_september .handlediv .toggle-indicator,
+#fly_list_travel_doc_september h2.hndle.ui-sortable-handle {
+    color: #f5f5f5;
+}
+
+#fly_list_travel_doc_october .handle-order-higher,
+#fly_list_travel_doc_october .handle-order-lower,
+#fly_list_travel_doc_october .handlediv .toggle-indicator,
+#fly_list_travel_doc_october h2.hndle.ui-sortable-handle {
+    color: #f5f5f5;
+}
+
+#fly_list_travel_doc_november .handle-order-higher,
+#fly_list_travel_doc_november .handle-order-lower,
+#fly_list_travel_doc_november .handlediv .toggle-indicator,
+#fly_list_travel_doc_november h2.hndle.ui-sortable-handle {
+    color: #f5f5f5;
+}
+
+#fly_list_travel_doc_december .handle-order-higher,
+#fly_list_travel_doc_december .handle-order-lower,
+#fly_list_travel_doc_december .handlediv .toggle-indicator,
+#fly_list_travel_doc_december h2.hndle.ui-sortable-handle {
+    color: #f5f5f5;
+}
+
+button.deleteRow {
+    display: block;
+    margin: 0 auto;
+}
+
+/* Additional styles can be added as needed */

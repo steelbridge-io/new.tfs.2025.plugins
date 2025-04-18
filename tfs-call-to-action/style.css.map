@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA;;;;GAIG;AAEH,uBAAwB;EACrB,MAAM,EAAE,IAAI;EACd,MAAM,EAAE,YAAY;;AAGrB,cAAe;EACb,OAAO,EAAE,OAAO;;AAGlB,YAAa;EACZ,KAAK,EAAE,IAAI",
+"sources": ["src/cardblock/style.scss"],
+"names": [],
+"file": "style.css"
+}

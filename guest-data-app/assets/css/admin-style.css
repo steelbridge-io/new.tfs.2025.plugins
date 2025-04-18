@@ -1,0 +1,60 @@
+/* assets/css/admin-style.css */
+.form-id,
+.gda-waiver-url {
+  margin: .5em 0;
+  padding: 1em .5em;
+  background: #eee;
+}
+#gda_meta_field_waiver_url {
+  width: 90%;
+}
+.gda-meta-box {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-top: .5em;
+  margin-bottom: .5em;
+  padding: 1em .5em;
+  background: #eee;
+}
+
+.gda-meta-box-container {
+  margin-top: .5em;
+  margin-bottom: .5em;
+  padding: 1em .5em;
+  background: #eee;
+}
+
+.gda-meta-box-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-top: .5em;
+  margin-bottom: .5em;
+  padding: 1em .5em;
+  background: #eee;
+}
+
+.gda-meta-box-3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+  margin-top: .5em;
+  margin-bottom: .5em;
+  padding: 1em .5em;
+  background: #eee;
+}
+
+.gda-meta-row {
+  display: flex;
+  flex-direction: column;
+}
+
+.gda-meta-row label {
+  margin-bottom: 4px;
+  font-weight: bold;
+}
+
+.gda-meta-row input[type="number"] {
+  max-width: 100%;
+}

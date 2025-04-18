@@ -1,0 +1,24 @@
+#seotfs_meta{
+    overflow: hidden;
+    padding-bottom: 1em;
+}
+
+#seotfs_meta p{
+    clear: both;
+}
+
+.seotfs-row-title{
+    display: block;
+    float: left;
+    width: 200px;
+}
+
+.seotfs-row-content{
+    float: left;
+    padding-bottom: 1em;
+}
+
+.seotfs-row-content label{
+    display: block;
+    line-height: 1.75em;
+}

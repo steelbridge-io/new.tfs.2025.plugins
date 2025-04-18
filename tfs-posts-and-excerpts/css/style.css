@@ -1,0 +1,25 @@
+/*
+*	Style sheet for TFS Posts And Excerpts Plugin
+*/
+
+h4.tfs_posts_excerpt {
+	color: #2e3842;
+}
+
+.post-excerpt p {
+	margin: 0;
+}
+
+span.alignright {
+	margin-right: 1.618em;
+}
+
+.post-excerpt a, .post-excerpt :hover {
+	color: #2e3842;
+}
+.post-excerpt a.read-more-link {
+	color: #a01624;
+}
+.postexcerpt-title {
+	padding: 9px 0 0;
+}

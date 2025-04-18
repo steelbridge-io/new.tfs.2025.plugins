@@ -1,0 +1,45 @@
+@charset "UTF-8";
+/* CSS Document */
+
+.travel-row-title strong {
+	float: right;
+	margin-top: 7px;
+	margin-right: 5px;
+}
+
+#travel_meta{
+overflow: hidden;
+padding-bottom: 1em;
+}
+
+#travel_meta p{
+clear: both;
+}
+
+.travel-row-title{
+display: block;
+float: left;
+width: 200px;
+}
+
+.travel-row-content{
+width: 100%;
+padding-bottom: 1em;
+}
+
+.travel-row-content label{
+display: block;
+line-height: 1.75em;
+}
+
+hr {
+	height: 1px;
+	background: #f81028;
+}
+
+.meta-field {
+	background: #eee;
+	padding: 1.618em;
+	margin-top: 1.618em;
+}
+
