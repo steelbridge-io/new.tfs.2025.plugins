@@ -1,0 +1,111 @@
+/* Floating prompt */
+#search-bot-prompt {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+#search-bot-open {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#search-bot-open:hover {
+    background: #0056b3;
+}
+
+/* Chat interface */
+#search-bot-chat {
+    position: fixed;
+    bottom: 60px;
+    right: 20px;
+    width: 300px;
+    background: white;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    display: none;
+    flex-direction: column;
+    z-index: 1000;
+}
+
+#search-bot-close {
+    align-self: flex-end;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    font-size: 14px;
+    color: #007bff;
+}
+
+#search-bot-close:hover {
+    color: #0056b3;
+}
+
+#search-bot-messages {
+    max-height: 250px;
+    overflow-y: auto;
+    padding: 10px;
+}
+
+#search-bot-messages div {
+    margin: 5px 0;
+    line-height: 1.4;
+}
+
+#search-bot-messages .user-message {
+    text-align: right;
+    color: #007bff;
+}
+
+#search-bot-messages .bot-message {
+    text-align: left;
+    color: #333;
+}
+
+#search-bot-messages a {
+    color: #007bff;
+    text-decoration: underline;
+    word-break: break-all;
+}
+
+#search-bot-messages a:hover {
+    color: #0056b3;
+}
+
+#search-bot-input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-top: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+#search-bot-input:focus {
+    outline: none;
+    border-top: 1px solid #007bff;
+}
+
+/* Mobile adjustments */
+@media (max-width: 600px) {
+    #search-bot-chat {
+        width: 100%;
+        right: 0;
+        bottom: 0;
+        border-radius: 0;
+    }
+    #search-bot-prompt {
+        right: 10px;
+        bottom: 10px;
+    }
+    #search-bot-open {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+}
