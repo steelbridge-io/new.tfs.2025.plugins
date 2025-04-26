@@ -33,3 +33,4 @@ wordfence/
 shortcode-in-menus/
 **/node_modules
 package-lock.json
+.env
