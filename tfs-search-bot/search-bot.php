@@ -47,7 +47,7 @@ function ai_chat_response() {
  }, $history);
  $messages[] = [
 	'role' => 'user',
-	'content' => $query . ' Return only a single search term or phrase for searching www.theflyshop.com and catalog.theflyshop.com. For fishing reports or rivers (e.g., Sacramento, McCloud, Pit), use "stream report". For international or regional travel destinations (e.g., Patagonia, Belize), use "fly fishing travel" or the destination (e.g., "Patagonia"). For Alaska, use "travel alaska". For private waters (e.g., Antelope Creek, Bollibokka), use "private waters" or the property (e.g., "Antelope Creek"). For blog posts, use "blog". For products (e.g., fly rods, reels), use the product type (e.g., "fly rods"). For guides, use "guide service". For continents or countries, use "fly fishing travel". Do not include any other text.'
+	'content' => $query . ' Return only a single search term or phrase for searching www.theflyshop.com and catalog.theflyshop.com. For fishing reports or rivers (e.g., Sacramento, McCloud, Pit), use "stream report". For international and regional travel destinations (e.g., Patagonia, Belize), use "fly fishing travel" or the destination (e.g., "Patagonia"). For Alaska, use "alaska". For private waters (e.g., Antelope Creek, Bollibokka), use "private waters" or the property (e.g., "Antelope Creek"). For blog posts, use "blog". For news, use "news". For Alaska use "Alaska". For products (e.g., fly rods, reels), use the product type (e.g., "fly rods"). For guides, use "Guide Service". For guided fishing, use "Guide Service". For guide, use "Meet Our Guide Team". For continents, use "fly fishing travel". For fly fishing travel use "fly fishing travel". For fishing guide, use "Guide Service".'
  ];
 
  // Try OpenAI API call
@@ -99,15 +99,24 @@ function perform_combined_search($query) {
 
  // Define known pages for specific search terms
  $page_map = [
-	'stream report' => ['path' => '/streamreport.html', 'title' => 'Fishing Stream Report'],
-	'fly fishing travel' => ['path' => '/adventures', 'title' => 'Fly Fishing Travel'],
-	'travel alaska' => ['path' => '/adventures/travel/alaska', 'title' => 'Alaska Fly Fishing'],
-	'private waters' => ['path' => '/adventures/private-waters', 'title' => 'Private Waters'],
-	'guide service' => ['path' => '/guide-service', 'title' => 'Guide Services'],
-	'patagonia' => ['path' => '/adventures/travel/patagonia', 'title' => 'Patagonia Fly Fishing'],
-	'belize' => ['path' => '/adventures/travel/belize', 'title' => 'Belize Fly Fishing'],
-	'antelope creek' => ['path' => '/adventures/private-waters/antelope-creek-ranch', 'title' => 'Antelope Creek Ranch'],
-	'bollibokka' => ['path' => '/adventures/private-waters/bollibokka', 'title' => 'Bollibokka on the McCloud River']
+	'stream report' => ['path' => '/streamreport', 'title' => 'Fishing Stream Report'],
+	'fly fishing travel' => ['path' => '/travel/index', 'title' => 'Fly Fishing Travel'],
+	'travel alaska' => ['path' => '/travel/alaska', 'title' => 'Alaska Fly Fishing'],
+	'private waters' => ['path' => '/adventures/private', 'title' => 'Private Waters'],
+	'guide service' => ['path' => '/adventures/guideservice', 'title' => 'Guide Services'],
+	'patagonia' => ['path' => '/travel/argentina', 'title' => 'Patagonia Fly Fishing'],
+	'belize' => ['path' => '/travel/saltwater/belize', 'title' => 'Belize Fly Fishing'],
+	'antelope creek' => ['path' => '/adventures/antelope.html', 'title' => 'Antelope Creek Ranch'],
+	'bollibokka' => ['path' => '/adventures/bollibokka', 'title' => 'Bollibokka on the McCloud River'],
+  'alaska' => ['path' => '/travel/alaska', 'title' => 'Alaska Fly Fishing'],
+  'argentina' => ['path' => '/travel/argentina', 'title' => 'Argentina Fly Fishing'],
+  'bolivia' => ['path' => '/travel/bolivia', 'title' => 'Bolivia Fly Fishing'],
+  'brazil' => ['path' => '/travel/brazil', 'title' => 'Brazil Fly Fishing'],
+  'california' => ['path' => '/travel/california', 'title' => 'California Fly Fishing'],
+  'guide' => ['path' => '/adventures/meetg', 'title' => 'Guides'],
+  'guides' => ['path' => '/adventures/meetg', 'title' => 'Guides'],
+  'fishing guide' => ['path' => '/adventures/meetg', 'title' => 'Guides'],
+
  ];
 
  // Check for mapped pages
@@ -126,7 +135,7 @@ function perform_combined_search($query) {
  $args = [
 	's' => $query,
 	'posts_per_page' => 5,
-	'post_type' => ['post', 'page', 'destination', 'fish_report', 'adventures'], // Include custom post types
+	'post_type' => ['post', 'page', 'travel_cpt', 'esb_lodge', 'fish_report', 'adventures', 'fishcamp_cpt', 'guide_service', 'lower48blog', 'lower48', 'flyfishing-news', 'schools_post', 'travel-blog'], // Include custom post types
  ];
  $search = new WP_Query($args);
  if ($search->have_posts()) {
