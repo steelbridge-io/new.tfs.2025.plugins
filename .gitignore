@@ -31,6 +31,7 @@ post-type-switcher/
 relevanssi/
 wordfence/
 shortcode-in-menus/
+litespeed-cache/
 **/node_modules
 package-lock.json
 .env
