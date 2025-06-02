@@ -22,11 +22,15 @@ function sbm_basic_template_save($post_id)
 	  update_post_meta($post_id, 'hero-video-url', $_POST['hero-video-url']);
   }
 
-		if (isset($_POST['blog-basic-opacity-range'])) {
-				update_post_meta($post_id, 'blog-basic-opacity-range', sanitize_text_field($_POST['blog-basic-opacity-range']));
-		}
+	if (isset($_POST['blog-basic-opacity-range'])) {
+			update_post_meta($post_id, 'blog-basic-opacity-range', sanitize_text_field($_POST['blog-basic-opacity-range']));
+	}
 
-  if (isset($_POST['basic-blog-template-bg-color'])) {
+	if( isset( $_POST[ 'btb-select-sidebar' ] ) ) {
+	 update_post_meta( $post_id, 'btb-select-sidebar', $_POST[ 'btb-select-sidebar' ] );
+	}
+
+ if (isset($_POST['basic-blog-template-bg-color'])) {
     update_post_meta($post_id, 'basic-blog-template-bg-color', $_POST['basic-blog-template-bg-color']);
   }
   

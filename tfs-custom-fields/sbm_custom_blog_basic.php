@@ -79,6 +79,23 @@ function tfs_basic_blog_meta_callback( $post ) {
       });
     </script>
 
+   <h2>Select Sidebar</h2>
+
+   <p>
+    <label for="btb-select-sidebar" class="prfx-row-title"><h3><?php _e( 'Sidebar Select', 'The_Fly_Shop' )?></h3></label>
+    <select name="btb-select-sidebar" id="btb-select-sidebar">
+     <option value="" <?php if ( isset ( $tfs_basic_blog_template_meta['btb-select-sidebar'] ) ) selected( $tfs_basic_blog_template_meta['btb-select-sidebar'][0], '' ); ?>><?php _e( 'Default', 'The_Fly_Shop' )?></option>';
+     <option value="esblodge" <?php if ( isset ( $tfs_basic_blog_template_meta['btb-select-sidebar'] ) ) selected( $tfs_basic_blog_template_meta['btb-select-sidebar'][0], 'esblodge' ); ?>><?php _e( 'ESB Lodge', 'The_Fly_Shop' )?></option>';
+     <option value="lavacreeklodge" <?php if ( isset ( $tfs_basic_blog_template_meta['btb-select-sidebar'] ) ) selected( $tfs_basic_blog_template_meta['btb-select-sidebar'][0], 'lavacreeklodge' ); ?>><?php _e( 'Lava Creek Lodge', 'The_Fly_Shop' )?></option>';
+     <option value="lower48" <?php if ( isset ( $tfs_basic_blog_template_meta['btb-select-sidebar'] ) ) selected( $tfs_basic_blog_template_meta['btb-select-sidebar'][0], 'lower48' ); ?>><?php _e( 'Lower 48', 'The_Fly_Shop' )?></option>';
+     <option value="news" <?php if ( isset ( $tfs_basic_blog_template_meta['btb-select-sidebar'] ) ) selected( $tfs_basic_blog_template_meta['btb-select-sidebar'][0], 'news' ); ?>><?php _e( 'News', 'The_Fly_Shop' )?></option>';
+     <option value="outfitter" <?php if ( isset ( $tfs_basic_blog_template_meta['btb-select-sidebar'] ) ) selected( $tfs_basic_blog_template_meta['btb-select-sidebar'][0], 'outfitter' ); ?>><?php _e( 'btb', 'The_Fly_Shop' )?></option>';
+     <option value="retail" <?php if ( isset ( $tfs_basic_blog_template_meta['btb-select-sidebar'] ) ) selected( $tfs_basic_blog_template_meta['btb-select-sidebar'][0], 'retail' ); ?>><?php _e( 'Retail', 'The_Fly_Shop' )?></option>';
+     <option value="survey" <?php if ( isset ( $tfs_basic_blog_template_meta['btb-select-sidebar'] ) ) selected( $tfs_basic_blog_template_meta['btb-select-sidebar'][0], 'survey' ); ?>><?php _e( 'Survey', 'The_Fly_Shop' )?></option>';
+     <option value="travel" <?php if ( isset ( $tfs_basic_blog_template_meta['btb-select-sidebar'] ) ) selected( $tfs_basic_blog_template_meta['btb-select-sidebar'][0], 'travel' ); ?>><?php _e( 'Travel', 'The_Fly_Shop' )?></option>';
+    </select>
+   </p>
+
     <div class="row">
       <div class="col-md-2">
       <p>
