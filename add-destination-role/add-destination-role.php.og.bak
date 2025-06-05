@@ -6,6 +6,13 @@ Version: 1.9
 Author: Your Name
 */
 
+// Prevent direct access
+if (!defined('ABSPATH')) {
+ exit;
+}
+
+//require_once plugin_dir_path(__FILE__) . 'inc/requested-destination.php';
+
 // Function to add the 'destination' role
 function add_destination_role() {
   add_role(
@@ -161,19 +168,6 @@ function add_custom_user_meta_field($user) {
         </td>
       </tr>
     </table>
-    <?php }
-    if (in_array('subscriber', (array) $user->roles) || in_array('destination', (array) $user->roles) || in_array('travel_manager', (array) $user->roles) || in_array('tfs_staff', (array) $user->roles)) { ?>
-    <h3><?php _e('Additional Information', 'custom-user-meta'); ?></h3>
-    <table class="form-table">
-      <tr>
-        <th><label for="destination_represent"><?php _e('Destination Represent'); ?></label></th>
-        <td>
-          <input type="text" name="destination_represent" id="destination_represent" value="<?php echo esc_attr(get_user_meta($user->ID, 'destination_represent', true)); ?>" class="regular-text" /><br />
-          <span class="description"><?php _e('Enter the destination you represent.'); ?></span>
-        </td>
-      </tr>
-    </table>
-
   <?php }
 }
 add_action('show_user_profile', 'add_custom_user_meta_field');
@@ -185,10 +179,6 @@ function save_custom_user_meta_field($user_id) {
   if (isset($_POST['custom_redirect_url'])) {
     update_user_meta($user_id, 'custom_redirect_url', sanitize_text_field($_POST['custom_redirect_url']));
   }
-
-	if (isset($_POST['destination_represent'])) {
-		update_user_meta($user_id, 'destination_represent', sanitize_text_field($_POST['destination_represent']));
-	}
 }
 add_action('personal_options_update', 'save_custom_user_meta_field');
 add_action('edit_user_profile_update', 'save_custom_user_meta_field');
