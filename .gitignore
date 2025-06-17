@@ -36,3 +36,4 @@ litespeed-cache/
 package-lock.json
 .env
 db-export-do/vendor/
+/vendor/
