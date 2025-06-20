@@ -1,0 +1,23 @@
+/* File: css/dbedo-admin.css */
+.card {
+    width: 100%;
+    max-width: 800px;
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+/* Add any other custom styles you need */
+.card h3 {
+    margin-top: 0;
+    color: #23282d;
+}
+
+.card pre {
+    background: #f1f1f1;
+    padding: 10px;
+    overflow: auto;
+    max-height: 300px;
+}

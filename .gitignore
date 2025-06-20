@@ -35,5 +35,3 @@ litespeed-cache/
 **/node_modules
 package-lock.json
 .env
-db-export-do/vendor/
-/vendor/

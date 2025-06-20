@@ -72,7 +72,7 @@ class DBEDO_Exporter {
 
    // Build the command
    $command = sprintf(
-    'export MYSQL_PWD=\'%s\'; mysqldump --user=%s --host=%s%s%s %s > %s 2>> %s',
+    'export MYSQL_PWD=\'%s\'; mysqldump --no-tablespaces --user=%s --host=%s%s%s %s > %s 2>> %s',
     $db_password_escaped,
     escapeshellarg($db_user),
     escapeshellarg($host_arg),
@@ -201,41 +201,68 @@ class DBEDO_Exporter {
  public function run_export_and_transfer() {
   $debug_file = DBEDO_PLUGIN_DIR . 'exports/debug.log';
   file_put_contents($debug_file, "Starting run_export_and_transfer at " . date('Y-m-d H:i:s') . "\n", FILE_APPEND);
-
-  // Step 1: Export the database
-  $export_file = $this->export_database();
-
-  if (is_wp_error($export_file)) {
-   file_put_contents($debug_file, "Export failed with error: " . $export_file->get_error_message() . "\n", FILE_APPEND);
-   return $export_file;
+  
+  // Check if a backup has already been run today (unless forced)
+  $is_forced = isset($_POST['force']) && $_POST['force'] == 'true';
+  if (!$is_forced && $this->backup_already_run_today()) {
+    file_put_contents($debug_file, "Skipping backup - already run today\n", FILE_APPEND);
+    return new WP_Error('backup_already_run', 'A backup has already been run today');
+  }
+  
+  // Check if another export is already running
+  if (!$this->acquire_lock()) {
+    return new WP_Error('export_locked', 'Another export is already in progress.');
   }
 
-  file_put_contents($debug_file, "Export successful, file: $export_file\n", FILE_APPEND);
+  try {
+   // Step 1: Export the database
+   $export_file = $this->export_database();
 
-  // Step 2: Upload to DigitalOcean Spaces
-  $upload_result = $this->upload_to_spaces($export_file);
+   if (is_wp_error($export_file)) {
+    file_put_contents($debug_file, "Export failed with error: " . $export_file->get_error_message() . "\n", FILE_APPEND);
+    $this->release_lock();
+    return $export_file;
+   }
 
-  if (is_wp_error($upload_result)) {
-   file_put_contents($debug_file, "Upload failed with error: " . $upload_result->get_error_message() . "\n", FILE_APPEND);
-   return $upload_result;
+   file_put_contents($debug_file, "Export successful, file: $export_file\n", FILE_APPEND);
+
+   // Step 2: Upload to DigitalOcean Spaces
+   $upload_result = $this->upload_to_spaces($export_file);
+
+   if (is_wp_error($upload_result)) {
+    file_put_contents($debug_file, "Upload failed with error: " . $upload_result->get_error_message() . "\n", FILE_APPEND);
+    $this->release_lock();
+    return $upload_result;
+   }
+
+   file_put_contents($debug_file, "Upload successful: " . json_encode($upload_result) . "\n", FILE_APPEND);
+
+   // Step 3: Update the last export timestamp
+   $settings = get_option('dbedo_settings');
+   $settings['last_export'] = current_time('mysql');
+   update_option('dbedo_settings', $settings);
+
+   // Step 4: Clean up old local backups
+   $this->cleanup_old_backups();
+
+   file_put_contents($debug_file, "Export and transfer completed successfully\n", FILE_APPEND);
+
+   // Release the lock after successful export and transfer
+   $this->release_lock();
+
+   return array(
+    'success' => true,
+    'file' => basename($export_file),
+    'url' => $upload_result['url'],
+    'time' => current_time('mysql'),
+    'filesize' => filesize($export_file)
+   );
+
+  } catch (Exception $e) {
+   file_put_contents($debug_file, "Unexpected error: " . $e->getMessage() . "\n", FILE_APPEND);
+   $this->release_lock();
+   return new WP_Error('unexpected_error', 'An unexpected error occurred: ' . $e->getMessage());
   }
-
-  file_put_contents($debug_file, "Upload successful: " . json_encode($upload_result) . "\n", FILE_APPEND);
-
-  // Step 3: Update the last export timestamp
-  $settings = get_option('dbedo_settings');
-  $settings['last_export'] = current_time('mysql');
-  update_option('dbedo_settings', $settings);
-
-  file_put_contents($debug_file, "Export and transfer completed successfully\n", FILE_APPEND);
-
-  return array(
-   'success' => true,
-   'file' => basename($export_file),
-   'url' => $upload_result['url'],
-   'time' => current_time('mysql'),
-   'filesize' => filesize($export_file)
-  );
  }
 
  /**
@@ -249,13 +276,23 @@ class DBEDO_Exporter {
   file_put_contents($debug_file, "Starting upload_to_spaces for file: $file_path\n", FILE_APPEND);
 
   if (!file_exists($file_path)) {
-   file_put_contents($debug_file, "File does not exist: $file_path\n", FILE_APPEND);
-   return new WP_Error('file_not_found', 'The export file was not found.');
+    file_put_contents($debug_file, "File does not exist: $file_path\n", FILE_APPEND);
+    return new WP_Error('file_not_found', 'The export file was not found.');
   }
 
   // Get settings
   $settings = dbedo_get_settings();
+  
+  // Validate required settings
+  if (empty($settings['spaces_region']) || empty($settings['spaces_endpoint']) || 
+      empty($settings['spaces_bucket']) || empty($settings['spaces_access_key']) || 
+      empty($settings['spaces_secret_key'])) {
+    $message = 'Missing required DigitalOcean Spaces settings. Please configure them in the plugin settings.';
+    file_put_contents($debug_file, $message . "\n", FILE_APPEND);
+    return new WP_Error('missing_settings', $message);
+  }
 
+  // Rest of the method remains the same...
   file_put_contents($debug_file, "DigitalOcean Spaces settings: " . json_encode([
     'endpoint' => $settings['spaces_endpoint'],
     'region' => $settings['spaces_region'],
@@ -349,5 +386,111 @@ class DBEDO_Exporter {
   return true;
  }
 
+ /**
+ * Check and set lock for export process
+ * 
+ * @return bool True if lock was acquired, false if already locked
+ */
+private function acquire_lock() {
+  $lock_file = DBEDO_PLUGIN_DIR . 'exports/export.lock';
+  
+  // Check if lock exists and is recent (less than 1 hour old)
+  if (file_exists($lock_file)) {
+    $lock_time = filemtime($lock_file);
+    // If lock is less than 1 hour old, consider it valid
+    if (time() - $lock_time < 3600) {
+      $debug_file = DBEDO_PLUGIN_DIR . 'exports/debug.log';
+      file_put_contents($debug_file, "Export already in progress (lock file exists), skipping...\n", FILE_APPEND);
+      return false;
+    }
+    // Lock is stale, remove it
+    @unlink($lock_file);
+  }
+  
+  // Create lock file
+  file_put_contents($lock_file, date('Y-m-d H:i:s'));
+  return true;
+}
+
+ /**
+  * Check if a backup has already been run today
+  *
+  * @return bool True if a backup has already been run today
+  */
+ public function backup_already_run_today() {
+  $settings = dbedo_get_settings();
+  $debug_file = DBEDO_PLUGIN_DIR . 'exports/debug.log';
+
+  // Check if last_export is set and not empty
+  if (!empty($settings['last_export'])) {
+   $last_export_date = date('Y-m-d', strtotime($settings['last_export']));
+   $today = date('Y-m-d');
+
+   file_put_contents($debug_file, "Last export date: $last_export_date, Today: $today\n", FILE_APPEND);
+
+   // If the last export was today, skip
+   if ($last_export_date === $today) {
+    file_put_contents($debug_file, "Backup already run today, skipping...\n", FILE_APPEND);
+    return true;
+   }
+  }
+
+  return false;
+ }
+
+/**
+ * Release the export lock
+ */
+private function release_lock() {
+  $lock_file = DBEDO_PLUGIN_DIR . 'exports/export.lock';
+  if (file_exists($lock_file)) {
+    @unlink($lock_file);
+  }
+}
  // If your class has other methods, keep them here
+
+ /**
+  * Clean up old local backup files
+  *
+  * @param int $keep_days Number of days to keep backups (default: 2)
+  */
+ private function cleanup_old_backups($keep_days = 2) {
+  $debug_file = DBEDO_PLUGIN_DIR . 'exports/debug.log';
+  $exports_dir = DBEDO_PLUGIN_DIR . 'exports/';
+  $current_time = time();
+  $cutoff_time = $current_time - ($keep_days * 86400); // 86400 seconds = 1 day
+
+  file_put_contents($debug_file, "Cleaning up old backups older than $keep_days days\n", FILE_APPEND);
+
+  if ($handle = opendir($exports_dir)) {
+   while (false !== ($file = readdir($handle))) {
+    if ($file != "." && $file != ".." && $file != "debug.log" && $file != "export.lock") {
+     $file_path = $exports_dir . $file;
+     $file_time = filemtime($file_path);
+
+     if ($file_time < $cutoff_time) {
+      if (unlink($file_path)) {
+       file_put_contents($debug_file, "Deleted old backup file: $file\n", FILE_APPEND);
+      } else {
+       file_put_contents($debug_file, "Failed to delete old backup file: $file\n", FILE_APPEND);
+      }
+     }
+    }
+   }
+   closedir($handle);
+  }
+ }
+ /**
+  * Get the last export time in a readable format
+  *
+  * @return string Formatted date/time or empty string
+  */
+ public function get_last_export_time() {
+  $settings = get_option('dbedo_settings');
+  if (!empty($settings['last_export'])) {
+   return date_i18n(get_option('date_format') . ' ' . get_option('time_format'), strtotime($settings['last_export']));
+  }
+  return '';
+ }
+
 }
