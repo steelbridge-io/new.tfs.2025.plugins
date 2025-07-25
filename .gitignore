@@ -33,6 +33,6 @@ wordfence/
 shortcode-in-menus/
 litespeed-cache/
 **/node_modules
-debug.log
+**/debug.log
 package-lock.json
 .env
