@@ -43,9 +43,9 @@ function signature_travel_meta_save( $post_id )
     update_post_meta($post_id, 'signature-travel-csel-checkbox', '');
   }
   
-  if (isset($_POST['signature-travel-csel-1-link'])) {
+  /*if (isset($_POST['signature-travel-csel-1-link'])) {
     update_post_meta($post_id, 'signature-travel-csel-1-link', $_POST['signature-travel-csel-1-link']);
-  }
+  }*/
   
   if (isset($_POST['signature-travel-csel-1-img'])) {
     update_post_meta($post_id, 'signature-travel-csel-1-img', $_POST['signature-travel-csel-1-img']);

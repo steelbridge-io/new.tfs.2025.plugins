@@ -47,7 +47,7 @@ function signature_travel_meta_callback( $post ) {
   
   </p>
 	
-	<h3>Prime Travel Content</h3>
+	<!-- <h3>Prime Travel Content</h3> -->
 	
 	<!-- <p>
 		
@@ -57,28 +57,28 @@ function signature_travel_meta_callback( $post ) {
 	
 	</p> -->
 	
-	<p>
+	<!-- <p>
 		
-		<strong><label for="prime-travel-logo" class="prime-travel-row-title"><?php _e( 'Prime Travel Logo', 'the-fly-shop' );?></label></strong><br>
-		<input style="width:75%;" type="text" name="prime-travel-logo" id="prime-travel-logo" value="<?php if ( isset ( $signature_travel_stored_meta['prime-travel-logo'] ) ) echo $signature_travel_stored_meta['prime-travel-logo'][0];?>" />
-		<input type="button" id="prime-travel-logo-button" class="button" value="<?php _e( 'Choose or Upload an Image', 'the-fly-shop' );?>" />
+		<strong><label for="prime-travel-logo" class="prime-travel-row-title"><?php // _e( 'Prime Travel Logo', 'the-fly-shop' );?></label></strong><br>
+		<input style="width:75%;" type="text" name="prime-travel-logo" id="prime-travel-logo" value="<?php //if ( isset ( $signature_travel_stored_meta['prime-travel-logo'] ) ) echo $signature_travel_stored_meta['prime-travel-logo'][0];?>" />
+		<input type="button" id="prime-travel-logo-button" class="button" value="<?php //_e( 'Choose or Upload an Image', 'the-fly-shop' );?>" />
 		
-	</p>
+	</p> -->
 	
-	<p>
+	<!-- <p>
 		Submit button html - copy and paste, then update:
 		<pre>
 			&lt;button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#primeTravelTempmodal"&gt;Sign Up!&lt;/button&gt;
 		
-		<!-- Button trigger modal -->
+
 		</pre>
 		Text can be wrapped in:
 		<pre>&lt;p&gt;, &lt;h1&gt;, &lt;h2&gt;, &lt;h3&gt;, &lt;h4&gt;, &lt;h5&gt;</pre>
 		
-		<strong><label for="prime-travel-description" class="prime-travel-description"><?php _e( 'Prime Travel Description', 'the-fly-shop' );?></label></strong><br>
-		<textarea style="width: 100%;" rows="4" name="prime-travel-description" id="prime-travel-description"><?php if ( isset ( $signature_travel_stored_meta['prime-travel-description'] ) ) echo $signature_travel_stored_meta['prime-travel-description'][0]; ?></textarea>
+		<strong><label for="prime-travel-description" class="prime-travel-description"><?php//_e( 'Prime Travel Description', 'the-fly-shop' );?></label></strong><br>
+		<textarea style="width: 100%;" rows="4" name="prime-travel-description" id="prime-travel-description"><?php // if ( isset ( $signature_travel_stored_meta['prime-travel-description'] ) ) echo $signature_travel_stored_meta['prime-travel-description'][0]; ?></textarea>
 	
-	</p>
+	</p> -->
   
   <!-- ****
   Tabbed section for optional carousel
@@ -116,13 +116,13 @@ function signature_travel_meta_callback( $post ) {
             
             <label for="signature-travel-image" class="signature-travel-row-title"><?php _e( '<h3>Carousel Image &#35;1</h3>', 'the-fly-shop' );?></label>
             
-            <p>
+            <!-- <p>
               
-              <!-- Carousel image #1 link. -->
-              <strong><label for="signature-travel-csel-1-link" class="signature-travel-row-title-link"><?php _e( 'Carousel &#35;1 Link', 'the-fly-shop' );?></label></strong><br>
-              <input  style="width: 75%;" type="text" name="signature-travel-csel-1-link" id="signature-travel-csel-1-link" value="<?php if ( isset ( $signature_travel_stored_meta['signature-travel-csel-1-link'] ) ) echo $signature_travel_stored_meta['signature-travel-csel-1-link'][0]; ?>" />
+
+              <strong><label for="signature-travel-csel-1-link" class="signature-travel-row-title-link"><?php // _e( 'Carousel &#35;1 Link', 'the-fly-shop' );?></label></strong><br>
+              <input  style="width: 75%;" type="text" name="signature-travel-csel-1-link" id="signature-travel-csel-1-link" value="<?php // if ( isset ( $signature_travel_stored_meta['signature-travel-csel-1-link'] ) ) echo $signature_travel_stored_meta['signature-travel-csel-1-link'][0]; ?>" />
             
-            </p>
+            </p> -->
             
             <p>
               
