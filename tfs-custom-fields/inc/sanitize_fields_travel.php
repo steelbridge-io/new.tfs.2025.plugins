@@ -72,6 +72,11 @@ update_post_meta( $post_id, 'selected_term', sanitize_text_field( $_POST[ 'selec
 }
 
 // Checks for input and sanitizes/saves if needed
+ if( isset( $_POST[ 'dest-travel-logo' ] ) ) {
+	update_post_meta( $post_id, 'dest-travel-logo', sanitize_text_field( $_POST[ 'dest-travel-logo' ] ) );
+ }
+
+// Checks for input and sanitizes/saves if needed
 if( isset( $_POST[ 'travel-description' ] ) ) {
 update_post_meta( $post_id, 'travel-description', sanitize_text_field( $_POST[ 'travel-description' ] ) );
 }

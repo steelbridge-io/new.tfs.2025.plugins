@@ -61,6 +61,24 @@ function tfs_travel_meta_callback( $post ) {
     <!-- TRAVEL DESCRIPTION -->
     <h3><?php echo 'Travel Description' ?></h3>
 
+ <!-- TFS Logo -->
+ <p>
+
+  <strong><label for="travel-logo" class="sbm-row-title"><?php _e( 'Destination Travel Logo', 'the-fly-shop' );?></label></strong><br>
+  <input style="width:75%;" type="text" name="dest-travel-logo" id="dest-travel-logo" value="<?php if ( isset ( $sbm_travel_stored_meta['dest-travel-logo'] ) ) echo $sbm_travel_stored_meta['dest-travel-logo'][0];?>" />
+  <input type="button" id="dest-travel-logo-button" class="button" value="<?php _e( 'Choose or Upload an Image', 'the-fly-shop' );?>" />
+
+ </p>
+
+
+
+
+
+
+
+
+
+
     <p><!-- Travel Description / Appears below site title -->
         <strong><label for="travel-description" class="sbm-row-title"><?php _e( 'Travel Description', 'sbm-textdomain' )?></label></strong>
 
