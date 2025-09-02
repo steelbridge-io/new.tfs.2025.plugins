@@ -72,9 +72,14 @@ update_post_meta( $post_id, 'selected_term', sanitize_text_field( $_POST[ 'selec
 }
 
 // Checks for input and sanitizes/saves if needed
- if( isset( $_POST[ 'dest-travel-logo' ] ) ) {
-	update_post_meta( $post_id, 'dest-travel-logo', sanitize_text_field( $_POST[ 'dest-travel-logo' ] ) );
- }
+if( isset( $_POST[ 'dest-travel-logo' ] ) ) {
+update_post_meta( $post_id, 'dest-travel-logo',  esc_url_raw( $_POST[ 'dest-travel-logo' ] ) );
+}
+
+// Checks for input and sanitizes/saves if needed
+if( isset( $_POST[ 'travel-costs-image' ] ) ) {
+update_post_meta( $post_id, 'travel-costs-image', esc_url_raw( $_POST[ 'travel-costs-image' ] ) );
+}
 
 // Checks for input and sanitizes/saves if needed
 if( isset( $_POST[ 'travel-description' ] ) ) {
@@ -130,6 +135,11 @@ if( isset( $_POST['feature-2-seasons-title'] ) ) {
 update_post_meta( $post_id, 'feature-2-seasons-title', $_POST[ 'feature-2-seasons-title' ] );
 }
 
+// Checks for input and sanitizes/saves if needed
+if( isset( $_POST[ 'travel-seasons-image' ] ) ) {
+    update_post_meta( $post_id, 'travel-seasons-image', esc_url_raw( $_POST[ 'travel-seasons-image' ] ) );
+}
+
 // Checks for input and saves if needed
 if( isset( $_POST['feature-2-seasons-content'] ) ) {
 update_post_meta( $post_id, 'feature-2-seasons-content', wp_kses($_POST[ 'feature-2-seasons-content' ], $allowed_html ));
@@ -173,6 +183,11 @@ update_post_meta( $post_id, 'feature-3-get-to-title', $_POST[ 'feature-3-get-to-
 }
 
 // Checks for input and saves if needed
+if( isset( $_POST[ 'feature-3-gettingto-image' ] ) ) {
+    update_post_meta( $post_id, 'feature-3-gettingto-image', esc_url_raw($_POST[ 'feature-3-gettingto-image' ] ) );
+}
+
+// Checks for input and saves if needed
 if( isset( $_POST[ 'feature-3-get-to-content' ] ) ) {
 update_post_meta( $post_id, 'feature-3-get-to-content', wp_kses($_POST[ 'feature-3-get-to-content' ], $allowed_html ));
 }
@@ -190,6 +205,11 @@ update_post_meta( $post_id, 'feature-3-get-to-readmore', wp_kses($_POST[ 'featur
 // Checks for input and saves if needed
 if( isset( $_POST[ 'feature-4-lodging-title' ] ) ) {
 update_post_meta( $post_id, 'feature-4-lodging-title', wp_kses($_POST[ 'feature-4-lodging-title' ], $allowed_html ));
+}
+
+// Checks for input and saves if needed
+if( isset( $_POST[ 'feature-4-lodging-image' ] ) ) {
+    update_post_meta( $post_id, 'feature-4-lodging-image', esc_url_raw($_POST[ 'feature-4-lodging-image' ] ) );
 }
 
 // Checks for input and saves if needed
@@ -213,6 +233,11 @@ update_post_meta( $post_id, 'feature-5-angling-title', wp_kses($_POST[ 'feature-
 }
 
 // Checks for input and saves if needed
+if( isset( $_POST[ 'feature-5-angling-image' ] ) ) {
+    update_post_meta( $post_id, 'feature-5-angling-image', esc_url_raw($_POST[ 'feature-5-angling-image' ] ) );
+}
+
+// Checks for input and saves if needed
 if( isset( $_POST[ 'feature-5-angling-content' ] ) ) {
 update_post_meta( $post_id, 'feature-5-angling-content', wp_kses($_POST[ 'feature-5-angling-content' ], $allowed_html ));
 }
@@ -226,6 +251,118 @@ if( isset( $_POST[ 'feature-5-read-more-info' ] ) ) {
 if( isset( $_POST[ 'feature-5-angling-readmore' ] ) ) {
 update_post_meta( $post_id, 'feature-5-angling-readmore', wp_kses($_POST[ 'feature-5-angling-readmore' ], $allowed_html ));
 }
+
+// Checks for input and saves if needed
+    if ( isset( $_POST['additional-info-image1'] ) ) {
+        update_post_meta( $post_id,
+            'additional-info-image1',
+            $_POST['additional-info-image1'] );
+    }
+
+    // Checks for input and saves if needed
+    if ( isset( $_POST['additional-info-image1-link'] ) ) {
+        update_post_meta( $post_id,
+            'additional-info-image1-link',
+            $_POST['additional-info-image1-link'] );
+    }
+
+    // Checks for input and saves if needed
+    if ( isset( $_POST['additional-info-image2'] ) ) {
+        update_post_meta( $post_id,
+            'additional-info-image2',
+            $_POST['additional-info-image2'] );
+    }
+
+    // Checks for input and saves if needed
+    if ( isset( $_POST['additional-info-image2-link'] ) ) {
+        update_post_meta( $post_id,
+            'additional-info-image2-link',
+            $_POST['additional-info-image2-link'] );
+    }
+
+    // Checks for input and saves if needed
+    if ( isset( $_POST['additional-info-image3'] ) ) {
+        update_post_meta( $post_id,
+            'additional-info-image3',
+            $_POST['additional-info-image3'] );
+    }
+
+    // Checks for input and saves if needed
+    if ( isset( $_POST['additional-info-image3-link'] ) ) {
+        update_post_meta( $post_id,
+            'additional-info-image3-link',
+            $_POST['additional-info-image3-link'] );
+    }
+
+    // Checks for input and saves if needed
+    if ( isset( $_POST['additional-info-image4'] ) ) {
+        update_post_meta( $post_id,
+            'additional-info-image4',
+            $_POST['additional-info-image4'] );
+    }
+
+    // Checks for input and saves if needed
+    if ( isset( $_POST['additional-info-image4-link'] ) ) {
+        update_post_meta( $post_id,
+            'additional-info-image4-link',
+            $_POST['additional-info-image4-link'] );
+    }
+
+    // Checks for input and saves if needed
+    if ( isset( $_POST['additional-info-image5'] ) ) {
+        update_post_meta( $post_id,
+            'additional-info-image5',
+            $_POST['additional-info-image5'] );
+    }
+
+    // Checks for input and saves if needed
+    if ( isset( $_POST['additional-info-image5-link'] ) ) {
+        update_post_meta( $post_id,
+            'additional-info-image5-link',
+            $_POST['additional-info-image5-link'] );
+    }
+
+    // Checks for input and saves if needed
+    if ( isset( $_POST['additional-info-image6'] ) ) {
+        update_post_meta( $post_id,
+            'additional-info-image6',
+            $_POST['additional-info-image6'] );
+    }
+
+    // Checks for input and saves if needed
+    if ( isset( $_POST['additional-info-image6-link'] ) ) {
+        update_post_meta( $post_id,
+            'additional-info-image6-link',
+            $_POST['additional-info-image6-link'] );
+    }
+
+    // Checks for input and saves if needed
+    if ( isset( $_POST['additional-info-image7'] ) ) {
+        update_post_meta( $post_id,
+            'additional-info-image7',
+            $_POST['additional-info-image7'] );
+    }
+
+    // Checks for input and saves if needed
+    if ( isset( $_POST['additional-info-image7-link'] ) ) {
+        update_post_meta( $post_id,
+            'additional-info-image7-link',
+            $_POST['additional-info-image7-link'] );
+    }
+
+    // Checks for input and saves if needed
+    if ( isset( $_POST['additional-info-image8'] ) ) {
+        update_post_meta( $post_id,
+            'additional-info-image8',
+            $_POST['additional-info-image8'] );
+    }
+
+    // Checks for input and saves if needed
+    if ( isset( $_POST['additional-info-image8-link'] ) ) {
+        update_post_meta( $post_id,
+            'additional-info-image8-link',
+            $_POST['additional-info-image8-link'] );
+    }
 
 // Checks for input and saves if needed
 if( isset( $_POST[ 'cta-strong-intro' ] ) ) {

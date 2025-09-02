@@ -34,7 +34,7 @@ function tfs_guideservice_meta() {
   global $post;
   if(!empty($post)){
     $pageTemplate = get_post_meta($post->ID, '_wp_page_template', true);
-    if($pageTemplate == 'page-templates/guide-service-template.php') {
+    if($pageTemplate == 'page-templates/guide-service-template.php' || $pageTemplate == 'page-templates/regional-waters-template-v2.php') {
       $types = array('guide_service');
       foreach($types as $type) {
         add_meta_box( 'sbm_meta', __( 'Guide Service', 'tfs-guideservice-textdomain' ), 'tfs_guideservice_meta_callback', $type, 'normal', 'high' );
@@ -202,10 +202,9 @@ function tfs_guideservice_meta_callback($post) {
   <h3><?php echo 'Guide Service Lodging' ?></h3>
   <p><!-- Feature #4 Title -->
     <strong><label for="feature-gs4-title" class="sbm-row-title"><?php _e( 'Lodging Title', 'tfs-guideservice-textdomain' )?></label></strong>
-    
     <input style="width: 100%;" type="text" name="feature-gs4-title" id="feature-gs4-title" value="<?php if ( isset ( $tfs_stored_guideservice_meta['feature-gs4-title'] ) ) echo $tfs_stored_guideservice_meta['feature-gs4-title'][0]; ?>" />
   </p>
-  
+
   <p><!-- Lodging Text Area/Cost -->
     <strong><label for="feature-gs4-gettingto-textarea" class="sbm-row-title"><?php _e( 'Content', 'tfs-guideservice-textdomain' )?></label></strong>
     
