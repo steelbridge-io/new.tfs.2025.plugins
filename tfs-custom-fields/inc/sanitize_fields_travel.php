@@ -253,115 +253,115 @@ update_post_meta( $post_id, 'feature-5-angling-readmore', wp_kses($_POST[ 'featu
 }
 
 // Checks for input and saves if needed
-    if ( isset( $_POST['additional-info-image1'] ) ) {
+    if ( isset( $_POST['additional-travel-image1'] ) ) {
         update_post_meta( $post_id,
-            'additional-info-image1',
-            $_POST['additional-info-image1'] );
+            'additional-travel-image1',
+            $_POST['additional-travel-image1'] );
     }
 
     // Checks for input and saves if needed
-    if ( isset( $_POST['additional-info-image1-link'] ) ) {
+    if ( isset( $_POST['additional-travel-image1-link'] ) ) {
         update_post_meta( $post_id,
-            'additional-info-image1-link',
-            $_POST['additional-info-image1-link'] );
+            'additional-travel-image1-link',
+            $_POST['additional-travel-image1-link'] );
     }
 
     // Checks for input and saves if needed
-    if ( isset( $_POST['additional-info-image2'] ) ) {
+    if ( isset( $_POST['additional-travel-image2'] ) ) {
         update_post_meta( $post_id,
-            'additional-info-image2',
-            $_POST['additional-info-image2'] );
+            'additional-travel-image2',
+            $_POST['additional-travel-image2'] );
     }
 
     // Checks for input and saves if needed
-    if ( isset( $_POST['additional-info-image2-link'] ) ) {
+    if ( isset( $_POST['additional-travel-image2-link'] ) ) {
         update_post_meta( $post_id,
-            'additional-info-image2-link',
-            $_POST['additional-info-image2-link'] );
+            'additional-travel-image2-link',
+            $_POST['additional-travel-image2-link'] );
     }
 
     // Checks for input and saves if needed
-    if ( isset( $_POST['additional-info-image3'] ) ) {
+    if ( isset( $_POST['additional-travel-image3'] ) ) {
         update_post_meta( $post_id,
-            'additional-info-image3',
-            $_POST['additional-info-image3'] );
+            'additional-travel-image3',
+            $_POST['additional-travel-image3'] );
     }
 
     // Checks for input and saves if needed
-    if ( isset( $_POST['additional-info-image3-link'] ) ) {
+    if ( isset( $_POST['additional-travel-image3-link'] ) ) {
         update_post_meta( $post_id,
-            'additional-info-image3-link',
-            $_POST['additional-info-image3-link'] );
+            'additional-travel-image3-link',
+            $_POST['additional-travel-image3-link'] );
     }
 
     // Checks for input and saves if needed
-    if ( isset( $_POST['additional-info-image4'] ) ) {
+    if ( isset( $_POST['additional-travel-image4'] ) ) {
         update_post_meta( $post_id,
-            'additional-info-image4',
-            $_POST['additional-info-image4'] );
+            'additional-travel-image4',
+            $_POST['additional-travel-image4'] );
     }
 
     // Checks for input and saves if needed
-    if ( isset( $_POST['additional-info-image4-link'] ) ) {
+    if ( isset( $_POST['additional-travel-image4-link'] ) ) {
         update_post_meta( $post_id,
-            'additional-info-image4-link',
-            $_POST['additional-info-image4-link'] );
+            'additional-travel-image4-link',
+            $_POST['additional-travel-image4-link'] );
     }
 
     // Checks for input and saves if needed
-    if ( isset( $_POST['additional-info-image5'] ) ) {
+    if ( isset( $_POST['additional-travel-image5'] ) ) {
         update_post_meta( $post_id,
-            'additional-info-image5',
-            $_POST['additional-info-image5'] );
+            'additional-travel-image5',
+            $_POST['additional-travel-image5'] );
     }
 
     // Checks for input and saves if needed
-    if ( isset( $_POST['additional-info-image5-link'] ) ) {
+    if ( isset( $_POST['additional-travel-image5-link'] ) ) {
         update_post_meta( $post_id,
-            'additional-info-image5-link',
-            $_POST['additional-info-image5-link'] );
+            'additional-travel-image5-link',
+            $_POST['additional-travel-image5-link'] );
     }
 
     // Checks for input and saves if needed
-    if ( isset( $_POST['additional-info-image6'] ) ) {
+    if ( isset( $_POST['additional-travel-image6'] ) ) {
         update_post_meta( $post_id,
-            'additional-info-image6',
-            $_POST['additional-info-image6'] );
+            'additional-travel-image6',
+            $_POST['additional-travel-image6'] );
     }
 
     // Checks for input and saves if needed
-    if ( isset( $_POST['additional-info-image6-link'] ) ) {
+    if ( isset( $_POST['additional-travel-image6-link'] ) ) {
         update_post_meta( $post_id,
-            'additional-info-image6-link',
-            $_POST['additional-info-image6-link'] );
+            'additional-travel-image6-link',
+            $_POST['additional-travel-image6-link'] );
     }
 
     // Checks for input and saves if needed
-    if ( isset( $_POST['additional-info-image7'] ) ) {
+    if ( isset( $_POST['additional-travel-image7'] ) ) {
         update_post_meta( $post_id,
-            'additional-info-image7',
-            $_POST['additional-info-image7'] );
+            'additional-travel-image7',
+            $_POST['additional-travel-image7'] );
     }
 
     // Checks for input and saves if needed
-    if ( isset( $_POST['additional-info-image7-link'] ) ) {
+    if ( isset( $_POST['additional-travel-image7-link'] ) ) {
         update_post_meta( $post_id,
-            'additional-info-image7-link',
-            $_POST['additional-info-image7-link'] );
+            'additional-travel-image7-link',
+            $_POST['additional-travel-image7-link'] );
     }
 
     // Checks for input and saves if needed
-    if ( isset( $_POST['additional-info-image8'] ) ) {
+    if ( isset( $_POST['additional-travel-image8'] ) ) {
         update_post_meta( $post_id,
-            'additional-info-image8',
-            $_POST['additional-info-image8'] );
+            'additional-travel-image8',
+            $_POST['additional-travel-image8'] );
     }
 
     // Checks for input and saves if needed
-    if ( isset( $_POST['additional-info-image8-link'] ) ) {
+    if ( isset( $_POST['additional-travel-image8-link'] ) ) {
         update_post_meta( $post_id,
-            'additional-info-image8-link',
-            $_POST['additional-info-image8-link'] );
+            'additional-travel-image8-link',
+            $_POST['additional-travel-image8-link'] );
     }
 
 // Checks for input and saves if needed

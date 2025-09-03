@@ -324,28 +324,22 @@ function tfs_travel_meta_callback( $post ) {
 
     <!-- /end of custom fields -->
 
-
-
-
-
-
-
     <!-- ====== ADDITIONAL PHOTOS SECTION ====== -->
     <hr style="margin-top: 1.618em; border-top: 3px double #8c8b8b;">
     <h3><?php echo 'Additional Images' ?></h3>
 
     <p> <!-- Additional Image #1 -->
 
-        <label for="additional-travel-info-image1"
+        <label for="additional-travel-image1"
                class="travel-row-title"><?php _e( '<strong>Additional Image &#35;1</strong>',
                 'the-fly-shop' ); ?></label>
 
-        <input type="text" name="additional-info-image1"
-               id="additional-info-image1"
-               value="<?php if ( isset ( $sbm_stored_travel_meta['additional-info-image1'] ) ) {
-                   echo $sbm_stored_travel_meta['additional-info-image1'][0];
+        <input type="text" name="additional-travel-image1"
+               id="additional-travel-image1"
+               value="<?php if ( isset ( $sbm_stored_travel_meta['additional-travel-image1'] ) ) {
+                   echo $sbm_stored_travel_meta['additional-travel-image1'][0];
                } ?>"/>
-        <input type="button" id="additional-travel-info-image1-button" class="button"
+        <input type="button" id="additional-travel-image1-button" class="button"
                value="<?php _e( 'Choose or Upload an Image',
                    'the-fly-shop' ); ?>"/>
 
@@ -353,16 +347,16 @@ function tfs_travel_meta_callback( $post ) {
 
     <p> <!-- Additional Image #2 -->
 
-        <label for="additional-info-image2"
+        <label for="additional-travel-image2"
                class="travel-row-title"><?php _e( '<strong>Additional Image &#35;2</strong>',
                 'the-fly-shop' ); ?></label>
 
-        <input type="text" name="additional-info-image2"
-               id="additional-info-image2"
-               value="<?php if ( isset ( $sbm_stored_travel_meta['additional-info-image2'] ) ) {
-                   echo $sbm_stored_travel_meta['additional-info-image2'][0];
+        <input type="text" name="additional-travel-image2"
+               id="additional-travel-image2"
+               value="<?php if ( isset ( $sbm_stored_travel_meta['additional-travel-image2'] ) ) {
+                   echo $sbm_stored_travel_meta['additional-travel-image2'][0];
                } ?>"/>
-        <input type="button" id="additional-info-image2-button" class="button"
+        <input type="button" id="additional-travel-image2-button" class="button"
                value="<?php _e( 'Choose or Upload an Image',
                    'the-fly-shop' ); ?>"/>
 
@@ -370,16 +364,16 @@ function tfs_travel_meta_callback( $post ) {
 
     <p> <!-- Additional Image #3 -->
 
-        <label for="additional-info-image3"
+        <label for="additional-travel-image3"
                class="travel-row-title"><?php _e( '<strong>Additional Image &#35;3</strong>',
                 'the-fly-shop' ); ?></label>
 
-        <input type="text" name="additional-info-image3"
-               id="additional-info-image3"
-               value="<?php if ( isset ( $sbm_stored_travel_meta['additional-info-image3'] ) ) {
-                   echo $sbm_stored_travel_meta['additional-info-image3'][0];
+        <input type="text" name="additional-travel-image3"
+               id="additional-travel-image3"
+               value="<?php if ( isset ( $sbm_stored_travel_meta['additional-travel-image3'] ) ) {
+                   echo $sbm_stored_travel_meta['additional-travel-image3'][0];
                } ?>"/>
-        <input type="button" id="additional-info-image3-button" class="button"
+        <input type="button" id="additional-travel-image3-button" class="button"
                value="<?php _e( 'Choose or Upload an Image',
                    'the-fly-shop' ); ?>"/>
 
@@ -387,16 +381,16 @@ function tfs_travel_meta_callback( $post ) {
 
     <p> <!-- Additional Image #4 -->
 
-        <label for="additional-info-image4"
+        <label for="additional-travel-image4"
                class="travel-row-title"><?php _e( '<strong>Additional Image &#35;4</strong>',
                 'the-fly-shop' ); ?></label>
 
-        <input type="text" name="additional-info-image4"
-               id="additional-info-image4"
-               value="<?php if ( isset ( $sbm_stored_travel_meta['additional-info-image4'] ) ) {
-                   echo $sbm_stored_travel_meta['additional-info-image4'][0];
+        <input type="text" name="additional-travel-image4"
+               id="additional-travel-image4"
+               value="<?php if ( isset ( $sbm_stored_travel_meta['additional-travel-image4'] ) ) {
+                   echo $sbm_stored_travel_meta['additional-travel-image4'][0];
                } ?>"/>
-        <input type="button" id="additional-info-image4-button" class="button"
+        <input type="button" id="additional-travel-image4-button" class="button"
                value="<?php _e( 'Choose or Upload an Image',
                    'the-fly-shop' ); ?>"/>
 
@@ -404,16 +398,16 @@ function tfs_travel_meta_callback( $post ) {
 
     <p> <!-- Additional Image #5 -->
 
-        <label for="additional-info-image5"
+        <label for="additional-travel-image5"
                class="travel-row-title"><?php _e( '<strong>Additional Image &#35;5</strong>',
                 'the-fly-shop' ); ?></label>
 
-        <input type="text" name="additional-info-image5"
-               id="additional-info-image5"
-               value="<?php if ( isset ( $sbm_stored_travel_meta['additional-info-image5'] ) ) {
-                   echo $sbm_stored_travel_meta['additional-info-image5'][0];
+        <input type="text" name="additional-travel-image5"
+               id="additional-travel-image5"
+               value="<?php if ( isset ( $sbm_stored_travel_meta['additional-travel-image5'] ) ) {
+                   echo $sbm_stored_travel_meta['additional-travel-image5'][0];
                } ?>"/>
-        <input type="button" id="additional-info-image5-button" class="button"
+        <input type="button" id="additional-travel-image5-button" class="button"
                value="<?php _e( 'Choose or Upload an Image',
                    'the-fly-shop' ); ?>"/>
 
@@ -421,16 +415,16 @@ function tfs_travel_meta_callback( $post ) {
 
     <p> <!-- Additional Image #6 -->
 
-        <label for="additional-info-image6"
+        <label for="additional-travel-image6"
                class="travel-row-title"><?php _e( '<strong>Additional Image &#35;6</strong>',
                 'the-fly-shop' ); ?></label>
 
-        <input type="text" name="additional-info-image6"
-               id="additional-info-image6"
-               value="<?php if ( isset ( $sbm_stored_travel_meta['additional-info-image6'] ) ) {
-                   echo $sbm_stored_travel_meta['additional-info-image6'][0];
+        <input type="text" name="additional-travel-image6"
+               id="additional-travel-image6"
+               value="<?php if ( isset ( $sbm_stored_travel_meta['additional-travel-image6'] ) ) {
+                   echo $sbm_stored_travel_meta['additional-travel-image6'][0];
                } ?>"/>
-        <input type="button" id="additional-info-image6-button" class="button"
+        <input type="button" id="additional-travel-image6-button" class="button"
                value="<?php _e( 'Choose or Upload an Image',
                    'the-fly-shop' ); ?>"/>
 
@@ -438,16 +432,16 @@ function tfs_travel_meta_callback( $post ) {
 
     <p> <!-- Additional Image #7 -->
 
-        <label for="additional-info-image7"
+        <label for="additional-travel-image7"
                class="travel-row-title"><?php _e( '<strong>Additional Image &#35;7</strong>',
                 'the-fly-shop' ); ?></label>
 
-        <input type="text" name="additional-info-image7"
-               id="additional-info-image7"
-               value="<?php if ( isset ( $sbm_stored_travel_meta['additional-info-image7'] ) ) {
-                   echo $sbm_stored_travel_meta['additional-info-image7'][0];
+        <input type="text" name="additional-travel-image7"
+               id="additional-travel-image7"
+               value="<?php if ( isset ( $sbm_stored_travel_meta['additional-travel-image7'] ) ) {
+                   echo $sbm_stored_travel_meta['additional-travel-image7'][0];
                } ?>"/>
-        <input type="button" id="additional-info-image7-button" class="button"
+        <input type="button" id="additional-travel-image7-button" class="button"
                value="<?php _e( 'Choose or Upload an Image',
                    'the-fly-shop' ); ?>"/>
 
@@ -455,16 +449,16 @@ function tfs_travel_meta_callback( $post ) {
 
     <p> <!-- Additional Image #8 -->
 
-        <label for="additional-info-image8"
+        <label for="additional-travel-image8"
                class="travel-row-title"><?php _e( '<strong>Additional Image &#35;8</strong>',
                 'the-fly-shop' ); ?></label>
 
-        <input type="text" name="additional-info-image8"
-               id="additional-info-image8"
-               value="<?php if ( isset ( $sbm_stored_travel_meta['additional-info-image8'] ) ) {
-                   echo $sbm_stored_travel_meta['additional-info-image8'][0];
+        <input type="text" name="additional-travel-image8"
+               id="additional-travel-image8"
+               value="<?php if ( isset ( $sbm_stored_travel_meta['additional-travel-image8'] ) ) {
+                   echo $sbm_stored_travel_meta['additional-travel-image8'][0];
                } ?>"/>
-        <input type="button" id="additional-info-image8-button" class="button"
+        <input type="button" id="additional-travel-image8-button" class="button"
                value="<?php _e( 'Choose or Upload an Image',
                    'the-fly-shop' ); ?>"/>
 
