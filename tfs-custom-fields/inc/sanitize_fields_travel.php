@@ -183,8 +183,8 @@ update_post_meta( $post_id, 'feature-3-get-to-title', $_POST[ 'feature-3-get-to-
 }
 
 // Checks for input and saves if needed
-if( isset( $_POST[ 'feature-3-gettingto-image' ] ) ) {
-    update_post_meta( $post_id, 'feature-3-gettingto-image', esc_url_raw($_POST[ 'feature-3-gettingto-image' ] ) );
+if( isset( $_POST[ 'feature-3-getting-to-image' ] ) ) {
+    update_post_meta( $post_id, 'feature-3-getting-to-image', esc_url_raw($_POST[ 'feature-3-getting-to-image' ] ) );
 }
 
 // Checks for input and saves if needed
@@ -208,8 +208,8 @@ update_post_meta( $post_id, 'feature-4-lodging-title', wp_kses($_POST[ 'feature-
 }
 
 // Checks for input and saves if needed
-if( isset( $_POST[ 'feature-4-lodging-image' ] ) ) {
-    update_post_meta( $post_id, 'feature-4-lodging-image', esc_url_raw($_POST[ 'feature-4-lodging-image' ] ) );
+if( isset( $_POST[ 'feature-4-lodging-img' ] ) ) {
+    update_post_meta( $post_id, 'feature-4-lodging-img', esc_url_raw($_POST[ 'feature-4-lodging-img' ] ) );
 }
 
 // Checks for input and saves if needed
@@ -233,8 +233,8 @@ update_post_meta( $post_id, 'feature-5-angling-title', wp_kses($_POST[ 'feature-
 }
 
 // Checks for input and saves if needed
-if( isset( $_POST[ 'feature-5-angling-image' ] ) ) {
-    update_post_meta( $post_id, 'feature-5-angling-image', esc_url_raw($_POST[ 'feature-5-angling-image' ] ) );
+if( isset( $_POST[ 'feature-5-angling-img' ] ) ) {
+    update_post_meta( $post_id, 'feature-5-angling-img', esc_url_raw($_POST[ 'feature-5-angling-img' ] ) );
 }
 
 // Checks for input and saves if needed

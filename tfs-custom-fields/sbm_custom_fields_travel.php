@@ -1,18 +1,18 @@
-<?php
-/**
- * Description: Travel Custom Meta Fields
- *
- * @package		tfsTravel
- * @since		1.2.3
- * @author		Chris Parsons
- * @link		http://steelbridge.io
- * @license		GNU General Public License
- */
+    <?php
+    /**
+    * Description: Travel Custom Meta Fields
+    *
+    * @package		tfsTravel
+    * @since		1.2.3
+    * @author		Chris Parsons
+    * @link		http://steelbridge.io
+    * @license		GNU General Public License
+    */
 
-include( plugin_dir_path( __FILE__ ) . 'inc/sanitize_fields_travel.php');
+    include( plugin_dir_path( __FILE__ ) . 'inc/sanitize_fields_travel.php');
 
-// Adds a meta box to the post editing screen on the template named travel-template
-function tfs_custom_travel_meta() {
+    // Adds a meta box to the post editing screen on the template named travel-template
+    function tfs_custom_travel_meta() {
     global $post;
     if(!empty($post)){
         $pageTemplate = get_post_meta($post->ID, '_wp_page_template', true);
@@ -24,23 +24,23 @@ function tfs_custom_travel_meta() {
             }
         }
     }
-}
-add_action( 'add_meta_boxes', 'tfs_custom_travel_meta' );
+    }
+    add_action( 'add_meta_boxes', 'tfs_custom_travel_meta' );
 
 
-// Outputs the content of the meta box
-function tfs_travel_meta_callback( $post ) {
+    // Outputs the content of the meta box
+    function tfs_travel_meta_callback( $post ) {
     wp_nonce_field( basename( __FILE__ ), 'tfs_nonce' );
     $sbm_stored_travel_meta = get_post_meta( $post->ID );
     // Retrieve the selected term ID, if it exists
     $selected_term = get_post_meta($post->ID, 'selected_term', true);
-	
+
     // Get the terms from your custom taxonomy
     $terms = get_terms(array(
     'taxonomy'    => 'report-category', // Replace with your custom taxonomy name
     'hide_empty'  => false,
-	  ));
-	
+      ));
+
     if ( $terms ) {
       echo '<div class="fish-report-terms">';
       echo '<h3>Show Fishing Reports</h3>';
@@ -54,51 +54,69 @@ function tfs_travel_meta_callback( $post ) {
       echo '</select>';
       echo '</div>';
     }
-	?>
- 
+    ?>
+
     <!-- ====== Travel Details ====== -->
 
     <!-- TRAVEL DESCRIPTION -->
     <h3><?php echo 'Travel Description' ?></h3>
 
- <!-- TFS Logo -->
- <p>
+    <!-- TFS Logo -->
+    <div class="meta-field-container">
 
-  <strong><label for="travel-logo" class="sbm-row-title"><?php _e( 'Destination Travel Logo', 'the-fly-shop' );?></label></strong><br>
-  <input style="width:75%;" type="text" name="dest-travel-logo" id="dest-travel-logo" value="<?php if ( isset ( $sbm_stored_travel_meta['dest-travel-logo'] ) ) echo $sbm_stored_travel_meta['dest-travel-logo'][0];?>" />
-  <input type="button" id="dest-travel-logo-button" class="button" value="<?php _e( 'Choose or Upload an Image', 'the-fly-shop' );?>" />
+    <strong><label for="travel-logo" class="sbm-row-title"><?php _e( 'Destination Travel Logo', 'the-fly-shop' );?></label></strong><br>
+    <input style="width:60%;" type="text" name="dest-travel-logo" id="dest-travel-logo" value="<?php if ( isset (
+          $sbm_stored_travel_meta['dest-travel-logo'] ) ) echo $sbm_stored_travel_meta['dest-travel-logo'][0];?>" />
+    <input type="button" id="dest-travel-logo-button" class="button" value="<?php _e( 'Choose or Upload an Image', 'the-fly-shop' );?>" />
 
- </p>
+     <!-- Preview container -->
+    <div id="dest-travel-logo-preview" style="margin-top: 10px;">
+        <?php if ( isset( $sbm_stored_travel_meta['dest-travel-logo'] ) && $sbm_stored_travel_meta['dest-travel-logo'][0] != '' ) : ?>
+            <img src="<?php echo esc_url( $sbm_stored_travel_meta['dest-travel-logo'][0] ); ?>"
+                 style="max-width: 250px; max-height: 250px; border: 1px solid #ddd; padding: 5px;"
+                 alt="Preview" />
+            <br><button type="button" id="dest-travel-logo-remove" class="button" style="margin-top: 5px;">Remove Image</button>
+        <?php endif; ?>
+    </div>
 
+    </div>
 
-    <p><!-- Travel Description / Appears below site title -->
+    <!-- Travel Description / Appears below site title -->
+    <div class="meta-field-container">
         <strong><label for="travel-description" class="sbm-row-title"><?php _e( 'Travel Description', 'sbm-textdomain' )?></label></strong>
-
         <input style="width: 100%;" type="text" name="travel-description" id="travel-description" placeholder="Appears below title" value="<?php if ( isset ( $sbm_stored_travel_meta['travel-description'] ) ) echo $sbm_stored_travel_meta['travel-description'][0]; ?>" />
-    </p>
+    </div>
 
     <!-- MASTHEAD SECTION -->
     <hr style="margin-top: 1.618em; border-top: 3px double #8c8b8b;">
     <h3><?php echo 'Travel Masthead' ?></h3>
 
-    <p><!-- Masthead Bold Paragraph -->
+    <div class="meta-field-container"><!-- Masthead Bold Paragraph -->
         <strong><label for="masthead-bold-textarea" class="sbm-row-title"><?php _e( 'Masthead Bold Section', 'tfs-travel-textdomain' )?></label></strong>
-
         <textarea style="width: 100%;" rows="4" name="masthead-bold-textarea" id="masthead-bold-textarea"><?php if ( isset ( $sbm_stored_travel_meta['masthead-bold-textarea'] ) ) echo $sbm_stored_travel_meta['masthead-bold-textarea'][0]; ?></textarea>
-    </p>
+    </div>
 
     <!-- TRAVEL DETAILS-->
     <hr style="margin-top: 1.618em; border-top: 3px double #8c8b8b;">
     <h3><?php echo 'Travel Costs' ?></h3>
 
     <!-- Travel Costs Image -->
-    <p>
+    <div class="meta-field-container">
 
         <strong><label for="travel-costs-image" class="sbm-row-title"><?php _e( 'Travel Costs Image', 'the-fly-shop' );?></label></strong><br>
         <input style="width:75%;" type="text" name="travel-costs-image" id="travel-costs-image" value="<?php if ( isset ( $sbm_stored_travel_meta['travel-costs-image'] ) ) echo $sbm_stored_travel_meta['travel-costs-image'][0];?>" />
         <input type="button" id="travel-costs-image-button" class="button" value="<?php _e( 'Choose or Upload an Image', 'the-fly-shop' );?>" />
 
-    </p>
+        <!-- Preview container -->
+        <div id="travel-costs-image-preview" style="margin-top: 10px;">
+            <?php if ( isset( $sbm_stored_travel_meta['travel-costs-image'] ) && $sbm_stored_travel_meta['travel-costs-image'][0] != '' ) : ?>
+                <img src="<?php echo esc_url( $sbm_stored_travel_meta['travel-costs-image'][0] ); ?>"
+                     style="max-width: 250px; max-height: 250px; border: 1px solid #ddd; padding: 5px;"
+                     alt="Preview" />
+                <br><button type="button" id="travel-costs-image-remove" class="button" style="margin-top: 5px;">Remove Image</button>
+            <?php endif; ?>
+        </div>
+    </div>
 
     <p><!-- Costs Title -->
         <strong><label for="feature-1-title" class="sbm-row-title"><?php _e( 'Title', 'tfs-travel-textdomain' )?></label></strong>
@@ -138,14 +156,23 @@ function tfs_travel_meta_callback( $post ) {
         <strong><label for="feature-2-seasons-title" class="sbm-row-title"><?php _e( 'Title', 'tfs-travel-textdomain' )?></label></strong>
         <input style="width: 100%;" type="text" name="feature-2-seasons-title" id="feature-2-seasons-title" value="<?php if ( isset ( $sbm_stored_travel_meta['feature-2-seasons-title'] ) ) echo $sbm_stored_travel_meta['feature-2-seasons-title'][0]; ?>" />
     </p>
-
-    <p>
+    <!-- Feature #2 Image -->
+    <div class="meta-field-container">
 
         <strong><label for="travel-seasons-image" class="sbm-row-title"><?php _e( 'Travel Costs Image', 'the-fly-shop' );?></label></strong><br>
         <input style="width:75%;" type="text" name="travel-seasons-image" id="travel-seasons-image" value="<?php if ( isset ( $sbm_stored_travel_meta['travel-seasons-image'] ) ) echo $sbm_stored_travel_meta['travel-seasons-image'][0];?>" />
         <input type="button" id="travel-seasons-image-button" class="button" value="<?php _e( 'Choose or Upload an Image', 'the-fly-shop' );?>" />
 
-    </p>
+        <!-- Preview container -->
+        <div id="travel-seasons-image-preview" style="margin-top: 10px;">
+            <?php if ( isset( $sbm_stored_travel_meta['travel-seasons-image'] ) && $sbm_stored_travel_meta['travel-seasons-image'][0] != '' ) : ?>
+                <img src="<?php echo esc_url( $sbm_stored_travel_meta['travel-seasons-image'][0] ); ?>"
+                     style="max-width: 250px; max-height: 250px; border: 1px solid #ddd; padding: 5px;"
+                     alt="Preview" />
+                <br><button type="button" id="travel-seasons-image-remove" class="button" style="margin-top: 5px;">Remove Image</button>
+            <?php endif; ?>
+        </div>
+    </div>
 
 
     <!-- TABED SEASONS SECTION
@@ -172,7 +199,7 @@ function tfs_travel_meta_callback( $post ) {
                         <p><!-- Seasons Read More -->
                           <strong><label for="feature-2-read-more-info" class="sbm-row-title"><?php _e( 'Read More Info', 'sbm-textdomain' )?></label></strong>
                           <input style="width: 100%;" type="text" name="feature-2-read-more-info" id="feature-2-read-more-info" placeholder="Add Read More Info" value="<?php if ( isset ( $sbm_stored_travel_meta['feature-2-read-more-info'] ) ) echo $sbm_stored_travel_meta['feature-2-read-more-info'][0]; ?>" />
-                          
+
                           <strong><label for="feature-2-seasons-readmore" class="sbm-row-title"><?php _e( 'Read more', 'tfs-travel-textdomain' )?></label></strong>
                           <textarea style="width: 100%;" rows="4" name="feature-2-seasons-readmore" id="feature-2-seasons-readmore"><?php if ( isset ( $sbm_stored_travel_meta['feature-2-seasons-readmore'] ) ) echo $sbm_stored_travel_meta['feature-2-seasons-readmore'][0]; ?></textarea>
                         </p>
@@ -225,13 +252,23 @@ function tfs_travel_meta_callback( $post ) {
     </p>
 
     <!-- Getting To Image -->
-    <p>
+    <div class="meta-field-container">
 
-        <strong><label for="feature-3-gettingto-image" class="sbm-row-title"><?php _e( 'Getting To Destination Image','the-fly-shop' );?></label></strong><br>
-        <input style="width:75%;" type="text" name="feature-3-gettingto-image" id="feature-3-gettingto-image" value="<?php if ( isset ( $sbm_stored_travel_meta['feature-3-gettingto-image'] ) ) echo $sbm_stored_travel_meta['feature-3-gettingto-image'][0];?>" />
-        <input type="button" id="feature-3-gettingto-image-button" class="button" value="<?php _e( 'Choose or Upload an Image', 'the-fly-shop' );?>" />
+        <strong><label for="feature-3-getting-to-image" class="sbm-row-title"><?php _e( 'Getting To Destination Image','the-fly-shop' );?></label></strong><br>
+        <input style="width:75%;" type="text" name="feature-3-getting-to-image" id="feature-3-getting-to-image" value="<?php if ( isset ( $sbm_stored_travel_meta['feature-3-getting-to-image'] ) ) echo $sbm_stored_travel_meta['feature-3-getting-to-image'][0];?>" />
+        <input type="button" id="feature-3-getting-to-image-button" class="button" value="<?php _e( 'Choose or Upload an Image', 'the-fly-shop' );?>" />
 
-    </p>
+        <!-- Preview container -->
+        <div id="feature-3-getting-to-image-preview" style="margin-top: 10px;">
+            <?php if ( isset( $sbm_stored_travel_meta['feature-3-getting-to-image'] ) && $sbm_stored_travel_meta['feature-3-getting-to-image'][0] != '' ) : ?>
+                <img src="<?php echo esc_url( $sbm_stored_travel_meta['feature-3-getting-to-image'][0] ); ?>"
+                     style="max-width: 250px; max-height: 250px; border: 1px solid #ddd; padding: 5px;"
+                     alt="Preview" />
+                <br><button type="button" id="feature-3-getting-to-image-remove" class="button" style="margin-top: 5px;">Remove Image</button>
+            <?php endif; ?>
+        </div>
+
+    </div>
 
     <p><!-- Getting To Content/Text Area -->
         <strong><label for="feature-3-get-to-content" class="sbm-row-title"><?php _e( 'Content', 'tfs-travel-textdomain' )?></label></strong>
@@ -241,7 +278,7 @@ function tfs_travel_meta_callback( $post ) {
     <p><!-- Getting To Read More -->
         <strong><label for="feature-3-read-more-info" class="sbm-row-title"><?php _e( 'Read More Info', 'sbm-textdomain' )?></label></strong>
         <input style="width: 100%;" type="text" name="feature-3-read-more-info" id="feature-3-read-more-info" placeholder="Add Read More Info" value="<?php if ( isset ( $sbm_stored_travel_meta['feature-3-read-more-info'] ) ) echo $sbm_stored_travel_meta['feature-3-read-more-info'][0]; ?>" />
-      
+
         <strong><label for="feature-3-get-to-readmore" class="sbm-row-title"><?php _e( 'Read more', 'tfs-travel-textdomain' )?></label></strong>
         <textarea style="width: 100%;" rows="4" name="feature-3-get-to-readmore" id="feature-3-get-to-readmore"><?php if ( isset ( $sbm_stored_travel_meta['feature-3-get-to-readmore'] ) ) echo $sbm_stored_travel_meta['feature-3-get-to-readmore'][0]; ?></textarea>
     </p>
@@ -256,13 +293,23 @@ function tfs_travel_meta_callback( $post ) {
     </p>
 
     <!-- Lodging Image -->
-    <p>
+    <div class="meta-field-container">
 
-        <strong><label for="feature-4-lodging-image" class="sbm-row-title"><?php _e( 'Destination Loding Image','the-fly-shop' );?></label></strong><br>
-        <input style="width:75%;" type="text" name="feature-4-lodging-image" id="feature-4-lodging-image" value="<?php if ( isset ( $sbm_stored_travel_meta['feature-4-lodging-image'] ) ) echo $sbm_stored_travel_meta['feature-4-lodging-image'][0];?>" />
-        <input type="button" id="feature-4-lodging-image-button" class="button" value="<?php _e( 'Choose or Upload an Image', 'the-fly-shop' );?>" />
+        <strong><label for="feature-4-lodging-img" class="sbm-row-title"><?php _e( 'Destination Loding Image','the-fly-shop' );?></label></strong><br>
+        <input style="width:75%;" type="text" name="feature-4-lodging-img" id="feature-4-lodging-img" value="<?php if ( isset ( $sbm_stored_travel_meta['feature-4-lodging-img'] ) ) echo $sbm_stored_travel_meta['feature-4-lodging-img'][0];?>" />
+        <input type="button" id="feature-4-lodging-img-button" class="button" value="<?php _e( 'Choose or Upload an Image', 'the-fly-shop' );?>" />
 
-    </p>
+        <!-- Preview container -->
+        <div id="feature-4-lodging-img-preview" style="margin-top: 10px;">
+            <?php if ( isset( $sbm_stored_travel_meta['feature-4-lodging-img'] ) && $sbm_stored_travel_meta['feature-4-lodging-img'][0] != '' ) : ?>
+                <img src="<?php echo esc_url( $sbm_stored_travel_meta['feature-4-lodging-img'][0] ); ?>"
+                     style="max-width: 250px; max-height: 250px; border: 1px solid #ddd; padding: 5px;"
+                     alt="Preview" />
+                <br><button type="button" id="feature-4-lodging-img-remove" class="button" style="margin-top: 5px;">Remove Image</button>
+            <?php endif; ?>
+        </div>
+
+    </div>
 
     <!-- Lodging Content -->
     <p>
@@ -287,13 +334,23 @@ function tfs_travel_meta_callback( $post ) {
     </p>
 
     <!-- Angling Image -->
-    <p>
+    <div class="meta-field-container">
 
-        <strong><label for="feature-5-angling-image" class="sbm-row-title"><?php _e( 'Destination Loding Image','the-fly-shop' );?></label></strong><br>
-        <input style="width:75%;" type="text" name="feature-5-angling-image" id="feature-5-angling-image" value="<?php if ( isset ( $sbm_stored_travel_meta['feature-5-angling-image'] ) ) echo $sbm_stored_travel_meta['feature-5-angling-image'][0];?>" />
-        <input type="button" id="feature-5-angling-image-button" class="button" value="<?php _e( 'Choose or Upload an Image', 'the-fly-shop' );?>" />
+        <strong><label for="feature-5-angling-img" class="sbm-row-title"><?php _e( 'Destination Angling Image','the-fly-shop' );?></label></strong><br>
+        <input style="width:75%;" type="text" name="feature-5-angling-img" id="feature-5-angling-img" value="<?php if ( isset ( $sbm_stored_travel_meta['feature-5-angling-img'] ) ) echo $sbm_stored_travel_meta['feature-5-angling-img'][0];?>" />
+        <input type="button" id="feature-5-angling-img-button" class="button" value="<?php _e( 'Choose or Upload an Image', 'the-fly-shop' );?>" />
 
-    </p>
+        <!-- Preview container -->
+        <div id="feature-5-angling-img-preview" style="margin-top: 10px;">
+            <?php if ( isset( $sbm_stored_travel_meta['feature-5-angling-img'] ) && $sbm_stored_travel_meta['feature-5-angling-img'][0] != '' ) : ?>
+                <img src="<?php echo esc_url( $sbm_stored_travel_meta['feature-5-angling-img'][0] ); ?>"
+                     style="max-width: 250px; max-height: 250px; border: 1px solid #ddd; padding: 5px;"
+                     alt="Preview" />
+                <br><button type="button" id="feature-5-angling-img-remove" class="button" style="margin-top: 5px;">Remove Image</button>
+            <?php endif; ?>
+        </div>
+
+    </div>
 
     <p><!-- Angling Content -->
         <strong><label for="feature-5-angling-content" class="sbm-row-title"><?php _e( 'Content', 'tfs-travel-textdomain' )?></label></strong>
@@ -303,11 +360,11 @@ function tfs_travel_meta_callback( $post ) {
     <p><!-- Destination Angling Read More -->
         <strong><label for="feature-5-read-more-info" class="sbm-row-title"><?php _e( 'Read More Info', 'sbm-textdomain' )?></label></strong>
         <input style="width: 100%;" type="text" name="feature-5-read-more-info" id="feature-5-read-more-info" placeholder="Add Read More Info" value="<?php if ( isset ( $sbm_stored_travel_meta['feature-5-read-more-info'] ) ) echo $sbm_stored_travel_meta['feature-5-read-more-info'][0]; ?>" />
-      
+
         <strong><label for="feature-5-angling-readmore" class="sbm-row-title"><?php _e( 'Read more', 'tfs-travel-textdomain' )?></label></strong>
         <textarea style="width: 100%;" rows="4" name="feature-5-angling-readmore" id="feature-5-angling-readmore"><?php if ( isset ( $sbm_stored_travel_meta['feature-5-angling-readmore'] ) ) echo $sbm_stored_travel_meta['feature-5-angling-readmore'][0]; ?></textarea>
     </p>
-  
+
     <!-- ====== CALL TO ACTION ROW ====== -->
     <hr style="margin-top: 1.618em; border-top: 3px double #8c8b8b;">
     <h3><?php echo 'CTA Section' ?></h3>
@@ -472,4 +529,4 @@ function tfs_travel_meta_callback( $post ) {
 
 
 
-<?php } ?>
+    <?php } ?>

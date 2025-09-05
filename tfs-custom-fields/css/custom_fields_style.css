@@ -85,3 +85,21 @@ table {
 #survey-template .row .col-lg-2 .panel.panel-default {
     background-color: #ccc;
 }
+
+.image-preview-container {
+    margin-top: 10px;
+    padding: 10px;
+    border: 1px solid #e1e1e1;
+    background: #fafafa;
+    display: inline-block;
+}
+
+.image-preview-container img {
+    display: block;
+    margin-bottom: 10px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.meta-field-container {
+    margin: 1.618em 0;
+}

@@ -67,11 +67,32 @@ jQuery(document).ready( function($){ "use strict";
 
       // Sends the attachment URL to our custom image input field.
       $('#dest-travel-logo').val(media_attachment.url);
+
+      // Update the preview
+      updateImagePreview('dest-travel-logo', media_attachment.url);
+
     });
 
     // Opens the media library frame.
     tfstravel_dest_logo.open();
   });
+
+  // Remove image functionality
+  $(document).on('click', '#dest-travel-logo-remove', function(e) {
+    e.preventDefault();
+    $('#dest-travel-logo').val('');
+    $('#dest-travel-logo-preview').html('');
+  });
+
+  // Function to update image preview
+  function updateImagePreview(fieldId, imageUrl) {
+    var previewContainer = $('#' + fieldId + '-preview');
+    var previewHtml = '<img src="' + imageUrl + '" style="max-width: 250px; max-height: 250px; border: 1px solid #ddd; padding: 5px;" alt="Preview" />' +
+        '<br><button type="button" id="' + fieldId + '-remove" class="button" style="margin-top: 5px;">Remove Image</button>';
+    previewContainer.html(previewHtml);
+  }
+
+
 
   // Instantiates the variable that holds the media library frame.
   var travel_costs_image;
@@ -103,10 +124,20 @@ jQuery(document).ready( function($){ "use strict";
 
       // Sends the attachment URL to our custom image input field.
       $('#travel-costs-image').val(media_attachment.url);
+
+      // Update the preview
+      updateImagePreview('travel-costs-image', media_attachment.url);
     });
 
     // Opens the media library frame.
     travel_costs_image.open();
+  });
+
+  // Remove image functionality
+  $(document).on('click', '#travel-costs-image-remove', function(e) {
+    e.preventDefault();
+    $('#travel-costs-image').val('');
+    $('#travel-costs-image-preview').html('');
   });
 
   // Instantiates the variable that holds the media library frame.
@@ -139,122 +170,162 @@ jQuery(document).ready( function($){ "use strict";
 
       // Sends the attachment URL to our custom image input field.
       $('#travel-seasons-image').val(media_attachment.url);
+
+      // Update the preview
+      updateImagePreview('travel-seasons-image', media_attachment.url);
     });
 
     // Opens the media library frame.
     travel_seasons_image.open();
   });
 
+  // Remove image functionality
+  $(document).on('click', '#travel-seasons-image-remove', function(e) {
+    e.preventDefault();
+    $('#travel-seasons-image').val('');
+    $('#travel-seasons-image-preview').html('');
+  });
+
   // Instantiates the variable that holds the media library frame.
-  var feature_3_gettingto_image;
+  var feature_3_gettingto_img;
 
   // Runs when the image button is clicked.
-  $('#feature-3-gettingto-image-button').click(function(e){
+  $('#feature-3-getting-to-image-button').click(function(e){
 
     // Prevents the default action from occuring.
     e.preventDefault();
 
     // If the frame already exists, re-open it.
-    if ( feature_3_gettingto_image ) {
-      feature_3_gettingto_image.open();
+    if ( feature_3_gettingto_img ) {
+      feature_3_gettingto_img.open();
       return;
     }
 
     // Sets up the media library frame
-    feature_3_gettingto_image = wp.media.frames.feature_3_gettingto_image = wp.media({
+    feature_3_gettingto_img = wp.media.frames.feature_3_gettingto_img = wp.media({
       title: meta_image.title,
       button: { text:  meta_image.button },
       library: { type: 'image' }
     });
 
     // Runs when an image is selected.
-    feature_3_gettingto_image.on('select', function(){
+    feature_3_gettingto_img.on('select', function(){
 
       // Grabs the attachment selection and creates a JSON representation of the model.
-      var media_attachment = feature_3_gettingto_image.state().get('selection').first().toJSON();
+      var media_attachment = feature_3_gettingto_img.state().get('selection').first().toJSON();
 
       // Sends the attachment URL to our custom image input field.
-      $('#feature-3-gettingto-image').val(media_attachment.url);
+      $('#feature-3-getting-to-image').val(media_attachment.url);
+
+      // Update the preview
+      updateImagePreview('feature-3-getting-to-image', media_attachment.url);
     });
 
     // Opens the media library frame.
-    feature_3_gettingto_image.open();
+    feature_3_gettingto_img.open();
+  });
+
+  // Remove image functionality
+  $(document).on('click', '#feature-3-getting-to-image-remove', function(e) {
+    e.preventDefault();
+    $('#feature-3-getting-to-image').val('');
+    $('#feature-3-getting-to-image-preview').html('');
   });
 
   // Instantiates the variable that holds the media library frame.
-  var feature_4_lodging_image;
+  var feature_4_lodging_img;
 
   // Runs when the image button is clicked.
-  $('#feature-4-lodging-image-button').click(function(e){
+  $('#feature-4-lodging-img-button').click(function(e){
 
     // Prevents the default action from occuring.
     e.preventDefault();
 
     // If the frame already exists, re-open it.
-    if ( feature_4_lodging_image ) {
-      feature_4_lodging_image.open();
+    if ( feature_4_lodging_img ) {
+      feature_4_lodging_img.open();
       return;
     }
 
     // Sets up the media library frame
-    feature_4_lodging_image = wp.media.frames.feature_4_lodging_image = wp.media({
+    feature_4_lodging_img = wp.media.frames.feature_4_lodging_img = wp.media({
       title: meta_image.title,
       button: { text:  meta_image.button },
       library: { type: 'image' }
     });
 
     // Runs when an image is selected.
-    feature_4_lodging_image.on('select', function(){
+    feature_4_lodging_img.on('select', function(){
 
       // Grabs the attachment selection and creates a JSON representation of the model.
-      var media_attachment = feature_4_lodging_image.state().get('selection').first().toJSON();
+      var media_attachment = feature_4_lodging_img.state().get('selection').first().toJSON();
 
       // Sends the attachment URL to our custom image input field.
-      $('#feature-4-lodging-image').val(media_attachment.url);
+      $('#feature-4-lodging-img').val(media_attachment.url);
+
+      // Update the preview
+      updateImagePreview('feature-4-lodging-img', media_attachment.url);
     });
 
     // Opens the media library frame.
-    feature_4_lodging_image.open();
+    feature_4_lodging_img.open();
+  });
+
+  // Remove image functionality
+  $(document).on('click', '#feature-4-lodging-img-remove', function(e) {
+    e.preventDefault();
+    $('#feature-4-lodging-img').val('');
+    $('#feature-4-lodging-img-preview').html('');
   });
 
   // Instantiates the variable that holds the media library frame.
-  var feature_5_angling_image;
+  var feature_5_angling_img;
 
   // Runs when the image button is clicked.
-  $('#feature-5-angling-image-button').click(function(e){
+  $('#feature-5-angling-img-button').click(function(e){
 
     // Prevents the default action from occuring.
     e.preventDefault();
 
     // If the frame already exists, re-open it.
-    if ( feature_5_angling_image ) {
-      feature_5_angling_image.open();
+    if ( feature_5_angling_img ) {
+      feature_5_angling_img.open();
       return;
     }
 
     // Sets up the media library frame
-    feature_5_angling_image = wp.media.frames.feature_5_angling_image = wp.media({
+    feature_5_angling_img = wp.media.frames.feature_5_angling_img = wp.media({
       title: meta_image.title,
       button: { text:  meta_image.button },
       library: { type: 'image' }
     });
 
     // Runs when an image is selected.
-    feature_5_angling_image.on('select', function(){
+    feature_5_angling_img.on('select', function(){
 
       // Grabs the attachment selection and creates a JSON representation of the model.
-      var media_attachment = feature_5_angling_image.state().get('selection').first().toJSON();
+      var media_attachment = feature_5_angling_img.state().get('selection').first().toJSON();
 
       // Sends the attachment URL to our custom image input field.
-      $('#feature-5-angling-image').val(media_attachment.url);
+      $('#feature-5-angling-img').val(media_attachment.url);
+
+      // Update the preview
+      updateImagePreview('feature-5-angling-img', media_attachment.url);
     });
 
     // Opens the media library frame.
-    feature_5_angling_image.open();
+    feature_5_angling_img.open();
+  });
+
+  // Remove image functionality
+  $(document).on('click', '#feature-5-angling-img-remove', function(e) {
+    e.preventDefault();
+    $('#feature-5-angling-img').val('');
+    $('#feature-5-angling-img-preview').html('');
   });
 
   // Instantiates the variable that holds the media library frame.
-  var additional_travel_image1_frame;
+  var additional_travel_img1_frame;
 
   // Runs when the image button is clicked.
   $('#additional-travel-image1-button').click(function(e){
@@ -263,34 +334,34 @@ jQuery(document).ready( function($){ "use strict";
     e.preventDefault();
 
     // If the frame already exists, re-open it.
-    if ( additional_travel_image1_frame ) {
-      additional_travel_image1_frame.open();
+    if ( additional_travel_img1_frame ) {
+      additional_travel_img1_frame.open();
       return;
     }
 
     // Sets up the media library frame
-    additional_travel_image1_frame = wp.media.frames.additional_travel_image1_frame = wp.media({
+    additional_travel_img1_frame = wp.media.frames.additional_travel_img1_frame = wp.media({
       title: meta_image.title,
       button: { text:  meta_image.button },
       library: { type: 'image' }
     });
 
     // Runs when an image is selected.
-    additional_travel_image1_frame.on('select', function(){
+    additional_travel_img1_frame.on('select', function(){
 
       // Grabs the attachment selection and creates a JSON representation of the model.
-      var media_attachment = additional_travel_image1_frame.state().get('selection').first().toJSON();
+      var media_attachment = additional_travel_img1_frame.state().get('selection').first().toJSON();
 
       // Sends the attachment URL to our custom image input field.
       $('#additional-travel-image1').val(media_attachment.url);
     });
 
     // Opens the media library frame.
-    additional_travel_image1_frame.open();
+    additional_travel_img1_frame.open();
   });
 
   // Instantiates the variable that holds the media library frame.
-  var additional_travel_image2_frame;
+  var additional_travel_img2_frame;
 
   // Runs when the image button is clicked.
   $('#additional-travel-image2-button').click(function(e){
@@ -299,34 +370,34 @@ jQuery(document).ready( function($){ "use strict";
     e.preventDefault();
 
     // If the frame already exists, re-open it.
-    if ( additional_travel_image2_frame ) {
-      additional_travel_image2_frame.open();
+    if ( additional_travel_img2_frame ) {
+      additional_travel_img2_frame.open();
       return;
     }
 
     // Sets up the media library frame
-    additional_travel_image2_frame = wp.media.frames.additional_travel_image2_frame = wp.media({
+    additional_travel_img2_frame = wp.media.frames.additional_travel_img2_frame = wp.media({
       title: meta_image.title,
       button: { text:  meta_image.button },
       library: { type: 'image' }
     });
 
     // Runs when an image is selected.
-    additional_travel_image2_frame.on('select', function(){
+    additional_travel_img2_frame.on('select', function(){
 
       // Grabs the attachment selection and creates a JSON representation of the model.
-      var media_attachment = additional_travel_image2_frame.state().get('selection').first().toJSON();
+      var media_attachment = additional_travel_img2_frame.state().get('selection').first().toJSON();
 
       // Sends the attachment URL to our custom image input field.
       $('#additional-travel-image2').val(media_attachment.url);
     });
 
     // Opens the media library frame.
-    additional_travel_image2_frame.open();
+    additional_travel_img2_frame.open();
   });
 
   // Instantiates the variable that holds the media library frame.
-  var additional_travel_image3_frame;
+  var additional_travel_img3_frame;
 
   // Runs when the image button is clicked.
   $('#additional-travel-image3-button').click(function(e){
@@ -335,34 +406,34 @@ jQuery(document).ready( function($){ "use strict";
     e.preventDefault();
 
     // If the frame already exists, re-open it.
-    if ( additional_travel_image3_frame ) {
-      additional_travel_image3_frame.open();
+    if ( additional_travel_img3_frame ) {
+      additional_travel_img3_frame.open();
       return;
     }
 
     // Sets up the media library frame
-    additional_travel_image3_frame = wp.media.frames.additional_travel_image3_frame = wp.media({
+    additional_travel_img3_frame = wp.media.frames.additional_travel_img3_frame = wp.media({
       title: meta_image.title,
       button: { text:  meta_image.button },
       library: { type: 'image' }
     });
 
     // Runs when an image is selected.
-    additional_travel_image3_frame.on('select', function(){
+    additional_travel_img3_frame.on('select', function(){
 
       // Grabs the attachment selection and creates a JSON representation of the model.
-      var media_attachment = additional_travel_image3_frame.state().get('selection').first().toJSON();
+      var media_attachment = additional_travel_img3_frame.state().get('selection').first().toJSON();
 
       // Sends the attachment URL to our custom image input field.
       $('#additional-travel-image3').val(media_attachment.url);
     });
 
     // Opens the media library frame.
-    additional_travel_image3_frame.open();
+    additional_travel_img3_frame.open();
   });
 
   // Instantiates the variable that holds the media library frame.
-  var additional_travel_image4_frame;
+  var additional_travel_img4_frame;
 
   // Runs when the image button is clicked.
   $('#additional-travel-image4-button').click(function(e){
@@ -371,34 +442,34 @@ jQuery(document).ready( function($){ "use strict";
     e.preventDefault();
 
     // If the frame already exists, re-open it.
-    if ( additional_travel_image4_frame ) {
-      additional_travel_image4_frame.open();
+    if ( additional_travel_img4_frame ) {
+      additional_travel_img4_frame.open();
       return;
     }
 
     // Sets up the media library frame
-    additional_travel_image4_frame = wp.media.frames.additional_travel_image4_frame = wp.media({
+    additional_travel_img4_frame = wp.media.frames.additional_travel_img4_frame = wp.media({
       title: meta_image.title,
       button: { text:  meta_image.button },
       library: { type: 'image' }
     });
 
     // Runs when an image is selected.
-    additional_travel_image4_frame.on('select', function(){
+    additional_travel_img4_frame.on('select', function(){
 
       // Grabs the attachment selection and creates a JSON representation of the model.
-      var media_attachment = additional_travel_image4_frame.state().get('selection').first().toJSON();
+      var media_attachment = additional_travel_img4_frame.state().get('selection').first().toJSON();
 
       // Sends the attachment URL to our custom image input field.
       $('#additional-travel-image4').val(media_attachment.url);
     });
 
     // Opens the media library frame.
-    additional_travel_image4_frame.open();
+    additional_travel_img4_frame.open();
   });
 
   // Instantiates the variable that holds the media library frame.
-  var additional_travel_image5_frame;
+  var additional_travel_img5_frame;
 
   // Runs when the image button is clicked.
   $('#additional-travel-image5-button').click(function(e){
@@ -407,34 +478,34 @@ jQuery(document).ready( function($){ "use strict";
     e.preventDefault();
 
     // If the frame already exists, re-open it.
-    if ( additional_travel_image5_frame ) {
-      additional_travel_image5_frame.open();
+    if ( additional_travel_img5_frame ) {
+      additional_travel_img5_frame.open();
       return;
     }
 
     // Sets up the media library frame
-    additional_travel_image5_frame = wp.media.frames.additional_travel_image5_frame = wp.media({
+    additional_travel_img5_frame = wp.media.frames.additional_travel_img5_frame = wp.media({
       title: meta_image.title,
       button: { text:  meta_image.button },
       library: { type: 'image' }
     });
 
     // Runs when an image is selected.
-    additional_travel_image5_frame.on('select', function(){
+    additional_travel_img5_frame.on('select', function(){
 
       // Grabs the attachment selection and creates a JSON representation of the model.
-      var media_attachment = additional_travel_image5_frame.state().get('selection').first().toJSON();
+      var media_attachment = additional_travel_img5_frame.state().get('selection').first().toJSON();
 
       // Sends the attachment URL to our custom image input field.
       $('#additional-travel-image5').val(media_attachment.url);
     });
 
     // Opens the media library frame.
-    additional_travel_image5_frame.open();
+    additional_travel_img5_frame.open();
   });
 
   // Instantiates the variable that holds the media library frame.
-  var additional_travel_image6_frame;
+  var additional_travel_img6_frame;
 
   // Runs when the image button is clicked.
   $('#additional-travel-image6-button').click(function(e){
@@ -443,34 +514,34 @@ jQuery(document).ready( function($){ "use strict";
     e.preventDefault();
 
     // If the frame already exists, re-open it.
-    if ( additional_travel_image6_frame ) {
-      additional_travel_image6_frame.open();
+    if ( additional_travel_img6_frame ) {
+      additional_travel_img6_frame.open();
       return;
     }
 
     // Sets up the media library frame
-    additional_travel_image6_frame = wp.media.frames.additional_travel_image6_frame = wp.media({
+    additional_travel_img6_frame = wp.media.frames.additional_travel_img6_frame = wp.media({
       title: meta_image.title,
       button: { text:  meta_image.button },
       library: { type: 'image' }
     });
 
     // Runs when an image is selected.
-    additional_travel_image6_frame.on('select', function(){
+    additional_travel_img6_frame.on('select', function(){
 
       // Grabs the attachment selection and creates a JSON representation of the model.
-      var media_attachment = additional_travel_image6_frame.state().get('selection').first().toJSON();
+      var media_attachment = additional_travel_img6_frame.state().get('selection').first().toJSON();
 
       // Sends the attachment URL to our custom image input field.
       $('#additional-travel-image6').val(media_attachment.url);
     });
 
     // Opens the media library frame.
-    additional_travel_image6_frame.open();
+    additional_travel_img6_frame.open();
   });
 
   // Instantiates the variable that holds the media library frame.
-  var additional_travel_image7_frame;
+  var additional_travel_img7_frame;
 
   // Runs when the image button is clicked.
   $('#additional-travel-image7-button').click(function(e){
@@ -479,34 +550,34 @@ jQuery(document).ready( function($){ "use strict";
     e.preventDefault();
 
     // If the frame already exists, re-open it.
-    if ( additional_travel_image7_frame ) {
-      additional_travel_image7_frame.open();
+    if ( additional_travel_img7_frame ) {
+      additional_travel_img7_frame.open();
       return;
     }
 
     // Sets up the media library frame
-    additional_travel_image7_frame = wp.media.frames.additional_travel_image7_frame = wp.media({
+    additional_travel_img7_frame = wp.media.frames.additional_travel_img7_frame = wp.media({
       title: meta_image.title,
       button: { text:  meta_image.button },
       library: { type: 'image' }
     });
 
     // Runs when an image is selected.
-    additional_travel_image7_frame.on('select', function(){
+    additional_travel_img7_frame.on('select', function(){
 
       // Grabs the attachment selection and creates a JSON representation of the model.
-      var media_attachment = additional_travel_image7_frame.state().get('selection').first().toJSON();
+      var media_attachment = additional_travel_img7_frame.state().get('selection').first().toJSON();
 
       // Sends the attachment URL to our custom image input field.
       $('#additional-travel-image7').val(media_attachment.url);
     });
 
     // Opens the media library frame.
-    additional_travel_image7_frame.open();
+    additional_travel_img7_frame.open();
   });
 
   // Instantiates the variable that holds the media library frame.
-  var additional_travel_image8_frame;
+  var additional_travel_img8_frame;
 
   // Runs when the image button is clicked.
   $('#additional-travel-image8-button').click(function(e){
@@ -515,30 +586,30 @@ jQuery(document).ready( function($){ "use strict";
     e.preventDefault();
 
     // If the frame already exists, re-open it.
-    if ( additional_travel_image8_frame ) {
-      additional_travel_image8_frame.open();
+    if ( additional_travel_img8_frame ) {
+      additional_travel_img8_frame.open();
       return;
     }
 
     // Sets up the media library frame
-    additional_travel_image8_frame = wp.media.frames.additional_travel_image8_frame = wp.media({
+    additional_travel_img8_frame = wp.media.frames.additional_travel_img8_frame = wp.media({
       title: meta_image.title,
       button: { text:  meta_image.button },
       library: { type: 'image' }
     });
 
     // Runs when an image is selected.
-    additional_travel_image8_frame.on('select', function(){
+    additional_travel_img8_frame.on('select', function(){
 
       // Grabs the attachment selection and creates a JSON representation of the model.
-      var media_attachment = additional_travel_image8_frame.state().get('selection').first().toJSON();
+      var media_attachment = additional_travel_img8_frame.state().get('selection').first().toJSON();
 
       // Sends the attachment URL to our custom image input field.
       $('#additional-travel-image8').val(media_attachment.url);
     });
 
     // Opens the media library frame.
-    additional_travel_image8_frame.open();
+    additional_travel_img8_frame.open();
   });
 
 });
