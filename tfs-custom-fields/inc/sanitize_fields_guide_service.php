@@ -21,6 +21,13 @@ function sbm_guideservice_meta_save( $post_id ) {
     if( isset( $_POST[ 'guideservice-description' ] ) ) {
         update_post_meta( $post_id, 'guideservice-description', ( $_POST[ 'guideservice-description' ] ) );
     }
+
+        /*=== GUIDE SERVICE LOGO ===*/
+
+    // Checks for input and sanitizes/saves if needed
+    if( isset( $_POST[ 'guide-service-logo' ] ) ) {
+        update_post_meta( $post_id, 'guide-service-logo', ( $_POST[ 'guide-service-logo' ] ) );
+    }
 	
 		/*=== GUIDE SERVICE FEATURE #1 ===*/
 	
