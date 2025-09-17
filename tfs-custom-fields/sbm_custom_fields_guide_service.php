@@ -65,6 +65,26 @@ function tfs_guideservice_meta_callback($post) {
     <input style="width: 100%;" type="text" name="guideservice-description" id="guideservice-description" placeholder="Appears below title" value="<?php if ( isset ( $tfs_stored_guideservice_meta['guideservice-description'] ) ) echo $tfs_stored_guideservice_meta['guideservice-description'][0]; ?>" />
     
   </p>
+
+    <div class="meta-field-container">
+
+        <strong><label for="guide-service-logo" class="sbm-row-title"><?php _e( 'Guide Service Logo', 'the-fly-shop' );
+        ?></label></strong><br>
+        <input style="width:60%;" type="text" name="guide-service-logo" id="guide-service-logo" value="<?php if ( isset (
+                $tfs_stored_guideservice_meta['guide-service-logo'] ) ) echo $tfs_stored_guideservice_meta['guide-service-logo'][0];?>" />
+        <input type="button" id="guide-service-logo-button" class="button" value="<?php _e( 'Choose or Upload an Image', 'the-fly-shop' );?>" />
+
+        <!-- Preview container -->
+        <div id="guide-service-logo-preview" style="margin-top: 10px;">
+            <?php if ( isset( $tfs_stored_guideservice_meta['guide-service-logo'] ) && $tfs_stored_guideservice_meta['guide-service-logo'][0] != '' ) : ?>
+                <img src="<?php echo esc_url( $tfs_stored_guideservice_meta['guide-service-logo'][0] ); ?>"
+                     style="max-width: 250px; max-height: 250px; border: 1px solid #ddd; padding: 5px;"
+                     alt="Preview" />
+                <br><button type="button" id="guide-service-logo-remove" class="button" style="margin-top: 5px;">Remove Image</button>
+            <?php endif; ?>
+        </div>
+
+    </div>
   
   <!-- GUIDE SERVICE COST DETAILS-->
   <hr style="margin-top: 1.618em; border-top: 3px double #8c8b8b;">
