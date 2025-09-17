@@ -92,8 +92,6 @@ jQuery(document).ready( function($){ "use strict";
     previewContainer.html(previewHtml);
   }
 
-
-
   // Instantiates the variable that holds the media library frame.
   var travel_costs_image;
 
@@ -612,4 +610,48 @@ jQuery(document).ready( function($){ "use strict";
     additional_travel_img8_frame.open();
   });
 
+    // Instantiates the variable that holds the media library frame.
+    var guide_service_logo_frame;
+
+    // Runs when the image button is clicked.
+    $('#guide-service-logo-button').click(function(e){
+
+        // Prevents the default action from occuring.
+        e.preventDefault();
+
+        // If the frame already exists, re-open it.
+        if ( guide_service_logo_frame ) {
+            guide_service_logo_frame.open();
+            return;
+        }
+
+        // Sets up the media library frame
+        guide_service_logo_frame = wp.media.frames.guide_service_logo_frame = wp.media({
+            title: meta_image.title,
+            button: { text:  meta_image.button },
+            library: { type: 'image' }
+        });
+
+        // Runs when an image is selected.
+        guide_service_logo_frame.on('select', function(){
+
+            // Grabs the attachment selection and creates a JSON representation of the model.
+            var media_attachment = guide_service_logo_frame.state().get('selection').first().toJSON();
+
+            // Sends the attachment URL to our custom image input field.
+            $('#guide-service-logo').val(media_attachment.url);
+
+            // Update the preview
+            updateImagePreview('guide-service-logo', media_attachment.url);
+        });
+
+        // Opens the media library frame.
+        guide_service_logo_frame.open();
+    });
+    // Remove image functionality
+    $(document).on('click', '#guide-service-logo-remove', function(e) {
+        e.preventDefault();
+        $('#guide-service-logo').val('');
+        $('#guide-service-logo-preview').html('');
+    });
 });
