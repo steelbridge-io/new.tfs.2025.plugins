@@ -11208,41 +11208,57 @@ jQuery(document).ready( function($){ "use strict";
 
 jQuery(document).ready( function($){ "use strict";
 
-// Instantiates the variable that holds the media library frame.
-    var outfitters_image_frame;
+var outfitters_blog_logo_frame;
 
-    // Runs when the image button is clicked.
-    $('#outfitters-logo-button').click(function(e){
+// Runs when the image button is clicked.
+$('#outfitters-blog-logo-button').click(function(e){
 
-        // Prevents the default action from occuring.
-        e.preventDefault();
+    // Prevents the default action from occuring.
+    e.preventDefault();
 
-        // If the frame already exists, re-open it.
-        if ( outfitters_image_frame ) {
-            outfitters_image_frame.open();
-            return;
-        }
+    // If the frame already exists, re-open it.
+    if ( outfitters_blog_logo_frame ) {
+        outfitters_blog_logo_frame.open();
+        return;
+    }
 
-        // Sets up the media library frame
-        outfitters_image_frame = wp.media.frames.outfitters_image_frame = wp.media({
-            title: meta_image.title,
-            button: { text:  meta_image.button },
-            library: { type: 'image' }
-        });
-
-        // Runs when an image is selected.
-        outfitters_image_frame.on('select', function(){
-
-            // Grabs the attachment selection and creates a JSON representation of the model.
-            var media_attachment = outfitters_image_frame.state().get('selection').first().toJSON();
-
-            // Sends the attachment URL to our custom image input field.
-            $('#outfitters-logo').val(media_attachment.url);
-        });
-
-        // Opens the media library frame.
-        outfitters_image_frame.open();
+    // Sets up the media library frame
+    outfitters_blog_logo_frame = wp.media.frames.outfitters_blog_logo_frame = wp.media({
+        title: meta_image.title,
+        button: { text:  meta_image.button },
+        library: { type: 'image' }
     });
+
+    // Runs when an image is selected.
+    outfitters_blog_logo_frame.on('select', function(){
+
+        // Grabs the attachment selection and creates a JSON representation of the model.
+        var media_attachment = outfitters_blog_logo_frame.state().get('selection').first().toJSON();
+
+        // Sends the attachment URL to our custom image input field.
+        $('#outfitters-blog-logo').val(media_attachment.url);
+
+        // Update the preview
+        updateImagePreview('outfitters-blog-logo', media_attachment.url);
+    });
+
+    // Opens the media library frame.
+    outfitters_blog_logo_frame.open();
+});
+// Remove image functionality
+    $(document).on('click', '#outfitters-blog-logo-remove', function(e) {
+        e.preventDefault();
+        $('#outfitters-blog-logo').val('');
+        $('#outfitters-blog-logo-preview').html('');
+    });
+
+    // Function to update image preview
+    function updateImagePreview(fieldId, imageUrl) {
+        var previewContainer = $('#' + fieldId + '-preview');
+        var previewHtml = '<img src="' + imageUrl + '" style="max-width: 250px; max-height: 250px; border: 1px solid #ddd; padding: 5px;" alt="Preview" />' +
+            '<br><button type="button" id="' + fieldId + '-remove" class="button" style="margin-top: 5px;">Remove Image</button>';
+        previewContainer.html(previewHtml);
+    }
 });
 
 jQuery(document).ready( function($){ "use strict";
