@@ -66,6 +66,90 @@ return;
 		),
 	);
 
+
+
+// Checks for input and saves if needed
+    if( isset( $_POST[ 'multi-season-calendar-title' ] ) ) {
+        update_post_meta( $post_id, 'multi-season-calendar-title', wp_kses($_POST[ 'multi-season-calendar-title' ], $allowed_html ));
+    }
+
+// Monthly Range Season Controls - NEW FIELDS
+    if( isset( $_POST[ 'monthly-range-checkbox' ] ) ) {
+        update_post_meta( $post_id, 'monthly-range-checkbox', 'yes' );
+    } else {
+        update_post_meta( $post_id, 'monthly-range-checkbox', '' );
+    }
+
+    if( isset( $_POST[ 'season-start-month' ] ) ) {
+        update_post_meta( $post_id, 'season-start-month', intval($_POST[ 'season-start-month' ]) );
+    }
+
+    if( isset( $_POST[ 'season-end-month' ] ) ) {
+        update_post_meta( $post_id, 'season-end-month', intval($_POST[ 'season-end-month' ]) );
+    }
+
+    if( isset( $_POST[ 'season-color' ] ) ) {
+        update_post_meta( $post_id, 'season-color', sanitize_hex_color($_POST[ 'season-color' ]) );
+    }
+
+// Checks for input and saves if needed
+    if( isset( $_POST[ 'feature-3-get-to-title' ] ) ) {
+        update_post_meta( $post_id, 'feature-3-get-to-title', $_POST[ 'feature-3-get-to-title' ] );
+    }
+
+
+
+    // ... existing code ...
+
+// Monthly Range Season Controls - NEW FIELDS
+    if( isset( $_POST[ 'monthly-range-checkbox' ] ) ) {
+        update_post_meta( $post_id, 'monthly-range-checkbox', 'yes' );
+    } else {
+        update_post_meta( $post_id, 'monthly-range-checkbox', '' );
+    }
+
+// Multi-season fields
+    for ($season = 1; $season <= 3; $season++) {
+        if( isset( $_POST[ "season{$season}-start-month" ] ) ) {
+            update_post_meta( $post_id, "season{$season}-start-month", intval($_POST[ "season{$season}-start-month" ]) );
+        }
+
+        if( isset( $_POST[ "season{$season}-end-month" ] ) ) {
+            update_post_meta( $post_id, "season{$season}-end-month", intval($_POST[ "season{$season}-end-month" ]) );
+        }
+
+        if( isset( $_POST[ "season{$season}-start-part" ] ) ) {
+            update_post_meta( $post_id, "season{$season}-start-part", sanitize_text_field($_POST[ "season{$season}-start-part" ]) );
+        }
+
+        if( isset( $_POST[ "season{$season}-end-part" ] ) ) {
+            update_post_meta( $post_id, "season{$season}-end-part", sanitize_text_field($_POST[ "season{$season}-end-part" ]) );
+        }
+
+        if( isset( $_POST[ "season{$season}-color" ] ) ) {
+            update_post_meta( $post_id, "season{$season}-color", sanitize_hex_color($_POST[ "season{$season}-color" ]) );
+        }
+
+        if( isset( $_POST[ "season{$season}-name" ] ) ) {
+            update_post_meta( $post_id, "season{$season}-name", sanitize_text_field($_POST[ "season{$season}-name" ]) );
+        }
+    }
+
+// ... existing code continues ...
+
+
+
+
+
+
+
+// ... existing code continues ...
+
+
+
+
+/** Sanitize fields for Travel */
+
 // Checks for input and sanitizes/saves if needed
 if( isset( $_POST[ 'selected_term' ] ) ) {
 update_post_meta( $post_id, 'selected_term', sanitize_text_field( $_POST[ 'selected_term' ] ) );
@@ -94,6 +178,12 @@ update_post_meta( $post_id, 'masthead-bold-textarea', sanitize_text_field( $_POS
 // Checks for input and sanitizes/saves if needed
 if( isset( $_POST[ 'feature-1-title' ] ) ) {
 update_post_meta( $post_id, 'feature-1-title', sanitize_text_field( $_POST[ 'feature-1-title' ] ) );
+}
+
+// Checks for input and sanitizes/saves if needed
+if( isset( $_POST[ 'feature-1-readmore' ] ) ) {
+    $meta_value = wp_kses($_POST['feature-1-readmore'], $allowed_html);
+    update_post_meta( $post_id,'feature-1-readmore', $meta_value );
 }
 
 // Checks for input and saves if needed
