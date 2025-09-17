@@ -25,8 +25,8 @@ function outfitters_meta_save( $post_id ) {
 	}
  
 	// Checks for input and saves if needed
-	if( isset( $_POST[ 'outfitters-logo' ] ) ) {
-	update_post_meta( $post_id, 'outfitters-logo', $_POST[ 'outfitters-logo' ] );
+	if( isset( $_POST[ 'outfitters-blog-logo' ] ) ) {
+	update_post_meta( $post_id, 'outfitters-blog-logo', $_POST[ 'outfitters-blog-logo' ] );
 	}
 	
 	if( isset( $_POST[ 'outfitters-select-sidebar' ] ) ) {
