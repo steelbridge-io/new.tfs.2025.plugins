@@ -22,8 +22,8 @@ function signature_custom_meta() { global $post;
 	 $allowedTemplates = array(
 		'page-templates/guide-service-template.php',
 		'page-templates/private-waters-template.php',
-    'page-templates/fly-fishing-schools-template.php',
-    'page-templates/fish-camp-template.php',
+        'page-templates/fly-fishing-schools-template.php',
+        'page-templates/fish-camp-template.php',
 	 );
 	 //if($pageTemplate == 'page-templates/guide-service-template.php') {
 	 if(in_array($pageTemplate, $allowedTemplates)) {
