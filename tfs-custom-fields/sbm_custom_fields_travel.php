@@ -86,9 +86,6 @@
         <input style="width: 100%;" type="text" name="travel-description" id="travel-description" placeholder="Appears below title" value="<?php if ( isset ( $sbm_stored_travel_meta['travel-description'] ) ) echo $sbm_stored_travel_meta['travel-description'][0]; ?>" />
     </div>
 
-    <!-- MASTHEAD SECTION -->
-    <hr style="margin-top: 1.618em; border-top: 3px double #8c8b8b;">
-
     <!-- TRAVEL DETAILS-->
     <hr style="margin-top: 1.618em; border-top: 3px double #8c8b8b;">
     <h3><?php echo 'Travel Costs' ?></h3>
