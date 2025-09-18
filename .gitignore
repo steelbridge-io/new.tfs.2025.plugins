@@ -32,6 +32,7 @@ relevanssi/
 wordfence/
 shortcode-in-menus/
 litespeed-cache/
+db-export-do/exports/*.gz
 **/node_modules
 **/debug.log
 package-lock.json
