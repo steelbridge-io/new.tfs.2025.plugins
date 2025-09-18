@@ -66,8 +66,6 @@ return;
 		),
 	);
 
-
-
 // Checks for input and saves if needed
     if( isset( $_POST[ 'multi-season-calendar-title' ] ) ) {
         update_post_meta( $post_id, 'multi-season-calendar-title', wp_kses($_POST[ 'multi-season-calendar-title' ], $allowed_html ));
