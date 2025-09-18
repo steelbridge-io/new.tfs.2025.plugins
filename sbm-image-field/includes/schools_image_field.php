@@ -11,7 +11,7 @@ function schools_custom_meta() { global $post;
 		$pageTemplate = get_post_meta ($post -> ID, '_wp_page_template', true);
 		$types = array('schools_cpt');
 		foreach ($types as $type) {
-		if($pageTemplate == 'page-templates/schools-template.php') {
+		if($pageTemplate == 'page-templates/schools-template.php' || $pageTemplate == 'page-templates/schools-v2-template.php')  {
 			add_meta_box ( 'schools_meta', __('Schools Images', 'schools-textdomain' ), 'schools_meta_callback', $type, 'normal', 'high');
 			}
 		}
