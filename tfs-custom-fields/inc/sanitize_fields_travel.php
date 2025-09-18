@@ -171,11 +171,6 @@ update_post_meta( $post_id, 'travel-description', sanitize_text_field( $_POST[ '
 }
 
 // Checks for input and sanitizes/saves if needed
-if( isset( $_POST[ 'masthead-bold-textarea' ] ) ) {
-update_post_meta( $post_id, 'masthead-bold-textarea', sanitize_text_field( $_POST[ 'masthead-bold-textarea' ] ) );
-}
-
-// Checks for input and sanitizes/saves if needed
 if( isset( $_POST[ 'feature-1-title' ] ) ) {
 update_post_meta( $post_id, 'feature-1-title', sanitize_text_field( $_POST[ 'feature-1-title' ] ) );
 }

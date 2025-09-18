@@ -88,12 +88,6 @@
 
     <!-- MASTHEAD SECTION -->
     <hr style="margin-top: 1.618em; border-top: 3px double #8c8b8b;">
-    <h3><?php echo 'Travel Masthead' ?></h3>
-
-    <div class="meta-field-container"><!-- Masthead Bold Paragraph -->
-        <strong><label for="masthead-bold-textarea" class="sbm-row-title"><?php _e( 'Masthead Bold Section', 'tfs-travel-textdomain' )?></label></strong>
-        <textarea style="width: 100%;" rows="4" name="masthead-bold-textarea" id="masthead-bold-textarea"><?php if ( isset ( $sbm_stored_travel_meta['masthead-bold-textarea'] ) ) echo $sbm_stored_travel_meta['masthead-bold-textarea'][0]; ?></textarea>
-    </div>
 
     <!-- TRAVEL DETAILS-->
     <hr style="margin-top: 1.618em; border-top: 3px double #8c8b8b;">
