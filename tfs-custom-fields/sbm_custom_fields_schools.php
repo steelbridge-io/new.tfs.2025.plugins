@@ -33,7 +33,7 @@ function tfs_schools_meta() {
 	  global $post;
 	  if(!empty($post)){
 		  $pageTemplate = get_post_meta($post->ID, '_wp_page_template', true);
-		  if($pageTemplate == 'page-templates/schools-template.php') {
+		  if($pageTemplate == 'page-templates/schools-template.php' || $pageTemplate == 'page-templates/schools-v2-template.php') {
 				$types = array('schools_cpt');
 				foreach($types as $type) {
 				add_meta_box( 'sbm_meta', __( 'Schools', 'tfs-schools-textdomain' ), 'tfs_schools_meta_callback', $type, 'normal', 'high' );
