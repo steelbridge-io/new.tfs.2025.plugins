@@ -90,23 +90,16 @@ return;
         update_post_meta( $post_id, 'season-color', sanitize_hex_color($_POST[ 'season-color' ]) );
     }
 
-// Checks for input and saves if needed
     if( isset( $_POST[ 'feature-3-get-to-title' ] ) ) {
         update_post_meta( $post_id, 'feature-3-get-to-title', $_POST[ 'feature-3-get-to-title' ] );
     }
 
-
-
-    // ... existing code ...
-
-// Monthly Range Season Controls - NEW FIELDS
     if( isset( $_POST[ 'monthly-range-checkbox' ] ) ) {
         update_post_meta( $post_id, 'monthly-range-checkbox', 'yes' );
     } else {
         update_post_meta( $post_id, 'monthly-range-checkbox', '' );
     }
 
-// Multi-season fields
     for ($season = 1; $season <= 3; $season++) {
         if( isset( $_POST[ "season{$season}-start-month" ] ) ) {
             update_post_meta( $post_id, "season{$season}-start-month", intval($_POST[ "season{$season}-start-month" ]) );
@@ -133,19 +126,6 @@ return;
         }
     }
 
-// ... existing code continues ...
-
-
-
-
-
-
-
-// ... existing code continues ...
-
-
-
-
 /** Sanitize fields for Travel */
 
 // Checks for input and sanitizes/saves if needed
@@ -161,6 +141,15 @@ update_post_meta( $post_id, 'dest-travel-logo',  esc_url_raw( $_POST[ 'dest-trav
 // Checks for input and sanitizes/saves if needed
 if( isset( $_POST[ 'travel-costs-image' ] ) ) {
 update_post_meta( $post_id, 'travel-costs-image', esc_url_raw( $_POST[ 'travel-costs-image' ] ) );
+}
+
+if ( isset( $_POST['feature_1_video_url'] ) ) {
+  $video_url = trim( (string) $_POST['feature_1_video_url'] );
+  if ( $video_url === '' ) {
+    delete_post_meta( $post_id, 'feature_1_video_url' );
+  } else {
+    update_post_meta( $post_id, 'feature_1_video_url', esc_url_raw( $video_url ) );
+  }
 }
 
 // Checks for input and sanitizes/saves if needed
@@ -223,6 +212,15 @@ if( isset( $_POST[ 'travel-seasons-image' ] ) ) {
     update_post_meta( $post_id, 'travel-seasons-image', esc_url_raw( $_POST[ 'travel-seasons-image' ] ) );
 }
 
+if ( isset( $_POST['feature_2_video_url'] ) ) {
+  $video_2_url = trim( (string) $_POST['feature_2_video_url'] );
+  if ( $video_2_url === '' ) {
+    delete_post_meta( $post_id, 'feature_2_video_url' );
+  } else {
+    update_post_meta( $post_id, 'feature_2_video_url', esc_url_raw( $video_2_url ) );
+  }
+}
+
 // Checks for input and saves if needed
 if( isset( $_POST['feature-2-seasons-content'] ) ) {
 update_post_meta( $post_id, 'feature-2-seasons-content', wp_kses($_POST[ 'feature-2-seasons-content' ], $allowed_html ));
@@ -270,6 +268,15 @@ if( isset( $_POST[ 'feature-3-getting-to-image' ] ) ) {
     update_post_meta( $post_id, 'feature-3-getting-to-image', esc_url_raw($_POST[ 'feature-3-getting-to-image' ] ) );
 }
 
+if ( isset( $_POST['feature_3_video_url'] ) ) {
+  $video_3_url = trim( (string) $_POST['feature_3_video_url'] );
+  if ( $video_3_url === '' ) {
+    delete_post_meta( $post_id, 'feature_3_video_url' );
+  } else {
+    update_post_meta( $post_id, 'feature_3_video_url', esc_url_raw( $video_3_url ) );
+  }
+}
+
 // Checks for input and saves if needed
 if( isset( $_POST[ 'feature-3-get-to-content' ] ) ) {
 update_post_meta( $post_id, 'feature-3-get-to-content', wp_kses($_POST[ 'feature-3-get-to-content' ], $allowed_html ));
@@ -300,6 +307,15 @@ if( isset( $_POST[ 'feature-4-lodging-content' ] ) ) {
 update_post_meta( $post_id, 'feature-4-lodging-content', wp_kses($_POST[ 'feature-4-lodging-content' ], $allowed_html ));
 }
 
+if ( isset( $_POST['feature_4_video_url'] ) ) {
+  $video_4_url = trim( (string) $_POST['feature_4_video_url'] );
+  if ( $video_4_url === '' ) {
+    delete_post_meta( $post_id, 'feature_4_video_url' );
+  } else {
+    update_post_meta( $post_id, 'feature_4_video_url', esc_url_raw( $video_4_url ) );
+  }
+}
+
 // Checks for input and saves if needed
 if( isset( $_POST[ 'feature-4-read-more-info' ] ) ) {
   update_post_meta( $post_id, 'feature-4-read-more-info', wp_kses($_POST[ 'feature-4-read-more-info' ], $allowed_html ));
@@ -318,6 +334,15 @@ update_post_meta( $post_id, 'feature-5-angling-title', wp_kses($_POST[ 'feature-
 // Checks for input and saves if needed
 if( isset( $_POST[ 'feature-5-angling-img' ] ) ) {
     update_post_meta( $post_id, 'feature-5-angling-img', esc_url_raw($_POST[ 'feature-5-angling-img' ] ) );
+}
+
+if ( isset( $_POST['feature_5_video_url'] ) ) {
+  $video_5_url = trim( (string) $_POST['feature_5_video_url'] );
+  if ( $video_5_url === '' ) {
+    delete_post_meta( $post_id, 'feature_5_video_url' );
+  } else {
+    update_post_meta( $post_id, 'feature_5_video_url', esc_url_raw( $video_5_url ) );
+  }
 }
 
 // Checks for input and saves if needed

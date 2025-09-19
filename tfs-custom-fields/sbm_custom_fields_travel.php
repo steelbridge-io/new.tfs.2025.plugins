@@ -108,6 +108,75 @@
         </div>
     </div>
 
+    <!-- Travel Costs & Inclusions Video -->
+    <div class="meta-field-container">
+        <strong><label for="feature_1_video_url" class="sbm-row-title"><?php _e( 'Travel Costs & Inclusions Video URL', 'tfs-travel-textdomain' ); ?></label></strong>
+        <input
+                type="url"
+                name="feature_1_video_url"
+                id="feature_1_video_url"
+                style="width: 100%;"
+                placeholder="https://example.com/path/video.mp4"
+                value="<?php
+                if ( isset( $sbm_stored_travel_meta['feature_1_video_url'] ) ) {
+                    echo esc_attr( $sbm_stored_travel_meta['feature_1_video_url'][0] );
+                }
+                ?>"
+        />
+        <p class="description"><?php _e( 'Add a direct video URL (e.g., MP4). Playback is user-initiated via controls. Poster uses the Travel Costs image if set.', 'tfs-travel-textdomain' ); ?></p>
+    </div>
+
+        <?php
+        $feature_1_video_current = isset( $sbm_stored_travel_meta['feature_1_video_url'] )
+                ? trim( (string) $sbm_stored_travel_meta['feature_1_video_url'][0] )
+                : '';
+        $travel_costs_poster = isset( $sbm_stored_travel_meta['travel-costs-image'] )
+                ? trim( (string) $sbm_stored_travel_meta['travel-costs-image'][0] )
+                : '';
+        ?>
+        <div id="feature-1-video-preview" style="margin-top:10px; <?php echo $feature_1_video_current ? '' : 'display:none;'; ?>">
+            <video
+                    id="feature-1-video"
+                    controls
+                    playsinline
+                    preload="metadata"
+                    style="max-width:100%;height:auto;"
+                    <?php if ( $travel_costs_poster ) : ?>
+                        poster="<?php echo esc_url( $travel_costs_poster ); ?>"
+                    <?php endif; ?>
+            >
+                <?php if ( $feature_1_video_current ) : ?>
+                    <source src="<?php echo esc_url( $feature_1_video_current ); ?>" type="video/mp4" />
+                <?php endif; ?>
+                <?php _e( 'Your browser does not support the video tag.', 'tfs-travel-textdomain' ); ?>
+            </video>
+        </div>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                var input = document.getElementById('feature_1_video_url');
+                var previewWrap = document.getElementById('feature-1-video-preview');
+                var video = document.getElementById('feature-1-video');
+                if (!input || !previewWrap || !video) return;
+
+                input.addEventListener('input', function () {
+                    var url = (this.value || '').trim();
+                    if (url) {
+                        var source = video.querySelector('source');
+                        if (!source) {
+                            source = document.createElement('source');
+                            source.type = 'video/mp4';
+                            video.appendChild(source);
+                        }
+                        source.src = url;
+                        video.load();
+                        previewWrap.style.display = 'block';
+                    } else {
+                        previewWrap.style.display = 'none';
+                    }
+                });
+            });
+        </script>
+
     <p><!-- Costs Title -->
         <strong><label for="feature-1-title" class="sbm-row-title"><?php _e( 'Title', 'tfs-travel-textdomain' )?></label></strong>
 
@@ -167,6 +236,76 @@
             <?php endif; ?>
         </div>
     </div>
+
+
+        <!-- Seasons Video URL -->
+        <div class="meta-field-container">
+            <strong><label for="feature_2_video_url" class="sbm-row-title"><?php _e( 'Seasons Video URL', 'tfs-travel-textdomain' ); ?></label></strong>
+            <input
+                    type="url"
+                    name="feature_2_video_url"
+                    id="feature_2_video_url"
+                    style="width: 100%;"
+                    placeholder="https://example.com/path/video.mp4"
+                    value="<?php
+                    if ( isset( $sbm_stored_travel_meta['feature_2_video_url'] ) ) {
+                        echo esc_attr( $sbm_stored_travel_meta['feature_2_video_url'][0] );
+                    }
+                    ?>"
+            />
+            <p class="description"><?php _e( 'Add a direct video URL (e.g., MP4). Playback is user-initiated via controls. Poster uses the Travel Costs image if set.', 'tfs-travel-textdomain' ); ?></p>
+        </div>
+
+        <?php
+        $feature_2_video_current = isset( $sbm_stored_travel_meta['feature_2_video_url'] )
+                ? trim( (string) $sbm_stored_travel_meta['feature_1_video_url'][0] )
+                : '';
+        $travel_seasons_poster = isset( $sbm_stored_travel_meta['travel-seasons-image'] )
+                ? trim( (string) $sbm_stored_travel_meta['travel-seasons-image'][0] )
+                : '';
+        ?>
+        <div id="feature-2-video-preview" style="margin-top:10px; <?php echo $feature_2_video_current ? '' : 'display:none;'; ?>">
+            <video
+                    id="feature-2-video"
+                    controls
+                    playsinline
+                    preload="metadata"
+                    style="max-width:100%;height:auto;"
+                    <?php if ( $travel_costs_poster ) : ?>
+                        poster="<?php echo esc_url( $travel_seasons_poster ); ?>"
+                    <?php endif; ?>
+            >
+                <?php if ( $feature_2_video_current ) : ?>
+                    <source src="<?php echo esc_url( $feature_2_video_current ); ?>" type="video/mp4" />
+                <?php endif; ?>
+                <?php _e( 'Your browser does not support the video tag.', 'tfs-travel-textdomain' ); ?>
+            </video>
+        </div>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                var input = document.getElementById('feature_2_video_url');
+                var previewWrap = document.getElementById('feature-2-video-preview');
+                var video = document.getElementById('feature-2-video');
+                if (!input || !previewWrap || !video) return;
+
+                input.addEventListener('input', function () {
+                    var url = (this.value || '').trim();
+                    if (url) {
+                        var source = video.querySelector('source');
+                        if (!source) {
+                            source = document.createElement('source');
+                            source.type = 'video/mp4';
+                            video.appendChild(source);
+                        }
+                        source.src = url;
+                        video.load();
+                        previewWrap.style.display = 'block';
+                    } else {
+                        previewWrap.style.display = 'none';
+                    }
+                });
+            });
+        </script>
 
     <!-- TABED SEASONS SECTION
     -------------------------------------------------------------->
@@ -589,9 +728,6 @@
         </div>
     </div>
 
-
-
-
     <!-- ====== GETTING TO ====== -->
     <hr style="margin-top: 1.618em; border-top: 3px double #8c8b8b;">
     <h3><?php echo 'Getting To Destination' ?></h3>
@@ -620,6 +756,75 @@
         </div>
 
     </div>
+
+    <!-- Getting To Video -->
+    <div class="meta-field-container">
+        <strong><label for="feature_3_video_url" class="sbm-row-title"><?php _e( 'Getting To Video URL', 'tfs-travel-textdomain' ); ?></label></strong>
+        <input
+                type="url"
+                name="feature_3_video_url"
+                id="feature_3_video_url"
+                style="width: 100%;"
+                placeholder="https://example.com/path/video.mp4"
+                value="<?php
+                if ( isset( $sbm_stored_travel_meta['feature_3_video_url'] ) ) {
+                    echo esc_attr( $sbm_stored_travel_meta['feature_3_video_url'][0] );
+                }
+                ?>"
+        />
+        <p class="description"><?php _e( 'Add a direct video URL (e.g., MP4). Playback is user-initiated via controls. Poster uses the Travel Costs image if set.', 'tfs-travel-textdomain' ); ?></p>
+    </div>
+
+        <?php
+        $feature_3_video_current = isset( $sbm_stored_travel_meta['feature_3_video_url'] )
+                ? trim( (string) $sbm_stored_travel_meta['feature_3_video_url'][0] )
+                : '';
+        $travel_getto_poster = isset( $sbm_stored_travel_meta['travel-getto-image'] )
+                ? trim( (string) $sbm_stored_travel_meta['travel-getto-image'][0] )
+                : '';
+        ?>
+        <div id="feature-3-video-preview" style="margin-top:10px; <?php echo $feature_3_video_current ? '' : 'display:none;'; ?>">
+            <video
+                    id="feature-3-video"
+                    controls
+                    playsinline
+                    preload="metadata"
+                    style="max-width:100%;height:auto;"
+                    <?php if ( $travel_getto_poster ) : ?>
+                        poster="<?php echo esc_url( $travel_getto_poster ); ?>"
+                    <?php endif; ?>
+            >
+                <?php if ( $feature_3_video_current ) : ?>
+                    <source src="<?php echo esc_url( $feature_3_video_current ); ?>" type="video/mp4" />
+                <?php endif; ?>
+                <?php _e( 'Your browser does not support the video tag.', 'tfs-travel-textdomain' ); ?>
+            </video>
+        </div>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                var input = document.getElementById('feature_3_video_url');
+                var previewWrap = document.getElementById('feature-3-video-preview');
+                var video = document.getElementById('feature-3-video');
+                if (!input || !previewWrap || !video) return;
+
+                input.addEventListener('input', function () {
+                    var url = (this.value || '').trim();
+                    if (url) {
+                        var source = video.querySelector('source');
+                        if (!source) {
+                            source = document.createElement('source');
+                            source.type = 'video/mp4';
+                            video.appendChild(source);
+                        }
+                        source.src = url;
+                        video.load();
+                        previewWrap.style.display = 'block';
+                    } else {
+                        previewWrap.style.display = 'none';
+                    }
+                });
+            });
+        </script>
 
     <p><!-- Getting To Content/Text Area -->
         <strong><label for="feature-3-get-to-content" class="sbm-row-title"><?php _e( 'Content', 'tfs-travel-textdomain' )?></label></strong>
@@ -662,6 +867,76 @@
 
     </div>
 
+    <!-- Lodging Video -->
+    <div class="meta-field-container">
+        <strong><label for="feature_4_video_url" class="sbm-row-title"><?php _e( 'Lodging Video URL', 'tfs-travel-textdomain' ); ?></label></strong>
+        <input
+                type="url"
+                name="feature_4_video_url"
+                id="feature_4_video_url"
+                style="width: 100%;"
+                placeholder="https://example.com/path/video.mp4"
+                value="<?php
+                if ( isset( $sbm_stored_travel_meta['feature_4_video_url'] ) ) {
+                    echo esc_attr( $sbm_stored_travel_meta['feature_4_video_url'][0] );
+                }
+                ?>"
+        />
+        <p class="description"><?php _e( 'Add a direct video URL (e.g., MP4). Playback is user-initiated via controls. Poster uses the Travel Costs image if set.', 'tfs-travel-textdomain' ); ?></p>
+    </div>
+
+        <?php
+        $feature_4_video_current = isset( $sbm_stored_travel_meta['feature_4_video_url'] )
+                ? trim( (string) $sbm_stored_travel_meta['feature_4_video_url'][0] )
+                : '';
+        $travel_lodging_poster = isset( $sbm_stored_travel_meta['travel-lodging-image'] )
+                ? trim( (string) $sbm_stored_travel_meta['travel-lodging-image'][0] )
+                : '';
+        ?>
+
+    <div id="feature-4-video-preview" style="margin-top:10px; <?php echo $feature_4_video_current ? '' : 'display:none;'; ?>">
+        <video
+                id="feature-4-video"
+                controls
+                playsinline
+                preload="metadata"
+                style="max-width:100%;height:auto;"
+                <?php if ( $travel_lodging_poster ) : ?>
+                    poster="<?php echo esc_url( $travel_lodging_poster ); ?>"
+                <?php endif; ?>
+        >
+            <?php if ( $feature_4_video_current ) : ?>
+                <source src="<?php echo esc_url( $feature_4_video_current ); ?>" type="video/mp4" />
+            <?php endif; ?>
+            <?php _e( 'Your browser does not support the video tag.', 'tfs-travel-textdomain' ); ?>
+        </video>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var input = document.getElementById('feature_4_video_url');
+            var previewWrap = document.getElementById('feature-4-video-preview');
+            var video = document.getElementById('feature-4-video');
+            if (!input || !previewWrap || !video) return;
+
+            input.addEventListener('input', function () {
+                var url = (this.value || '').trim();
+                if (url) {
+                    var source = video.querySelector('source');
+                    if (!source) {
+                        source = document.createElement('source');
+                        source.type = 'video/mp4';
+                        video.appendChild(source);
+                    }
+                    source.src = url;
+                    video.load();
+                    previewWrap.style.display = 'block';
+                } else {
+                    previewWrap.style.display = 'none';
+                }
+            });
+        });
+    </script>
+
     <!-- Lodging Content -->
     <p>
         <strong><label for="feature-4-lodging-content" class="sbm-row-title"><?php _e( 'Content', 'tfs-travel-textdomain' )?></label></strong>
@@ -702,6 +977,76 @@
         </div>
 
     </div>
+
+
+    <!-- Anging Video -->
+    <div class="meta-field-container">
+        <strong><label for="feature_5_video_url" class="sbm-row-title"><?php _e( 'Angling Video URL', 'tfs-travel-textdomain' ); ?></label></strong>
+        <input
+                type="url"
+                name="feature_5_video_url"
+                id="feature_5_video_url"
+                style="width: 100%;"
+                placeholder="https://example.com/path/video.mp4"
+                value="<?php
+                if ( isset( $sbm_stored_travel_meta['feature_5_video_url'] ) ) {
+                    echo esc_attr( $sbm_stored_travel_meta['feature_5_video_url'][0] );
+                }
+                ?>"
+        />
+        <p class="description"><?php _e( 'Add a direct video URL (e.g., MP4). Playback is user-initiated via controls. Poster uses the Travel Costs image if set.', 'tfs-travel-textdomain' ); ?></p>
+    </div>
+
+        <?php
+        $feature_5_video_current = isset( $sbm_stored_travel_meta['feature_5_video_url'] )
+                ? trim( (string) $sbm_stored_travel_meta['feature_5_video_url'][0] )
+                : '';
+        $travel_angling_poster = isset( $sbm_stored_travel_meta['travel-angling-image'] )
+                ? trim( (string) $sbm_stored_travel_meta['travel-angling-image'][0] )
+                : '';
+        ?>
+    <div id="feature-5-video-preview" style="margin-top:10px; <?php echo $feature_5_video_current ? '' : 'display:none;'; ?>">
+        <video
+                id="feature-5-video"
+                controls
+                playsinline
+                preload="metadata"
+                style="max-width:100%;height:auto;"
+                <?php if ( $travel_angling_poster ) : ?>
+                    poster="<?php echo esc_url( $travel_angling_poster ); ?>"
+                <?php endif; ?>
+        >
+            <?php if ( $feature_5_video_current ) : ?>
+                <source src="<?php echo esc_url( $feature_5_video_current ); ?>" type="video/mp4" />
+            <?php endif; ?>
+            <?php _e( 'Your browser does not support the video tag.', 'tfs-travel-textdomain' ); ?>
+        </video>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var input = document.getElementById('feature_5_video_url');
+            var previewWrap = document.getElementById('feature-5-video-preview');
+            var video = document.getElementById('feature-5-video');
+            if (!input || !previewWrap || !video) return;
+
+            input.addEventListener('input', function () {
+                var url = (this.value || '').trim();
+                if (url) {
+                    var source = video.querySelector('source');
+                    if (!source) {
+                        source = document.createElement('source');
+                        source.type = 'video/mp4';
+                        video.appendChild(source);
+                    }
+                    source.src = url;
+                    video.load();
+                    previewWrap.style.display = 'block';
+                } else {
+                    previewWrap.style.display = 'none';
+                }
+            });
+        });
+    </script>
 
     <p><!-- Angling Content -->
         <strong><label for="feature-5-angling-content" class="sbm-row-title"><?php _e( 'Content', 'tfs-travel-textdomain' )?></label></strong>
