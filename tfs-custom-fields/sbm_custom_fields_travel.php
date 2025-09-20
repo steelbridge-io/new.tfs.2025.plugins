@@ -16,7 +16,7 @@
     global $post;
     if(!empty($post)){
         $pageTemplate = get_post_meta($post->ID, '_wp_page_template', true);
-        if($pageTemplate == 'page-templates/destination-template.php' || $pageTemplate == 'page-templates/regional-waters-template.php' || $pageTemplate == 'page-templates/destination-v2-template.php' || $pageTemplate == 'page-templates/destination-v3-template.php') {
+        if($pageTemplate == 'page-templates/destination-template.php' || $pageTemplate == 'page-templates/regional-waters-template.php' || $pageTemplate == 'page-templates/destination-v3-template.php') {
             $types = array('post', 'page', 'travel_cpt', 'lower48', 'travel-blog', 'esb_lodge', 'guide_service');
             foreach($types as $type) {
                 add_meta_box( 'sbm_meta', __( 'Travel Content Fields', 'tfs-travel-textdomain' ), 'tfs_travel_meta_callback',
@@ -78,6 +78,76 @@
         <?php endif; ?>
     </div>
 
+    </div>
+
+    <!-- Travel Hero Video URL -->
+    <div class="meta-field-container">
+     <strong><label for="travel-hero-video" class="sbm-row-title"><?php _e( 'Hero Video URL', 'tfs-travel-textdomain' ); ?></label></strong>
+     <input
+      type="url"
+      name="travel-hero-video"
+      id="travel-hero-video"
+      style="width: 100%;"
+      placeholder="https://storage.googleapis.com/path/to/video.mp4"
+      value="<?php
+      if ( isset( $sbm_stored_travel_meta['travel-hero-video'] ) ) {
+       echo esc_attr( $sbm_stored_travel_meta['travel-hero-video'][0] );
+      }
+      ?>"
+     />
+     <p class="description"><?php _e( 'Add a direct video URL from Google Cloud or other cloud storage. Video will override featured image. Uses featured image as poster.', 'tfs-travel-textdomain' ); ?></p>
+
+     <!-- Video Preview -->
+     <?php
+     $hero_video_current = isset( $sbm_stored_travel_meta['travel-hero-video'] )
+      ? trim( (string) $sbm_stored_travel_meta['travel-hero-video'][0] )
+      : '';
+     $hero_poster = has_post_thumbnail()
+      ? get_the_post_thumbnail_url(get_the_ID(), 'medium')
+      : '';
+     ?>
+     <div id="travel-hero-video-preview" style="margin-top:10px; <?php echo $hero_video_current ? '' : 'display:none;'; ?>">
+      <video
+       id="travel-hero-video-element"
+       controls
+       playsinline
+       preload="metadata"
+       style="max-width:100%;height:auto;max-height:300px;"
+       <?php if ( $hero_poster ) : ?>
+        poster="<?php echo esc_url( $hero_poster ); ?>"
+       <?php endif; ?>
+      >
+       <?php if ( $hero_video_current ) : ?>
+        <source src="<?php echo esc_url( $hero_video_current ); ?>" type="video/mp4" />
+       <?php endif; ?>
+       <?php _e( 'Your browser does not support the video tag.', 'tfs-travel-textdomain' ); ?>
+      </video>
+     </div>
+     <script>
+         document.addEventListener('DOMContentLoaded', function () {
+             var input = document.getElementById('travel-hero-video');
+             var previewWrap = document.getElementById('travel-hero-video-preview');
+             var video = document.getElementById('travel-hero-video-element');
+             if (!input || !previewWrap || !video) return;
+
+             input.addEventListener('input', function () {
+                 var url = (this.value || '').trim();
+                 if (url) {
+                     var source = video.querySelector('source');
+                     if (!source) {
+                         source = document.createElement('source');
+                         source.type = 'video/mp4';
+                         video.appendChild(source);
+                     }
+                     source.src = url;
+                     video.load();
+                     previewWrap.style.display = 'block';
+                 } else {
+                     previewWrap.style.display = 'none';
+                 }
+             });
+         });
+     </script>
     </div>
 
     <!-- Travel Description / Appears below site title -->
@@ -1063,15 +1133,15 @@
 
     <!-- ====== CALL TO ACTION ROW ====== -->
     <hr style="margin-top: 1.618em; border-top: 3px double #8c8b8b;">
-    <h3><?php echo 'CTA Section' ?></h3>
+    <h3><?php echo 'Set The Hook Section' ?></h3>
 
-    <p><!-- Call To Action Strong Into -->
-        <strong><label for="cta-strong-intro" class="sbm-row-title"><?php _e('CTA Intro','tfs-travel-textdomain')?></label></strong>
+    <p><!-- Set The Hook Into -->
+        <strong><label for="cta-strong-intro" class="sbm-row-title"><?php _e('Set The Hook Intro','tfs-travel-textdomain')?></label></strong>
         <input style="width: 100%;" type="text" placeholder="Place CTA content here." name="cta-strong-intro" id="cta-strong-intro" value="<?php if (isset($sbm_stored_travel_meta['cta-strong-intro'])) echo $sbm_stored_travel_meta['cta-strong-intro'][0]; ?>" />
     </p>
 
-    <p><!-- Call To Action Content -->
-        <strong><label for="cta-content" class="sbm-row-title"><?php _e( 'CTA Content', 'tfs-travel-textdomain' )?></label></strong>
+    <p><!-- Set The Hook Content -->
+        <strong><label for="cta-content" class="sbm-row-title"><?php _e( 'Set The Hook Content', 'tfs-travel-textdomain' )?></label></strong>
         <textarea style="width: 100%;" rows="4" name="cta-content" id="cta-content"><?php if ( isset ( $sbm_stored_travel_meta['cta-content'] ) ) echo $sbm_stored_travel_meta['cta-content'][0]; ?></textarea>
     </p>
 
@@ -1216,13 +1286,5 @@
                    'the-fly-shop' ); ?>"/>
 
     </p>
-
-
-
-
-
-
-
-
 
     <?php } ?>

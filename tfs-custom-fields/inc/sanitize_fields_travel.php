@@ -138,6 +138,16 @@ if( isset( $_POST[ 'dest-travel-logo' ] ) ) {
 update_post_meta( $post_id, 'dest-travel-logo',  esc_url_raw( $_POST[ 'dest-travel-logo' ] ) );
 }
 
+// Save Travel Hero Video URL
+if ( isset( $_POST['travel-hero-video'] ) ) {
+ $hero_video_url = trim( (string) $_POST['travel-hero-video'] );
+ if ( $hero_video_url === '' ) {
+	delete_post_meta( $post_id, 'travel-hero-video' );
+ } else {
+	update_post_meta( $post_id, 'travel-hero-video', esc_url_raw( $hero_video_url ) );
+ }
+}
+
 // Checks for input and sanitizes/saves if needed
 if( isset( $_POST[ 'travel-costs-image' ] ) ) {
 update_post_meta( $post_id, 'travel-costs-image', esc_url_raw( $_POST[ 'travel-costs-image' ] ) );
