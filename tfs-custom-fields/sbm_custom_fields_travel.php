@@ -103,7 +103,7 @@
       ? trim( (string) $sbm_stored_travel_meta['travel-hero-video'][0] )
       : '';
      $hero_poster = has_post_thumbnail()
-      ? get_the_post_thumbnail_url(get_the_ID(), 'medium')
+      ? get_the_post_thumbnail_url(get_the_ID(), 'large')
       : '';
      ?>
      <div id="travel-hero-video-preview" style="margin-top:10px; <?php echo $hero_video_current ? '' : 'display:none;'; ?>">
@@ -112,7 +112,7 @@
        controls
        playsinline
        preload="metadata"
-       style="max-width:100%;height:auto;max-height:300px;"
+       style="max-width:100%;height:auto;"
        <?php if ( $hero_poster ) : ?>
         poster="<?php echo esc_url( $hero_poster ); ?>"
        <?php endif; ?>
