@@ -224,12 +224,23 @@ function load_opacity_range_css_private_waters() {
 			    background-color: black;
 			    z-index: 1;
 			 }
+			 
+			 #banner .private-temp-hero-overlay .overlay {
+				 opacity: ' . $private_hero_opacity_range . ';
+				 position: absolute;
+				 top: 0;
+				 left: 0;
+				 height: 100%;
+				 width: 100%;
+				 background-color: black;
+				 z-index: 1;
+			}
 			 ';
 
 		return $private_template_opacity_range;
 	}
 
-	if (is_page_template('page-templates/guide-service-template.php')) {
+	if (is_page_template('page-templates/guide-service-template.php') || is_page_template('page-templates/guide-service-destination-template.php')) {
 		$guidesvc_hero_opacity_range = get_post_meta(get_the_ID(), 'guidesvc-hero-opacity-range', true);
 		$guidesvc_template_opacity_range = '';
 
@@ -237,6 +248,16 @@ function load_opacity_range_css_private_waters() {
 			 #banner.guidesvc-temp-hero-overlay .overlay,
 			 #banner.guidesvc-template-banner .overlay {
 			    opacity: ' . $guidesvc_hero_opacity_range . ';
+			    position: absolute;
+			    top: 0;
+			    left: 0;
+			    height: 100%;
+			    width: 100%;
+			    background-color: black;
+			    z-index: 1;
+			 }
+			 #banner .guidesvc-temp-hero-overlay .overlay {
+			 	 opacity: ' . $guidesvc_hero_opacity_range . ';
 			    position: absolute;
 			    top: 0;
 			    left: 0;
