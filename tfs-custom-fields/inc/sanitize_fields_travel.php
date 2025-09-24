@@ -16,55 +16,48 @@ if ( $is_autosave || $is_revision || !$is_valid_nonce ) {
 return;
 }
 
-	$allowed_html = array(
-	  'a'			 => array(
-		 'href' => array(
-			'href' => array(),  // Changed from true to array()
-			'title' => array(),
-			'target' => array(),
-			'class' => array(),
-			'style' => array(),
-			'rel' => array()
-		 ),
-		 'title' => array(),
-		 'target' => array(),
-		 'class' => array(),
-		 'style' => array(),
-		 'rel' => array()
-		),
-		'br'     => array(),
-		'strong' => array(),
-		'em'     => array(),
-		'div'    => array(
-		 'class' => array(),
-		 'style' => array(),
-		 'id' => array()
-		),
-		'p'      => array(
-		 'class' => array(),
-		 'style' => array()
-		),
-		'b'      => array(),
-		'span'   => array(
-		 'class' => array(),
-		 'style' => array()
-		),
-		'h1'     => array(
-		 'class' => array(),
-		),
-		'h2'     => array(
-		 'class' => array(),
-		),
-		'h3'     => array(
-		 'class' => array(),
-		),
-		'h4'     => array(
-		 'class' => array(),
-		),
-		'h5'     => array(
-		 'class' => array(),
-		),
-	);
+ $allowed_html = array(
+	'a' => array(
+	 'href' => array(),
+	 'title' => array(),
+	 'target' => array(),
+	 'class' => array(),
+	 'style' => array(),
+	 'rel' => array()
+	),
+	'br'     => array(),
+	'strong' => array(),
+	'em'     => array(),
+	'div'    => array(
+	 'class' => array(),
+	 'style' => array(),
+	 'id' => array()
+	),
+	'p'      => array(
+	 'class' => array(),
+	 'style' => array()
+	),
+	'b'      => array(),
+	'span'   => array(
+	 'class' => array(),
+	 'style' => array()
+	),
+	'h1'     => array(
+	 'class' => array(),
+	),
+	'h2'     => array(
+	 'class' => array(),
+	),
+	'h3'     => array(
+	 'class' => array(),
+	),
+	'h4'     => array(
+	 'class' => array(),
+	),
+	'h5'     => array(
+	 'class' => array(),
+	),
+ );
 
 // Checks for input and saves if needed
     if( isset( $_POST[ 'multi-season-calendar-title' ] ) ) {
@@ -182,6 +175,43 @@ if( isset( $_POST[ 'feature-1-readmore' ] ) ) {
 if( isset( $_POST[ 'feature-1-cost-textarea' ] ) ) {
 update_post_meta( $post_id, 'feature-1-cost-textarea', wp_kses($_POST[ 'feature-1-cost-textarea' ], $allowed_html ));
 }
+
+// Save pricing table fields
+ // Replace the problematic pricing table handling with this safer approach:
+ if( isset( $_POST[ 'pricing-table-config' ] ) ) {
+	$config_data = wp_unslash($_POST[ 'pricing-table-config' ]);
+	$config_array = json_decode($config_data, true);
+	if (json_last_error() === JSON_ERROR_NONE && is_array($config_array)) {
+	 // Sanitize each config value individually
+	 $sanitized_config = array(
+		'columns' => isset($config_array['columns']) ? intval($config_array['columns']) : 3,
+		'rows' => isset($config_array['rows']) ? intval($config_array['rows']) : 3,
+		'title' => isset($config_array['title']) ? sanitize_text_field($config_array['title']) : ''
+	 );
+	 update_post_meta( $post_id, 'pricing-table-config', wp_json_encode($sanitized_config) );
+	}
+ } else {
+	delete_post_meta( $post_id, 'pricing-table-config' );
+ }
+
+ if( isset( $_POST[ 'pricing-table-data' ] ) ) {
+	$table_data = wp_unslash($_POST[ 'pricing-table-data' ]);
+	$data_array = json_decode($table_data, true);
+	if (json_last_error() === JSON_ERROR_NONE && is_array($data_array)) {
+	 // Sanitize each data value
+	 $sanitized_data = array();
+	 foreach($data_array as $row_key => $row_data) {
+		if(is_array($row_data)) {
+		 foreach($row_data as $col_key => $cell_value) {
+			$sanitized_data[intval($row_key)][intval($col_key)] = sanitize_text_field($cell_value);
+		 }
+		}
+	 }
+	 update_post_meta( $post_id, 'pricing-table-data', wp_json_encode($sanitized_data) );
+	}
+ } else {
+	delete_post_meta( $post_id, 'pricing-table-data' );
+ }
 
 // Checks for input and saves if needed
 if( isset( $_POST[ 'feature-1-inclusions-textarea' ] ) ) {
@@ -491,5 +521,4 @@ update_post_meta( $post_id, 'cta-strong-intro', $_POST[ 'cta-strong-intro' ] );
 if( isset( $_POST[ 'cta-content' ] ) ) {
 update_post_meta( $post_id, 'cta-content', $_POST[ 'cta-content' ] );
 }
-
 }
