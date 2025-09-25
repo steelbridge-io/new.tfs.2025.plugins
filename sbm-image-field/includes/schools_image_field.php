@@ -11,7 +11,7 @@ function schools_custom_meta() { global $post;
 		$pageTemplate = get_post_meta ($post -> ID, '_wp_page_template', true);
 		$types = array('schools_cpt');
 		foreach ($types as $type) {
-		if($pageTemplate == 'page-templates/schools-template.php' || $pageTemplate == 'page-templates/schools-v2-template.php')  {
+		if($pageTemplate == 'page-templates/schools-template.php')  {
 			add_meta_box ( 'schools_meta', __('Schools Images', 'schools-textdomain' ), 'schools_meta_callback', $type, 'normal', 'high');
 			}
 		}
@@ -25,23 +25,18 @@ ob_start();
 function schools_meta_callback( $post ) {
     wp_nonce_field( basename( __FILE__ ), 'schools_nonce' );
     $schools_stored_meta = get_post_meta( $post->ID );?>
-		<p> <!-- ==== TFS LOGO ==== -->
+
+    <!-- ==== TFS LOGO ==== -->
     
-    <label for="schools-logo" class="schools-row-title"><?php _e( '<h3>TFS Logo</h3>', 'schools-textdomain' );?></label><br>
-    <input type="text" name="schools-logo" id="schools-logo" value="<?php if ( isset ( $schools_stored_meta['schools-logo'] ) ) echo $schools_stored_meta['schools-logo'][0];?>" />
-    <input type="button" id="schools-logo-button" class="button" value="<?php _e( 'Choose or Upload an Image', 'schools-textdomain' );?>" />
+   <!-- <label for="schools-logo" class="schools-row-title"><?php //_e( '<h3>TFS Logo</h3>', 'schools-textdomain' );?></label><br>
+    <input type="text" name="schools-logo" id="schools-logo" value="<?php //if ( isset ( $schools_stored_meta['schools-logo'] ) ) echo $schools_stored_meta['schools-logo'][0];?>" />
+    <input type="button" id="schools-logo-button" class="button" value="<?php //_e( 'Choose or Upload an Image', 'schools-textdomain' );?>" /> -->
+
+    <!-- ==== SCHOOLS HERO IMAGE ==== -->
     
-		</p>
-		
-		<p> <!-- ==== SCHOOLS HERO IMAGE ==== -->
-    
-    <label for="schools-image" class="schools-row-title"><?php _e( '<h3>Schools Hero Image</h3>', 'schools-textdomain' );?></label><br>
-    <input type="text" name="schools-image" id="schools-image" value="<?php if ( isset ( $schools_stored_meta['schools-image'] ) ) echo $schools_stored_meta['schools-image'][0];?>" />
-    <input type="button" id="schools-image-button" class="button" value="<?php _e( 'Choose or Upload an Image', 'schools-textdomain' );?>" />
-    
-		</p>
-		
-		<hr style="margin-top: 1.618em; border-top: 3px double #8c8b8b;">
+    <!-- <label for="schools-image" class="schools-row-title"><?php //_e( '<h3>Schools Hero Image</h3>', 'schools-textdomain' );?></label><br>
+    <input type="text" name="schools-image" id="schools-image" value="<?php //if ( isset ( $schools_stored_meta['schools-image'] ) ) echo $schools_stored_meta['schools-image'][0];?>" />
+    <input type="button" id="schools-image-button" class="button" value="<?php //_e( 'Choose or Upload an Image', 'schools-textdomain' );?>" /> -->
 		
 		<p> <!-- ==== SCHOOLS COST IMAGE / VIDEO ==== -->
     
@@ -53,21 +48,19 @@ function schools_meta_callback( $post ) {
 		
 		<p> <!-- ==== FEATURE #1 / SCHOOLS WATERS TEXT/VIDEO ==== -->
 		
-		<label for="feature-sch1-video" class="schools-row-title"><?php _e( '<strong>Enter Public URL</strong>', 'schools-textdomain' )?></label>
+		<label for="feature-sch1-video" class="schools-row-title"><?php _e( '<strong>Use video embed URL</strong>', 'schools-textdomain' )?></label>
 		<input type="url" name="feature-sch1-video" id="feature-sch1-video" value="<?php if ( isset ( $schools_stored_meta['feature-sch1-video'] ) ) echo $schools_stored_meta['feature-sch1-video'][0]; ?>" />
-		</p>
-		<p> <!-- ==== FEATURE #1 / SCHOOLS VIDEO/IMAGE OPTION ==== -->
 
-		<span class="schools-row-title"><?php _e( '<strong>Image or Video?</strong>', 'schools-textdomain' )?></span>
+		</p>
+		<!-- ==== FEATURE #1 / SCHOOLS VIDEO/IMAGE OPTION ==== -->
+		<!-- <span class="schools-row-title"><?php //_e( '<strong>Image or Video?</strong>', 'schools-textdomain' )?></span>
 		<div class="schools-row-content">
 		<label for="feature-sch1-checkbox">
-		<input type="checkbox" name="feature-sch1-checkbox" id="feature-sch1-checkbox" value="yes" <?php if ( isset ( $schools_stored_meta['feature-sch1-checkbox'] ) ) checked( $schools_stored_meta['feature-sch1-checkbox'][0], 'yes' ); ?> />
-		<?php _e( 'Check box if you are importing video. Leave unchecked for image.', 'schools-textdomain' )?>
+		<input type="checkbox" name="feature-sch1-checkbox" id="feature-sch1-checkbox" value="yes" <?php //if ( isset ( $schools_stored_meta['feature-sch1-checkbox'] ) ) checked( $schools_stored_meta['feature-sch1-checkbox'][0], 'yes' ); ?> />
+		<?php //_e( 'Check box if you are importing video. Leave unchecked for image.', 'schools-textdomain' )?>
 		</label>
 		</label>
-		</div>
-		
-		</p>
+		</div> -->
 		<hr style="margin-top: 1.618em; border-top: 3px double #8c8b8b;">
 		<p> <!-- ==== SCHOOL DATES IMAGE==== -->
     
@@ -79,23 +72,20 @@ function schools_meta_callback( $post ) {
 		
 		<p> <!-- ==== SCHOOLS DATES TEXT/VIDEO ==== -->
 		
-		<label for="feature-sch2-video" class="schools-row-title"><?php _e( '<strong>Enter Public URL</strong>', 'schools-textdomain' )?></label>
+		<label for="feature-sch2-video" class="schools-row-title"><?php _e( '<strong>Use video embed URL</strong>', 'schools-textdomain' )?></label>
 		<input type="url" name="feature-sch2-video" id="feature-sch2-video" value="<?php if ( isset ( $schools_stored_meta['feature-sch2-video'] ) ) echo $schools_stored_meta['feature-sch2-video'][0]; ?>" />
 		</p>
 	
-		<p> <!-- ==== SCHOOL DATES VIDEO/IMAGE OPTION ==== -->
-
-		<span class="schools-row-title"><?php _e( '<strong>Image or Video?</strong>', 'schools-textdomain' )?></span>
+		<!-- ==== SCHOOL DATES VIDEO/IMAGE OPTION ==== -->
+		<!-- <span class="schools-row-title"><?php //_e( '<strong>Image or Video?</strong>', 'schools-textdomain' )?></span>
 		<div class="schools-row-content">
 		<label for="feature-sch2-checkbox">
-		<input type="checkbox" name="feature-sch2-checkbox" id="feature-sch2-checkbox" value="yes" <?php if ( isset ( $schools_stored_meta['feature-sch2-checkbox'] ) ) checked( $schools_stored_meta['feature-sch2-checkbox'][0], 'yes' ); ?> />
-		<?php _e( 'Check box if you are importing video.', 'schools-textdomain' )?>
+		<input type="checkbox" name="feature-sch2-checkbox" id="feature-sch2-checkbox" value="yes" <?php //if ( isset ( $schools_stored_meta['feature-sch2-checkbox'] ) ) checked( $schools_stored_meta['feature-sch2-checkbox'][0], 'yes' ); ?> />
+		<?php //_e( 'Check box if you are importing video.', 'schools-textdomain' )?>
 		</label>
 		</label>
-		</div>
-		
-		</p>
-	
+		</div> -->
+
   <!-- ITINERARY SECTION -------------------------------------------------------------------- -->
 
     <hr style="margin-top: 1.618em; border-top: 3px double #8c8b8b;">
@@ -110,22 +100,19 @@ function schools_meta_callback( $post ) {
 		
 		<p> <!-- ==== LODGING TEXT/VIDEO ==== -->
 		
-		<label for="feature-sch5-video" class="schools-row-title"><?php _e( '<strong>Enter Public URL</strong>', 'schools-textdomain' )?></label>
+		<label for="feature-sch5-video" class="schools-row-title"><?php _e( '<strong>Use video embed URL</strong>', 'schools-textdomain' )?></label>
 		<input type="url" name="feature-sch5-video" id="feature-sch5-video" value="<?php if ( isset ( $schools_stored_meta['feature-sch5-video'] ) ) echo $schools_stored_meta['feature-sch5-video'][0]; ?>" />
 		</p>
 
-		<p> <!-- ==== LODGING VIDEO/IMAGE OPTION ==== -->
-
-		<span class="schools-row-title"><?php _e( '<strong>Image or Video?</strong>', 'schools-textdomain' )?></span>
+		<!-- ==== LODGING VIDEO/IMAGE OPTION ==== -->
+		<!-- <span class="schools-row-title"><?php //_e( '<strong>Image or Video?</strong>', 'schools-textdomain' )?></span>
 		<div class="schools-row-content">
 		<label for="feature-sch5-checkbox">
-		<input type="checkbox" name="feature-sch5-checkbox" id="feature-sch5-checkbox" value="yes" <?php if ( isset ( $schools_stored_meta['feature-sch5-checkbox'] ) ) checked( $schools_stored_meta['feature-sch5-checkbox'][0], 'yes' ); ?> />
-		<?php _e( 'Check box if you are importing video.', 'schools-textdomain' )?>
+		<input type="checkbox" name="feature-sch5-checkbox" id="feature-sch5-checkbox" value="yes" <?php //if ( isset ( $schools_stored_meta['feature-sch5-checkbox'] ) ) checked( $schools_stored_meta['feature-sch5-checkbox'][0], 'yes' ); ?> />
+		<?php //_e( 'Check box if you are importing video.', 'schools-textdomain' )?>
 		</label>
 		</label>
-		</div>
-		
-		</p>
+		</div> -->
 		
 		<hr style="margin-top: 1.618em; border-top: 3px double #8c8b8b;">
 
@@ -139,22 +126,19 @@ function schools_meta_callback( $post ) {
 		
 		<p> <!-- ==== GETTING THERE TEXT/VIDEO ==== -->
 		
-		<label for="feature-sch4-video" class="schools-row-title"><?php _e( '<strong>Enter Public URL</strong>', 'schools-textdomain' )?></label>
+		<label for="feature-sch4-video" class="schools-row-title"><?php _e( '<strong>Use video embed URL</strong>', 'schools-textdomain' )?></label>
 		<input type="url" name="feature-sch4-video" id="feature-sch4-video" value="<?php if ( isset ( $schools_stored_meta['feature-sch4-video'] ) ) echo $schools_stored_meta['feature-sch4-video'][0]; ?>" />
 		</p>
 
-		<p> <!-- ==== GETTING THERE VIDEO/IMAGE OPTION ==== -->
-
-		<span class="schools-row-title"><?php _e( '<strong>Image or Video?</strong>', 'schools-textdomain' )?></span>
+    <!-- ==== GETTING THERE VIDEO/IMAGE OPTION ==== -->
+		<!-- <span class="schools-row-title"><?php //_e( '<strong>Image or Video?</strong>', 'schools-textdomain' )?></span>
 		<div class="schools-row-content">
 		<label for="feature-sch4-checkbox">
-		<input type="checkbox" name="feature-sch4-checkbox" id="feature-sch4-checkbox" value="yes" <?php if ( isset ( $schools_stored_meta['feature-sch4-checkbox'] ) ) checked( $schools_stored_meta['feature-sch4-checkbox'][0], 'yes' ); ?> />
-		<?php _e( 'Check box if you are importing video.', 'schools-textdomain' )?>
+		<input type="checkbox" name="feature-sch4-checkbox" id="feature-sch4-checkbox" value="yes" <?php //if ( isset ( $schools_stored_meta['feature-sch4-checkbox'] ) ) checked( $schools_stored_meta['feature-sch4-checkbox'][0], 'yes' ); ?> />
+		<?php //_e( 'Check box if you are importing video.', 'schools-textdomain' )?>
 		</label>
 		</label>
-		</div>
-		
-		</p>
+		</div> -->
 
     <hr style="margin-top: 1.618em; border-top: 3px double #8c8b8b;">
 
@@ -168,23 +152,21 @@ function schools_meta_callback( $post ) {
 		
 		<p> <!-- ==== SCHOOL ITINERARY TEXT/VIDEO ==== -->
 		
-		<label for="feature-sch3-video" class="schools-row-title"><?php _e( '<strong>Paste implicit video URL here. You can also paste the embed Google Map URL here. No shortened versions:</strong>', 'schools-textdomain' )?></label>
+		<label for="feature-sch3-video" class="schools-row-title"><?php _e( '<strong>Use video embed URL:</strong>', 'schools-textdomain' )?></label>
 		<input type="url" name="feature-sch3-video" id="feature-sch3-video" value="<?php if ( isset ( $schools_stored_meta['feature-sch3-video'] ) ) echo $schools_stored_meta['feature-sch3-video'][0]; ?>" />
         
         </p>
 
-		<p> <!-- ==== SCHOOL ITINERARY VIDEO/IMAGE OPTION ==== -->
+		<!-- ==== SCHOOL ITINERARY VIDEO/IMAGE OPTION ==== -->
 
-		<span class="schools-row-title"><?php _e( '<strong>Image or Video?</strong>', 'schools-textdomain' )?></span>
+		<!-- <span class="schools-row-title"><?php //_e( '<strong>Image or Video?</strong>', 'schools-textdomain' )?></span>
 		<div class="schools-row-content">
 		<label for="feature-sch3-checkbox">
-		<input type="checkbox" name="feature-sch3-checkbox" id="feature-sch3-checkbox" value="yes" <?php if ( isset ( $schools_stored_meta['feature-sch3-checkbox'] ) ) checked( $schools_stored_meta['feature-sch3-checkbox'][0], 'yes' ); ?> />
-		<?php _e( 'Check box if you are importing video.', 'schools-textdomain' )?>
+		<input type="checkbox" name="feature-sch3-checkbox" id="feature-sch3-checkbox" value="yes" <?php //if ( isset ( $schools_stored_meta['feature-sch3-checkbox'] ) ) checked( $schools_stored_meta['feature-sch3-checkbox'][0], 'yes' ); ?> />
+		<?php //_e( 'Check box if you are importing video.', 'schools-textdomain' )?>
 		</label>
 		</label>
-		</div>
-		
-		</p>
+		</div> -->
 		
 		<!-- ====== ADDITIONAL INFORMATION SECTION ====== -->
     <hr style="margin-top: 1.618em; border-top: 3px double #8c8b8b;">
