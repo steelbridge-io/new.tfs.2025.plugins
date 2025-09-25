@@ -8,14 +8,15 @@ include( plugin_dir_path( __FILE__ ) . 'inc/sanitize_fish_camp_image.php');
 function fish_camp_custom_meta() { global $post;
 	
 	if(!empty($post)) {
-		$pageTemplate = get_post_meta ($post -> ID, '_wp_page_template', true);
-		$types = array('fishcamp_cpt');
-		foreach ($types as $type) {
-		if($pageTemplate == 'page-templates/fish-camp-template.php') {
-			add_meta_box ( 'fish_camp_meta', __('Fish Camp Images', 'fish-camp-textdomain' ), 'fish_camp_meta_callback', $type, 'normal', 'high');
-			}
-		}
-	}
+   $pageTemplate = get_post_meta( $post->ID, '_wp_page_template', true );
+   $types        = array( 'fishcamp_cpt' );
+   foreach ( $types as $type ) {
+    if ( $pageTemplate == 'page-templates/fish-camp-template.php' or $pageTemplate == 'page-templates/fish-camp-course.php' ) {
+     add_meta_box( 'fish_camp_meta', __( 'Fish Camp Images', 'fish-camp-textdomain' ), 'fish_camp_meta_callback', $type, 'normal', 'high' );
+    }
+   }
+
+  }
 }
 add_action( 'add_meta_boxes', 'fish_camp_custom_meta' );
 /**
