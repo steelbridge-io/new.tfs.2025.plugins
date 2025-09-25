@@ -12,7 +12,7 @@ function signature_travel_meta() { global $post;
     $pageTemplate = get_post_meta ($post -> ID, '_wp_page_template', true);
     $types = array('travel_cpt', 'guide_service');
     foreach ($types as $type) {
-      if($pageTemplate == 'page-templates/travel-template.php') {
+      if($pageTemplate == 'page-templates/travel-template.php' || $pageTemplate == 'page-templates/signature-template.php') {
         add_meta_box ( 'sections_meta', __('Content &amp; Images', 'the-fly-shop' ), 'signature_travel_meta_callback', $type, 'normal', 'high');
       }
     }
