@@ -34,7 +34,7 @@ function tfs_fish_camp_meta() {
 	  global $post;
 	  if(!empty($post)){
 		  $pageTemplate = get_post_meta($post->ID, '_wp_page_template', true);
-		  if($pageTemplate == 'page-templates/fish-camp-template.php') {
+		  if($pageTemplate == 'page-templates/fish-camp-template.php' || $pageTemplate == 'page-templates/fish-camp-course.php') {
 				$types = array('fishcamp_cpt');
 				foreach($types as $type) {
 				add_meta_box( 'sbm_meta', __( 'Fish Camp', 'tfs-fish-camp-textdomain' ), 'tfs_fish_camp_meta_callback', $type, 'normal', 'high' );
