@@ -1255,7 +1255,6 @@
 
     </div>
 
-
     <!-- Anging Video -->
     <div class="meta-field-container">
         <strong><label for="feature_5_video_url" class="sbm-row-title"><?php _e( 'Angling Video URL', 'tfs-travel-textdomain' ); ?></label></strong>
@@ -1337,6 +1336,31 @@
         <strong><label for="feature-5-angling-readmore" class="sbm-row-title"><?php _e( 'Read more', 'tfs-travel-textdomain' )?></label></strong>
         <textarea style="width: 100%;" rows="4" name="feature-5-angling-readmore" id="feature-5-angling-readmore"><?php if ( isset ( $sbm_stored_travel_meta['feature-5-angling-readmore'] ) ) echo $sbm_stored_travel_meta['feature-5-angling-readmore'][0]; ?></textarea>
     </p>
+
+
+    <!-- ====== WHY WE SUPPORT THIS DESTINATION ====== -->
+    <hr style="margin-top: 1.618em; border-top: 3px double #8c8b8b;">
+    <div class="set-the-hook-container">
+    <h3><?php echo 'Why We Support This Destination' ?></h3>
+    <div>
+    <div class="travel-row-content">
+        <label for="whywe-title-2" class="sbm-row-title"><?php _e( '<strong>Title</strong>', 'the-fly-shop' )?></label>
+        <input style="width: 100%;" type="text" name="whywe-title-2" id="whywe-title-2" value="<?php if ( isset (
+                $sbm_stored_travel_meta['whywe-title-2'] ) ) echo $sbm_stored_travel_meta['whywe-title-2'][0];
+        ?>" />
+        <label for="whywe-textarea-2"
+               class="whywe-textarea-2"><?php _e( '<strong>Text Area</strong>',
+                    'the-fly-shop' ) ?></label>
+
+        <textarea style="width:100%;" rows="10"
+                  name="whywe-textarea-2"
+                  id="whywe-textarea-2"><?php if ( isset ( $sbm_stored_travel_meta['whywe-textarea-2'] ) ) {
+                echo $sbm_stored_travel_meta['whywe-textarea-2'][0];
+            } ?></textarea>
+    </div>
+
+    </div>
+    </div>
 
     <!-- ====== CALL TO ACTION ROW ====== -->
     <hr style="margin-top: 1.618em; border-top: 3px double #8c8b8b;">
