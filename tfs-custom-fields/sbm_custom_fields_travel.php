@@ -72,7 +72,7 @@
     <div id="dest-travel-logo-preview" style="margin-top: 10px;">
         <?php if ( isset( $sbm_stored_travel_meta['dest-travel-logo'] ) && $sbm_stored_travel_meta['dest-travel-logo'][0] != '' ) : ?>
             <img src="<?php echo esc_url( $sbm_stored_travel_meta['dest-travel-logo'][0] ); ?>"
-                 style="max-width: 250px; max-height: 250px; border: 1px solid #ddd; padding: 5px;"
+                 style="max-width: 150px; max-height: 150px; border: 1px solid #ddd; padding: 5px;"
                  alt="Preview" />
             <br><button type="button" id="dest-travel-logo-remove" class="button" style="margin-top: 5px;">Remove Image</button>
         <?php endif; ?>
@@ -112,7 +112,7 @@
        controls
        playsinline
        preload="metadata"
-       style="max-width:100%;height:auto;"
+       style="max-width:24%;height:auto;"
        <?php if ( $hero_poster ) : ?>
         poster="<?php echo esc_url( $hero_poster ); ?>"
        <?php endif; ?>
@@ -210,7 +210,7 @@
                     controls
                     playsinline
                     preload="metadata"
-                    style="max-width:100%;height:auto;"
+                    style="max-width:24%;height:auto;"
                     <?php if ( $travel_costs_poster ) : ?>
                         poster="<?php echo esc_url( $travel_costs_poster ); ?>"
                     <?php endif; ?>
@@ -546,7 +546,7 @@
                     controls
                     playsinline
                     preload="metadata"
-                    style="max-width:100%;height:auto;"
+                    style="max-width:24%;height:auto;"
                     <?php if ( $travel_costs_poster ) : ?>
                         poster="<?php echo esc_url( $travel_seasons_poster ); ?>"
                     <?php endif; ?>
@@ -606,8 +606,8 @@
                         </p>
 
                         <p><!-- Seasons Read More -->
-                            <strong><label for="feature-2-read-more-info" class="sbm-row-title"><?php _e( 'Read More Info', 'sbm-textdomain' )?></label></strong>
-                            <input style="width: 100%;" type="text" name="feature-2-read-more-info" id="feature-2-read-more-info" placeholder="Add Read More Info" value="<?php if ( isset ( $sbm_stored_travel_meta['feature-2-read-more-info'] ) ) echo $sbm_stored_travel_meta['feature-2-read-more-info'][0]; ?>" />
+                            <!-- <strong><label for="feature-2-read-more-info" class="sbm-row-title"><?php //_e( 'Read More Info', 'sbm-textdomain' )?></label></strong>
+                            <input style="width: 100%;" type="text" name="feature-2-read-more-info" id="feature-2-read-more-info" placeholder="Add Read More Info" value="<?php //if ( isset ( $sbm_stored_travel_meta['feature-2-read-more-info'] ) ) echo $sbm_stored_travel_meta['feature-2-read-more-info'][0]; ?>" /> -->
 
                             <strong><label for="feature-2-seasons-readmore" class="sbm-row-title"><?php _e( 'Read more', 'tfs-travel-textdomain' )?></label></strong>
                             <textarea style="width: 100%;" rows="4" name="feature-2-seasons-readmore" id="feature-2-seasons-readmore"><?php if ( isset ( $sbm_stored_travel_meta['feature-2-seasons-readmore'] ) ) echo $sbm_stored_travel_meta['feature-2-seasons-readmore'][0]; ?></textarea>
@@ -1065,7 +1065,7 @@
                     controls
                     playsinline
                     preload="metadata"
-                    style="max-width:100%;height:auto;"
+                    style="max-width:24%;height:auto;"
                     <?php if ( $travel_getto_poster ) : ?>
                         poster="<?php echo esc_url( $travel_getto_poster ); ?>"
                     <?php endif; ?>
@@ -1108,8 +1108,8 @@
     </p>
 
     <p><!-- Getting To Read More -->
-        <strong><label for="feature-3-read-more-info" class="sbm-row-title"><?php _e( 'Read More Info', 'sbm-textdomain' )?></label></strong>
-        <input style="width: 100%;" type="text" name="feature-3-read-more-info" id="feature-3-read-more-info" placeholder="Add Read More Info" value="<?php if ( isset ( $sbm_stored_travel_meta['feature-3-read-more-info'] ) ) echo $sbm_stored_travel_meta['feature-3-read-more-info'][0]; ?>" />
+        <!-- <strong><label for="feature-3-read-more-info" class="sbm-row-title"><?php //_e( 'Read More Info', 'sbm-textdomain' )?></label></strong>
+        <input style="width: 100%;" type="text" name="feature-3-read-more-info" id="feature-3-read-more-info" placeholder="Add Read More Info" value="<?php //if ( isset ( $sbm_stored_travel_meta['feature-3-read-more-info'] ) ) echo $sbm_stored_travel_meta['feature-3-read-more-info'][0]; ?>" /> -->
 
         <strong><label for="feature-3-get-to-readmore" class="sbm-row-title"><?php _e( 'Read more', 'tfs-travel-textdomain' )?></label></strong>
         <textarea style="width: 100%;" rows="4" name="feature-3-get-to-readmore" id="feature-3-get-to-readmore"><?php if ( isset ( $sbm_stored_travel_meta['feature-3-get-to-readmore'] ) ) echo $sbm_stored_travel_meta['feature-3-get-to-readmore'][0]; ?></textarea>
@@ -1176,7 +1176,7 @@
                 controls
                 playsinline
                 preload="metadata"
-                style="max-width:100%;height:auto;"
+                style="max-width:24%;height:auto;"
                 <?php if ( $travel_lodging_poster ) : ?>
                     poster="<?php echo esc_url( $travel_lodging_poster ); ?>"
                 <?php endif; ?>
@@ -1220,8 +1220,9 @@
     </p>
 
     <p><!-- Lodging Read More -->
-        <strong><label for="feature-4-read-more-info" class="sbm-row-title"><?php _e( 'Read More Info', 'sbm-textdomain' )?></label></strong>
-        <input style="width: 100%;" type="text" name="feature-4-read-more-info" id="feature-4-read-more-info" placeholder="Add Read More Info" value="<?php if ( isset ( $sbm_stored_travel_meta['feature-4-read-more-info'] ) ) echo $sbm_stored_travel_meta['feature-4-read-more-info'][0]; ?>" />
+        <!-- <strong><label for="feature-4-read-more-info" class="sbm-row-title"><?php //_e( 'Read More Info', 'sbm-textdomain' )?></label></strong>
+        <input style="width: 100%;" type="text" name="feature-4-read-more-info" id="feature-4-read-more-info" placeholder="Add Read More Info" value="<?php //if ( isset ( $sbm_stored_travel_meta['feature-4-read-more-info'] ) ) echo $sbm_stored_travel_meta['feature-4-read-more-info'][0]; ?>" /> -->
+
         <strong><label for="feature-4-lodging-readmore" class="sbm-row-title"><?php _e( 'Read more', 'tfs-travel-textdomain' )?></label></strong>
         <textarea style="width: 100%;" rows="4" name="feature-4-lodging-readmore" id="feature-4-lodging-readmore"><?php if ( isset ( $sbm_stored_travel_meta['feature-4-lodging-readmore'] ) ) echo $sbm_stored_travel_meta['feature-4-lodging-readmore'][0]; ?></textarea>
     </p>
@@ -1287,7 +1288,7 @@
                 controls
                 playsinline
                 preload="metadata"
-                style="max-width:100%;height:auto;"
+                style="max-width:24%;height:auto;"
                 <?php if ( $travel_angling_poster ) : ?>
                     poster="<?php echo esc_url( $travel_angling_poster ); ?>"
                 <?php endif; ?>
@@ -1330,8 +1331,8 @@
     </p>
 
     <p><!-- Destination Angling Read More -->
-        <strong><label for="feature-5-read-more-info" class="sbm-row-title"><?php _e( 'Read More Info', 'sbm-textdomain' )?></label></strong>
-        <input style="width: 100%;" type="text" name="feature-5-read-more-info" id="feature-5-read-more-info" placeholder="Add Read More Info" value="<?php if ( isset ( $sbm_stored_travel_meta['feature-5-read-more-info'] ) ) echo $sbm_stored_travel_meta['feature-5-read-more-info'][0]; ?>" />
+        <!-- <strong><label for="feature-5-read-more-info" class="sbm-row-title"><?php //_e( 'Read More Info', 'sbm-textdomain' )?></label></strong>
+        <input style="width: 100%;" type="text" name="feature-5-read-more-info" id="feature-5-read-more-info" placeholder="Add Read More Info" value="<?php //if ( isset ( $sbm_stored_travel_meta['feature-5-read-more-info'] ) ) echo $sbm_stored_travel_meta['feature-5-read-more-info'][0]; ?>" /> -->
 
         <strong><label for="feature-5-angling-readmore" class="sbm-row-title"><?php _e( 'Read more', 'tfs-travel-textdomain' )?></label></strong>
         <textarea style="width: 100%;" rows="4" name="feature-5-angling-readmore" id="feature-5-angling-readmore"><?php if ( isset ( $sbm_stored_travel_meta['feature-5-angling-readmore'] ) ) echo $sbm_stored_travel_meta['feature-5-angling-readmore'][0]; ?></textarea>
