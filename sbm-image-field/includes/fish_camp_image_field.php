@@ -11,7 +11,7 @@ function fish_camp_custom_meta() { global $post;
     $pageTemplate = get_post_meta ($post -> ID, '_wp_page_template', true);
     $types = array('fishcamp_cpt');
     foreach ($types as $type) {
-      if($pageTemplate == 'page-templates/fish-camp-template.php') {
+      if($pageTemplate == 'page-templates/fish-camp-course.php') {
         add_meta_box ( 'fish_camp_meta', __('Fish Camp Images', 'fish-camp-textdomain' ), 'fish_camp_meta_callback', $type, 'normal', 'high');
       }
     }
