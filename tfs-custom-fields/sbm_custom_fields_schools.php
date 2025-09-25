@@ -33,7 +33,7 @@ function tfs_schools_meta() {
 	  global $post;
 	  if(!empty($post)){
 		  $pageTemplate = get_post_meta($post->ID, '_wp_page_template', true);
-		  if($pageTemplate == 'page-templates/schools-template.php' || $pageTemplate == 'page-templates/schools-v2-template.php') {
+		  if($pageTemplate == 'page-templates/schools-template.php') {
 				$types = array('schools_cpt');
 				foreach($types as $type) {
 				add_meta_box( 'sbm_meta', __( 'Schools', 'tfs-schools-textdomain' ), 'tfs_schools_meta_callback', $type, 'normal', 'high' );
@@ -55,13 +55,13 @@ function tfs_schools_meta_callback($post) {
 		</div>
 
 		<!-- SCHOOLS DESCRIPTION -->
-		<h3><?php echo 'Schools Description' ?></h3>
+		<!-- <h3><?php //echo 'Schools Description' ?></h3> -->
 
-		 <p><!-- Schools Description / Appears below site title -->
-      <strong><label for="schools-description" class="sbm-row-title"><?php _e( 'Schools Description', 'tfs-schools-textdomain' )?></label></strong>
+		 <!-- Schools Description / Appears below site title -->
+      <!-- <strong><label for="schools-description" class="sbm-row-title"><?php //_e( 'Schools Description', 'tfs-schools-textdomain' )?></label></strong>
 
-      <input style="width: 100%;" type="text" name="schools-description" id="schools-description" placeholder="Appears below title" value="<?php if ( isset ( $tfs_stored_schools_meta['schools-description'] ) ) echo $tfs_stored_schools_meta['schools-description'][0]; ?>" />
-    </p>
+      <input style="width: 100%;" type="text" name="schools-description" id="schools-description" placeholder="Appears below title" value="<?php //if ( isset ( $tfs_stored_schools_meta['schools-description'] ) ) echo $tfs_stored_schools_meta['schools-description'][0]; ?>" /> -->
+
 
     <!-- SCHOOLS -->
 		<hr style="margin-top: 1.618em; border-top: 3px double #8c8b8b;">
@@ -108,18 +108,15 @@ function tfs_schools_meta_callback($post) {
     </p>
 
 		<!-- ==== Display read more==== -->
-		<p>
 
-		<span class="dates-row-title"><?php _e( '<strong>Display Read More</strong>', 'tfs-schools-textdomain' )?></span>
+		<!--<span class="dates-row-title"><?php //_e( '<strong>Display Read More</strong>', 'tfs-schools-textdomain' )?></span>
 		<div class="dates-row-content">
 		<label for="sch-dates-readmore-checkbox">
-		<input type="checkbox" name="sch-dates-readmore-checkbox" id="sch-dates-readmore-checkbox" value="yes" <?php if ( isset ( $tfs_stored_schools_meta['sch-dates-readmore-checkbox'] ) ) checked( $tfs_stored_schools_meta['sch-dates-readmore-checkbox'][0], 'yes' ); ?> />
-		<?php _e( 'Check box to activate read more.', 'tfs-schools-textdomain' )?>
+		<input type="checkbox" name="sch-dates-readmore-checkbox" id="sch-dates-readmore-checkbox" value="yes" <?php //if ( isset ( $tfs_stored_schools_meta['sch-dates-readmore-checkbox'] ) ) checked( $tfs_stored_schools_meta['sch-dates-readmore-checkbox'][0], 'yes' ); ?> />
+		<?php //_e( 'Check box to activate read more.', 'tfs-schools-textdomain' )?>
 		</label>
 		</label>
-		</div>
-
-		</p>
+		</div> -->
 
 		<p><!-- Dates Read More -->
 			<strong><label for="sch-dates-readmore-textarea" class="sbm-row-title"><?php _e( 'Read more', 'tfs-schools-textdomain' )?></label></strong>
@@ -143,18 +140,15 @@ function tfs_schools_meta_callback($post) {
     </p>
     
     <!-- ==== Display read more==== -->
-		<p>
 
-		<span class="schools-row-title"><?php _e( '<strong>Display Read More</strong>', 'tfs-schools-textdomain' )?></span>
+		<!--<span class="schools-row-title"><?php //_e( '<strong>Display Read More</strong>', 'tfs-schools-textdomain' )?></span>
 		<div class="schools-row-content">
 		<label for="sch-lodging-readmore-checkbox">
-		<input type="checkbox" name="sch-lodging-readmore-checkbox" id="sch-lodging-readmore-checkbox" value="yes" <?php if ( isset ( $tfs_stored_schools_meta['sch-lodging-readmore-checkbox'] ) ) checked( $tfs_stored_schools_meta['sch-lodging-readmore-checkbox'][0], 'yes' ); ?> />
-		<?php _e( 'Check box to activate read more.', 'tfs-schools-textdomain' )?>
+		<input type="checkbox" name="sch-lodging-readmore-checkbox" id="sch-lodging-readmore-checkbox" value="yes" <?php //if ( isset ( $tfs_stored_schools_meta['sch-lodging-readmore-checkbox'] ) ) checked( $tfs_stored_schools_meta['sch-lodging-readmore-checkbox'][0], 'yes' ); ?> />
+		<?php //_e( 'Check box to activate read more.', 'tfs-schools-textdomain' )?>
 		</label>
 		</label>
-		</div>
-
-		</p>
+		</div> -->
 
     <p><!-- Schools Lodging Read More Text Area/Cost-->
 			<strong><label for="feature-sch4-readmore-textarea" class="sbm-row-title"><?php _e( 'Read more', 'tfs-schools-textdomain' )?></label></strong>
@@ -178,18 +172,15 @@ function tfs_schools_meta_callback($post) {
     </p>
     
     <!-- ==== Display read more==== -->
-		<p>
 
-		<span class="schools-row-title"><?php _e( '<strong>Display Read More</strong>', 'tfs-schools-textdomain' )?></span>
+		<!-- <span class="schools-row-title"><?php //_e( '<strong>Display Read More</strong>', 'tfs-schools-textdomain' )?></span>
 		<div class="schools-row-content">
 		<label for="sch-gettingthere-readmore-checkbox">
-		<input type="checkbox" name="sch-gettingthere-readmore-checkbox" id="sch-gettingthere-readmore-checkbox" value="yes" <?php if ( isset ( $tfs_stored_schools_meta['sch-gettingthere-readmore-checkbox'] ) ) checked( $tfs_stored_schools_meta['sch-gettingthere-readmore-checkbox'][0], 'yes' ); ?> />
-		<?php _e( 'Check box to activate read more.', 'tfs-schools-textdomain' )?>
+		<input type="checkbox" name="sch-gettingthere-readmore-checkbox" id="sch-gettingthere-readmore-checkbox" value="yes" <?php //if ( isset ( $tfs_stored_schools_meta['sch-gettingthere-readmore-checkbox'] ) ) checked( $tfs_stored_schools_meta['sch-gettingthere-readmore-checkbox'][0], 'yes' ); ?> />
+		<?php //_e( 'Check box to activate read more.', 'tfs-schools-textdomain' )?>
 		</label>
 		</label>
-		</div>
-
-		</p>
+		</div> -->
 
     <p><!-- Feature #4 Getting There Read More Text Area/Cost-->
 			<strong><label for="feature-sch3-readmore-textarea" class="sbm-row-title"><?php _e( 'Read more', 'tfs-schools-textdomain' )?></label></strong>
@@ -214,18 +205,15 @@ function tfs_schools_meta_callback($post) {
 		</p>
     
     <!-- ==== Display read more==== -->
-		<p>
 
-		<span class="schools-row-title"><?php _e( '<strong>Display Read More</strong>', 'tfs-schools-textdomain' )?></span>
+		<!-- <span class="schools-row-title"><?php //_e( '<strong>Display Read More</strong>', 'tfs-schools-textdomain' )?></span>
 		<div class="schools-row-content">
 		<label for="sch-itinerary-readmore-checkbox">
-		<input type="checkbox" name="sch-itinerary-readmore-checkbox" id="sch-itinerary-readmore-checkbox" value="yes" <?php if ( isset ( $tfs_stored_schools_meta['sch-itinerary-readmore-checkbox'] ) ) checked( $tfs_stored_schools_meta['sch-itinerary-readmore-checkbox'][0], 'yes' ); ?> />
-		<?php _e( 'Check box to activate read more.', 'tfs-schools-textdomain' )?>
+		<input type="checkbox" name="sch-itinerary-readmore-checkbox" id="sch-itinerary-readmore-checkbox" value="yes" <?php //if ( isset ( $tfs_stored_schools_meta['sch-itinerary-readmore-checkbox'] ) ) checked( $tfs_stored_schools_meta['sch-itinerary-readmore-checkbox'][0], 'yes' ); ?> />
+		<?php //_e( 'Check box to activate read more.', 'tfs-schools-textdomain' )?>
 		</label>
 		</label>
-		</div>
-
-		</p>
+		</div> -->
 
     <p><!-- Feature #5 Itinerary Read More -->
 			<strong><label for="feature-sch3-readmore-textarea-intinerary" class="sbm-row-title"><?php _e( 'Read more', 'tfs-schools-textdomain' )?></label></strong>
