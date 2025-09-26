@@ -1364,15 +1364,15 @@
 
     <!-- ====== CALL TO ACTION ROW ====== -->
     <hr style="margin-top: 1.618em; border-top: 3px double #8c8b8b;">
-    <h3><?php echo 'Set The Hook Section' ?></h3>
+    <h3><?php echo 'Get Started Section' ?></h3>
 
-    <p><!-- Set The Hook Into -->
-        <strong><label for="cta-strong-intro" class="sbm-row-title"><?php _e('Set The Hook Intro','tfs-travel-textdomain')?></label></strong>
+    <p><!-- Get Started Section -->
+        <strong><label for="cta-strong-intro" class="sbm-row-title"><?php _e('Get Started CTA','tfs-travel-textdomain')?></label></strong>
         <input style="width: 100%;" type="text" placeholder="Place CTA content here." name="cta-strong-intro" id="cta-strong-intro" value="<?php if (isset($sbm_stored_travel_meta['cta-strong-intro'])) echo $sbm_stored_travel_meta['cta-strong-intro'][0]; ?>" />
     </p>
 
-    <p><!-- Set The Hook Content -->
-        <strong><label for="cta-content" class="sbm-row-title"><?php _e( 'Set The Hook Content', 'tfs-travel-textdomain' )?></label></strong>
+    <p><!-- Get Started Section Content -->
+        <strong><label for="cta-content" class="sbm-row-title"><?php _e( 'Get Started Content', 'tfs-travel-textdomain' )?></label></strong>
         <textarea style="width: 100%;" rows="4" name="cta-content" id="cta-content"><?php if ( isset ( $sbm_stored_travel_meta['cta-content'] ) ) echo $sbm_stored_travel_meta['cta-content'][0]; ?></textarea>
     </p>
 
