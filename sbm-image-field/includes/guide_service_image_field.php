@@ -17,7 +17,7 @@ function guideservice_custom_meta() {
 		$pageTemplate = get_post_meta( $post->ID, '_wp_page_template', TRUE );
 		$types        = array( 'guide_service' );
 		foreach ( $types as $type ) {
-			if ( $pageTemplate == 'page-templates/guide-service-template.php' || $pageTemplate == 'page-templates/guide-service-destination-template.php') {
+			if ( $pageTemplate == 'page-templates/guide-service-destination-template.php') {
 				add_meta_box( 'guideservice_meta',
 					__( 'Guide Service Images &amp; Video',
 						'guideservice-textdomain' ),
