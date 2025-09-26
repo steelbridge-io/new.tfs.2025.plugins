@@ -49,8 +49,8 @@ function signature_meta_callback( $post ) {
 	<!-- ==== START META CONTENT ==== -->
  <!-- Hero Video URL -->
  <p>
- <strong><label for="hero-video-url" class="holiday-row-title"><?php _e( 'Add Video URL', 'the-fly-shop' );?></label></strong>
- <input style="width: 100%;" type="url" name="hero-video-url" id="hero-video-url" value="<?php if ( isset ( $signature_stored_meta['signature-hero-video-url'] ) ) echo $signature_stored_meta['signature-hero-video-url'][0]; ?>" />
+ <strong><label for="signature-hero-video-url" class="holiday-row-title"><?php _e( 'Add Video URL', 'the-fly-shop' );?></label></strong>
+ <input style="width: 100%;" type="url" name="signature-hero-video-url" id="signature-hero-video-url" value="<?php if ( isset ( $signature_stored_meta['signature-hero-video-url'] ) ) echo $signature_stored_meta['signature-hero-video-url'][0]; ?>" />
  </p>
  
  <div>
@@ -2425,17 +2425,11 @@ function signature_meta_callback( $post ) {
                   </p>
                 
                 </div>
-					
-							
-								
-    
+
 				</div><!-- ./tab-content -->
 			</div><!-- ./panel-body boof -->
 		</div><!-- ./panel-heading -->
 	</div><!-- ./panel with-nav-tabs panel-default -->
-	
-	<?php
-	?>
 	
 	<hr style="margin-top: 1.618em; border-top: 3px double #8c8b8b;">
 	
@@ -2462,7 +2456,7 @@ function signature_meta_callback( $post ) {
 	
 	<div class="tab-content">
 	
-	<!-- ==== SIGNATURE #32 ==== -->
+	<!-- ==== SIGNATURE #43 ==== -->
 	<div role="tabpanel" class="tab-pane fade in active" id="signatureimage43">
 		
 		<label for="signature-image" class="signature-row-title"><?php _e( '<h3>Signature &#35;43</h3>', 'signature-textdomain' );?></label><br>
@@ -2509,6 +2503,7 @@ function signature_meta_callback( $post ) {
 		</p>
 	
 	</div>
+
 	
 	<!-- ==== SIGNATURE #44 ==== -->
 	<div role="tabpanel" class="tab-pane fade" id="signatureimage44">
@@ -2941,6 +2936,13 @@ function signature_meta_callback( $post ) {
 		</p>
 	
 	</div>
+
+  </div><!-- ./tab-content -->
+  </div><!-- ./panel-body boof -->
+  </div><!-- ./panel-heading -->
+  </div><!-- ./panel with-nav-tabs panel-default -->
+
+
 	
 	
 	<hr style="margin-top: 1.618em; border-top: 3px double #8c8b8b;">
@@ -3447,6 +3449,11 @@ function signature_meta_callback( $post ) {
 		</p>
 	
 	</div>
+
+  </div><!-- ./tab-content -->
+  </div><!-- ./panel-body boof -->
+  </div><!-- ./panel-heading -->
+  </div><!-- ./panel with-nav-tabs panel-default -->
 	
 	
 	<hr style="margin-top: 1.618em; border-top: 3px double #8c8b8b;">
