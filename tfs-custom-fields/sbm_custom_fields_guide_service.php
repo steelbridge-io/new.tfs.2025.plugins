@@ -34,7 +34,7 @@ function tfs_guideservice_meta() {
   global $post;
   if(!empty($post)){
     $pageTemplate = get_post_meta($post->ID, '_wp_page_template', true);
-    if($pageTemplate == 'page-templates/guide-service-template.php' || $pageTemplate == 'page-templates/regional-waters-template-v2.php' || $pageTemplate == 'page-templates/guide-service-destination-template.php') {
+    if( $pageTemplate == 'page-templates/regional-waters-template-v2.php' || $pageTemplate == 'page-templates/guide-service-destination-template.php' ) {
       $types = array('guide_service');
       foreach($types as $type) {
         add_meta_box( 'sbm_meta', __( 'Guide Service', 'tfs-guideservice-textdomain' ), 'tfs_guideservice_meta_callback', $type, 'normal', 'high' );
