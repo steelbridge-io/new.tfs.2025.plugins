@@ -21,6 +21,26 @@ function load_streamreport_css() {
 	return $css_streamreport;
 }
 
+function load_hero_overlay_css() {
+ $guidedest_hero_opacity_range = get_post_meta(get_the_ID(), 'signature-temp-opacity-range', true);
+ $guidedest_template_opacity_range = '';
+
+ $guidedest_template_opacity_range .='
+			 #banner .guide-temp-hero-overlay .overlay {
+			    opacity: ' . $guidedest_hero_opacity_range . ';
+			    position: absolute;
+			    top: 0;
+			    left: 0;
+			    height: 100%;
+			    width: 100%;
+			    background-color: black;
+			    z-index: 1;
+			 }
+			 ';
+
+ return $guidedest_template_opacity_range;
+}
+
 function load_holiday_template_css() {
   $css_holiday_template = '';
 
