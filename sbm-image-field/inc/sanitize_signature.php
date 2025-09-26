@@ -12,10 +12,10 @@ function signature_meta_save( $post_id ) {
     if ( $is_autosave || $is_revision || !$is_valid_nonce ) {
         return;
     }
-	
+
 	// Checks for input and saves if needed
 		if( isset( $_POST[ 'signature-hero-video-url' ] ) ) {
-			update_post_meta( $post_id, 'signature-hero-video-url', esc_url($_POST[ 'signature-hero-video-url' ] ) );
+			update_post_meta( $post_id, 'signature-hero-video-url', $_POST[ 'signature-hero-video-url' ]  );
 		}
 	
 	// Checks for input and saves if needed
