@@ -401,6 +401,35 @@ function sbm_travel_meta_save($post_id)
     update_post_meta($post_id, 'feature-5-angling-readmore', wp_kses($_POST['feature-5-angling-readmore'], $allowed_html));
   }
 
+	// Checks for input and saves if needed - Species Fields
+	if (isset($_POST['feature-6-species-title'])) {
+	 update_post_meta($post_id, 'feature-6-species-title', wp_kses($_POST['feature-6-species-title'], $allowed_html));
+	}
+
+	// Checks for input and saves if needed
+	if (isset($_POST['feature-6-species-img'])) {
+	 update_post_meta($post_id, 'feature-6-species-img', esc_url_raw($_POST['feature-6-species-img']));
+	}
+
+	if (isset($_POST['feature_6_video_url'])) {
+	 $video_6_url = trim((string)$_POST['feature_6_video_url']);
+	 if ($video_6_url === '') {
+		delete_post_meta($post_id, 'feature_6_video_url');
+	 } else {
+		update_post_meta($post_id, 'feature_6_video_url', esc_url_raw($video_6_url));
+	 }
+	}
+
+	// Checks for input and saves if needed
+	if (isset($_POST['feature-6-species-content'])) {
+	 update_post_meta($post_id, 'feature-6-species-content', wp_kses($_POST['feature-6-species-content'], $allowed_html));
+	}
+
+	// Checks for input and saves if needed
+	if (isset($_POST['feature-6-species-readmore'])) {
+	 update_post_meta($post_id, 'feature-6-species-readmore', wp_kses($_POST['feature-6-species-readmore'], $allowed_html));
+	}
+
   // Checks for input and saves if needed
   if (isset($_POST['additional-travel-image1'])) {
     update_post_meta($post_id,
