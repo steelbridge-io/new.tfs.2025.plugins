@@ -654,4 +654,52 @@ jQuery(document).ready( function($){ "use strict";
         $('#guide-service-logo').val('');
         $('#guide-service-logo-preview').html('');
     });
+
+
+
+    var feature_6_species_img_frame;
+
+    $('#feature-6-species-img-button').click(function(e) {
+        e.preventDefault();
+
+        if (feature_6_species_img_frame) {
+            feature_6_species_img_frame.open();
+            return;
+        }
+
+        feature_6_species_img_frame = wp.media.frames.feature_6_species_img_frame = wp.media({
+            title: meta_image.title,
+            button: { text: meta_image.button },
+            library: { type: 'image' }
+        });
+
+        feature_6_species_img_frame.on('select', function() {
+            var media_attachment = feature_6_species_img_frame.state().get('selection').first().toJSON();
+            $('#feature-6-species-img').val(media_attachment.url);
+
+            // Update preview
+            $('#feature-6-species-img-preview').html(
+                '<img src="' + media_attachment.url + '" style="max-width: 250px; max-height: 250px; border: 1px solid #ddd; padding: 5px;" alt="Preview" />' +
+                '<br><button type="button" id="feature-6-species-img-remove" class="button" style="margin-top: 5px;">Remove Image</button>'
+            );
+        });
+
+        feature_6_species_img_frame.open();
+    });
+
+    // Remove Species Image
+    $(document).on('click', '#feature-6-species-img-remove', function(e) {
+        e.preventDefault();
+        $('#feature-6-species-img').val('');
+        $('#feature-6-species-img-preview').html('');
+    });
+
+
+
+
+
+
+
+
+
 });
