@@ -14,7 +14,7 @@
 	 $pageTemplate = get_post_meta($post->ID, '_wp_page_template', true);
 	 $types = array('post', 'page', 'travel_cpt', 'schools_cpt', 'adventures', 'guide_service', 'fishcamp_cpt', 'travel-blog');
 	 foreach ($types as $type) {
-		if ($pageTemplate == 'page-templates/sections-template.php' || $pageTemplate == 'page-templates/multi-destination-template.php') {
+		if ($pageTemplate == 'page-templates/sections-template.php') {
 		 add_meta_box('sections_meta', __('Content &amp; Images', 'the-fly-shop'), 'sections_meta_callback', $type, 'normal', 'high');
 		}
 	 }
