@@ -12376,113 +12376,1055 @@ jQuery(document).ready( function($){ "use strict";
         front_page_video_poster_frame.open();
     });
 
-
-
-
-
-    var multidest_carousel_1_img_frame;
+    var sec1_dest_img_1_frame;
 
     // Runs when the image button is clicked.
-    $('#multidest-carousel-1-img-button').click(function(e) {
+    $('#sec1-dest-img-1-button').click(function(e) {
 
         // Prevents the default action from occuring.
         e.preventDefault();
 
         // If the frame already exists, re-open it.
-        if (multidest_carousel_1_img_frame) {
-            multidest_carousel_1_img_frame.open();
+        if (sec1_dest_img_1_frame) {
+            sec1_dest_img_1_frame.open();
             return;
         }
 
         // Sets up the media library frame
-        multidest_carousel_1_img_frame = wp.media.frames.multidest_carousel_1_img_frame = wp.media({
+        sec1_dest_img_1_frame = wp.media.frames.sec1_dest_img_1_frame = wp.media({
             title: meta_image.title,
             button: {text: meta_image.button},
             /*library: { type: 'image' }*/
         });
 
         // Runs when an image is selected.
-        multidest_carousel_1_img_frame.on('select', function () {
+        sec1_dest_img_1_frame.on('select', function () {
 
             // Grabs the attachment selection and creates a JSON representation of the model.
-            var media_attachment = multidest_carousel_1_img_frame.state().get('selection').first().toJSON();
+            var media_attachment = sec1_dest_img_1_frame.state().get('selection').first().toJSON();
 
             // Sends the attachment URL to our custom image input field.
-            $('#multidest-carousel-1-img').val(media_attachment.url);
+            $('#sec1-dest-img-1').val(media_attachment.url);
         });
 
         // Opens the media library frame.
-        multidest_carousel_1_img_frame.open();
+        sec1_dest_img_1_frame.open();
     });
 
-    var multidest_carousel_2_img_frame;
+    var sec1_dest_img_2_img_frame;
 
     // Runs when the image button is clicked.
-    $('#multidest-carousel-2-img-button').click(function(e) {
+    $('#sec1-dest-img-2-button').click(function(e) {
 
         // Prevents the default action from occuring.
         e.preventDefault();
 
         // If the frame already exists, re-open it.
-        if (multidest_carousel_2_img_frame) {
-            multidest_carousel_2_img_frame.open();
+        if (sec1_dest_img_2_img_frame) {
+            sec1_dest_img_2_img_frame.open();
             return;
         }
 
         // Sets up the media library frame
-        multidest_carousel_2_img_frame = wp.media.frames.multidest_carousel_2_img_frame = wp.media({
+        sec1_dest_img_2_img_frame = wp.media.frames.sec1_dest_img_2_img_frame = wp.media({
             title: meta_image.title,
             button: {text: meta_image.button},
             /*library: { type: 'image' }*/
         });
 
         // Runs when an image is selected.
-        multidest_carousel_2_img_frame.on('select', function () {
+        sec1_dest_img_2_img_frame.on('select', function () {
 
             // Grabs the attachment selection and creates a JSON representation of the model.
-            var media_attachment = multidest_carousel_2_img_frame.state().get('selection').first().toJSON();
+            var media_attachment = sec1_dest_img_2_img_frame.state().get('selection').first().toJSON();
 
             // Sends the attachment URL to our custom image input field.
-            $('#multidest-carousel-2-img').val(media_attachment.url);
+            $('#sec1-dest-img-2').val(media_attachment.url);
         });
 
         // Opens the media library frame.
-        multidest_carousel_2_img_frame.open();
+        sec1_dest_img_2_img_frame.open();
     });
 
-    var multidest_carousel_3_img_frame;
+    var sec1_dest_img_3_frame;
 
     // Runs when the image button is clicked.
-    $('#multidest-carousel-3-img-button').click(function(e) {
+    $('#sec1-dest-img-3-button').click(function(e) {
 
         // Prevents the default action from occuring.
         e.preventDefault();
 
         // If the frame already exists, re-open it.
-        if (multidest_carousel_3_img_frame) {
-            multidest_carousel_3_img_frame.open();
+        if (sec1_dest_img_3_frame) {
+            sec1_dest_img_3_frame.open();
             return;
         }
 
         // Sets up the media library frame
-        multidest_carousel_3_img_frame = wp.media.frames.multidest_carousel_3_img_frame = wp.media({
+        sec1_dest_img_3_frame = wp.media.frames.sec1_dest_img_3_frame = wp.media({
             title: meta_image.title,
             button: {text: meta_image.button},
             /*library: { type: 'image' }*/
         });
 
         // Runs when an image is selected.
-        multidest_carousel_3_img_frame.on('select', function () {
+        sec1_dest_img_3_frame.on('select', function () {
 
             // Grabs the attachment selection and creates a JSON representation of the model.
-            var media_attachment = multidest_carousel_3_img_frame.state().get('selection').first().toJSON();
+            var media_attachment = sec1_dest_img_3_frame.state().get('selection').first().toJSON();
 
             // Sends the attachment URL to our custom image input field.
-            $('#multidest-carousel-3-img').val(media_attachment.url);
+            $('#sec1-dest-img-3').val(media_attachment.url);
         });
 
         // Opens the media library frame.
-        multidest_carousel_3_img_frame.open();
+        sec1_dest_img_3_frame.open();
+    });
+
+
+    var sec2_dest_img_1_frame;
+
+    // Runs when the image button is clicked.
+    $('#sec2-dest-img-1-button').click(function(e) {
+
+        // Prevents the default action from occuring.
+        e.preventDefault();
+
+        // If the frame already exists, re-open it.
+        if (sec2_dest_img_1_frame) {
+            sec2_dest_img_1_frame.open();
+            return;
+        }
+
+        // Sets up the media library frame
+        sec2_dest_img_1_frame = wp.media.frames.sec2_dest_img_1_frame = wp.media({
+            title: meta_image.title,
+            button: {text: meta_image.button},
+            /*library: { type: 'image' }*/
+        });
+
+        // Runs when an image is selected.
+        sec2_dest_img_1_frame.on('select', function () {
+
+            // Grabs the attachment selection and creates a JSON representation of the model.
+            var media_attachment = sec2_dest_img_1_frame.state().get('selection').first().toJSON();
+
+            // Sends the attachment URL to our custom image input field.
+            $('#sec2-dest-img-1').val(media_attachment.url);
+        });
+
+        // Opens the media library frame.
+        sec2_dest_img_1_frame.open();
+    });
+
+    var sec2_dest_img_2_img_frame;
+
+    // Runs when the image button is clicked.
+    $('#sec2-dest-img-2-button').click(function(e) {
+
+        // Prevents the default action from occuring.
+        e.preventDefault();
+
+        // If the frame already exists, re-open it.
+        if (sec2_dest_img_2_img_frame) {
+            sec2_dest_img_2_img_frame.open();
+            return;
+        }
+
+        // Sets up the media library frame
+        sec2_dest_img_2_img_frame = wp.media.frames.sec2_dest_img_2_img_frame = wp.media({
+            title: meta_image.title,
+            button: {text: meta_image.button},
+            /*library: { type: 'image' }*/
+        });
+
+        // Runs when an image is selected.
+        sec2_dest_img_2_img_frame.on('select', function () {
+
+            // Grabs the attachment selection and creates a JSON representation of the model.
+            var media_attachment = sec2_dest_img_2_img_frame.state().get('selection').first().toJSON();
+
+            // Sends the attachment URL to our custom image input field.
+            $('#sec2-dest-img-2').val(media_attachment.url);
+        });
+
+        // Opens the media library frame.
+        sec2_dest_img_2_img_frame.open();
+    });
+
+    var sec2_dest_img_3_frame;
+
+    // Runs when the image button is clicked.
+    $('#sec2-dest-img-3-button').click(function(e) {
+
+        // Prevents the default action from occuring.
+        e.preventDefault();
+
+        // If the frame already exists, re-open it.
+        if (sec2_dest_img_3_frame) {
+            sec2_dest_img_3_frame.open();
+            return;
+        }
+
+        // Sets up the media library frame
+        sec2_dest_img_3_frame = wp.media.frames.sec2_dest_img_3_frame = wp.media({
+            title: meta_image.title,
+            button: {text: meta_image.button},
+            /*library: { type: 'image' }*/
+        });
+
+        // Runs when an image is selected.
+        sec2_dest_img_3_frame.on('select', function () {
+
+            // Grabs the attachment selection and creates a JSON representation of the model.
+            var media_attachment = sec2_dest_img_3_frame.state().get('selection').first().toJSON();
+
+            // Sends the attachment URL to our custom image input field.
+            $('#sec2-dest-img-3').val(media_attachment.url);
+        });
+
+        // Opens the media library frame.
+        sec2_dest_img_3_frame.open();
+    });
+
+    var sec3_dest_img_1_frame;
+
+    // Runs when the image button is clicked.
+    $('#sec3-dest-img-1-button').click(function(e) {
+
+        // Prevents the default action from occuring.
+        e.preventDefault();
+
+        // If the frame already exists, re-open it.
+        if (sec3_dest_img_1_frame) {
+            sec3_dest_img_1_frame.open();
+            return;
+        }
+
+        // Sets up the media library frame
+        sec3_dest_img_1_frame = wp.media.frames.sec3_dest_img_1_frame = wp.media({
+            title: meta_image.title,
+            button: {text: meta_image.button},
+            /*library: { type: 'image' }*/
+        });
+
+        // Runs when an image is selected.
+        sec3_dest_img_1_frame.on('select', function () {
+
+            // Grabs the attachment selection and creates a JSON representation of the model.
+            var media_attachment = sec3_dest_img_1_frame.state().get('selection').first().toJSON();
+
+            // Sends the attachment URL to our custom image input field.
+            $('#sec3-dest-img-1').val(media_attachment.url);
+        });
+
+        // Opens the media library frame.
+        sec3_dest_img_1_frame.open();
+    });
+
+    var sec3_dest_img_2_img_frame;
+
+    // Runs when the image button is clicked.
+    $('#sec3-dest-img-2-button').click(function(e) {
+
+        // Prevents the default action from occuring.
+        e.preventDefault();
+
+        // If the frame already exists, re-open it.
+        if (sec3_dest_img_2_img_frame) {
+            sec3_dest_img_2_img_frame.open();
+            return;
+        }
+
+        // Sets up the media library frame
+        sec3_dest_img_2_img_frame = wp.media.frames.sec3_dest_img_2_img_frame = wp.media({
+            title: meta_image.title,
+            button: {text: meta_image.button},
+            /*library: { type: 'image' }*/
+        });
+
+        // Runs when an image is selected.
+        sec3_dest_img_2_img_frame.on('select', function () {
+
+            // Grabs the attachment selection and creates a JSON representation of the model.
+            var media_attachment = sec3_dest_img_2_img_frame.state().get('selection').first().toJSON();
+
+            // Sends the attachment URL to our custom image input field.
+            $('#sec3-dest-img-2').val(media_attachment.url);
+        });
+
+        // Opens the media library frame.
+        sec3_dest_img_2_img_frame.open();
+    });
+
+    var sec3_dest_img_3_frame;
+
+    // Runs when the image button is clicked.
+    $('#sec3-dest-img-3-button').click(function(e) {
+
+        // Prevents the default action from occuring.
+        e.preventDefault();
+
+        // If the frame already exists, re-open it.
+        if (sec3_dest_img_3_frame) {
+            sec3_dest_img_3_frame.open();
+            return;
+        }
+
+        // Sets up the media library frame
+        sec3_dest_img_3_frame = wp.media.frames.sec3_dest_img_3_frame = wp.media({
+            title: meta_image.title,
+            button: {text: meta_image.button},
+            /*library: { type: 'image' }*/
+        });
+
+        // Runs when an image is selected.
+        sec3_dest_img_3_frame.on('select', function () {
+
+            // Grabs the attachment selection and creates a JSON representation of the model.
+            var media_attachment = sec3_dest_img_3_frame.state().get('selection').first().toJSON();
+
+            // Sends the attachment URL to our custom image input field.
+            $('#sec3-dest-img-3').val(media_attachment.url);
+        });
+
+        // Opens the media library frame.
+        sec3_dest_img_3_frame.open();
+    });
+
+    var sec4_dest_img_1_frame;
+
+    // Runs when the image button is clicked.
+    $('#sec4-dest-img-1-button').click(function(e) {
+
+        // Prevents the default action from occuring.
+        e.preventDefault();
+
+        // If the frame already exists, re-open it.
+        if (sec4_dest_img_1_frame) {
+            sec4_dest_img_1_frame.open();
+            return;
+        }
+
+        // Sets up the media library frame
+        sec4_dest_img_1_frame = wp.media.frames.sec4_dest_img_1_frame = wp.media({
+            title: meta_image.title,
+            button: {text: meta_image.button},
+            /*library: { type: 'image' }*/
+        });
+
+        // Runs when an image is selected.
+        sec4_dest_img_1_frame.on('select', function () {
+
+            // Grabs the attachment selection and creates a JSON representation of the model.
+            var media_attachment = sec4_dest_img_1_frame.state().get('selection').first().toJSON();
+
+            // Sends the attachment URL to our custom image input field.
+            $('#sec4-dest-img-1').val(media_attachment.url);
+        });
+
+        // Opens the media library frame.
+        sec4_dest_img_1_frame.open();
+    });
+
+    var sec4_dest_img_2_img_frame;
+
+    // Runs when the image button is clicked.
+    $('#sec4-dest-img-2-button').click(function(e) {
+
+        // Prevents the default action from occuring.
+        e.preventDefault();
+
+        // If the frame already exists, re-open it.
+        if (sec4_dest_img_2_img_frame) {
+            sec4_dest_img_2_img_frame.open();
+            return;
+        }
+
+        // Sets up the media library frame
+        sec4_dest_img_2_img_frame = wp.media.frames.sec4_dest_img_2_img_frame = wp.media({
+            title: meta_image.title,
+            button: {text: meta_image.button},
+            /*library: { type: 'image' }*/
+        });
+
+        // Runs when an image is selected.
+        sec4_dest_img_2_img_frame.on('select', function () {
+
+            // Grabs the attachment selection and creates a JSON representation of the model.
+            var media_attachment = sec4_dest_img_2_img_frame.state().get('selection').first().toJSON();
+
+            // Sends the attachment URL to our custom image input field.
+            $('#sec4-dest-img-2').val(media_attachment.url);
+        });
+
+        // Opens the media library frame.
+        sec4_dest_img_2_img_frame.open();
+    });
+
+    var sec4_dest_img_3_frame;
+
+    // Runs when the image button is clicked.
+    $('#sec4-dest-img-3-button').click(function(e) {
+
+        // Prevents the default action from occuring.
+        e.preventDefault();
+
+        // If the frame already exists, re-open it.
+        if (sec4_dest_img_3_frame) {
+            sec4_dest_img_3_frame.open();
+            return;
+        }
+
+        // Sets up the media library frame
+        sec4_dest_img_3_frame = wp.media.frames.sec4_dest_img_3_frame = wp.media({
+            title: meta_image.title,
+            button: {text: meta_image.button},
+            /*library: { type: 'image' }*/
+        });
+
+        // Runs when an image is selected.
+        sec4_dest_img_3_frame.on('select', function () {
+
+            // Grabs the attachment selection and creates a JSON representation of the model.
+            var media_attachment = sec4_dest_img_3_frame.state().get('selection').first().toJSON();
+
+            // Sends the attachment URL to our custom image input field.
+            $('#sec4-dest-img-3').val(media_attachment.url);
+        });
+
+        // Opens the media library frame.
+        sec4_dest_img_3_frame.open();
+    });
+
+    var sec5_dest_img_1_frame;
+
+    // Runs when the image button is clicked.
+    $('#sec5-dest-img-1-button').click(function(e) {
+
+        // Prevents the default action from occuring.
+        e.preventDefault();
+
+        // If the frame already exists, re-open it.
+        if (sec5_dest_img_1_frame) {
+            sec5_dest_img_1_frame.open();
+            return;
+        }
+
+        // Sets up the media library frame
+        sec5_dest_img_1_frame = wp.media.frames.sec5_dest_img_1_frame = wp.media({
+            title: meta_image.title,
+            button: {text: meta_image.button},
+            /*library: { type: 'image' }*/
+        });
+
+        // Runs when an image is selected.
+        sec5_dest_img_1_frame.on('select', function () {
+
+            // Grabs the attachment selection and creates a JSON representation of the model.
+            var media_attachment = sec5_dest_img_1_frame.state().get('selection').first().toJSON();
+
+            // Sends the attachment URL to our custom image input field.
+            $('#sec5-dest-img-1').val(media_attachment.url);
+        });
+
+        // Opens the media library frame.
+        sec5_dest_img_1_frame.open();
+    });
+
+    var sec5_dest_img_2_img_frame;
+
+    // Runs when the image button is clicked.
+    $('#sec5-dest-img-2-button').click(function(e) {
+
+        // Prevents the default action from occuring.
+        e.preventDefault();
+
+        // If the frame already exists, re-open it.
+        if (sec5_dest_img_2_img_frame) {
+            sec5_dest_img_2_img_frame.open();
+            return;
+        }
+
+        // Sets up the media library frame
+        sec5_dest_img_2_img_frame = wp.media.frames.sec5_dest_img_2_img_frame = wp.media({
+            title: meta_image.title,
+            button: {text: meta_image.button},
+            /*library: { type: 'image' }*/
+        });
+
+        // Runs when an image is selected.
+        sec5_dest_img_2_img_frame.on('select', function () {
+
+            // Grabs the attachment selection and creates a JSON representation of the model.
+            var media_attachment = sec5_dest_img_2_img_frame.state().get('selection').first().toJSON();
+
+            // Sends the attachment URL to our custom image input field.
+            $('#sec5-dest-img-2').val(media_attachment.url);
+        });
+
+        // Opens the media library frame.
+        sec5_dest_img_2_img_frame.open();
+    });
+
+    var sec5_dest_img_3_frame;
+
+    // Runs when the image button is clicked.
+    $('#sec5-dest-img-3-button').click(function(e) {
+
+        // Prevents the default action from occuring.
+        e.preventDefault();
+
+        // If the frame already exists, re-open it.
+        if (sec5_dest_img_3_frame) {
+            sec5_dest_img_3_frame.open();
+            return;
+        }
+
+        // Sets up the media library frame
+        sec5_dest_img_3_frame = wp.media.frames.sec5_dest_img_3_frame = wp.media({
+            title: meta_image.title,
+            button: {text: meta_image.button},
+            /*library: { type: 'image' }*/
+        });
+
+        // Runs when an image is selected.
+        sec5_dest_img_3_frame.on('select', function () {
+
+            // Grabs the attachment selection and creates a JSON representation of the model.
+            var media_attachment = sec5_dest_img_3_frame.state().get('selection').first().toJSON();
+
+            // Sends the attachment URL to our custom image input field.
+            $('#sec5-dest-img-3').val(media_attachment.url);
+        });
+
+        // Opens the media library frame.
+        sec5_dest_img_3_frame.open();
+    });
+
+    var sec6_dest_img_1_frame;
+
+    // Runs when the image button is clicked.
+    $('#sec6-dest-img-1-button').click(function(e) {
+
+        // Prevents the default action from occuring.
+        e.preventDefault();
+
+        // If the frame already exists, re-open it.
+        if (sec6_dest_img_1_frame) {
+            sec6_dest_img_1_frame.open();
+            return;
+        }
+
+        // Sets up the media library frame
+        sec6_dest_img_1_frame = wp.media.frames.sec6_dest_img_1_frame = wp.media({
+            title: meta_image.title,
+            button: {text: meta_image.button},
+            /*library: { type: 'image' }*/
+        });
+
+        // Runs when an image is selected.
+        sec6_dest_img_1_frame.on('select', function () {
+
+            // Grabs the attachment selection and creates a JSON representation of the model.
+            var media_attachment = sec6_dest_img_1_frame.state().get('selection').first().toJSON();
+
+            // Sends the attachment URL to our custom image input field.
+            $('#sec6-dest-img-1').val(media_attachment.url);
+        });
+
+        // Opens the media library frame.
+        sec6_dest_img_1_frame.open();
+    });
+
+    var sec6_dest_img_2_img_frame;
+
+    // Runs when the image button is clicked.
+    $('#sec6-dest-img-2-button').click(function(e) {
+
+        // Prevents the default action from occuring.
+        e.preventDefault();
+
+        // If the frame already exists, re-open it.
+        if (sec6_dest_img_2_img_frame) {
+            sec6_dest_img_2_img_frame.open();
+            return;
+        }
+
+        // Sets up the media library frame
+        sec6_dest_img_2_img_frame = wp.media.frames.sec6_dest_img_2_img_frame = wp.media({
+            title: meta_image.title,
+            button: {text: meta_image.button},
+            /*library: { type: 'image' }*/
+        });
+
+        // Runs when an image is selected.
+        sec6_dest_img_2_img_frame.on('select', function () {
+
+            // Grabs the attachment selection and creates a JSON representation of the model.
+            var media_attachment = sec6_dest_img_2_img_frame.state().get('selection').first().toJSON();
+
+            // Sends the attachment URL to our custom image input field.
+            $('#sec6-dest-img-2').val(media_attachment.url);
+        });
+
+        // Opens the media library frame.
+        sec6_dest_img_2_img_frame.open();
+    });
+
+    var sec6_dest_img_3_frame;
+
+    // Runs when the image button is clicked.
+    $('#sec6-dest-img-3-button').click(function(e) {
+
+        // Prevents the default action from occuring.
+        e.preventDefault();
+
+        // If the frame already exists, re-open it.
+        if (sec6_dest_img_3_frame) {
+            sec6_dest_img_3_frame.open();
+            return;
+        }
+
+        // Sets up the media library frame
+        sec6_dest_img_3_frame = wp.media.frames.sec6_dest_img_3_frame = wp.media({
+            title: meta_image.title,
+            button: {text: meta_image.button},
+            /*library: { type: 'image' }*/
+        });
+
+        // Runs when an image is selected.
+        sec6_dest_img_3_frame.on('select', function () {
+
+            // Grabs the attachment selection and creates a JSON representation of the model.
+            var media_attachment = sec6_dest_img_3_frame.state().get('selection').first().toJSON();
+
+            // Sends the attachment URL to our custom image input field.
+            $('#sec6-dest-img-3').val(media_attachment.url);
+        });
+
+        // Opens the media library frame.
+        sec6_dest_img_3_frame.open();
+    });
+
+    var sec7_dest_img_1_frame;
+
+    // Runs when the image button is clicked.
+    $('#sec7-dest-img-1-button').click(function(e) {
+
+        // Prevents the default action from occuring.
+        e.preventDefault();
+
+        // If the frame already exists, re-open it.
+        if (sec7_dest_img_1_frame) {
+            sec7_dest_img_1_frame.open();
+            return;
+        }
+
+        // Sets up the media library frame
+        sec7_dest_img_1_frame = wp.media.frames.sec7_dest_img_1_frame = wp.media({
+            title: meta_image.title,
+            button: {text: meta_image.button},
+            /*library: { type: 'image' }*/
+        });
+
+        // Runs when an image is selected.
+        sec7_dest_img_1_frame.on('select', function () {
+
+            // Grabs the attachment selection and creates a JSON representation of the model.
+            var media_attachment = sec7_dest_img_1_frame.state().get('selection').first().toJSON();
+
+            // Sends the attachment URL to our custom image input field.
+            $('#sec7-dest-img-1').val(media_attachment.url);
+        });
+
+        // Opens the media library frame.
+        sec7_dest_img_1_frame.open();
+    });
+
+    var sec7_dest_img_2_img_frame;
+
+    // Runs when the image button is clicked.
+    $('#sec7-dest-img-2-button').click(function(e) {
+
+        // Prevents the default action from occuring.
+        e.preventDefault();
+
+        // If the frame already exists, re-open it.
+        if (sec7_dest_img_2_img_frame) {
+            sec7_dest_img_2_img_frame.open();
+            return;
+        }
+
+        // Sets up the media library frame
+        sec7_dest_img_2_img_frame = wp.media.frames.sec7_dest_img_2_img_frame = wp.media({
+            title: meta_image.title,
+            button: {text: meta_image.button},
+            /*library: { type: 'image' }*/
+        });
+
+        // Runs when an image is selected.
+        sec7_dest_img_2_img_frame.on('select', function () {
+
+            // Grabs the attachment selection and creates a JSON representation of the model.
+            var media_attachment = sec7_dest_img_2_img_frame.state().get('selection').first().toJSON();
+
+            // Sends the attachment URL to our custom image input field.
+            $('#sec7-dest-img-2').val(media_attachment.url);
+        });
+
+        // Opens the media library frame.
+        sec7_dest_img_2_img_frame.open();
+    });
+
+    var sec7_dest_img_3_frame;
+
+    // Runs when the image button is clicked.
+    $('#sec7-dest-img-3-button').click(function(e) {
+
+        // Prevents the default action from occuring.
+        e.preventDefault();
+
+        // If the frame already exists, re-open it.
+        if (sec7_dest_img_3_frame) {
+            sec7_dest_img_3_frame.open();
+            return;
+        }
+
+        // Sets up the media library frame
+        sec7_dest_img_3_frame = wp.media.frames.sec7_dest_img_3_frame = wp.media({
+            title: meta_image.title,
+            button: {text: meta_image.button},
+            /*library: { type: 'image' }*/
+        });
+
+        // Runs when an image is selected.
+        sec7_dest_img_3_frame.on('select', function () {
+
+            // Grabs the attachment selection and creates a JSON representation of the model.
+            var media_attachment = sec7_dest_img_3_frame.state().get('selection').first().toJSON();
+
+            // Sends the attachment URL to our custom image input field.
+            $('#sec7-dest-img-3').val(media_attachment.url);
+        });
+
+        // Opens the media library frame.
+        sec7_dest_img_3_frame.open();
+    });
+
+    var sec8_dest_img_1_frame;
+
+    // Runs when the image button is clicked.
+    $('#sec8-dest-img-1-button').click(function(e) {
+
+        // Prevents the default action from occuring.
+        e.preventDefault();
+
+        // If the frame already exists, re-open it.
+        if (sec8_dest_img_1_frame) {
+            sec8_dest_img_1_frame.open();
+            return;
+        }
+
+        // Sets up the media library frame
+        sec8_dest_img_1_frame = wp.media.frames.sec8_dest_img_1_frame = wp.media({
+            title: meta_image.title,
+            button: {text: meta_image.button},
+            /*library: { type: 'image' }*/
+        });
+
+        // Runs when an image is selected.
+        sec8_dest_img_1_frame.on('select', function () {
+
+            // Grabs the attachment selection and creates a JSON representation of the model.
+            var media_attachment = sec8_dest_img_1_frame.state().get('selection').first().toJSON();
+
+            // Sends the attachment URL to our custom image input field.
+            $('#sec8-dest-img-1').val(media_attachment.url);
+        });
+
+        // Opens the media library frame.
+        sec8_dest_img_1_frame.open();
+    });
+
+    var sec8_dest_img_2_img_frame;
+
+    // Runs when the image button is clicked.
+    $('#sec8-dest-img-2-button').click(function(e) {
+
+        // Prevents the default action from occuring.
+        e.preventDefault();
+
+        // If the frame already exists, re-open it.
+        if (sec8_dest_img_2_img_frame) {
+            sec8_dest_img_2_img_frame.open();
+            return;
+        }
+
+        // Sets up the media library frame
+        sec8_dest_img_2_img_frame = wp.media.frames.sec8_dest_img_2_img_frame = wp.media({
+            title: meta_image.title,
+            button: {text: meta_image.button},
+            /*library: { type: 'image' }*/
+        });
+
+        // Runs when an image is selected.
+        sec8_dest_img_2_img_frame.on('select', function () {
+
+            // Grabs the attachment selection and creates a JSON representation of the model.
+            var media_attachment = sec8_dest_img_2_img_frame.state().get('selection').first().toJSON();
+
+            // Sends the attachment URL to our custom image input field.
+            $('#sec8-dest-img-2').val(media_attachment.url);
+        });
+
+        // Opens the media library frame.
+        sec8_dest_img_2_img_frame.open();
+    });
+
+    var sec8_dest_img_3_frame;
+
+    // Runs when the image button is clicked.
+    $('#sec8-dest-img-3-button').click(function(e) {
+
+        // Prevents the default action from occuring.
+        e.preventDefault();
+
+        // If the frame already exists, re-open it.
+        if (sec8_dest_img_3_frame) {
+            sec8_dest_img_3_frame.open();
+            return;
+        }
+
+        // Sets up the media library frame
+        sec8_dest_img_3_frame = wp.media.frames.sec8_dest_img_3_frame = wp.media({
+            title: meta_image.title,
+            button: {text: meta_image.button},
+            /*library: { type: 'image' }*/
+        });
+
+        // Runs when an image is selected.
+        sec8_dest_img_3_frame.on('select', function () {
+
+            // Grabs the attachment selection and creates a JSON representation of the model.
+            var media_attachment = sec8_dest_img_3_frame.state().get('selection').first().toJSON();
+
+            // Sends the attachment URL to our custom image input field.
+            $('#sec8-dest-img-3').val(media_attachment.url);
+        });
+
+        // Opens the media library frame.
+        sec8_dest_img_3_frame.open();
+    });
+
+    var sec9_dest_img_1_frame;
+
+    // Runs when the image button is clicked.
+    $('#sec9-dest-img-1-button').click(function(e) {
+
+        // Prevents the default action from occuring.
+        e.preventDefault();
+
+        // If the frame already exists, re-open it.
+        if (sec9_dest_img_1_frame) {
+            sec9_dest_img_1_frame.open();
+            return;
+        }
+
+        // Sets up the media library frame
+        sec9_dest_img_1_frame = wp.media.frames.sec9_dest_img_1_frame = wp.media({
+            title: meta_image.title,
+            button: {text: meta_image.button},
+            /*library: { type: 'image' }*/
+        });
+
+        // Runs when an image is selected.
+        sec9_dest_img_1_frame.on('select', function () {
+
+            // Grabs the attachment selection and creates a JSON representation of the model.
+            var media_attachment = sec9_dest_img_1_frame.state().get('selection').first().toJSON();
+
+            // Sends the attachment URL to our custom image input field.
+            $('#sec9-dest-img-1').val(media_attachment.url);
+        });
+
+        // Opens the media library frame.
+        sec9_dest_img_1_frame.open();
+    });
+
+    var sec9_dest_img_2_img_frame;
+
+    // Runs when the image button is clicked.
+    $('#sec9-dest-img-2-button').click(function(e) {
+
+        // Prevents the default action from occuring.
+        e.preventDefault();
+
+        // If the frame already exists, re-open it.
+        if (sec9_dest_img_2_img_frame) {
+            sec9_dest_img_2_img_frame.open();
+            return;
+        }
+
+        // Sets up the media library frame
+        sec9_dest_img_2_img_frame = wp.media.frames.sec9_dest_img_2_img_frame = wp.media({
+            title: meta_image.title,
+            button: {text: meta_image.button},
+            /*library: { type: 'image' }*/
+        });
+
+        // Runs when an image is selected.
+        sec9_dest_img_2_img_frame.on('select', function () {
+
+            // Grabs the attachment selection and creates a JSON representation of the model.
+            var media_attachment = sec9_dest_img_2_img_frame.state().get('selection').first().toJSON();
+
+            // Sends the attachment URL to our custom image input field.
+            $('#sec9-dest-img-2').val(media_attachment.url);
+        });
+
+        // Opens the media library frame.
+        sec9_dest_img_2_img_frame.open();
+    });
+
+    var sec9_dest_img_3_frame;
+
+    // Runs when the image button is clicked.
+    $('#sec9-dest-img-3-button').click(function(e) {
+
+        // Prevents the default action from occuring.
+        e.preventDefault();
+
+        // If the frame already exists, re-open it.
+        if (sec9_dest_img_3_frame) {
+            sec9_dest_img_3_frame.open();
+            return;
+        }
+
+        // Sets up the media library frame
+        sec9_dest_img_3_frame = wp.media.frames.sec9_dest_img_3_frame = wp.media({
+            title: meta_image.title,
+            button: {text: meta_image.button},
+            /*library: { type: 'image' }*/
+        });
+
+        // Runs when an image is selected.
+        sec9_dest_img_3_frame.on('select', function () {
+
+            // Grabs the attachment selection and creates a JSON representation of the model.
+            var media_attachment = sec9_dest_img_3_frame.state().get('selection').first().toJSON();
+
+            // Sends the attachment URL to our custom image input field.
+            $('#sec9-dest-img-3').val(media_attachment.url);
+        });
+
+        // Opens the media library frame.
+        sec9_dest_img_3_frame.open();
+    });
+
+    var sec10_dest_img_1_frame;
+
+    // Runs when the image button is clicked.
+    $('#sec10-dest-img-1-button').click(function(e) {
+
+        // Prevents the default action from occuring.
+        e.preventDefault();
+
+        // If the frame already exists, re-open it.
+        if (sec10_dest_img_1_frame) {
+            sec10_dest_img_1_frame.open();
+            return;
+        }
+
+        // Sets up the media library frame
+        sec10_dest_img_1_frame = wp.media.frames.sec10_dest_img_1_frame = wp.media({
+            title: meta_image.title,
+            button: {text: meta_image.button},
+            /*library: { type: 'image' }*/
+        });
+
+        // Runs when an image is selected.
+        sec10_dest_img_1_frame.on('select', function () {
+
+            // Grabs the attachment selection and creates a JSON representation of the model.
+            var media_attachment = sec10_dest_img_1_frame.state().get('selection').first().toJSON();
+
+            // Sends the attachment URL to our custom image input field.
+            $('#sec10-dest-img-1').val(media_attachment.url);
+        });
+
+        // Opens the media library frame.
+        sec10_dest_img_1_frame.open();
+    });
+
+    var sec10_dest_img_2_img_frame;
+
+    // Runs when the image button is clicked.
+    $('#sec10-dest-img-2-button').click(function(e) {
+
+        // Prevents the default action from occuring.
+        e.preventDefault();
+
+        // If the frame already exists, re-open it.
+        if (sec10_dest_img_2_img_frame) {
+            sec10_dest_img_2_img_frame.open();
+            return;
+        }
+
+        // Sets up the media library frame
+        sec10_dest_img_2_img_frame = wp.media.frames.sec10_dest_img_2_img_frame = wp.media({
+            title: meta_image.title,
+            button: {text: meta_image.button},
+            /*library: { type: 'image' }*/
+        });
+
+        // Runs when an image is selected.
+        sec10_dest_img_2_img_frame.on('select', function () {
+
+            // Grabs the attachment selection and creates a JSON representation of the model.
+            var media_attachment = sec10_dest_img_2_img_frame.state().get('selection').first().toJSON();
+
+            // Sends the attachment URL to our custom image input field.
+            $('#sec10-dest-img-2').val(media_attachment.url);
+        });
+
+        // Opens the media library frame.
+        sec10_dest_img_2_img_frame.open();
+    });
+
+    var sec10_dest_img_3_frame;
+
+    // Runs when the image button is clicked.
+    $('#sec10-dest-img-3-button').click(function(e) {
+
+        // Prevents the default action from occuring.
+        e.preventDefault();
+
+        // If the frame already exists, re-open it.
+        if (sec10_dest_img_3_frame) {
+            sec10_dest_img_3_frame.open();
+            return;
+        }
+
+        // Sets up the media library frame
+        sec10_dest_img_3_frame = wp.media.frames.sec10_dest_img_3_frame = wp.media({
+            title: meta_image.title,
+            button: {text: meta_image.button},
+            /*library: { type: 'image' }*/
+        });
+
+        // Runs when an image is selected.
+        sec10_dest_img_3_frame.on('select', function () {
+
+            // Grabs the attachment selection and creates a JSON representation of the model.
+            var media_attachment = sec10_dest_img_3_frame.state().get('selection').first().toJSON();
+
+            // Sends the attachment URL to our custom image input field.
+            $('#sec10-dest-img-3').val(media_attachment.url);
+        });
+
+        // Opens the media library frame.
+        sec10_dest_img_3_frame.open();
     });
 });
 
