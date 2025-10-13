@@ -161,3 +161,9 @@ table {
 .panel-body.text-center.colorselector {
     background-color: #ccc;
 }
+
+h2.section-title-h2 {
+    font-size: 22px !important;
+    padding: 1em 0 1em 0 !important;
+    margin: 0 !important;
+}

@@ -111,6 +111,7 @@
 
                         <!-- ==== SECTION #1 ==== -->
                         <div role="tabpanel" class="tab-pane fade in active" id="sectionsimage1">
+                            <p><strong style="color: red;">This section overrides the carousel. If you are not seeing content added to the carousel, make sure this section is emmpty.</strong></p>
 
                             <p> <!-- ==== SECTION #1 TITLE ==== -->
 
@@ -178,7 +179,8 @@
                             </p>
 
                             <hr style="margin-top: 1.618em; border-top: 3px double #8c8b8b;">
-                            <h2>Multi-Destination Carousel &amp; Content</h2>
+                            <h2 class="section-title-h2">Multi-Destination Carousel &amp; Content</h2>
+
                             <p> <!-- ====  SECTION #1 CAROUSEL IMAGE #1 ==== -->
 
                                 <label for="sec1-dest-img-1"
