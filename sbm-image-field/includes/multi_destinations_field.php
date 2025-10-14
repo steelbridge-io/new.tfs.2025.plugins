@@ -181,7 +181,7 @@
                             <hr style="margin-top: 1.618em; border-top: 3px double #8c8b8b;">
                             <h2 class="section-title-h2">Multi-Destination Carousel &amp; Content</h2>
 
-                            <p> <!-- ====  SECTION #1 CAROUSEL IMAGE #1 ==== -->
+                            <div class="sections-meta-cont"> <!-- ====  SECTION #1 CAROUSEL IMAGE #1 ==== -->
 
                                 <label for="sec1-dest-img-1"
                                        class="sec1-dest-img-1"><?php _e('<strong>Section &#35;1 - Carousel Image &#35;1</strong>',
@@ -190,12 +190,34 @@
                                        id="sec1-dest-img-1"
                                        value="<?php if (isset ($multi_dest_stored_meta['sec1-dest-img-1'])) {
                                            echo $multi_dest_stored_meta['sec1-dest-img-1'][0];
-                                       } ?>"/><br><br>
+                                       } ?>"/>
                                 <input type="button" id="sec1-dest-img-1-button" class="button"
                                        value="<?php _e('Choose or Upload an Image',
                                                'the-fly-shop'); ?>"/>
 
-                            </p>
+                                <div class="mt-1">
+                                    <strong><label for="sec1-dest-img-title-1"
+                                                   class="sec1-dest-img-title-1"><?php _e('Section &#35;1 - Multi-Destination Image Title &#35;1',
+                                                    'the-fly-shop'); ?></label></strong><br>
+                                    <input style="width:50%;" type="text" name="sec1-dest-img-title-1"
+                                           id="sec1-dest-img-title-1"
+                                           value="<?php if (isset ($multi_dest_stored_meta['sec1-dest-img-title-1'])) {
+                                               echo $multi_dest_stored_meta['sec1-dest-img-title-1'][0];
+                                           } ?>"/>
+
+                                </div>
+                                <div class="mt-1">
+                                    <strong><label for="sec1-dest-img-desc-1"
+                                                   class="sec1-dest-img-desc-1"><?php _e('Section &#35;1 - Multi-Destination Image Description &#35;1',
+                                                    'the-fly-shop'); ?></label></strong><br>
+                                    <input style="width:50%;" type="text" name="sec1-dest-img-desc-1"
+                                           id="sec1-dest-img-desc-1"
+                                           value="<?php if (isset ($multi_dest_stored_meta['sec1-dest-img-desc-1'])) {
+                                               echo $multi_dest_stored_meta['sec1-dest-img-desc-1'][0];
+                                           } ?>"/>
+                                </div>
+
+                            </div>
                             <p> <!-- ==== SECTION #1 MULTI-DESTINATION TITLE #1 ==== -->
 
 
@@ -304,7 +326,7 @@
 
                             </p>
 
-                            <p> <!-- ==== SECTION #1 MULTI-DESTINATION TITLE ==== -->
+                            <p> <!-- ==== SECTION #1 MULTI-DESTINATION TITLE #3 ==== -->
 
                                 <strong><label for="sec1-dest-title-3"
                                                class="sec1-dest-title-3"><?php _e('Section &#35;1 - Multi-Destination Title &#35;3',
@@ -316,7 +338,7 @@
                                        } ?>"/>
 
                             </p>
-                            <p> <!-- ==== SECTION #1 MULTI-SECTION TEXT AREA ==== -->
+                            <p> <!-- ==== SECTION #1 MULTI-SECTION TEXT AREA #3 ==== -->
 
                                 <strong><label for="sec1-dest-textarea-3"
                                                class="sec1-dest-textarea-3"><?php _e('Section &#35;3 Multi-Destination - Text Area &#35;3',
@@ -328,10 +350,10 @@
                                     } ?></textarea>
 
                             </p>
-                            <p> <!-- ==== SECTION #3 READ MORE ==== -->
+                            <p> <!-- ==== SECTION #1 READ MORE #3 ==== -->
 
                                 <strong><label for="sec1-dest-readmore-3"
-                                               class="sec1-dest-readmore-3"><?php _e('<strong>Section &#35;3 - Mult-Destination Read More &#35;3</strong>',
+                                               class="sec1-dest-readmore-3"><?php _e('<strong>Section &#35;1 - Mult-Destination Read More &#35;3</strong>',
                                                 'the-fly-shop') ?></label></strong>
 
                                 <textarea style="width: 100%;" rows="4" name="sec1-dest-readmore-3"
