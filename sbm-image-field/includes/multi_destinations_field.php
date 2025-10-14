@@ -198,6 +198,7 @@
                             </p>
                             <p> <!-- ==== SECTION #1 MULTI-DESTINATION TITLE #1 ==== -->
 
+
                                 <strong><label for="sec1-dest-title-1"
                                                class="sec1-dest-title-1"><?php _e('Section &#35;1 - Multi-Destination Title &#35;1',
                                                 'the-fly-shop'); ?></label></strong><br>
@@ -211,7 +212,7 @@
                             <p> <!-- ==== SECTION #1 MULTI-SECTION TEXT AREA #1 ==== -->
 
                                 <strong><label for="sec1-dest-textarea-1"
-                                               class="sec1-dest-textarea-1"><?php _e('Section &#35;1 - Multi-Destination Text Area &#35;1',
+                                               class="sec1-dest-textarea-1"><?php _e('Sections &#35;1 - Multi-Destination Text Area &#35;1',
                                                 'the-fly-shop') ?></label></strong>
 
                                 <textarea style="width: 100%;" rows="4" name="sec1-dest-textarea-1"
@@ -220,6 +221,7 @@
                                     } ?></textarea>
 
                             </p>
+
                             <p> <!-- ==== SECTION #1 READ MORE #1 ==== -->
 
                                 <strong><label for="sec1-dest-readmore-1"
@@ -345,25 +347,6 @@
                         <!-- ==== SECTION #2 ==== -->
                         <div role="tabpanel" class="tab-pane fade in" id="sectionsimage2">
 
-                            <p> <!-- ==== SECTION #2 OPTION ==== -->
-
-                                <span class="sections-2-option"><?php _e('<strong>Activate this section?</strong>',
-                                            'the-fly-shop') ?></span>
-                            <div class="sections-2-option">
-                                <label for="sections-2-option">
-                                    <input type="checkbox" name="sections-2-option-checkbox"
-                                           id="sections-2-option-checkbox"
-                                           value="yes" <?php if (isset ($multi_dest_stored_meta['sections-2-option-checkbox'])) {
-                                        checked($multi_dest_stored_meta['sections-2-option-checkbox'][0],
-                                                'yes');
-                                    } ?> />
-                                    <?php _e('Check box to activate this section.',
-                                            'the-fly-shop') ?>
-                                </label>
-                            </div>
-
-                            </p>
-
                             <p> <!-- ==== SECTION #2 TITLE ==== -->
 
                                 <strong><label for="sections-2-title"
@@ -386,25 +369,6 @@
                                           id="sections-2-textarea"><?php if (isset ($multi_dest_stored_meta['sections-2-textarea'])) {
                                         echo $multi_dest_stored_meta['sections-2-textarea'][0];
                                     } ?></textarea>
-
-                            </p>
-
-                            <p> <!-- ==== SECTION #2 READMORE OPTION ==== -->
-
-                                <span class="sections-2-readmore"><?php _e('<strong>Read more section?</strong>',
-                                            'the-fly-shop') ?></span>
-                            <div class="sections-2-readmore">
-                                <label for="sections-2-readmore">
-                                    <input type="checkbox" name="sections-2-readmore-checkbox"
-                                           id="sections-2-readmore-checkbox"
-                                           value="yes" <?php if (isset ($multi_dest_stored_meta['sections-2-readmore-checkbox'])) {
-                                        checked($multi_dest_stored_meta['sections-2-readmore-checkbox'][0],
-                                                'yes');
-                                    } ?> />
-                                    <?php _e('Check box to activate read more section.',
-                                            'the-fly-shop') ?>
-                                </label>
-                            </div>
 
                             </p>
 
@@ -632,25 +596,6 @@
                     <!-- ==== SECTION #3 ==== -->
                     <div role="tabpanel" class="tab-pane fade in" id="sectionsimage3">
 
-                        <p> <!-- ==== SECTION #3 OPTION ==== -->
-
-                            <span class="sections-3-option"><?php _e('<strong>Activate this section?</strong>',
-                                        'the-fly-shop') ?></span>
-                        <div class="sections-3-option">
-                            <label for="sections-3-option">
-                                <input type="checkbox" name="sections-3-option-checkbox"
-                                       id="sections-3-option-checkbox"
-                                       value="yes" <?php if (isset ($multi_dest_stored_meta['sections-3-option-checkbox'])) {
-                                    checked($multi_dest_stored_meta['sections-3-option-checkbox'][0],
-                                            'yes');
-                                } ?> />
-                                <?php _e('Check box to activate this section.',
-                                        'the-fly-shop') ?>
-                            </label>
-                        </div>
-
-                        </p>
-
                         <p> <!-- ==== SECTION #3 TITLE ==== -->
 
                             <strong><label for="sections-3-title"
@@ -673,25 +618,6 @@
                                       id="sections-3-textarea"><?php if (isset ($multi_dest_stored_meta['sections-3-textarea'])) {
                                     echo $multi_dest_stored_meta['sections-3-textarea'][0];
                                 } ?></textarea>
-
-                        </p>
-
-                        <p> <!-- ==== SECTION #3 READMORE OPTION ==== -->
-
-                            <span class="sections-3-readmore"><?php _e('<strong>Read more section?</strong>',
-                                        'the-fly-shop') ?></span>
-                        <div class="sections-3-readmore">
-                            <label for="sections-3-readmore">
-                                <input type="checkbox" name="sections-3-readmore-checkbox"
-                                       id="sections-3-readmore-checkbox"
-                                       value="yes" <?php if (isset ($multi_dest_stored_meta['sections-3-readmore-checkbox'])) {
-                                    checked($multi_dest_stored_meta['sections-3-readmore-checkbox'][0],
-                                            'yes');
-                                } ?> />
-                                <?php _e('Check box to activate read more section.',
-                                        'the-fly-shop') ?>
-                            </label>
-                        </div>
 
                         </p>
 
@@ -920,25 +846,6 @@
 
                     <div role="tabpanel" class="tab-pane fade in" id="sectionsimage4">
 
-                        <p> <!-- ==== SECTION #4 OPTION ==== -->
-
-                            <span class="sections-4-option"><?php _e('<strong>Activate this section?</strong>',
-                                        'the-fly-shop') ?></span>
-                        <div class="sections-4-option">
-                            <label for="sections-4-option">
-                                <input type="checkbox" name="sections-4-option-checkbox"
-                                       id="sections-4-option-checkbox"
-                                       value="yes" <?php if (isset ($multi_dest_stored_meta['sections-4-option-checkbox'])) {
-                                    checked($multi_dest_stored_meta['sections-4-option-checkbox'][0],
-                                            'yes');
-                                } ?> />
-                                <?php _e('Check box to activate this section.',
-                                        'the-fly-shop') ?>
-                            </label>
-                        </div>
-
-                        </p>
-
                         <p> <!-- ==== SECTION #4 TITLE ==== -->
 
                             <strong><label for="sections-4-title"
@@ -961,25 +868,6 @@
                                       id="sections-4-textarea"><?php if (isset ($multi_dest_stored_meta['sections-4-textarea'])) {
                                     echo $multi_dest_stored_meta['sections-4-textarea'][0];
                                 } ?></textarea>
-
-                        </p>
-
-                        <p> <!-- ==== SECTION #4 READMORE OPTION ==== -->
-
-                            <span class="sections-4-readmore"><?php _e('<strong>Read more section?</strong>',
-                                        'the-fly-shop') ?></span>
-                        <div class="sections-4-readmore">
-                            <label for="sections-4-readmore">
-                                <input type="checkbox" name="sections-4-readmore-checkbox"
-                                       id="sections-4-readmore-checkbox"
-                                       value="yes" <?php if (isset ($multi_dest_stored_meta['sections-4-readmore-checkbox'])) {
-                                    checked($multi_dest_stored_meta['sections-4-readmore-checkbox'][0],
-                                            'yes');
-                                } ?> />
-                                <?php _e('Check box to activate read more section.',
-                                        'the-fly-shop') ?>
-                            </label>
-                        </div>
 
                         </p>
 
@@ -1206,25 +1094,6 @@
                     <!-- ==== SECTION #5 ==== -->
                     <div role="tabpanel" class="tab-pane fade in" id="sectionsimage5">
 
-                        <p> <!-- ==== SECTION #5 OPTION ==== -->
-
-                            <span class="sections-5-option"><?php _e('<strong>Activate this section?</strong>',
-                                        'the-fly-shop') ?></span>
-                        <div class="sections-5-option">
-                            <label for="sections-5-option">
-                                <input type="checkbox" name="sections-5-option-checkbox"
-                                       id="sections-5-option-checkbox"
-                                       value="yes" <?php if (isset ($multi_dest_stored_meta['sections-5-option-checkbox'])) {
-                                    checked($multi_dest_stored_meta['sections-5-option-checkbox'][0],
-                                            'yes');
-                                } ?> />
-                                <?php _e('Check box to activate this section.',
-                                        'the-fly-shop') ?>
-                            </label>
-                        </div>
-
-                        </p>
-
                         <p> <!-- ==== SECTION #5 TITLE ==== -->
 
                             <strong><label for="sections-5-title"
@@ -1247,25 +1116,6 @@
                                       id="sections-5-textarea"><?php if (isset ($multi_dest_stored_meta['sections-5-textarea'])) {
                                     echo $multi_dest_stored_meta['sections-5-textarea'][0];
                                 } ?></textarea>
-
-                        </p>
-
-                        <p> <!-- ==== SECTION #5 READMORE OPTION ==== -->
-
-                            <span class="sections-5-readmore"><?php _e('<strong>Read more section?</strong>',
-                                        'the-fly-shop') ?></span>
-                        <div class="sections-5-readmore">
-                            <label for="sections-5-readmore">
-                                <input type="checkbox" name="sections-5-readmore-checkbox"
-                                       id="sections-5-readmore-checkbox"
-                                       value="yes" <?php if (isset ($multi_dest_stored_meta['sections-5-readmore-checkbox'])) {
-                                    checked($multi_dest_stored_meta['sections-5-readmore-checkbox'][0],
-                                            'yes');
-                                } ?> />
-                                <?php _e('Check box to activate read more section.',
-                                        'the-fly-shop') ?>
-                            </label>
-                        </div>
 
                         </p>
 
@@ -1492,25 +1342,6 @@
                         <!-- ==== SECTION #6 ==== -->
                         <div role="tabpanel" class="tab-pane fade in" id="sectionsimage6">
 
-                            <p> <!-- ==== SECTION #6 OPTION ==== -->
-
-                                <span class="sections-6-option"><?php _e('<strong>Activate this section?</strong>',
-                                            'the-fly-shop') ?></span>
-                            <div class="sections-6-option">
-                                <label for="sections-6-option">
-                                    <input type="checkbox" name="sections-6-option-checkbox"
-                                           id="sections-6-option-checkbox"
-                                           value="yes" <?php if (isset ($multi_dest_stored_meta['sections-6-option-checkbox'])) {
-                                        checked($multi_dest_stored_meta['sections-6-option-checkbox'][0],
-                                                'yes');
-                                    } ?> />
-                                    <?php _e('Check box to activate this section.',
-                                            'the-fly-shop') ?>
-                                </label>
-                            </div>
-
-                            </p>
-
                             <p> <!-- ==== SECTION #6 TITLE ==== -->
 
                                 <strong><label for="sections-6-title"
@@ -1533,25 +1364,6 @@
                                           id="sections-6-textarea"><?php if (isset ($multi_dest_stored_meta['sections-6-textarea'])) {
                                         echo $multi_dest_stored_meta['sections-6-textarea'][0];
                                     } ?></textarea>
-
-                            </p>
-
-                            <p> <!-- ==== SECTION #6 READMORE OPTION ==== -->
-
-                                <span class="sections-6-readmore"><?php _e('<strong>Read more section?</strong>',
-                                            'the-fly-shop') ?></span>
-                            <div class="sections-6-readmore">
-                                <label for="sections-6-readmore">
-                                    <input type="checkbox" name="sections-6-readmore-checkbox"
-                                           id="sections-6-readmore-checkbox"
-                                           value="yes" <?php if (isset ($multi_dest_stored_meta['sections-6-readmore-checkbox'])) {
-                                        checked($multi_dest_stored_meta['sections-6-readmore-checkbox'][0],
-                                                'yes');
-                                    } ?> />
-                                    <?php _e('Check box to activate read more section.',
-                                            'the-fly-shop') ?>
-                                </label>
-                            </div>
 
                             </p>
 
@@ -1778,25 +1590,6 @@
                         <!-- ==== SECTION #7 ==== -->
                         <div role="tabpanel" class="tab-pane fade in" id="sectionsimage7">
 
-                            <p> <!-- ==== SECTION #7 OPTION ==== -->
-
-                                <span class="sections-7-option"><?php _e('<strong>Activate this section?</strong>',
-                                            'the-fly-shop') ?></span>
-                            <div class="sections-7-option">
-                                <label for="sections-7-option">
-                                    <input type="checkbox" name="sections-7-option-checkbox"
-                                           id="sections-7-option-checkbox"
-                                           value="yes" <?php if (isset ($multi_dest_stored_meta['sections-7-option-checkbox'])) {
-                                        checked($multi_dest_stored_meta['sections-7-option-checkbox'][0],
-                                                'yes');
-                                    } ?> />
-                                    <?php _e('Check box to activate this section.',
-                                            'the-fly-shop') ?>
-                                </label>
-                            </div>
-
-                            </p>
-
                             <p> <!-- ==== SECTION #7 TITLE ==== -->
 
                                 <strong><label for="sections-7-title"
@@ -1819,25 +1612,6 @@
                                           id="sections-7-textarea"><?php if (isset ($multi_dest_stored_meta['sections-7-textarea'])) {
                                         echo $multi_dest_stored_meta['sections-7-textarea'][0];
                                     } ?></textarea>
-
-                            </p>
-
-                            <p> <!-- ==== SECTION #7 READMORE OPTION ==== -->
-
-                                <span class="sections-7-readmore"><?php _e('<strong>Read more section?</strong>',
-                                            'the-fly-shop') ?></span>
-                            <div class="sections-7-readmore">
-                                <label for="sections-7-readmore">
-                                    <input type="checkbox" name="sections-7-readmore-checkbox"
-                                           id="sections-7-readmore-checkbox"
-                                           value="yes" <?php if (isset ($multi_dest_stored_meta['sections-7-readmore-checkbox'])) {
-                                        checked($multi_dest_stored_meta['sections-7-readmore-checkbox'][0],
-                                                'yes');
-                                    } ?> />
-                                    <?php _e('Check box to activate read more section.',
-                                            'the-fly-shop') ?>
-                                </label>
-                            </div>
 
                             </p>
 
@@ -2064,25 +1838,6 @@
                         <!-- ==== SECTION #8 ==== -->
                         <div role="tabpanel" class="tab-pane fade in" id="sectionsimage8">
 
-                            <p> <!-- ==== SECTION #8 OPTION ==== -->
-
-                                <span class="sections-8-option"><?php _e('<strong>Activate this section?</strong>',
-                                            'the-fly-shop') ?></span>
-                            <div class="sections-8-option">
-                                <label for="sections-8-option">
-                                    <input type="checkbox" name="sections-8-option-checkbox"
-                                           id="sections-8-option-checkbox"
-                                           value="yes" <?php if (isset ($multi_dest_stored_meta['sections-8-option-checkbox'])) {
-                                        checked($multi_dest_stored_meta['sections-8-option-checkbox'][0],
-                                                'yes');
-                                    } ?> />
-                                    <?php _e('Check box to activate this section.',
-                                            'the-fly-shop') ?>
-                                </label>
-                            </div>
-
-                            </p>
-
                             <p> <!-- ==== SECTION #8 TITLE ==== -->
 
                                 <strong><label for="sections-8-title"
@@ -2105,25 +1860,6 @@
                                           id="sections-8-textarea"><?php if (isset ($multi_dest_stored_meta['sections-8-textarea'])) {
                                         echo $multi_dest_stored_meta['sections-8-textarea'][0];
                                     } ?></textarea>
-
-                            </p>
-
-                            <p> <!-- ==== SECTION #8 READMORE OPTION ==== -->
-
-                                <span class="sections-8-readmore"><?php _e('<strong>Read more section?</strong>',
-                                            'the-fly-shop') ?></span>
-                            <div class="sections-8-readmore">
-                                <label for="sections-8-readmore">
-                                    <input type="checkbox" name="sections-8-readmore-checkbox"
-                                           id="sections-8-readmore-checkbox"
-                                           value="yes" <?php if (isset ($multi_dest_stored_meta['sections-8-readmore-checkbox'])) {
-                                        checked($multi_dest_stored_meta['sections-8-readmore-checkbox'][0],
-                                                'yes');
-                                    } ?> />
-                                    <?php _e('Check box to activate read more section.',
-                                            'the-fly-shop') ?>
-                                </label>
-                            </div>
 
                             </p>
 
@@ -2350,25 +2086,6 @@
                         <!-- ==== SECTION #9 ==== -->
                         <div role="tabpanel" class="tab-pane fade in" id="sectionsimage9">
 
-                            <p> <!-- ==== SECTION #9 OPTION ==== -->
-
-                                <span class="sections-9-option"><?php _e('<strong>Activate this section?</strong>',
-                                            'the-fly-shop') ?></span>
-                            <div class="sections-9-option">
-                                <label for="sections-9-option">
-                                    <input type="checkbox" name="sections-9-option-checkbox"
-                                           id="sections-9-option-checkbox"
-                                           value="yes" <?php if (isset ($multi_dest_stored_meta['sections-9-option-checkbox'])) {
-                                        checked($multi_dest_stored_meta['sections-9-option-checkbox'][0],
-                                                'yes');
-                                    } ?> />
-                                    <?php _e('Check box to activate this section.',
-                                            'the-fly-shop') ?>
-                                </label>
-                            </div>
-
-                            </p>
-
                             <p> <!-- ==== SECTION #9 TITLE ==== -->
 
                                 <strong><label for="sections-9-title"
@@ -2391,25 +2108,6 @@
                                           id="sections-9-textarea"><?php if (isset ($multi_dest_stored_meta['sections-9-textarea'])) {
                                         echo $multi_dest_stored_meta['sections-9-textarea'][0];
                                     } ?></textarea>
-
-                            </p>
-
-                            <p> <!-- ==== SECTION #9 READMORE OPTION ==== -->
-
-                                <span class="sections-9-readmore"><?php _e('<strong>Read more section?</strong>',
-                                            'the-fly-shop') ?></span>
-                            <div class="sections-9-readmore">
-                                <label for="sections-9-readmore">
-                                    <input type="checkbox" name="sections-9-readmore-checkbox"
-                                           id="sections-9-readmore-checkbox"
-                                           value="yes" <?php if (isset ($multi_dest_stored_meta['sections-9-readmore-checkbox'])) {
-                                        checked($multi_dest_stored_meta['sections-9-readmore-checkbox'][0],
-                                                'yes');
-                                    } ?> />
-                                    <?php _e('Check box to activate read more section.',
-                                            'the-fly-shop') ?>
-                                </label>
-                            </div>
 
                             </p>
 
@@ -2636,25 +2334,6 @@
                         <!-- ==== SECTION #10 ==== -->
                         <div role="tabpanel" class="tab-pane fade in" id="sectionsimage10">
 
-                            <p> <!-- ==== SECTION #10 OPTION ==== -->
-
-                                <span class="sections-10-option"><?php _e('<strong>Activate this section?</strong>',
-                                            'the-fly-shop') ?></span>
-                            <div class="sections-10-option">
-                                <label for="sections-10-option">
-                                    <input type="checkbox" name="sections-10-option-checkbox"
-                                           id="sections-10-option-checkbox"
-                                           value="yes" <?php if (isset ($multi_dest_stored_meta['sections-10-option-checkbox'])) {
-                                        checked($multi_dest_stored_meta['sections-10-option-checkbox'][0],
-                                                'yes');
-                                    } ?> />
-                                    <?php _e('Check box to activate this section.',
-                                            'the-fly-shop') ?>
-                                </label>
-                            </div>
-
-                            </p>
-
                             <p> <!-- ==== SECTION #10 TITLE ==== -->
 
                                 <strong><label for="sections-10-title"
@@ -2677,25 +2356,6 @@
                                           id="sections-10-textarea"><?php if (isset ($multi_dest_stored_meta['sections-10-textarea'])) {
                                         echo $multi_dest_stored_meta['sections-10-textarea'][0];
                                     } ?></textarea>
-
-                            </p>
-
-                            <p> <!-- ==== SECTION #10 READMORE OPTION ==== -->
-
-                                <span class="sections-10-readmore"><?php _e('<strong>Read more section?</strong>',
-                                            'the-fly-shop') ?></span>
-                            <div class="sections-10-readmore">
-                                <label for="sections-10-readmore">
-                                    <input type="checkbox" name="sections-10-readmore-checkbox"
-                                           id="sections-10-readmore-checkbox"
-                                           value="yes" <?php if (isset ($multi_dest_stored_meta['sections-10-readmore-checkbox'])) {
-                                        checked($multi_dest_stored_meta['sections-10-readmore-checkbox'][0],
-                                                'yes');
-                                    } ?> />
-                                    <?php _e('Check box to activate read more section.',
-                                            'the-fly-shop') ?>
-                                </label>
-                            </div>
 
                             </p>
 
