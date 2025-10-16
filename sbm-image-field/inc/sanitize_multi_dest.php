@@ -411,6 +411,14 @@
   update_post_meta( $post_id, 'sec1-dest-img-2', esc_url_raw( $_POST[ 'sec1-dest-img-2' ] ) );
   }
 
+	if( isset( $_POST[ 'sec1-dest-img-title-2' ] ) ) {
+	 update_post_meta( $post_id, 'sec1-dest-img-title-2', wp_kses_post( $_POST[ 'sec1-dest-img-title-2' ] ) );
+	}
+
+	if( isset( $_POST[ 'sec1-dest-img-desc-2' ] ) ) {
+	 update_post_meta( $post_id, 'sec1-dest-img-desc-2', wp_kses_post( $_POST[ 'sec1-dest-img-desc-2' ] ) );
+	}
+
   if( isset( $_POST[ 'sec1-dest-title-2' ] ) ) {
   update_post_meta( $post_id, 'sec1-dest-title-2', wp_kses_post( $_POST[ 'sec1-dest-title-2' ] ) );
   }
@@ -426,6 +434,14 @@
   if( isset( $_POST[ 'sec1-dest-img-3' ] ) ) {
   update_post_meta( $post_id, 'sec1-dest-img-3', esc_url_raw( $_POST[ 'sec1-dest-img-3' ] ) );
   }
+
+	if( isset( $_POST[ 'sec1-dest-img-title-3' ] ) ) {
+	 update_post_meta( $post_id, 'sec1-dest-img-title-3', wp_kses_post( $_POST[ 'sec1-dest-img-title-3' ] ) );
+	}
+
+	if( isset( $_POST[ 'sec1-dest-img-desc-3' ] ) ) {
+	 update_post_meta( $post_id, 'sec1-dest-img-desc-3', wp_kses_post( $_POST[ 'sec1-dest-img-desc-3' ] ) );
+	}
 
   if( isset( $_POST[ 'sec1-dest-title-3' ] ) ) {
   update_post_meta( $post_id, 'sec1-dest-title-3', wp_kses_post( $_POST[ 'sec1-dest-title-3' ] ) );

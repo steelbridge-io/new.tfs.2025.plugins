@@ -33,7 +33,7 @@
         }
     }
 
-// Outputs the content of the meta box
+    // Outputs the content of the meta box
     function multi_dest_callback($post)
     {
         wp_nonce_field(basename(__FILE__),
@@ -256,7 +256,7 @@
                                     } ?></textarea>
 
                             </p>
-                            <p> <!-- ==== SECTION #1 CAROUSEL IMAGE #2 ==== -->
+                            <div class="sections-meta-cont"> <!-- ==== SECTION #1 CAROUSEL IMAGE #2 ==== -->
 
                                 <label for="sec1-dest-img-2"
                                        class="sections-2-image"><?php _e('<strong>Section &#35;1 - Multi-Destination Carousel Image &#35;2</strong>',
@@ -270,9 +270,31 @@
                                        value="<?php _e('Choose or Upload an Image',
                                                'the-fly-shop'); ?>"/>
 
-                            </p>
+                               <div class="mt-1">
+                                <strong><label for="sec1-dest-img-title-2"
+                                               class="sec1-dest-img-title-2"><?php _e('Section &#35;1 - Multi-Destination Image Title &#35;2',
+                                   'the-fly-shop'); ?></label></strong><br>
+                                <input style="width:50%;" type="text" name="sec1-dest-img-title-2"
+                                       id="sec1-dest-img-title-2"
+                                       value="<?php if (isset ($multi_dest_stored_meta['sec1-dest-img-title-2'])) {
+                                        echo $multi_dest_stored_meta['sec1-dest-img-title-2'][0];
+                                       } ?>"/>
 
-                            <p> <!-- ==== SECTION #1 MULTI-DESTINATION TITLE #1 ==== -->
+                               </div>
+                              <div class="mt-1">
+                               <strong><label for="sec1-dest-img-desc-2"
+                                              class="sec1-dest-img-desc-2"><?php _e('Section &#35;1 - Multi-Destination Image Description &#35;2',
+                                  'the-fly-shop'); ?></label></strong><br>
+                               <input style="width:50%;" type="text" name="sec1-dest-img-desc-2"
+                                      id="sec1-dest-img-desc-2"
+                                      value="<?php if (isset ($multi_dest_stored_meta['sec1-dest-img-desc-2'])) {
+                                       echo $multi_dest_stored_meta['sec1-dest-img-desc-2'][0];
+                                      } ?>"/>
+                              </div>
+
+                            </div>
+
+                            <p> <!-- ==== SECTION #1 MULTI-DESTINATION TITLE #2 ==== -->
 
                                 <strong><label for="sec1-dest-title-2"
                                                class="sec1-dest-title-2"><?php _e('Section &#35;1 - Multi-Destination Title &#35;2',
@@ -309,8 +331,7 @@
 
                             </p>
 
-
-                            <p> <!-- ==== SECTION #1 CAROUSEL IMAGE #3 ==== -->
+                            <div class="sections-meta-cont"> <!-- ==== SECTION #1 CAROUSEL IMAGE #3 ==== -->
 
                                 <label for="sec1-dest-img-3"
                                        class="sections-3-image"><?php _e('<strong>Section &#35;1 - Multi-Destination Carousel Image &#35;3</strong>',
@@ -324,7 +345,28 @@
                                        value="<?php _e('Choose or Upload an Image',
                                                'the-fly-shop'); ?>"/>
 
-                            </p>
+                               <div class="mt-1">
+                                <strong><label for="sec1-dest-img-title-3"
+                                               class="sec1-dest-img-title-3"><?php _e('Section &#35;1 - Multi-Destination Image Title &#35;3',
+                                   'the-fly-shop'); ?></label></strong><br>
+                                <input style="width:50%;" type="text" name="sec1-dest-img-title-3"
+                                       id="sec1-dest-img-title-3"
+                                       value="<?php if (isset ($multi_dest_stored_meta['sec1-dest-img-title-3'])) {
+                                        echo $multi_dest_stored_meta['sec1-dest-img-title-3'][0];
+                                       } ?>"/>
+
+                               </div>
+                               <div class="mt-1">
+                                <strong><label for="sec1-dest-img-desc-3"
+                                               class="sec1-dest-img-desc-3"><?php _e('Section &#35;1 - Multi-Destination Image Description &#35;3',
+                                   'the-fly-shop'); ?></label></strong><br>
+                                <input style="width:50%;" type="text" name="sec1-dest-img-desc-3"
+                                       id="sec1-dest-img-desc-3"
+                                       value="<?php if (isset ($multi_dest_stored_meta['sec1-dest-img-desc-3'])) {
+                                        echo $multi_dest_stored_meta['sec1-dest-img-desc-3'][0];
+                                       } ?>"/>
+                               </div>
+                            </div>
 
                             <p> <!-- ==== SECTION #1 MULTI-DESTINATION TITLE #3 ==== -->
 
