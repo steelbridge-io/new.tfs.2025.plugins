@@ -459,6 +459,14 @@
   update_post_meta( $post_id, 'sec2-dest-img-1', esc_url_raw( $_POST[ 'sec2-dest-img-1' ] ) );
   }
 
+	if( isset( $_POST[ 'sec2-dest-img-title-1' ] ) ) {
+	 update_post_meta( $post_id, 'sec2-dest-img-title-1', wp_kses_post( $_POST[ 'sec2-dest-img-title-1' ] ) );
+	}
+
+	if( isset( $_POST[ 'sec2-dest-img-desc-1' ] ) ) {
+	 update_post_meta( $post_id, 'sec2-dest-img-desc-1', wp_kses_post( $_POST[ 'sec2-dest-img-desc-1' ] ) );
+	}
+
   if( isset( $_POST[ 'sec2-dest-title-1' ] ) ) {
   update_post_meta( $post_id, 'sec2-dest-title-1', wp_kses_post( $_POST[ 'sec2-dest-title-1' ] ) );
   }
