@@ -395,6 +395,18 @@
   update_post_meta( $post_id, 'sec1-dest-img-desc-1', wp_kses_post( $_POST[ 'sec1-dest-img-desc-1' ] ) );
   }
 
+  if ( isset( $_POST[ 'sec1-dest-btn-title-1' ] ) ) {
+      update_post_meta( $post_id, 'sec1-dest-btn-title-1', wp_kses_post( $_POST[ 'sec1-dest-btn-title-1' ] ) );
+  }
+
+  if ( isset( $_POST[ 'sec1-dest-btn-title-2' ] ) ) {
+    update_post_meta( $post_id, 'sec1-dest-btn-title-2', wp_kses_post( $_POST[ 'sec1-dest-btn-title-2' ] ) );
+  }
+
+  if ( isset( $_POST[ 'sec1-dest-btn-title-3' ] ) ) {
+  update_post_meta( $post_id, 'sec1-dest-btn-title-3', wp_kses_post( $_POST[ 'sec1-dest-btn-title-3' ] ) );
+  }
+
   if( isset( $_POST[ 'sec1-dest-title-1' ] ) ) {
   update_post_meta( $post_id, 'sec1-dest-title-1', wp_kses_post( $_POST[ 'sec1-dest-title-1' ] ) );
   }

@@ -218,6 +218,27 @@
                                 </div>
 
                             </div>
+
+                            <div class="sections-meta-cont" style="margin-top: 1em;"> <!-- ==== SECTION #1 CAROUSEL INDICATOR LABELS ==== -->
+                                <strong><label class="sections-row-title"><?php _e('Section &#35;1 - Carousel Indicator Labels', 'the-fly-shop'); ?></label></strong>
+                                <div class="mt-1">
+                                    <label for="sec1-dest-btn-title-1" class="sec1-dest-btn-title-1"><?php _e('Button Label - Slide &#35;1', 'the-fly-shop'); ?></label><br>
+                                    <input style="width:50%;" type="text" name="sec1-dest-btn-title-1" id="sec1-dest-btn-title-1"
+                                           value="<?php if (isset ($multi_dest_stored_meta['sec1-dest-btn-title-1'])) { echo $multi_dest_stored_meta['sec1-dest-btn-title-1'][0]; } ?>"/>
+                                </div>
+                                <div class="mt-1">
+                                    <label for="sec1-dest-title-2" class="sec1-dest-btn-title-2"><?php _e('Button Label - Slide &#35;2', 'the-fly-shop'); ?></label><br>
+                                    <input style="width:50%;" type="text" name="sec1-dest-btn-title-2" id="sec1-dest-btn-title-2"
+                                           value="<?php if (isset ($multi_dest_stored_meta['sec1-dest-btn-title-2'])) { echo $multi_dest_stored_meta['sec1-dest-btn-title-2'][0]; } ?>"/>
+                                </div>
+                                <div class="mt-1">
+                                    <label for="sec1-dest-title-3" class="sec1-dest-btn-title-3"><?php _e('Button Label - Slide &#35;3', 'the-fly-shop'); ?></label><br>
+                                    <input style="width:50%;" type="text" name="sec1-dest-btn-title-3" id="sec1-dest-btn-title-3"
+                                           value="<?php if (isset ($multi_dest_stored_meta['sec1-dest-btn-title-3'])) { echo $multi_dest_stored_meta['sec1-dest-btn-title-3'][0]; } ?>"/>
+                                </div>
+                                <p class="meta-description"><?php _e('These labels control the three buttons under the carousel image for Section #1. Leave blank to use defaults.', 'the-fly-shop'); ?></p>
+                            </div>
+
                             <p> <!-- ==== SECTION #1 MULTI-DESTINATION TITLE #1 ==== -->
 
                                 <strong><label for="sec1-dest-title-1"
