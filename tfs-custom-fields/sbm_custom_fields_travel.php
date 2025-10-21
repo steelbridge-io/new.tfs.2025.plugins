@@ -16,7 +16,11 @@
     global $post;
     if(!empty($post)){
         $pageTemplate = get_post_meta($post->ID, '_wp_page_template', true);
-        if($pageTemplate == 'page-templates/destination-template.php' || $pageTemplate == 'page-templates/regional-waters-template.php' || $pageTemplate == 'page-templates/destination-v3-template.php' || $pageTemplate == 'page-templates/lower-48-destination-template.php') {
+        if($pageTemplate == 'page-templates/destination-template.php' ||
+                $pageTemplate == 'page-templates/regional-waters-template.php' ||
+                $pageTemplate == 'page-templates/destination-v3-template.php' ||
+                $pageTemplate == 'page-templates/lower-48-destination-template.php' ||
+                $pageTemplate == 'page-templates/guide-destination-template.php' ) {
             $types = array('post', 'page', 'travel_cpt', 'lower48', 'travel-blog', 'esb_lodge', 'guide_service');
             foreach($types as $type) {
                 add_meta_box( 'sbm_meta', __( 'Travel Content Fields', 'tfs-travel-textdomain' ), 'tfs_travel_meta_callback',
@@ -40,18 +44,21 @@
     'hide_empty'  => false,
       ));
 
-    if ( $terms ) {
-      echo '<div class="fish-report-terms">';
-      echo '<h3>Show Fishing Reports</h3>';
-      echo '<p>Select a fishing report category below. The category selected will return two posts in the section below the sign-up input on the front end.</p>';
-      echo '<label for="selected_term"><strong>Select a fishing report category:</strong>&nbsp;</label>';
-      echo '<select name="selected_term" id="selected_term">';
-      echo '<option value="">Select a term</option>';
-      foreach ( $terms as $term ) {
-        echo '<option value="' . esc_attr( $term->term_id ) . '" ' . selected( $selected_term, $term->term_id, false ) . '>' . esc_html( $term->name ) . '</option>';
-      }
-      echo '</select>';
-      echo '</div>';
+    $someTemplate = get_post_meta($post->ID, '_wp_page_template', true);
+    if( $someTemplate !== 'page-templates/guide-destination-template.php' && $someTemplate !== 'page-templates/lower-48-destination-template.php' ) {
+        if ($terms) {
+            echo '<div class="fish-report-terms">';
+            echo '<h3>Show Fishing Reports</h3>';
+            echo '<p>Select a fishing report category below. The category selected will return two posts in the section below the sign-up input on the front end.</p>';
+            echo '<label for="selected_term"><strong>Select a fishing report category:</strong>&nbsp;</label>';
+            echo '<select name="selected_term" id="selected_term">';
+            echo '<option value="">Select a term</option>';
+            foreach ($terms as $term) {
+                echo '<option value="' . esc_attr($term->term_id) . '" ' . selected($selected_term, $term->term_id, false) . '>' . esc_html($term->name) . '</option>';
+            }
+            echo '</select>';
+            echo '</div>';
+        }
     }
     ?>
 
@@ -498,7 +505,7 @@
     <!-- Feature #2 Image -->
     <div class="meta-field-container">
 
-        <strong><label for="travel-seasons-image" class="sbm-row-title"><?php _e( 'Travel Costs Image', 'the-fly-shop' );?></label></strong><br>
+        <strong><label for="travel-seasons-image" class="sbm-row-title"><?php _e( 'Travel Seasons Image', 'the-fly-shop' );?></label></strong><br>
         <input style="width:75%;" type="text" name="travel-seasons-image" id="travel-seasons-image" value="<?php if ( isset ( $sbm_stored_travel_meta['travel-seasons-image'] ) ) echo $sbm_stored_travel_meta['travel-seasons-image'][0];?>" />
         <input type="button" id="travel-seasons-image-button" class="button" value="<?php _e( 'Choose or Upload an Image', 'the-fly-shop' );?>" />
 
