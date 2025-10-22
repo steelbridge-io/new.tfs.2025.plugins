@@ -20,8 +20,9 @@
                 $pageTemplate == 'page-templates/regional-waters-template.php' ||
                 $pageTemplate == 'page-templates/destination-v3-template.php' ||
                 $pageTemplate == 'page-templates/lower-48-destination-template.php' ||
-                $pageTemplate == 'page-templates/guide-destination-template.php' ) {
-            $types = array('post', 'page', 'travel_cpt', 'lower48', 'travel-blog', 'esb_lodge', 'guide_service');
+                $pageTemplate == 'page-templates/guide-destination-template.php' ||
+                $pageTemplate == 'page-templates/schools-template-v3.php') {
+            $types = array('post', 'page', 'travel_cpt', 'lower48', 'travel-blog', 'esb_lodge', 'guide_service', 'schools_cpt' );
             foreach($types as $type) {
                 add_meta_box( 'sbm_meta', __( 'Travel Content Fields', 'tfs-travel-textdomain' ), 'tfs_travel_meta_callback',
                     $type, 'normal', 'high' );
@@ -45,7 +46,7 @@
       ));
 
     $someTemplate = get_post_meta($post->ID, '_wp_page_template', true);
-    if( $someTemplate !== 'page-templates/guide-destination-template.php' && $someTemplate !== 'page-templates/lower-48-destination-template.php' ) {
+    if( $someTemplate !== 'page-templates/schools-template-v3.php' ) {
         if ($terms) {
             echo '<div class="fish-report-terms">';
             echo '<h3>Show Fishing Reports</h3>';
