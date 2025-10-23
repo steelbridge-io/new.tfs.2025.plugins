@@ -25,8 +25,12 @@ function signature_custom_meta() { global $post;
     'page-templates/fly-fishing-schools-template.php',
     'page-templates/fish-camp-template.php',
 	 );
+   $excludedTemplates = array(
+    'page-templates/private-waters-template-v3.php',
+    'page-templates/schools-template-v3.php',
+   );
 	 //if($pageTemplate == 'page-templates/guide-service-template.php') {
-	 if(in_array($pageTemplate, $allowedTemplates)) {
+   if(in_array($pageTemplate, $allowedTemplates) && !in_array($pageTemplate, $excludedTemplates)) {
 		$types = array('post', 'page', 'travel_cpt', 'schools_cpt', 'adventures', 'guide_service', 'fishcamp_cpt', 'lower48');
     foreach($types as $type) {
     add_meta_box( 'signature_meta', __( 'Signature Template Options', 'signature-textdomain' ), 'signature_meta_callback', $type, 'normal', 'high' );
