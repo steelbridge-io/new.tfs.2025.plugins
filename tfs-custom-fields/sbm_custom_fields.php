@@ -15,6 +15,7 @@ if (!defined('ABSPATH')) {
 
 include( plugin_dir_path( __FILE__ ) . 'sbm_custom_fields_travel.php');
 include( plugin_dir_path( __FILE__ ) . 'sbm_custom_fields_private_waters.php');
+include( plugin_dir_path( __FILE__ ) . 'sbm_custom_fields_private_waters_v3.php');
 include( plugin_dir_path( __FILE__ ) . 'sbm_custom_fields_guide_service.php');
 include( plugin_dir_path( __FILE__ ) . 'sbm_custom_fields_schools.php');
 include( plugin_dir_path( __FILE__ ) . 'sbm_custom_fields_school_v3.php');
