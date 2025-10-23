@@ -1022,7 +1022,7 @@
 
     <!-- ====== GETTING TO ====== -->
     <hr style="margin-top: 1.618em; border-top: 3px double #8c8b8b;">
-    <h3><?php echo 'Getting To Destination' ?></h3>
+    <h3><?php echo 'Getting To SCHOOL' ?></h3>
 
     <!-- Getting To Title -->
     <p>
@@ -1124,16 +1124,13 @@
     </p>
 
     <p><!-- Getting To Read More -->
-        <!-- <strong><label for="feature-3-read-more-info" class="sbm-row-title"><?php //_e( 'Read More Info', 'sbm-textdomain' )?></label></strong>
-        <input style="width: 100%;" type="text" name="feature-3-read-more-info" id="feature-3-read-more-info" placeholder="Add Read More Info" value="<?php //if ( isset ( $sbm_stored_schoolv3_meta['feature-3-read-more-info'] ) ) echo $sbm_stored_schoolv3_meta['feature-3-read-more-info'][0]; ?>" /> -->
-
         <strong><label for="feature-3-get-to-readmore" class="sbm-row-title"><?php _e( 'Read more', 'tfs-schoolv3-textdomain' )?></label></strong>
         <textarea style="width: 100%;" rows="4" name="feature-3-get-to-readmore" id="feature-3-get-to-readmore"><?php if ( isset ( $sbm_stored_schoolv3_meta['feature-3-get-to-readmore'] ) ) echo $sbm_stored_schoolv3_meta['feature-3-get-to-readmore'][0]; ?></textarea>
     </p>
 
-    <!-- ====== LODGING ====== -->
+    <!-- ====== SCHOOL LODGING ====== -->
     <hr style="margin-top: 1.618em; border-top: 3px double #8c8b8b;">
-    <h3><?php echo 'Lodging' ?></h3>
+    <h3><?php echo 'School Lodging' ?></h3>
 
     <p><!-- Lodging Title -->
         <strong><label for="feature-4-lodging-title" class="sbm-row-title"><?php _e( 'Title', 'tfs-schoolv3-textdomain' )?></label></strong>
@@ -1143,7 +1140,7 @@
     <!-- Lodging Image -->
     <div class="meta-field-container">
 
-        <strong><label for="feature-4-lodging-img" class="sbm-row-title"><?php _e( 'Destination Loding Image','the-fly-shop' );?></label></strong><br>
+        <strong><label for="feature-4-lodging-img" class="sbm-row-title"><?php _e( 'School Lodging Image','the-fly-shop' );?></label></strong><br>
         <input style="width:75%;" type="text" name="feature-4-lodging-img" id="feature-4-lodging-img" value="<?php if ( isset ( $sbm_stored_schoolv3_meta['feature-4-lodging-img'] ) ) echo $sbm_stored_schoolv3_meta['feature-4-lodging-img'][0];?>" />
         <input type="button" id="feature-4-lodging-img-button" class="button" value="<?php _e( 'Choose or Upload an Image', 'the-fly-shop' );?>" />
 
@@ -1461,10 +1458,10 @@
      <textarea style="width: 100%;" rows="4" name="feature-6-supplemental-readmore" id="feature-6-supplemental-readmore"><?php if ( isset ( $sbm_stored_schoolv3_meta['feature-6-supplemental-readmore'] ) ) echo $sbm_stored_schoolv3_meta['feature-6-supplemental-readmore'][0]; ?></textarea>
     </p>
 
-    <!-- ====== WHY WE SUPPORT THIS DESTINATION ====== -->
+    <!-- ====== Why We Support This School ====== -->
     <hr style="margin-top: 1.618em; border-top: 3px double #8c8b8b;">
     <div class="set-the-hook-container">
-    <h3><?php echo 'Why We Support This Destination' ?></h3>
+    <h3><?php echo 'Why We Support This School' ?></h3>
     <div>
     <div class="schoolv3-row-content">
         <label for="whywe-title-2" class="sbm-row-title"><?php _e( '<strong>Title</strong>', 'the-fly-shop' )?></label>
