@@ -1,71 +1,116 @@
 jQuery(document).ready(function($) {
-    const chatContainer = $('#search-bot-chat');
-    const messagesContainer = $('#search-bot-messages');
-    const inputField = $('#search-bot-input');
-    let conversationHistory = [];
+    const $prompt = $('#search-bot-prompt');
+    const $chat = $('#search-bot-chat');
+    const $messages = $('#search-bot-messages');
+    const $input = $('#search-bot-input');
+    const $openBtn = $('#search-bot-open, .search-bot-open-shortcode');
+    const $closeBtn = $('#search-bot-close');
+    const $clearBtn = $('#search-bot-clear');
+    let history = [];
 
-    // Show welcome message when chat opens
-    function openChat() {
-        chatContainer.show();
-        if (!conversationHistory.length) {
-            messagesContainer.append('<div class="bot-message">Bot: Hi! Ask about products, destinations, fishing reports, or private waters.</div>');
-            scrollToBottom();
-        }
-        inputField.focus();
-    }
-
-    $('#search-bot-open').on('click', openChat);
-    $('.search-bot-open-shortcode').on('click', openChat);
-
-    // Close chat
-    $('#search-bot-close').on('click', function() {
-        chatContainer.hide();
+    // Open chat
+    $openBtn.on('click', function() {
+        $prompt.hide();
+        $chat.show().css('display', 'flex');
+        setTimeout(() => {
+            $input.focus();
+        }, 300);
     });
 
-    // Scroll to bottom of messages
-    function scrollToBottom() {
-        messagesContainer.scrollTop(messagesContainer[0].scrollHeight);
+    // Close chat
+    $closeBtn.on('click', function() {
+        $chat.hide();
+        $prompt.show();
+    });
+
+    // Clear chat
+    $clearBtn.on('click', function() {
+        if (confirm('Clear all search results and start over?')) {
+            clearChat();
+        }
+    });
+
+    // Function to clear chat
+    function clearChat() {
+        $messages.empty();
+        history = [];
+        $input.val('');
+
+        // Show a fresh start message
+        setTimeout(() => {
+            appendMessage('Chat cleared! How can I help you today?', false);
+        }, 100);
     }
 
-    // Handle user input
-    inputField.on('keypress', function(e) {
-        if (e.which === 13 && $(this).val().trim()) {
-            const query = $(this).val().trim();
-            messagesContainer.append('<div class="user-message">You: ' + query + '</div>');
-            conversationHistory.push({ text: query, isUser: true });
-            scrollToBottom();
+    // Handle input submission
+    $input.on('keypress', function(e) {
+        if (e.which === 13 && $input.val().trim()) {
+            const query = $input.val().trim();
+            appendMessage(query, true);
+            $input.val('');
 
-            // Send to AI via AJAX
+            // Show loading indicator
+            const $loadingMsg = $('<div class="bot-message loading">Searching</div>');
+            $messages.append($loadingMsg);
+            $messages.scrollTop($messages[0].scrollHeight);
+
             $.ajax({
                 url: searchBotAjax.ajaxurl,
                 type: 'POST',
                 data: {
                     action: 'ai_chat',
                     query: query,
-                    history: JSON.stringify(conversationHistory)
+                    history: JSON.stringify(history),
+                    nonce: searchBotAjax.nonce
                 },
                 success: function(response) {
-                    console.log('AJAX Response:', response); // Debug log
+                    // Remove loading message
+                    $loadingMsg.remove();
+
                     if (response.success) {
-                        const aiResponse = response.data.response;
-                        // Append response as HTML to render links
-                        messagesContainer.append($('<div class="bot-message">Bot: </div>').append(aiResponse));
-                        conversationHistory.push({ text: aiResponse, isUser: false });
+                        appendMessage(response.data.response, false);
                     } else {
-                        messagesContainer.append('<div class="bot-message">Bot: Error: ' + response.data.message + '</div>');
-                        conversationHistory.push({ text: 'Error: ' + response.data.message, isUser: false });
+                        const errorMsg = response.data?.response || 'Sorry, something went wrong. Please try again.';
+                        appendMessage(errorMsg, false);
+                        console.error('Server error:', response);
                     }
-                    scrollToBottom();
                 },
                 error: function(xhr, status, error) {
-                    console.error('AJAX Error:', status, error); // Debug log
-                    messagesContainer.append('<div class="bot-message">Bot: Sorry, something went wrong. Please try again.</div>');
-                    conversationHistory.push({ text: 'Sorry, something went wrong.', isUser: false });
-                    scrollToBottom();
+
+                    // Remove loading message
+                    $loadingMsg.remove();
+
+                    console.error('AJAX Error:', {
+                        status: status,
+                        error: error,
+                        response: xhr.responseText,
+                        xhr: xhr
+                    });
+                    appendMessage('Error connecting to the server. Please check the console for details.', false);
                 }
             });
+        }
+    });
 
-            $(this).val('');
+    function appendMessage(text, isUser) {
+        const messageClass = isUser ? 'user-message' : 'bot-message';
+        const $message = $('<div>').addClass(messageClass).html(text);
+        $messages.append($message);
+
+        if (isUser) {
+            history.push({ text: text, isUser: isUser });
+        }
+
+        // Smooth scroll to bottom
+        $messages.animate({
+            scrollTop: $messages[0].scrollHeight
+        }, 300);
+    }
+
+    // Close on escape key
+    $(document).on('keydown', function(e) {
+        if (e.key === 'Escape' && $chat.is(':visible')) {
+            $closeBtn.click();
         }
     });
 });
