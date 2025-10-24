@@ -20,6 +20,7 @@ include( plugin_dir_path( __FILE__ ) . 'sbm_custom_fields_guide_service.php');
 include( plugin_dir_path( __FILE__ ) . 'sbm_custom_fields_schools.php');
 include( plugin_dir_path( __FILE__ ) . 'sbm_custom_fields_school_v3.php');
 include( plugin_dir_path( __FILE__ ) . 'sbm_custom_fields_fish_camp.php');
+include( plugin_dir_path( __FILE__ ) . 'sbm_custom_fields_fish_camp_v3.php');
 include( plugin_dir_path( __FILE__ ) . 'sbm_custom_fields_stream_report.php');
 include( plugin_dir_path( __FILE__ ) . 'sbm_custom_fields_basic.php');
 include( plugin_dir_path( __FILE__ ) . 'sbm_custom_fields_blog.php');
