@@ -516,37 +516,23 @@
         </div>
     </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        <!-- Seasons Video URL -->
-        <div class="meta-field-container">
-            <strong><label for="feature_2_video_url" class="sbm-row-title"><?php _e( 'Seasons Video URL', 'tfs-schoolv3-textdomain' ); ?></label></strong>
-            <input
-                    type="url"
-                    name="feature_2_video_url"
-                    id="feature_2_video_url"
-                    style="width: 100%;"
-                    placeholder="https://example.com/path/video.mp4"
-                    value="<?php
-                    if ( isset( $sbm_stored_schoolv3_meta['feature_2_video_url'] ) ) {
-                        echo esc_attr( $sbm_stored_schoolv3_meta['feature_2_video_url'][0] );
-                    }
-                    ?>"
-            />
-            <p class="description"><?php _e( 'Add a direct video URL (e.g., MP4). Playback is user-initiated via controls. Poster uses the School Costs image if set.', 'tfs-schoolv3-textdomain' ); ?></p>
-        </div>
+    <!-- Seasons Video URL -->
+    <div class="meta-field-container">
+        <strong><label for="feature_2_video_url" class="sbm-row-title"><?php _e( 'Seasons Video URL', 'tfs-schoolv3-textdomain' ); ?></label></strong>
+        <input
+                type="url"
+                name="feature_2_video_url"
+                id="feature_2_video_url"
+                style="width: 100%;"
+                placeholder="https://example.com/path/video.mp4"
+                value="<?php
+                if ( isset( $sbm_stored_schoolv3_meta['feature_2_video_url'] ) ) {
+                    echo esc_attr( $sbm_stored_schoolv3_meta['feature_2_video_url'][0] );
+                }
+                ?>"
+        />
+        <p class="description"><?php _e( 'Add a direct video URL (e.g., MP4). Playback is user-initiated via controls. Poster uses the School Costs image if set.', 'tfs-schoolv3-textdomain' ); ?></p>
+    </div>
 
         <?php
         $feature_2_video_current = isset( $sbm_stored_schoolv3_meta['feature_2_video_url'] )
@@ -1022,7 +1008,7 @@
 
     <!-- ====== GETTING TO ====== -->
     <hr style="margin-top: 1.618em; border-top: 3px double #8c8b8b;">
-    <h3><?php echo 'Getting To SCHOOL' ?></h3>
+    <h3><?php echo 'Getting To School' ?></h3>
 
     <!-- Getting To Title -->
     <p>
