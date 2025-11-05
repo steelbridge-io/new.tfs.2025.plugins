@@ -9,7 +9,7 @@
     * @license		GNU General Public License
     */
 
-    include( plugin_dir_path( __FILE__ ) . 'inc/sanitize_fields_fish_camp_v3.php');
+    include( plugin_dir_path( __FILE__ ) . 'inc/sanitize_fields_fish_camp_v3.php.php');
 
     // Adds a meta box to the post editing screen on the template named travel-template
     function tfs_custom_fish_camp_v3_meta() {
