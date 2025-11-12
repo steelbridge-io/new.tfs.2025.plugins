@@ -918,268 +918,267 @@
                         
                         
                         <!-- SECOND OPTIONAL CALENDAR SETTINGS -->
-                        <hr style="margin: 30px 0;">
-                        <div class="meta-field-container">
-                            <strong><label for="multi-season-calendar-title-2" class="sbm-row-title"><?php _e( 'Second Season Calendar Title (Optional)', 'tfs-travel-textdomain' )?></label></strong>
-                            <input style="width: 100%;" type="text" name="multi-season-calendar-title-2" id="multi-season-calendar-title-2" value="<?php if ( isset ($sbm_stored_travel_meta['multi-season-calendar-title-2'] ) ) echo $sbm_stored_travel_meta['multi-season-calendar-title-2'][0]; ?>" />
-                        </div>
-
-                        <p>
-                            <span class="travel-row-title"><?php _e( '<strong>Display Second Monthly Season Range</strong>', 'tfs-travel-textdomain' )?></span>
-                        <div class="travel-row-content">
-                            <label for="monthly-range-checkbox-2">
-                                <input type="checkbox" name="monthly-range-checkbox-2" id="monthly-range-checkbox-2" value="yes" <?php if ( isset ( $sbm_stored_travel_meta['monthly-range-checkbox-2'] ) ) checked( $sbm_stored_travel_meta['monthly-range-checkbox-2'][0], 'yes' ); ?> />
-                                <?php _e( 'Check box to activate Second Monthly Range display.', 'tfs-travel-textdomain' )?>
-                            </label>
-                        </div>
-                        </p>
-
-                        <div class="season-range-controls" style="margin: 20px 0;">
-                            <h4>Second Multiple Season Range Settings</h4>
-                            <p style="margin-bottom: 15px;"><em>Configure up to 3 additional, coinciding fishing seasons.</em></p>
-
-                            <!-- Season 4 -->
-                            <div class="season-group" style="border: 1px solid #ddd; padding: 15px; margin-bottom: 20px; background: #f9f9f9;">
-                                <h5 style="margin-top: 0;">Season 4 - Primary (Optional)</h5>
-
-                                <div style="display: flex; gap: 15px; align-items: center; margin-bottom: 15px; flex-wrap: wrap;">
-                                    <div>
-                                        <strong><label for="season4-start-month">Start Month:</label></strong><br>
-                                        <select name="season4-start-month" id="season4-start-month" style="width: 130px;">
-                                            <option value="0">Not Set</option>
-                                            <?php
-                                            $months = array(1 => 'January', 2 => 'February', 3 => 'March', 4 => 'April', 5 => 'May', 6 => 'June', 7 => 'July', 8 => 'August', 9 => 'September', 10 => 'October', 11 => 'November', 12 => 'December');
-                                            $selected_start = isset($sbm_stored_travel_meta['season4-start-month']) ? $sbm_stored_travel_meta['season4-start-month'][0] : '';
-                                            foreach($months as $num => $name) {
-                                                $selected = ($selected_start == $num) ? 'selected' : '';
-                                                echo "<option value='$num' $selected>$name</option>";
-                                            }
-                                            ?>
-                                        </select>
-                                    </div>
-
-                                    <div>
-                                        <strong><label for="season4-start-part">Start Period:</label></strong><br>
-                                        <select name="season4-start-part" id="season4-start-part" style="width: 100px;">
-                                            <option value="full" <?php selected(get_post_meta($post->ID, 'season4-start-part', true), 'full'); ?>>Full Month</option>
-                                            <option value="early" <?php selected(get_post_meta($post->ID, 'season4-start-part', true), 'early'); ?>>Early</option>
-                                            <option value="mid" <?php selected(get_post_meta($post->ID, 'season4-start-part', true), 'mid'); ?>>Mid</option>
-                                            <option value="late" <?php selected(get_post_meta($post->ID, 'season4-start-part', true), 'late'); ?>>Late</option>
-                                        </select>
-                                    </div>
-
-                                    <div>
-                                        <strong><label for="season4-end-month">End Month:</label></strong><br>
-                                        <select name="season4-end-month" id="season4-end-month" style="width: 130px;">
-                                            <option value="0">Not Set</option>
-                                            <?php
-                                            $selected_end = isset($sbm_stored_travel_meta['season4-end-month']) ? $sbm_stored_travel_meta['season4-end-month'][0] : '';
-                                            foreach($months as $num => $name) {
-                                                $selected = ($selected_end == $num) ? 'selected' : '';
-                                                echo "<option value='$num' $selected>$name</option>";
-                                            }
-                                            ?>
-                                        </select>
-                                    </div>
-
-                                    <div>
-                                        <strong><label for="season4-end-part">End Period:</label></strong><br>
-                                        <select name="season4-end-part" id="season4-end-part" style="width: 100px;">
-                                            <option value="full" <?php selected(get_post_meta($post->ID, 'season4-end-part', true), 'full'); ?>>Full Month</option>
-                                            <option value="early" <?php selected(get_post_meta($post->ID, 'season4-end-part', true), 'early'); ?>>Early</option>
-                                            <option value="mid" <?php selected(get_post_meta($post->ID, 'season4-end-part', true), 'mid'); ?>>Mid</option>
-                                            <option value="late" <?php selected(get_post_meta($post->ID, 'season4-end-part', true), 'late'); ?>>Late</option>
-                                        </select>
-                                    </div>
-
-                                    <div>
-                                        <strong><label for="season4-color">Color:</label></strong><br>
-                                        <input type="color" name="season4-color" id="season4-color" value="<?php echo esc_attr(get_post_meta($post->ID, 'season4-color', true) ?: '#8e44ad'); ?>" style="width: 60px; height: 30px;">
-                                    </div>
-                                </div>
-
-                                <div>
-                                    <strong><label for="season4-name">Season Name:</label></strong><br>
-                                    <input type="text" name="season4-name" id="season4-name" value="<?php echo esc_attr(get_post_meta($post->ID, 'season4-name', true) ?: 'Alt Season A'); ?>" style="width: 200px;" placeholder="e.g., Offshore Peaks">
-                                </div>
+                            <hr style="margin: 30px 0;">
+                            <div class="meta-field-container">
+                                <strong><label for="multi-season-calendar-title-2" class="sbm-row-title"><?php _e( 'Second Season Calendar Title (Optional)', 'tfs-travel-textdomain' )?></label></strong>
+                                <input style="width: 100%;" type="text" name="multi-season-calendar-title-2" id="multi-season-calendar-title-2" value="<?php if ( isset ($sbm_stored_travel_meta['multi-season-calendar-title-2'] ) ) echo $sbm_stored_travel_meta['multi-season-calendar-title-2'][0]; ?>" />
                             </div>
 
-                            <!-- Season 5 -->
-                            <div class="season-group" style="border: 1px solid #ddd; padding: 15px; margin-bottom: 20px; background: #f9f9f9;">
-                                <h5 style="margin-top: 0;">Season 5 - Secondary (Optional)</h5>
-
-                                <div style="display: flex; gap: 15px; align-items: center; margin-bottom: 15px; flex-wrap: wrap;">
-                                    <div>
-                                        <strong><label for="season5-start-month">Start Month:</label></strong><br>
-                                        <select name="season5-start-month" id="season5-start-month" style="width: 130px;">
-                                            <option value="0">Not Set</option>
-                                            <?php
-                                            $selected_start = isset($sbm_stored_travel_meta['season5-start-month']) ? $sbm_stored_travel_meta['season5-start-month'][0] : '';
-                                            foreach($months as $num => $name) {
-                                                $selected = ($selected_start == $num) ? 'selected' : '';
-                                                echo "<option value='$num' $selected>$name</option>";
-                                            }
-                                            ?>
-                                        </select>
-                                    </div>
-
-                                    <div>
-                                        <strong><label for="season5-start-part">Start Period:</label></strong><br>
-                                        <select name="season5-start-part" id="season5-start-part" style="width: 100px;">
-                                            <option value="full" <?php selected(get_post_meta($post->ID, 'season5-start-part', true), 'full'); ?>>Full Month</option>
-                                            <option value="early" <?php selected(get_post_meta($post->ID, 'season5-start-part', true), 'early'); ?>>Early</option>
-                                            <option value="mid" <?php selected(get_post_meta($post->ID, 'season5-start-part', true), 'mid'); ?>>Mid</option>
-                                            <option value="late" <?php selected(get_post_meta($post->ID, 'season5-start-part', true), 'late'); ?>>Late</option>
-                                        </select>
-                                    </div>
-
-                                    <div>
-                                        <strong><label for="season5-end-month">End Month:</label></strong><br>
-                                        <select name="season5-end-month" id="season5-end-month" style="width: 130px;">
-                                            <option value="0">Not Set</option>
-                                            <?php
-                                            $selected_end = isset($sbm_stored_travel_meta['season5-end-month']) ? $sbm_stored_travel_meta['season5-end-month'][0] : '';
-                                            foreach($months as $num => $name) {
-                                                $selected = ($selected_end == $num) ? 'selected' : '';
-                                                echo "<option value='$num' $selected>$name</option>";
-                                            }
-                                            ?>
-                                        </select>
-                                    </div>
-
-                                    <div>
-                                        <strong><label for="season5-end-part">End Period:</label></strong><br>
-                                        <select name="season5-end-part" id="season5-end-part" style="width: 100px;">
-                                            <option value="full" <?php selected(get_post_meta($post->ID, 'season5-end-part', true), 'full'); ?>>Full Month</option>
-                                            <option value="early" <?php selected(get_post_meta($post->ID, 'season5-end-part', true), 'early'); ?>>Early</option>
-                                            <option value="mid" <?php selected(get_post_meta($post->ID, 'season5-end-part', true), 'mid'); ?>>Mid</option>
-                                            <option value="late" <?php selected(get_post_meta($post->ID, 'season5-end-part', true), 'late'); ?>>Late</option>
-                                        </select>
-                                    </div>
-
-                                    <div>
-                                        <strong><label for="season5-color">Color:</label></strong><br>
-                                        <input type="color" name="season5-color" id="season5-color" value="<?php echo esc_attr(get_post_meta($post->ID, 'season5-color', true) ?: '#e67e22'); ?>" style="width: 60px; height: 30px;">
-                                    </div>
-                                </div>
-
-                                <div>
-                                    <strong><label for="season5-name">Season Name:</label></strong><br>
-                                    <input type="text" name="season5-name" id="season5-name" value="<?php echo esc_attr(get_post_meta($post->ID, 'season5-name', true) ?: 'Alt Season B'); ?>" style="width: 200px;" placeholder="e.g., Inshore Runs">
-                                </div>
+                            <div class="travel-row-title"><?php _e( '<strong>Display Second Monthly Season Range</strong>', 'tfs-travel-textdomain' )?></div>
+                            <div class="travel-row-content">
+                                <label for="monthly-range-checkbox-2">
+                                    <input type="checkbox" name="monthly-range-checkbox-2" id="monthly-range-checkbox-2" value="yes" <?php if ( isset ( $sbm_stored_travel_meta['monthly-range-checkbox-2'] ) ) checked( $sbm_stored_travel_meta['monthly-range-checkbox-2'][0], 'yes' ); ?> />
+                                    <?php _e( 'Check box to activate Second Monthly Range display.', 'tfs-travel-textdomain' )?>
+                                </label>
                             </div>
 
-                            <!-- Season 6 -->
-                            <div class="season-group" style="border: 1px solid #ddd; padding: 15px; margin-bottom: 20px; background: #f9f9f9;">
-                                <h5 style="margin-top: 0;">Season 6 - Third (Optional)</h5>
 
-                                <div style="display: flex; gap: 15px; align-items: center; margin-bottom: 15px; flex-wrap: wrap;">
-                                    <div>
-                                        <strong><label for="season6-start-month">Start Month:</label></strong><br>
-                                        <select name="season6-start-month" id="season6-start-month" style="width: 130px;">
-                                            <option value="0">Not Set</option>
-                                            <?php
-                                            $selected_start = isset($sbm_stored_travel_meta['season6-start-month']) ? $sbm_stored_travel_meta['season6-start-month'][0] : '';
-                                            foreach($months as $num => $name) {
-                                                $selected = ($selected_start == $num) ? 'selected' : '';
-                                                echo "<option value='$num' $selected>$name</option>";
-                                            }
-                                            ?>
-                                        </select>
-                                    </div>
+                            <div class="season-range-controls" style="margin: 20px 0;">
+                                <h4>Second Multiple Season Range Settings</h4>
+                                <p style="margin-bottom: 15px;"><em>Configure up to 3 additional, coinciding fishing seasons.</em></p>
 
-                                    <div>
-                                        <strong><label for="season6-start-part">Start Period:</label></strong><br>
-                                        <select name="season6-start-part" id="season6-start-part" style="width: 100px;">
-                                            <option value="full" <?php selected(get_post_meta($post->ID, 'season6-start-part', true), 'full'); ?>>Full Month</option>
-                                            <option value="early" <?php selected(get_post_meta($post->ID, 'season6-start-part', true), 'early'); ?>>Early</option>
-                                            <option value="mid" <?php selected(get_post_meta($post->ID, 'season6-start-part', true), 'mid'); ?>>Mid</option>
-                                            <option value="late" <?php selected(get_post_meta($post->ID, 'season6-start-part', true), 'late'); ?>>Late</option>
-                                        </select>
-                                    </div>
+                                <!-- Season 4 -->
+                                <div class="season-group" style="border: 1px solid #ddd; padding: 15px; margin-bottom: 20px; background: #f9f9f9;">
+                                    <h5 style="margin-top: 0;">Season 4 - Primary (Optional)</h5>
 
-                                    <div>
-                                        <strong><label for="season6-end-month">End Month:</label></strong><br>
-                                        <select name="season6-end-month" id="season6-end-month" style="width: 130px;">
-                                            <option value="0">Not Set</option>
-                                            <?php
-                                            $selected_end = isset($sbm_stored_travel_meta['season6-end-month']) ? $sbm_stored_travel_meta['season6-end-month'][0] : '';
-                                            foreach($months as $num => $name) {
-                                                $selected = ($selected_end == $num) ? 'selected' : '';
-                                                echo "<option value='$num' $selected>$name</option>";
-                                            }
-                                            ?>
-                                        </select>
-                                    </div>
-
-                                    <div>
-                                        <strong><label for="season6-end-part">End Period:</label></strong><br>
-                                        <select name="season6-end-part" id="season6-end-part" style="width: 100px;">
-                                            <option value="full" <?php selected(get_post_meta($post->ID, 'season6-end-part', true), 'full'); ?>>Full Month</option>
-                                            <option value="early" <?php selected(get_post_meta($post->ID, 'season6-end-part', true), 'early'); ?>>Early</option>
-                                            <option value="mid" <?php selected(get_post_meta($post->ID, 'season6-end-part', true), 'mid'); ?>>Mid</option>
-                                            <option value="late" <?php selected(get_post_meta($post->ID, 'season6-end-part', true), 'late'); ?>>Late</option>
-                                        </select>
-                                    </div>
-
-                                    <div>
-                                        <strong><label for="season6-color">Color:</label></strong><br>
-                                        <input type="color" name="season6-color" id="season6-color" value="<?php echo esc_attr(get_post_meta($post->ID, 'season6-color', true) ?: '#2ecc71'); ?>" style="width: 60px; height: 30px;">
-                                    </div>
-                                </div>
-
-                                <div>
-                                    <strong><label for="season6-name">Season Name:</label></strong><br>
-                                    <input type="text" name="season6-name" id="season6-name" value="<?php echo esc_attr(get_post_meta($post->ID, 'season6-name', true) ?: 'Alt Season C'); ?>" style="width: 200px;" placeholder="e.g., Shoulder Push">
-                                </div>
-                            </div>
-
-                            <!-- Preview 2 -->
-                            <div class="season-preview-2" style="margin-top: 20px;">
-                                <strong>Second Calendar Preview:</strong>
-                                <div class="month-range-preview-2" style="display: flex; gap: 5px; margin-top: 10px; flex-wrap: wrap;">
-                                    <?php
-                                    $months_short = array(1 => 'Jan', 2 => 'Feb', 3 => 'Mar', 4 => 'Apr', 5 => 'May', 6 => 'Jun', 7 => 'Jul', 8 => 'Aug', 9 => 'Sep', 10 => 'Oct', 11 => 'Nov', 12 => 'Dec');
-                                    foreach($months_short as $num => $name): ?>
-                                        <div class="month-preview-multi-2" data-month="<?php echo $num; ?>" style="
-                                            width: 60px;
-                                            height: 50px;
-                                            border: 1px solid #ccc;
-                                            display: flex;
-                                            flex-direction: column;
-                                            align-items: center;
-                                            justify-content: center;
-                                            font-size: 10px;
-                                            background: #f8f8f8;
-                                            position: relative;
-                                        ">
-                                            <div class="month-name"><?php echo $name; ?></div>
-                                            <div class="month-periods" style="display: flex; width: 100%; height: 15px; margin-top: 2px;">
-                                                <div class="period-early" style="flex: 1; height: 100%;"></div>
-                                                <div class="period-mid" style="flex: 1; height: 100%;"></div>
-                                                <div class="period-late" style="flex: 1; height: 100%;"></div>
-                                            </div>
+                                    <div style="display: flex; gap: 15px; align-items: center; margin-bottom: 15px; flex-wrap: wrap;">
+                                        <div>
+                                            <strong><label for="season4-start-month">Start Month:</label></strong><br>
+                                            <select name="season4-start-month" id="season4-start-month" style="width: 130px;">
+                                                <option value="0">Not Set</option>
+                                                <?php
+                                                $months = array(1 => 'January', 2 => 'February', 3 => 'March', 4 => 'April', 5 => 'May', 6 => 'June', 7 => 'July', 8 => 'August', 9 => 'September', 10 => 'October', 11 => 'November', 12 => 'December');
+                                                $selected_start = isset($sbm_stored_travel_meta['season4-start-month']) ? $sbm_stored_travel_meta['season4-start-month'][0] : '';
+                                                foreach($months as $num => $name) {
+                                                    $selected = ($selected_start == $num) ? 'selected' : '';
+                                                    echo "<option value='$num' $selected>$name</option>";
+                                                }
+                                                ?>
+                                            </select>
                                         </div>
-                                    <?php endforeach; ?>
+
+                                        <div>
+                                            <strong><label for="season4-start-part">Start Period:</label></strong><br>
+                                            <select name="season4-start-part" id="season4-start-part" style="width: 100px;">
+                                                <option value="full" <?php selected(get_post_meta($post->ID, 'season4-start-part', true), 'full'); ?>>Full Month</option>
+                                                <option value="early" <?php selected(get_post_meta($post->ID, 'season4-start-part', true), 'early'); ?>>Early</option>
+                                                <option value="mid" <?php selected(get_post_meta($post->ID, 'season4-start-part', true), 'mid'); ?>>Mid</option>
+                                                <option value="late" <?php selected(get_post_meta($post->ID, 'season4-start-part', true), 'late'); ?>>Late</option>
+                                            </select>
+                                        </div>
+
+                                        <div>
+                                            <strong><label for="season4-end-month">End Month:</label></strong><br>
+                                            <select name="season4-end-month" id="season4-end-month" style="width: 130px;">
+                                                <option value="0">Not Set</option>
+                                                <?php
+                                                $selected_end = isset($sbm_stored_travel_meta['season4-end-month']) ? $sbm_stored_travel_meta['season4-end-month'][0] : '';
+                                                foreach($months as $num => $name) {
+                                                    $selected = ($selected_end == $num) ? 'selected' : '';
+                                                    echo "<option value='$num' $selected>$name</option>";
+                                                }
+                                                ?>
+                                            </select>
+                                        </div>
+
+                                        <div>
+                                            <strong><label for="season4-end-part">End Period:</label></strong><br>
+                                            <select name="season4-end-part" id="season4-end-part" style="width: 100px;">
+                                                <option value="full" <?php selected(get_post_meta($post->ID, 'season4-end-part', true), 'full'); ?>>Full Month</option>
+                                                <option value="early" <?php selected(get_post_meta($post->ID, 'season4-end-part', true), 'early'); ?>>Early</option>
+                                                <option value="mid" <?php selected(get_post_meta($post->ID, 'season4-end-part', true), 'mid'); ?>>Mid</option>
+                                                <option value="late" <?php selected(get_post_meta($post->ID, 'season4-end-part', true), 'late'); ?>>Late</option>
+                                            </select>
+                                        </div>
+
+                                        <div>
+                                            <strong><label for="season4-color">Color:</label></strong><br>
+                                            <input type="color" name="season4-color" id="season4-color" value="<?php echo esc_attr(get_post_meta($post->ID, 'season4-color', true) ?: '#8e44ad'); ?>" style="width: 60px; height: 30px;">
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <strong><label for="season4-name">Season Name:</label></strong><br>
+                                        <input type="text" name="season4-name" id="season4-name" value="<?php echo esc_attr(get_post_meta($post->ID, 'season4-name', true) ?: 'Alt Season A'); ?>" style="width: 200px;" placeholder="e.g., Offshore Peaks">
+                                    </div>
                                 </div>
 
-                                <!-- Legend 2 -->
-                                <div class="preview-legend-2" style="margin-top: 15px; display: flex; gap: 20px; flex-wrap: wrap;">
-                                    <div class="legend-item" style="display: flex; align-items: center; gap: 5px;">
-                                        <div class="legend-color season4-legend" style="width: 15px; height: 15px; background: #8e44ad;"></div>
-                                        <span class="legend-text season4-text">Alt Season A</span>
+                                <!-- Season 5 -->
+                                <div class="season-group" style="border: 1px solid #ddd; padding: 15px; margin-bottom: 20px; background: #f9f9f9;">
+                                    <h5 style="margin-top: 0;">Season 5 - Secondary (Optional)</h5>
+
+                                    <div style="display: flex; gap: 15px; align-items: center; margin-bottom: 15px; flex-wrap: wrap;">
+                                        <div>
+                                            <strong><label for="season5-start-month">Start Month:</label></strong><br>
+                                            <select name="season5-start-month" id="season5-start-month" style="width: 130px;">
+                                                <option value="0">Not Set</option>
+                                                <?php
+                                                $selected_start = isset($sbm_stored_travel_meta['season5-start-month']) ? $sbm_stored_travel_meta['season5-start-month'][0] : '';
+                                                foreach($months as $num => $name) {
+                                                    $selected = ($selected_start == $num) ? 'selected' : '';
+                                                    echo "<option value='$num' $selected>$name</option>";
+                                                }
+                                                ?>
+                                            </select>
+                                        </div>
+
+                                        <div>
+                                            <strong><label for="season5-start-part">Start Period:</label></strong><br>
+                                            <select name="season5-start-part" id="season5-start-part" style="width: 100px;">
+                                                <option value="full" <?php selected(get_post_meta($post->ID, 'season5-start-part', true), 'full'); ?>>Full Month</option>
+                                                <option value="early" <?php selected(get_post_meta($post->ID, 'season5-start-part', true), 'early'); ?>>Early</option>
+                                                <option value="mid" <?php selected(get_post_meta($post->ID, 'season5-start-part', true), 'mid'); ?>>Mid</option>
+                                                <option value="late" <?php selected(get_post_meta($post->ID, 'season5-start-part', true), 'late'); ?>>Late</option>
+                                            </select>
+                                        </div>
+
+                                        <div>
+                                            <strong><label for="season5-end-month">End Month:</label></strong><br>
+                                            <select name="season5-end-month" id="season5-end-month" style="width: 130px;">
+                                                <option value="0">Not Set</option>
+                                                <?php
+                                                $selected_end = isset($sbm_stored_travel_meta['season5-end-month']) ? $sbm_stored_travel_meta['season5-end-month'][0] : '';
+                                                foreach($months as $num => $name) {
+                                                    $selected = ($selected_end == $num) ? 'selected' : '';
+                                                    echo "<option value='$num' $selected>$name</option>";
+                                                }
+                                                ?>
+                                            </select>
+                                        </div>
+
+                                        <div>
+                                            <strong><label for="season5-end-part">End Period:</label></strong><br>
+                                            <select name="season5-end-part" id="season5-end-part" style="width: 100px;">
+                                                <option value="full" <?php selected(get_post_meta($post->ID, 'season5-end-part', true), 'full'); ?>>Full Month</option>
+                                                <option value="early" <?php selected(get_post_meta($post->ID, 'season5-end-part', true), 'early'); ?>>Early</option>
+                                                <option value="mid" <?php selected(get_post_meta($post->ID, 'season5-end-part', true), 'mid'); ?>>Mid</option>
+                                                <option value="late" <?php selected(get_post_meta($post->ID, 'season5-end-part', true), 'late'); ?>>Late</option>
+                                            </select>
+                                        </div>
+
+                                        <div>
+                                            <strong><label for="season5-color">Color:</label></strong><br>
+                                            <input type="color" name="season5-color" id="season5-color" value="<?php echo esc_attr(get_post_meta($post->ID, 'season5-color', true) ?: '#e67e22'); ?>" style="width: 60px; height: 30px;">
+                                        </div>
                                     </div>
-                                    <div class="legend-item" style="display: flex; align-items: center; gap: 5px;">
-                                        <div class="legend-color season5-legend" style="width: 15px; height: 15px; background: #e67e22;"></div>
-                                        <span class="legend-text season5-text">Alt Season B</span>
+
+                                    <div>
+                                        <strong><label for="season5-name">Season Name:</label></strong><br>
+                                        <input type="text" name="season5-name" id="season5-name" value="<?php echo esc_attr(get_post_meta($post->ID, 'season5-name', true) ?: 'Alt Season B'); ?>" style="width: 200px;" placeholder="e.g., Inshore Runs">
                                     </div>
-                                    <div class="legend-item" style="display: flex; align-items: center; gap: 5px;">
-                                        <div class="legend-color season6-legend" style="width: 15px; height: 15px; background: #2ecc71;"></div>
-                                        <span class="legend-text season6-text">Alt Season C</span>
+                                </div>
+
+                                <!-- Season 6 -->
+                                <div class="season-group" style="border: 1px solid #ddd; padding: 15px; margin-bottom: 20px; background: #f9f9f9;">
+                                    <h5 style="margin-top: 0;">Season 6 - Third (Optional)</h5>
+
+                                    <div style="display: flex; gap: 15px; align-items: center; margin-bottom: 15px; flex-wrap: wrap;">
+                                        <div>
+                                            <strong><label for="season6-start-month">Start Month:</label></strong><br>
+                                            <select name="season6-start-month" id="season6-start-month" style="width: 130px;">
+                                                <option value="0">Not Set</option>
+                                                <?php
+                                                $selected_start = isset($sbm_stored_travel_meta['season6-start-month']) ? $sbm_stored_travel_meta['season6-start-month'][0] : '';
+                                                foreach($months as $num => $name) {
+                                                    $selected = ($selected_start == $num) ? 'selected' : '';
+                                                    echo "<option value='$num' $selected>$name</option>";
+                                                }
+                                                ?>
+                                            </select>
+                                        </div>
+
+                                        <div>
+                                            <strong><label for="season6-start-part">Start Period:</label></strong><br>
+                                            <select name="season6-start-part" id="season6-start-part" style="width: 100px;">
+                                                <option value="full" <?php selected(get_post_meta($post->ID, 'season6-start-part', true), 'full'); ?>>Full Month</option>
+                                                <option value="early" <?php selected(get_post_meta($post->ID, 'season6-start-part', true), 'early'); ?>>Early</option>
+                                                <option value="mid" <?php selected(get_post_meta($post->ID, 'season6-start-part', true), 'mid'); ?>>Mid</option>
+                                                <option value="late" <?php selected(get_post_meta($post->ID, 'season6-start-part', true), 'late'); ?>>Late</option>
+                                            </select>
+                                        </div>
+
+                                        <div>
+                                            <strong><label for="season6-end-month">End Month:</label></strong><br>
+                                            <select name="season6-end-month" id="season6-end-month" style="width: 130px;">
+                                                <option value="0">Not Set</option>
+                                                <?php
+                                                $selected_end = isset($sbm_stored_travel_meta['season6-end-month']) ? $sbm_stored_travel_meta['season6-end-month'][0] : '';
+                                                foreach($months as $num => $name) {
+                                                    $selected = ($selected_end == $num) ? 'selected' : '';
+                                                    echo "<option value='$num' $selected>$name</option>";
+                                                }
+                                                ?>
+                                            </select>
+                                        </div>
+
+                                        <div>
+                                            <strong><label for="season6-end-part">End Period:</label></strong><br>
+                                            <select name="season6-end-part" id="season6-end-part" style="width: 100px;">
+                                                <option value="full" <?php selected(get_post_meta($post->ID, 'season6-end-part', true), 'full'); ?>>Full Month</option>
+                                                <option value="early" <?php selected(get_post_meta($post->ID, 'season6-end-part', true), 'early'); ?>>Early</option>
+                                                <option value="mid" <?php selected(get_post_meta($post->ID, 'season6-end-part', true), 'mid'); ?>>Mid</option>
+                                                <option value="late" <?php selected(get_post_meta($post->ID, 'season6-end-part', true), 'late'); ?>>Late</option>
+                                            </select>
+                                        </div>
+
+                                        <div>
+                                            <strong><label for="season6-color">Color:</label></strong><br>
+                                            <input type="color" name="season6-color" id="season6-color" value="<?php echo esc_attr(get_post_meta($post->ID, 'season6-color', true) ?: '#2ecc71'); ?>" style="width: 60px; height: 30px;">
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <strong><label for="season6-name">Season Name:</label></strong><br>
+                                        <input type="text" name="season6-name" id="season6-name" value="<?php echo esc_attr(get_post_meta($post->ID, 'season6-name', true) ?: 'Alt Season C'); ?>" style="width: 200px;" placeholder="e.g., Shoulder Push">
+                                    </div>
+                                </div>
+
+                                <!-- Preview 2 -->
+                                <div class="season-preview-2" style="margin-top: 20px;">
+                                    <strong>Second Calendar Preview:</strong>
+                                    <div class="month-range-preview-2" style="display: flex; gap: 5px; margin-top: 10px; flex-wrap: wrap;">
+                                        <?php
+                                        $months_short = array(1 => 'Jan', 2 => 'Feb', 3 => 'Mar', 4 => 'Apr', 5 => 'May', 6 => 'Jun', 7 => 'Jul', 8 => 'Aug', 9 => 'Sep', 10 => 'Oct', 11 => 'Nov', 12 => 'Dec');
+                                        foreach($months_short as $num => $name): ?>
+                                            <div class="month-preview-multi-2" data-month="<?php echo $num; ?>" style="
+                                                width: 60px;
+                                                height: 50px;
+                                                border: 1px solid #ccc;
+                                                display: flex;
+                                                flex-direction: column;
+                                                align-items: center;
+                                                justify-content: center;
+                                                font-size: 10px;
+                                                background: #f8f8f8;
+                                                position: relative;
+                                            ">
+                                                <div class="month-name"><?php echo $name; ?></div>
+                                                <div class="month-periods" style="display: flex; width: 100%; height: 15px; margin-top: 2px;">
+                                                    <div class="period-early" style="flex: 1; height: 100%;"></div>
+                                                    <div class="period-mid" style="flex: 1; height: 100%;"></div>
+                                                    <div class="period-late" style="flex: 1; height: 100%;"></div>
+                                                </div>
+                                            </div>
+                                        <?php endforeach; ?>
+                                    </div>
+
+                                    <!-- Legend 2 -->
+                                    <div class="preview-legend-2" style="margin-top: 15px; display: flex; gap: 20px; flex-wrap: wrap;">
+                                        <div class="legend-item" style="display: flex; align-items: center; gap: 5px;">
+                                            <div class="legend-color season4-legend" style="width: 15px; height: 15px; background: #8e44ad;"></div>
+                                            <span class="legend-text season4-text">Alt Season A</span>
+                                        </div>
+                                        <div class="legend-item" style="display: flex; align-items: center; gap: 5px;">
+                                            <div class="legend-color season5-legend" style="width: 15px; height: 15px; background: #e67e22;"></div>
+                                            <span class="legend-text season5-text">Alt Season B</span>
+                                        </div>
+                                        <div class="legend-item" style="display: flex; align-items: center; gap: 5px;">
+                                            <div class="legend-color season6-legend" style="width: 15px; height: 15px; background: #2ecc71;"></div>
+                                            <span class="legend-text season6-text">Alt Season C</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
                         
                         <script>
                             document.addEventListener('DOMContentLoaded', function() {
