@@ -64,12 +64,23 @@ function sbm_travel_meta_save($post_id)
   if (isset($_POST['multi-season-calendar-title'])) {
     update_post_meta($post_id, 'multi-season-calendar-title', wp_kses($_POST['multi-season-calendar-title'], $allowed_html));
   }
+  // Save second calendar title (optional)
+  if (isset($_POST['multi-season-calendar-title-2'])) {
+    update_post_meta($post_id, 'multi-season-calendar-title-2', wp_kses($_POST['multi-season-calendar-title-2'], $allowed_html));
+  }
 
   // Monthly Range Season Controls - NEW FIELDS
   if (isset($_POST['monthly-range-checkbox'])) {
     update_post_meta($post_id, 'monthly-range-checkbox', 'yes');
   } else {
     update_post_meta($post_id, 'monthly-range-checkbox', '');
+  }
+
+  // Monthly Range Season Controls - SECOND CALENDAR
+  if (isset($_POST['monthly-range-checkbox-2'])) {
+    update_post_meta($post_id, 'monthly-range-checkbox-2', 'yes');
+  } else {
+    update_post_meta($post_id, 'monthly-range-checkbox-2', '');
   }
 
   if (isset($_POST['season-start-month'])) {
@@ -95,6 +106,33 @@ function sbm_travel_meta_save($post_id)
   }
 
   for ($season = 1; $season <= 3; $season++) {
+    if (isset($_POST["season{$season}-start-month"])) {
+      update_post_meta($post_id, "season{$season}-start-month", intval($_POST["season{$season}-start-month"]));
+    }
+
+    if (isset($_POST["season{$season}-end-month"])) {
+      update_post_meta($post_id, "season{$season}-end-month", intval($_POST["season{$season}-end-month"]));
+    }
+
+    if (isset($_POST["season{$season}-start-part"])) {
+      update_post_meta($post_id, "season{$season}-start-part", sanitize_text_field($_POST["season{$season}-start-part"]));
+    }
+
+    if (isset($_POST["season{$season}-end-part"])) {
+      update_post_meta($post_id, "season{$season}-end-part", sanitize_text_field($_POST["season{$season}-end-part"]));
+    }
+
+    if (isset($_POST["season{$season}-color"])) {
+      update_post_meta($post_id, "season{$season}-color", sanitize_hex_color($_POST["season{$season}-color"]));
+    }
+
+    if (isset($_POST["season{$season}-name"])) {
+      update_post_meta($post_id, "season{$season}-name", sanitize_text_field($_POST["season{$season}-name"]));
+    }
+  }
+
+  // Save Seasons for SECOND calendar (season4..season6)
+  for ($season = 4; $season <= 6; $season++) {
     if (isset($_POST["season{$season}-start-month"])) {
       update_post_meta($post_id, "season{$season}-start-month", intval($_POST["season{$season}-start-month"]));
     }
