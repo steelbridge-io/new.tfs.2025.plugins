@@ -222,24 +222,61 @@ function call_openai_chat($messages, $api_key, $max_tokens = 300) {
 /**
  * Perform intelligent search based on query and AI response
  */
+/**
+ * Perform intelligent search based on query and AI response
+ */
 function perform_intelligent_search($query, $ai_response) {
+    // Check mapped pages first with the full query
+    $mapped_result = check_mapped_pages($query);
+    if ($mapped_result) {
+        return [$mapped_result];
+    }
+
     // Extract key terms from query
     $search_terms = extract_search_terms($query, $ai_response);
-    
+
     $all_results = [];
-    
-    foreach ($search_terms as $term) {
-        $results = perform_smart_search($term);
-        if (!empty($results)) {
-            $all_results = array_merge($all_results, $results);
+
+    // Try searching with the most specific term first (longest)
+    usort($search_terms, function($a, $b) {
+        return strlen($b) - strlen($a);
+    });
+
+    // Search with the full query first
+    $results = perform_smart_search($query);
+    if (!empty($results)) {
+        $all_results = array_merge($all_results, $results);
+    }
+
+    // Only search extracted terms if we don't have enough results
+    if (count($all_results) < 3) {
+        foreach ($search_terms as $term) {
+            // Skip if term is too similar to original query
+            if (strtolower($term) === strtolower($query)) {
+                continue;
+            }
+
+            $results = perform_smart_search($term);
+            if (!empty($results)) {
+                $all_results = array_merge($all_results, $results);
+            }
         }
     }
-    
-    // Remove duplicates and limit results
-    $all_results = array_unique($all_results, SORT_REGULAR);
-    return array_slice($all_results, 0, 5);
-}
 
+    // Remove duplicates by URL and limit results
+    $unique_results = [];
+    $seen_urls = [];
+
+    foreach ($all_results as $result) {
+        $url = $result['url'];
+        if (!in_array($url, $seen_urls)) {
+            $seen_urls[] = $url;
+            $unique_results[] = $result;
+        }
+    }
+
+    return array_slice($unique_results, 0, 5);
+}
 /**
  * Extract search terms from query and AI context
  */
@@ -258,6 +295,7 @@ function extract_search_terms($query, $ai_response) {
         'report' => ['stream report', 'fishing report'],
         'lodge' => ['lodge', 'lodges'],
         'private' => ['private waters'],
+        'black bear lodge' => ['black bear', 'black bear lodge'],
     ];
     
     $query_lower = strtolower($query);
@@ -279,62 +317,84 @@ function extract_search_terms($query, $ai_response) {
 /**
  * Perform smart search with multiple strategies
  */
+/**
+ * Perform smart search with multiple strategies
+ */
 function perform_smart_search($query) {
     $results = [];
-    
+
     // Check mapped pages first
     $mapped_result = check_mapped_pages($query);
     if ($mapped_result) {
         $results[] = $mapped_result;
     }
-    
+
     // Search WordPress content
     $wp_results = search_wordpress_content($query);
     $results = array_merge($results, $wp_results);
-    
+
     return $results;
 }
-
+/**
+ * Check for mapped pages
+ */
 /**
  * Check for mapped pages
  */
 function check_mapped_pages($query) {
     $page_map = [
-        'stream report' => ['path' => '/streamreport', 'title' => 'Fishing Stream Report'],
-        'fly fishing travel' => ['path' => '/travel/index', 'title' => 'Fly Fishing Travel'],
-        'travel alaska' => ['path' => '/travel/alaska', 'title' => 'Alaska Fly Fishing'],
-        'alaska' => ['path' => '/travel/alaska', 'title' => 'Alaska Fly Fishing'],
-        'private waters' => ['path' => '/adventures/private', 'title' => 'Private Waters'],
-        'guide service' => ['path' => '/adventures/guideservice', 'title' => 'Guide Services'],
-        'fishing guide' => ['path' => '/adventures/meetg', 'title' => 'Meet Our Guides'],
-        'patagonia' => ['path' => '/travel/argentina', 'title' => 'Patagonia Fly Fishing'],
-        'argentina' => ['path' => '/travel/argentina', 'title' => 'Argentina Fly Fishing'],
-        'belize' => ['path' => '/travel/saltwater/belize', 'title' => 'Belize Fly Fishing'],
-        'bolivia' => ['path' => '/travel/bolivia', 'title' => 'Bolivia Fly Fishing'],
-        'brazil' => ['path' => '/travel/brazil', 'title' => 'Brazil Fly Fishing'],
-        'california' => ['path' => '/travel/california', 'title' => 'California Fly Fishing'],
+            'stream report' => ['path' => '/streamreport', 'title' => 'Fishing Stream Report'],
+            'fly fishing travel' => ['path' => '/travel/index', 'title' => 'Fly Fishing Travel'],
+            'travel alaska' => ['path' => '/travel/alaska', 'title' => 'Alaska Fly Fishing'],
+            'alaska' => ['path' => '/travel/alaska', 'title' => 'Alaska Fly Fishing'],
+            'private waters' => ['path' => '/adventures/private', 'title' => 'Private Waters'],
+            'guide service' => ['path' => '/adventures/guideservice', 'title' => 'Guide Services'],
+            'fishing guide' => ['path' => '/adventures/meetg', 'title' => 'Meet Our Guides'],
+            'patagonia' => ['path' => '/travel/argentina', 'title' => 'Patagonia Fly Fishing'],
+            'argentina' => ['path' => '/travel/argentina', 'title' => 'Argentina Fly Fishing'],
+            'belize' => ['path' => '/travel/saltwater/belize', 'title' => 'Belize Fly Fishing'],
+            'bolivia' => ['path' => '/travel/bolivia', 'title' => 'Bolivia Fly Fishing'],
+            'brazil' => ['path' => '/travel/brazil', 'title' => 'Brazil Fly Fishing'],
+            'california' => ['path' => '/travel/california', 'title' => 'California Fly Fishing'],
+            'black bear lodge' => ['path' => '/lower48/black-bear-lodge', 'title' => 'Black Bear Lodge'],
+            'black bear' => ['path' => '/lower48/black-bear-lodge', 'title' => 'Black Bear Lodge'],
     ];
 
     $query_lower = strtolower(trim($query));
-    
+
+    // Try exact match first
     if (isset($page_map[$query_lower])) {
         $page = $page_map[$query_lower];
         $url = home_url($page['path']);
-        
+
         return [
-            'url' => $url,
-            'title' => $page['title'],
-            'type' => 'Featured Page'
+                'url' => $url,
+                'title' => $page['title'],
+                'type' => 'Featured Page'
         ];
     }
-    
+
+    // Try partial match for longer queries
+    foreach ($page_map as $key => $page) {
+        if (strpos($query_lower, $key) !== false || strpos($key, $query_lower) !== false) {
+            $url = home_url($page['path']);
+
+            return [
+                    'url' => $url,
+                    'title' => $page['title'],
+                    'type' => 'Featured Page'
+            ];
+        }
+    }
+
     return null;
 }
-
 /**
- * Search WordPress content
+ * Enhanced WordPress content search with meta fields
  */
 function search_wordpress_content($query, $limit = 4) {
+    global $wpdb;
+    
     $post_types = get_post_types(['public' => true], 'names');
     unset($post_types['attachment']);
     
@@ -345,6 +405,7 @@ function search_wordpress_content($query, $limit = 4) {
     ];
     $post_types = array_unique(array_merge(array_values($post_types), $custom_post_types));
 
+    // Standard WP_Query search
     $args = [
         's' => $query,
         'posts_per_page' => $limit,
@@ -356,22 +417,78 @@ function search_wordpress_content($query, $limit = 4) {
 
     $search = new WP_Query($args);
     $results = [];
+    $found_ids = [];
 
     if ($search->have_posts()) {
         while ($search->have_posts()) {
             $search->the_post();
+            $post_id = get_the_ID();
+            $found_ids[] = $post_id;
             $post_type = get_post_type();
             $post_type_obj = get_post_type_object($post_type);
             
             $results[] = [
                 'url' => get_permalink(),
                 'title' => get_the_title(),
-                'type' => $post_type_obj ? $post_type_obj->labels->singular_name : ucfirst($post_type)
+                'type' => $post_type_obj ? $post_type_obj->labels->singular_name : ucfirst($post_type),
+                'relevance' => 10 // Higher score for title/content matches
             ];
         }
         wp_reset_postdata();
     }
 
+    // Additional search in post meta if we have room for more results
+    if (count($results) < $limit) {
+        $meta_results = search_post_meta($query, $post_types, $limit - count($results), $found_ids);
+        $results = array_merge($results, $meta_results);
+    }
+
+    // Sort by relevance score
+    usort($results, function($a, $b) {
+        return $b['relevance'] - $a['relevance'];
+    });
+
+    return array_slice($results, 0, $limit);
+}
+
+/**
+ * Search in post meta fields
+ */
+function search_post_meta($query, $post_types, $limit, $exclude_ids = []) {
+    global $wpdb;
+    
+    $query_escaped = '%' . $wpdb->esc_like($query) . '%';
+    $post_types_placeholders = implode(',', array_fill(0, count($post_types), '%s'));
+    $exclude_clause = '';
+    
+    if (!empty($exclude_ids)) {
+        $exclude_placeholders = implode(',', array_fill(0, count($exclude_ids), '%d'));
+        $exclude_clause = "AND p.ID NOT IN ($exclude_placeholders)";
+    }
+    
+    $sql = "SELECT DISTINCT p.ID, p.post_title, p.post_type
+            FROM {$wpdb->posts} p
+            INNER JOIN {$wpdb->postmeta} pm ON p.ID = pm.post_id
+            WHERE p.post_status = 'publish'
+            AND p.post_type IN ($post_types_placeholders)
+            AND pm.meta_value LIKE %s
+            $exclude_clause
+            LIMIT %d";
+    
+    $prepare_args = array_merge($post_types, [$query_escaped], $exclude_ids, [$limit]);
+    $meta_posts = $wpdb->get_results($wpdb->prepare($sql, $prepare_args));
+    
+    $results = [];
+    foreach ($meta_posts as $post) {
+        $post_type_obj = get_post_type_object($post->post_type);
+        $results[] = [
+            'url' => get_permalink($post->ID),
+            'title' => $post->post_title,
+            'type' => $post_type_obj ? $post_type_obj->labels->singular_name : ucfirst($post->post_type),
+            'relevance' => 5 // Lower score for meta matches
+        ];
+    }
+    
     return $results;
 }
 
