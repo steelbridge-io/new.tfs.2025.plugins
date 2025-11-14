@@ -480,10 +480,10 @@
         <textarea style="width: 100%;" rows="4" name="feature-1-noninclusions-textarea" id="feature-1-noninclusions-textarea"><?php if ( isset ( $sbm_stored_schoolv3_meta['feature-1-noninclusions-textarea'] ) ) echo $sbm_stored_schoolv3_meta['feature-1-noninclusions-textarea'][0]; ?></textarea>
     </p>
 
-    <p><!-- School Insurance Text Area -->
-        <strong><label for="feature-1-schoolv3ins-textarea" class="sbm-row-title"><?php _e( 'School Insurance', 'tfs-schoolv3-textdomain' )?></label></strong>
-        <textarea style="width: 100%;" rows="4" name="feature-1-schoolv3ins-textarea" id="feature-1-schoolv3ins-textarea"><?php if ( isset ( $sbm_stored_schoolv3_meta['feature-1-schoolv3ins-textarea'] ) ) echo $sbm_stored_schoolv3_meta['feature-1-schoolv3ins-textarea'][0]; ?></textarea>
-    </p>
+    <!-- <p> School Insurance Text Area
+        <strong><label for="feature-1-schoolv3ins-textarea" class="sbm-row-title"><?php // _e( 'School Insurance', 'tfs-schoolv3-textdomain' )?></label></strong>
+        <textarea style="width: 100%;" rows="4" name="feature-1-schoolv3ins-textarea" id="feature-1-schoolv3ins-textarea"><?php //if ( isset ( $sbm_stored_schoolv3_meta['feature-1-schoolv3ins-textarea'] ) ) echo $sbm_stored_schoolv3_meta['feature-1-schoolv3ins-textarea'][0]; ?></textarea>
+    </p> -->
 
     <div class="meta-field-container">
         <strong><label for="feature-1-readmore" class="sbm-row-title"><?php _e( 'School costs "Read More" section', 'tfs-schoolv3-textdomain')?></label></strong>
