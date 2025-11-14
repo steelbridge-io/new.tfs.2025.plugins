@@ -485,10 +485,23 @@
         <textarea style="width: 100%;" rows="4" name="feature-1-noninclusions-textarea" id="feature-1-noninclusions-textarea"><?php if ( isset ( $sbm_stored_travel_meta['feature-1-noninclusions-textarea'] ) ) echo $sbm_stored_travel_meta['feature-1-noninclusions-textarea'][0]; ?></textarea>
     </p>
 
+    <?php
+    /**
+     * Renders Insurance Text Area for Destination V3 Template, Lower 48 Destination Template.
+     *
+     * @var mixed $someTemplate The content or structure of a template.
+     */
+
+    $someTemplate = get_post_meta($post->ID, '_wp_page_template', true);
+    if( $someTemplate == 'page-templates/destination-v3-template.php' ||
+            $someTemplate == 'page-templates/lower-48-destination-template.php' ) :
+        ?>
     <p><!-- Travel Insurance Text Area -->
         <strong><label for="feature-1-travelins-textarea" class="sbm-row-title"><?php _e( 'Travel Insurance', 'tfs-travel-textdomain' )?></label></strong>
         <textarea style="width: 100%;" rows="4" name="feature-1-travelins-textarea" id="feature-1-travelins-textarea"><?php if ( isset ( $sbm_stored_travel_meta['feature-1-travelins-textarea'] ) ) echo $sbm_stored_travel_meta['feature-1-travelins-textarea'][0]; ?></textarea>
     </p>
+
+    <?php endif; ?>
 
     <div class="meta-field-container">
         <strong><label for="feature-1-readmore" class="sbm-row-title"><?php _e( 'Travel Inclusions Read More', 'tfs-travel-textdomain')?></label></strong>
