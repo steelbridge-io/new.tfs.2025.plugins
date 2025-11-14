@@ -136,7 +136,7 @@
 
                              <!-- Carousel #1 image -->
                              <strong><label for="sections-csel-1-img"
-                                            class="sections-row-title"><?php _e('Signature Image &#35;4', 'the-fly-shop'); ?></label></strong><br>
+                                            class="sections-row-title"><?php _e('Carousel Image &#35;1', 'the-fly-shop'); ?></label></strong><br>
                              <input style="width:75%;" type="text" name="sections-csel-1-img" id="sections-csel-1-img"
                                     value="<?php if (isset ($sections_stored_meta['sections-csel-1-img'])) echo $sections_stored_meta['sections-csel-1-img'][0]; ?>"/><br><br>
                              <input type="button" id="sections-csel-1-img-button" class="button"
