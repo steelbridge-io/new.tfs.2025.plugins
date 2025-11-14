@@ -24,6 +24,7 @@ function signature_custom_meta() { global $post;
 		'page-templates/private-waters-template.php',
     'page-templates/fly-fishing-schools-template.php',
     'page-templates/fish-camp-template.php',
+    'page-templates/signature-template.php'
 	 );
    $excludedTemplates = array(
     'page-templates/private-waters-template-v3.php',
