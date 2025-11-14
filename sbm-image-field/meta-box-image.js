@@ -10422,7 +10422,7 @@ jQuery(document).ready( function($){ "use strict";
 				});
 
 				// Opens the media library frame.
-				sections_logo_frame.open();
+				sections_logo_frame.close();
 		});
 });
 
@@ -10461,7 +10461,7 @@ jQuery(document).ready( function($){ "use strict";
 				});
 
 				// Opens the media library frame.
-				sections_csel_1_img_frame.open();
+				sections_csel_1_img_frame.close();
 		});
 });
 
@@ -10500,7 +10500,7 @@ jQuery(document).ready( function($){ "use strict";
 				});
 
 				// Opens the media library frame.
-				sections_csel_2_img_frame.open();
+				sections_csel_2_img_frame.close();
 		});
 });
 
@@ -10539,7 +10539,7 @@ jQuery(document).ready( function($){ "use strict";
 				});
 
 				// Opens the media library frame.
-				sections_csel_3_img_frame.open();
+				sections_csel_3_img_frame.close();
 		});
 });
 
@@ -10578,7 +10578,7 @@ jQuery(document).ready( function($){ "use strict";
 				});
 
 				// Opens the media library frame.
-				sections_csel_4_img_frame.open();
+				sections_csel_4_img_frame.close();
 		});
 });
 
@@ -10617,7 +10617,7 @@ jQuery(document).ready( function($){ "use strict";
 				});
 
 				// Opens the media library frame.
-				sections_csel_5_img_frame.open();
+				sections_csel_5_img_frame.close();
 		});
 });
 
@@ -10656,7 +10656,7 @@ jQuery(document).ready( function($){ "use strict";
 				});
 
 				// Opens the media library frame.
-				sections_csel_6_img_frame.open();
+				sections_csel_6_img_frame.close();
 		});
 });
 
@@ -10695,7 +10695,7 @@ jQuery(document).ready( function($){ "use strict";
 				});
 
 				// Opens the media library frame.
-				sections_1_image_frame.open();
+				sections_1_image_frame.close();
 		});
 });
 
@@ -10734,7 +10734,7 @@ jQuery(document).ready( function($){ "use strict";
 				});
 
 				// Opens the media library frame.
-				sections_2_image_frame.open();
+				sections_2_image_frame.close();
 		});
 });
 
@@ -10773,7 +10773,7 @@ jQuery(document).ready( function($){ "use strict";
 				});
 
 				// Opens the media library frame.
-				sections_3_image_frame.open();
+				sections_3_image_frame.close();
 		});
 });
 
@@ -10812,7 +10812,7 @@ jQuery(document).ready( function($){ "use strict";
 				});
 
 				// Opens the media library frame.
-				sections_4_image_frame.open();
+				sections_4_image_frame.close();
 		});
 });
 
@@ -10851,7 +10851,7 @@ jQuery(document).ready( function($){ "use strict";
 				});
 
 				// Opens the media library frame.
-				sections_5_image_frame.open();
+				sections_5_image_frame.close();
 		});
 });
 
@@ -10890,7 +10890,7 @@ jQuery(document).ready( function($){ "use strict";
 				});
 
 				// Opens the media library frame.
-				sections_6_image_frame.open();
+				sections_6_image_frame.close();
 		});
 });
 
@@ -10929,7 +10929,7 @@ jQuery(document).ready( function($){ "use strict";
 				});
 
 				// Opens the media library frame.
-				sections_7_image_frame.open();
+				sections_7_image_frame.close();
 		});
 });
 
@@ -10968,7 +10968,7 @@ jQuery(document).ready( function($){ "use strict";
 				});
 
 				// Opens the media library frame.
-				sections_8_image_frame.open();
+				sections_8_image_frame.close();
 		});
 });
 
@@ -11007,7 +11007,7 @@ jQuery(document).ready( function($){ "use strict";
 				});
 
 				// Opens the media library frame.
-				sections_9_image_frame.open();
+				sections_9_image_frame.close();
 		});
 });
 
@@ -11046,7 +11046,7 @@ jQuery(document).ready( function($){ "use strict";
 				});
 
 				// Opens the media library frame.
-				sections_10_image_frame.open();
+				sections_10_image_frame.close();
 		});
 });
 
@@ -11900,7 +11900,7 @@ jQuery(document).ready( function($){ "use strict";
         });
 
         // Opens the media library frame.
-        galleryphoto_1_image_frame.open();
+        galleryphoto_1_image_frame.close();
     });
 
     // Instantiates the variable that holds the media library frame.
@@ -11936,7 +11936,7 @@ jQuery(document).ready( function($){ "use strict";
         });
 
         // Opens the media library frame.
-        galleryphoto_2_image_frame.open();
+        galleryphoto_2_image_frame.close();
     });
 
     // Instantiates the variable that holds the media library frame.
@@ -11972,7 +11972,7 @@ jQuery(document).ready( function($){ "use strict";
         });
 
         // Opens the media library frame.
-        galleryphoto_3_image_frame.open();
+        galleryphoto_3_image_frame.close();
     });
 
     // Instantiates the variable that holds the media library frame.
@@ -12008,10 +12008,8 @@ jQuery(document).ready( function($){ "use strict";
         });
 
         // Opens the media library frame.
-        galleryphoto_4_image_frame.open();
+        galleryphoto_4_image_frame.close();
     });
-
-
 
     // Instantiates the variable that holds the media library frame.
     var galleryphoto_4_image_frame;
@@ -12046,11 +12044,8 @@ jQuery(document).ready( function($){ "use strict";
         });
 
         // Opens the media library frame.
-        galleryphoto_4_image_frame.open();
+        galleryphoto_4_image_frame.close();
     });
-
-
-
 
     // Instantiates the variable that holds the media library frame.
     var galleryphoto_5_image_frame;
@@ -12085,7 +12080,7 @@ jQuery(document).ready( function($){ "use strict";
         });
 
         // Opens the media library frame.
-        galleryphoto_5_image_frame.open();
+        galleryphoto_5_image_frame.close();
     });
 
     // Instantiates the variable that holds the media library frame.
@@ -12121,7 +12116,7 @@ jQuery(document).ready( function($){ "use strict";
         });
 
         // Opens the media library frame.
-        galleryphoto_6_image_frame.open();
+        galleryphoto_6_image_frame.close();
     });
 
     // Instantiates the variable that holds the media library frame.
@@ -12157,7 +12152,7 @@ jQuery(document).ready( function($){ "use strict";
         });
 
         // Opens the media library frame.
-        galleryphoto_7_image_frame.open();
+        galleryphoto_7_image_frame.close();
     });
 
     // Instantiates the variable that holds the media library frame.
@@ -12193,7 +12188,7 @@ jQuery(document).ready( function($){ "use strict";
         });
 
         // Opens the media library frame.
-        galleryphoto_8_image_frame.open();
+        galleryphoto_8_image_frame.close();
     });
 
     // Instantiates the variable that holds the media library frame.
@@ -12229,7 +12224,7 @@ jQuery(document).ready( function($){ "use strict";
         });
 
         // Opens the media library frame.
-        sections_video_poster_frame.open();
+        sections_video_poster_frame.close();
     });
 
 
