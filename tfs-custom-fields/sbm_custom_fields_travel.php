@@ -735,7 +735,68 @@
                                     <strong><label for="season1-name">Season Name:</label></strong><br>
                                     <input type="text" name="season1-name" id="season1-name" value="<?php echo esc_attr(get_post_meta($post->ID, 'season1-name', true) ?: 'Primary Season'); ?>" style="width: 200px;" placeholder="e.g., Prime Season">
                                 </div>
+                                <hr>
+                                <h6>Additional Range (Optional)</h6>
+                                <div style="display: flex; gap: 15px; align-items: center; margin-bottom: 15px; flex-wrap: wrap;">
+                                    <div>
+                                        <strong><label for="season1-start-month-2">Start Month (Range 2):</label></strong><br>
+                                        <select name="season1-start-month-2" id="season1-start-month-2" style="width: 130px;">
+                                            <option value="0">Not Set</option>
+                                            <?php
+                                            $months = array(1 => 'January', 2 => 'February', 3 => 'March', 4 => 'April', 5 => 'May', 6 => 'June', 7 => 'July', 8 => 'August', 9 => 'September', 10 => 'October', 11 => 'November', 12 => 'December');
+                                            $selected_start2 = isset($sbm_stored_travel_meta['season1-start-month-2']) ? $sbm_stored_travel_meta['season1-start-month-2'][0] : '';
+                                            foreach($months as $num => $name) {
+                                                $selected = ($selected_start2 == $num) ? 'selected' : '';
+                                                echo "<option value='$num' $selected>$name</option>";
+                                            }
+                                            ?>
+                                        </select>
+                                    </div>
 
+                                    <div>
+                                        <strong><label for="season1-start-part-2">Start Period (Range 2):</label></strong><br>
+                                        <select name="season1-start-part-2" id="season1-start-part-2" style="width: 120px;">
+                                            <option value="full" <?php selected(get_post_meta($post->ID, 'season1-start-part-2', true), 'full'); ?>>Full Month</option>
+                                            <option value="early" <?php selected(get_post_meta($post->ID, 'season1-start-part-2', true), 'early'); ?>>Early</option>
+                                            <option value="mid" <?php selected(get_post_meta($post->ID, 'season1-start-part-2', true), 'mid'); ?>>Mid</option>
+                                            <option value="late" <?php selected(get_post_meta($post->ID, 'season1-start-part-2', true), 'late'); ?>>Late</option>
+                                        </select>
+                                    </div>
+
+                                    <div>
+                                        <strong><label for="season1-end-month-2">End Month (Range 2):</label></strong><br>
+                                        <select name="season1-end-month-2" id="season1-end-month-2" style="width: 130px;">
+                                            <option value="0">Not Set</option>
+                                            <?php
+                                            $selected_end2 = isset($sbm_stored_travel_meta['season1-end-month-2']) ? $sbm_stored_travel_meta['season1-end-month-2'][0] : '';
+                                            foreach($months as $num => $name) {
+                                                $selected = ($selected_end2 == $num) ? 'selected' : '';
+                                                echo "<option value='$num' $selected>$name</option>";
+                                            }
+                                            ?>
+                                        </select>
+                                    </div>
+
+                                    <div>
+                                        <strong><label for="season1-end-part-2">End Period (Range 2):</label></strong><br>
+                                        <select name="season1-end-part-2" id="season1-end-part-2" style="width: 120px;">
+                                            <option value="full" <?php selected(get_post_meta($post->ID, 'season1-end-part-2', true), 'full'); ?>>Full Month</option>
+                                            <option value="early" <?php selected(get_post_meta($post->ID, 'season1-end-part-2', true), 'early'); ?>>Early</option>
+                                            <option value="mid" <?php selected(get_post_meta($post->ID, 'season1-end-part-2', true), 'mid'); ?>>Mid</option>
+                                            <option value="late" <?php selected(get_post_meta($post->ID, 'season1-end-part-2', true), 'late'); ?>>Late</option>
+                                        </select>
+                                    </div>
+
+                                    <div>
+                                        <strong><label for="season1-color-2">Color (Range 2):</label></strong><br>
+                                        <input type="color" name="season1-color-2" id="season1-color-2" value="<?php echo esc_attr(get_post_meta($post->ID, 'season1-color-2', true) ?: '#2ecc71'); ?>" style="width: 60px; height: 30px;">
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <strong><label for="season1-name-2">Range 2 Name:</label></strong><br>
+                                    <input type="text" name="season1-name-2" id="season1-name-2" value="<?php echo esc_attr(get_post_meta($post->ID, 'season1-name-2', true)); ?>" style="width: 260px;" placeholder="e.g., Prime Season (Spring)">
+                                </div>
                             </div>
 
                             <!-- Season 2 -->
@@ -802,6 +863,67 @@
                                     <input type="text" name="season2-name" id="season2-name" value="<?php echo esc_attr(get_post_meta($post->ID, 'season2-name', true) ?: 'Secondary Season'); ?>" style="width: 200px;" placeholder="e.g., Shoulder Season">
                                 </div>
 
+                                <hr>
+                                <h6>Additional Range (Optional)</h6>
+                                <div style="display: flex; gap: 15px; align-items: center; margin-bottom: 15px; flex-wrap: wrap;">
+                                    <div>
+                                        <strong><label for="season2-start-month-2">Start Month (Range 2):</label></strong><br>
+                                        <select name="season2-start-month-2" id="season2-start-month-2" style="width: 130px;">
+                                            <option value="0">Not Set</option>
+                                            <?php
+                                            $selected_start2 = isset($sbm_stored_travel_meta['season2-start-month-2']) ? $sbm_stored_travel_meta['season2-start-month-2'][0] : '';
+                                            foreach($months as $num => $name) {
+                                                $selected = ($selected_start2 == $num) ? 'selected' : '';
+                                                echo "<option value='$num' $selected>$name</option>";
+                                            }
+                                            ?>
+                                        </select>
+                                    </div>
+
+                                    <div>
+                                        <strong><label for="season2-start-part-2">Start Period (Range 2):</label></strong><br>
+                                        <select name="season2-start-part-2" id="season2-start-part-2" style="width: 120px;">
+                                            <option value="full" <?php selected(get_post_meta($post->ID, 'season2-start-part-2', true), 'full'); ?>>Full Month</option>
+                                            <option value="early" <?php selected(get_post_meta($post->ID, 'season2-start-part-2', true), 'early'); ?>>Early</option>
+                                            <option value="mid" <?php selected(get_post_meta($post->ID, 'season2-start-part-2', true), 'mid'); ?>>Mid</option>
+                                            <option value="late" <?php selected(get_post_meta($post->ID, 'season2-start-part-2', true), 'late'); ?>>Late</option>
+                                        </select>
+                                    </div>
+
+                                    <div>
+                                        <strong><label for="season2-end-month-2">End Month (Range 2):</label></strong><br>
+                                        <select name="season2-end-month-2" id="season2-end-month-2" style="width: 130px;">
+                                            <option value="0">Not Set</option>
+                                            <?php
+                                            $selected_end2 = isset($sbm_stored_travel_meta['season2-end-month-2']) ? $sbm_stored_travel_meta['season2-end-month-2'][0] : '';
+                                            foreach($months as $num => $name) {
+                                                $selected = ($selected_end2 == $num) ? 'selected' : '';
+                                                echo "<option value='$num' $selected>$name</option>";
+                                            }
+                                            ?>
+                                        </select>
+                                    </div>
+
+                                    <div>
+                                        <strong><label for="season2-end-part-2">End Period (Range 2):</label></strong><br>
+                                        <select name="season2-end-part-2" id="season2-end-part-2" style="width: 120px;">
+                                            <option value="full" <?php selected(get_post_meta($post->ID, 'season2-end-part-2', true), 'full'); ?>>Full Month</option>
+                                            <option value="early" <?php selected(get_post_meta($post->ID, 'season2-end-part-2', true), 'early'); ?>>Early</option>
+                                            <option value="mid" <?php selected(get_post_meta($post->ID, 'season2-end-part-2', true), 'mid'); ?>>Mid</option>
+                                            <option value="late" <?php selected(get_post_meta($post->ID, 'season2-end-part-2', true), 'late'); ?>>Late</option>
+                                        </select>
+                                    </div>
+
+                                    <div>
+                                        <strong><label for="season2-color-2">Color (Range 2):</label></strong><br>
+                                        <input type="color" name="season2-color-2" id="season2-color-2" value="<?php echo esc_attr(get_post_meta($post->ID, 'season2-color-2', true) ?: '#f1c40f'); ?>" style="width: 60px; height: 30px;">
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <strong><label for="season2-name-2">Range 2 Name:</label></strong><br>
+                                    <input type="text" name="season2-name-2" id="season2-name-2" value="<?php echo esc_attr(get_post_meta($post->ID, 'season2-name-2', true)); ?>" style="width: 260px;" placeholder="e.g., Shoulder Season (Fall)">
+                                </div>
                             </div>
 
                             <!-- Season 3 -->
@@ -868,6 +990,67 @@
                                     <input type="text" name="season3-name" id="season3-name" value="<?php echo esc_attr(get_post_meta($post->ID, 'season3-name', true) ?: 'Third Season'); ?>" style="width: 200px;" placeholder="e.g., Winter Season">
                                 </div>
 
+                                <hr>
+                                <h6>Additional Range (Optional)</h6>
+                                <div style="display: flex; gap: 15px; align-items: center; margin-bottom: 15px; flex-wrap: wrap;">
+                                    <div>
+                                        <strong><label for="season3-start-month-2">Start Month (Range 2):</label></strong><br>
+                                        <select name="season3-start-month-2" id="season3-start-month-2" style="width: 130px;">
+                                            <option value="0">Not Set</option>
+                                            <?php
+                                            $selected_start2 = isset($sbm_stored_travel_meta['season3-start-month-2']) ? $sbm_stored_travel_meta['season3-start-month-2'][0] : '';
+                                            foreach($months as $num => $name) {
+                                                $selected = ($selected_start2 == $num) ? 'selected' : '';
+                                                echo "<option value='$num' $selected>$name</option>";
+                                            }
+                                            ?>
+                                        </select>
+                                    </div>
+
+                                    <div>
+                                        <strong><label for="season3-start-part-2">Start Period (Range 2):</label></strong><br>
+                                        <select name="season3-start-part-2" id="season3-start-part-2" style="width: 120px;">
+                                            <option value="full" <?php selected(get_post_meta($post->ID, 'season3-start-part-2', true), 'full'); ?>>Full Month</option>
+                                            <option value="early" <?php selected(get_post_meta($post->ID, 'season3-start-part-2', true), 'early'); ?>>Early</option>
+                                            <option value="mid" <?php selected(get_post_meta($post->ID, 'season3-start-part-2', true), 'mid'); ?>>Mid</option>
+                                            <option value="late" <?php selected(get_post_meta($post->ID, 'season3-start-part-2', true), 'late'); ?>>Late</option>
+                                        </select>
+                                    </div>
+
+                                    <div>
+                                        <strong><label for="season3-end-month-2">End Month (Range 2):</label></strong><br>
+                                        <select name="season3-end-month-2" id="season3-end-month-2" style="width: 130px;">
+                                            <option value="0">Not Set</option>
+                                            <?php
+                                            $selected_end2 = isset($sbm_stored_travel_meta['season3-end-month-2']) ? $sbm_stored_travel_meta['season3-end-month-2'][0] : '';
+                                            foreach($months as $num => $name) {
+                                                $selected = ($selected_end2 == $num) ? 'selected' : '';
+                                                echo "<option value='$num' $selected>$name</option>";
+                                            }
+                                            ?>
+                                        </select>
+                                    </div>
+
+                                    <div>
+                                        <strong><label for="season3-end-part-2">End Period (Range 2):</label></strong><br>
+                                        <select name="season3-end-part-2" id="season3-end-part-2" style="width: 120px;">
+                                            <option value="full" <?php selected(get_post_meta($post->ID, 'season3-end-part-2', true), 'full'); ?>>Full Month</option>
+                                            <option value="early" <?php selected(get_post_meta($post->ID, 'season3-end-part-2', true), 'early'); ?>>Early</option>
+                                            <option value="mid" <?php selected(get_post_meta($post->ID, 'season3-end-part-2', true), 'mid'); ?>>Mid</option>
+                                            <option value="late" <?php selected(get_post_meta($post->ID, 'season3-end-part-2', true), 'late'); ?>>Late</option>
+                                        </select>
+                                    </div>
+
+                                    <div>
+                                        <strong><label for="season3-color-2">Color (Range 2):</label></strong><br>
+                                        <input type="color" name="season3-color-2" id="season3-color-2" value="<?php echo esc_attr(get_post_meta($post->ID, 'season3-color-2', true) ?: '#17a2b8'); ?>" style="width: 60px; height: 30px;">
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <strong><label for="season3-name-2">Range 2 Name:</label></strong><br>
+                                    <input type="text" name="season3-name-2" id="season3-name-2" value="<?php echo esc_attr(get_post_meta($post->ID, 'season3-name-2', true)); ?>" style="width: 260px;" placeholder="e.g., Winter Season (Alt)">
+                                </div>
                             </div>
 
                             <!-- Preview -->
@@ -913,461 +1096,168 @@
                                         <div class="legend-color season3-legend" style="width: 15px; height: 15px; background: #17a2b8;"></div>
                                         <span class="legend-text season3-text">Third Season</span>
                                     </div>
-                                </div>
-                            </div>
-                        
-                        
-                        <!-- SECOND OPTIONAL CALENDAR SETTINGS -->
-                            <hr style="margin: 30px 0;">
-                            <div class="meta-field-container">
-                                <strong><label for="multi-season-calendar-title-2" class="sbm-row-title"><?php _e( 'Second Season Calendar Title (Optional)', 'tfs-travel-textdomain' )?></label></strong>
-                                <input style="width: 100%;" type="text" name="multi-season-calendar-title-2" id="multi-season-calendar-title-2" value="<?php if ( isset ($sbm_stored_travel_meta['multi-season-calendar-title-2'] ) ) echo $sbm_stored_travel_meta['multi-season-calendar-title-2'][0]; ?>" />
-                            </div>
-
-                            <div class="travel-row-title"><?php _e( '<strong>Display Second Monthly Season Range</strong>', 'tfs-travel-textdomain' )?></div>
-                            <div class="travel-row-content">
-                                <label for="monthly-range-checkbox-2">
-                                    <input type="checkbox" name="monthly-range-checkbox-2" id="monthly-range-checkbox-2" value="yes" <?php if ( isset ( $sbm_stored_travel_meta['monthly-range-checkbox-2'] ) ) checked( $sbm_stored_travel_meta['monthly-range-checkbox-2'][0], 'yes' ); ?> />
-                                    <?php _e( 'Check box to activate Second Monthly Range display.', 'tfs-travel-textdomain' )?>
-                                </label>
-                            </div>
-
-
-                            <div class="season-range-controls" style="margin: 20px 0;">
-                                <h4>Second Multiple Season Range Settings</h4>
-                                <p style="margin-bottom: 15px;"><em>Configure up to 3 additional, coinciding fishing seasons.</em></p>
-
-                                <!-- Season 4 -->
-                                <div class="season-group" style="border: 1px solid #ddd; padding: 15px; margin-bottom: 20px; background: #f9f9f9;">
-                                    <h5 style="margin-top: 0;">Season 4 - Primary (Optional)</h5>
-
-                                    <div style="display: flex; gap: 15px; align-items: center; margin-bottom: 15px; flex-wrap: wrap;">
-                                        <div>
-                                            <strong><label for="season4-start-month">Start Month:</label></strong><br>
-                                            <select name="season4-start-month" id="season4-start-month" style="width: 130px;">
-                                                <option value="0">Not Set</option>
-                                                <?php
-                                                $months = array(1 => 'January', 2 => 'February', 3 => 'March', 4 => 'April', 5 => 'May', 6 => 'June', 7 => 'July', 8 => 'August', 9 => 'September', 10 => 'October', 11 => 'November', 12 => 'December');
-                                                $selected_start = isset($sbm_stored_travel_meta['season4-start-month']) ? $sbm_stored_travel_meta['season4-start-month'][0] : '';
-                                                foreach($months as $num => $name) {
-                                                    $selected = ($selected_start == $num) ? 'selected' : '';
-                                                    echo "<option value='$num' $selected>$name</option>";
-                                                }
-                                                ?>
-                                            </select>
-                                        </div>
-
-                                        <div>
-                                            <strong><label for="season4-start-part">Start Period:</label></strong><br>
-                                            <select name="season4-start-part" id="season4-start-part" style="width: 100px;">
-                                                <option value="full" <?php selected(get_post_meta($post->ID, 'season4-start-part', true), 'full'); ?>>Full Month</option>
-                                                <option value="early" <?php selected(get_post_meta($post->ID, 'season4-start-part', true), 'early'); ?>>Early</option>
-                                                <option value="mid" <?php selected(get_post_meta($post->ID, 'season4-start-part', true), 'mid'); ?>>Mid</option>
-                                                <option value="late" <?php selected(get_post_meta($post->ID, 'season4-start-part', true), 'late'); ?>>Late</option>
-                                            </select>
-                                        </div>
-
-                                        <div>
-                                            <strong><label for="season4-end-month">End Month:</label></strong><br>
-                                            <select name="season4-end-month" id="season4-end-month" style="width: 130px;">
-                                                <option value="0">Not Set</option>
-                                                <?php
-                                                $selected_end = isset($sbm_stored_travel_meta['season4-end-month']) ? $sbm_stored_travel_meta['season4-end-month'][0] : '';
-                                                foreach($months as $num => $name) {
-                                                    $selected = ($selected_end == $num) ? 'selected' : '';
-                                                    echo "<option value='$num' $selected>$name</option>";
-                                                }
-                                                ?>
-                                            </select>
-                                        </div>
-
-                                        <div>
-                                            <strong><label for="season4-end-part">End Period:</label></strong><br>
-                                            <select name="season4-end-part" id="season4-end-part" style="width: 100px;">
-                                                <option value="full" <?php selected(get_post_meta($post->ID, 'season4-end-part', true), 'full'); ?>>Full Month</option>
-                                                <option value="early" <?php selected(get_post_meta($post->ID, 'season4-end-part', true), 'early'); ?>>Early</option>
-                                                <option value="mid" <?php selected(get_post_meta($post->ID, 'season4-end-part', true), 'mid'); ?>>Mid</option>
-                                                <option value="late" <?php selected(get_post_meta($post->ID, 'season4-end-part', true), 'late'); ?>>Late</option>
-                                            </select>
-                                        </div>
-
-                                        <div>
-                                            <strong><label for="season4-color">Color:</label></strong><br>
-                                            <input type="color" name="season4-color" id="season4-color" value="<?php echo esc_attr(get_post_meta($post->ID, 'season4-color', true) ?: '#8e44ad'); ?>" style="width: 60px; height: 30px;">
-                                        </div>
+                                    <!-- Range 2 legend entries (one per season) -->
+                                    <div class="legend-item season1-legend-2-container" style="display: none; align-items: center; gap: 5px;">
+                                        <div class="legend-color season1-legend-2" style="width: 15px; height: 15px; background: #2ecc71;"></div>
+                                        <span class="legend-text season1-text-2">Primary Season (Alt)</span>
                                     </div>
-
-                                    <div>
-                                        <strong><label for="season4-name">Season Name:</label></strong><br>
-                                        <input type="text" name="season4-name" id="season4-name" value="<?php echo esc_attr(get_post_meta($post->ID, 'season4-name', true) ?: 'Alt Season A'); ?>" style="width: 200px;" placeholder="e.g., Offshore Peaks">
+                                    <div class="legend-item season2-legend-2-container" style="display: none; align-items: center; gap: 5px;">
+                                        <div class="legend-color season2-legend-2" style="width: 15px; height: 15px; background: #f1c40f;"></div>
+                                        <span class="legend-text season2-text-2">Secondary Season (Alt)</span>
                                     </div>
-                                </div>
-
-                                <!-- Season 5 -->
-                                <div class="season-group" style="border: 1px solid #ddd; padding: 15px; margin-bottom: 20px; background: #f9f9f9;">
-                                    <h5 style="margin-top: 0;">Season 5 - Secondary (Optional)</h5>
-
-                                    <div style="display: flex; gap: 15px; align-items: center; margin-bottom: 15px; flex-wrap: wrap;">
-                                        <div>
-                                            <strong><label for="season5-start-month">Start Month:</label></strong><br>
-                                            <select name="season5-start-month" id="season5-start-month" style="width: 130px;">
-                                                <option value="0">Not Set</option>
-                                                <?php
-                                                $selected_start = isset($sbm_stored_travel_meta['season5-start-month']) ? $sbm_stored_travel_meta['season5-start-month'][0] : '';
-                                                foreach($months as $num => $name) {
-                                                    $selected = ($selected_start == $num) ? 'selected' : '';
-                                                    echo "<option value='$num' $selected>$name</option>";
-                                                }
-                                                ?>
-                                            </select>
-                                        </div>
-
-                                        <div>
-                                            <strong><label for="season5-start-part">Start Period:</label></strong><br>
-                                            <select name="season5-start-part" id="season5-start-part" style="width: 100px;">
-                                                <option value="full" <?php selected(get_post_meta($post->ID, 'season5-start-part', true), 'full'); ?>>Full Month</option>
-                                                <option value="early" <?php selected(get_post_meta($post->ID, 'season5-start-part', true), 'early'); ?>>Early</option>
-                                                <option value="mid" <?php selected(get_post_meta($post->ID, 'season5-start-part', true), 'mid'); ?>>Mid</option>
-                                                <option value="late" <?php selected(get_post_meta($post->ID, 'season5-start-part', true), 'late'); ?>>Late</option>
-                                            </select>
-                                        </div>
-
-                                        <div>
-                                            <strong><label for="season5-end-month">End Month:</label></strong><br>
-                                            <select name="season5-end-month" id="season5-end-month" style="width: 130px;">
-                                                <option value="0">Not Set</option>
-                                                <?php
-                                                $selected_end = isset($sbm_stored_travel_meta['season5-end-month']) ? $sbm_stored_travel_meta['season5-end-month'][0] : '';
-                                                foreach($months as $num => $name) {
-                                                    $selected = ($selected_end == $num) ? 'selected' : '';
-                                                    echo "<option value='$num' $selected>$name</option>";
-                                                }
-                                                ?>
-                                            </select>
-                                        </div>
-
-                                        <div>
-                                            <strong><label for="season5-end-part">End Period:</label></strong><br>
-                                            <select name="season5-end-part" id="season5-end-part" style="width: 100px;">
-                                                <option value="full" <?php selected(get_post_meta($post->ID, 'season5-end-part', true), 'full'); ?>>Full Month</option>
-                                                <option value="early" <?php selected(get_post_meta($post->ID, 'season5-end-part', true), 'early'); ?>>Early</option>
-                                                <option value="mid" <?php selected(get_post_meta($post->ID, 'season5-end-part', true), 'mid'); ?>>Mid</option>
-                                                <option value="late" <?php selected(get_post_meta($post->ID, 'season5-end-part', true), 'late'); ?>>Late</option>
-                                            </select>
-                                        </div>
-
-                                        <div>
-                                            <strong><label for="season5-color">Color:</label></strong><br>
-                                            <input type="color" name="season5-color" id="season5-color" value="<?php echo esc_attr(get_post_meta($post->ID, 'season5-color', true) ?: '#e67e22'); ?>" style="width: 60px; height: 30px;">
-                                        </div>
-                                    </div>
-
-                                    <div>
-                                        <strong><label for="season5-name">Season Name:</label></strong><br>
-                                        <input type="text" name="season5-name" id="season5-name" value="<?php echo esc_attr(get_post_meta($post->ID, 'season5-name', true) ?: 'Alt Season B'); ?>" style="width: 200px;" placeholder="e.g., Inshore Runs">
-                                    </div>
-                                </div>
-
-                                <!-- Season 6 -->
-                                <div class="season-group" style="border: 1px solid #ddd; padding: 15px; margin-bottom: 20px; background: #f9f9f9;">
-                                    <h5 style="margin-top: 0;">Season 6 - Third (Optional)</h5>
-
-                                    <div style="display: flex; gap: 15px; align-items: center; margin-bottom: 15px; flex-wrap: wrap;">
-                                        <div>
-                                            <strong><label for="season6-start-month">Start Month:</label></strong><br>
-                                            <select name="season6-start-month" id="season6-start-month" style="width: 130px;">
-                                                <option value="0">Not Set</option>
-                                                <?php
-                                                $selected_start = isset($sbm_stored_travel_meta['season6-start-month']) ? $sbm_stored_travel_meta['season6-start-month'][0] : '';
-                                                foreach($months as $num => $name) {
-                                                    $selected = ($selected_start == $num) ? 'selected' : '';
-                                                    echo "<option value='$num' $selected>$name</option>";
-                                                }
-                                                ?>
-                                            </select>
-                                        </div>
-
-                                        <div>
-                                            <strong><label for="season6-start-part">Start Period:</label></strong><br>
-                                            <select name="season6-start-part" id="season6-start-part" style="width: 100px;">
-                                                <option value="full" <?php selected(get_post_meta($post->ID, 'season6-start-part', true), 'full'); ?>>Full Month</option>
-                                                <option value="early" <?php selected(get_post_meta($post->ID, 'season6-start-part', true), 'early'); ?>>Early</option>
-                                                <option value="mid" <?php selected(get_post_meta($post->ID, 'season6-start-part', true), 'mid'); ?>>Mid</option>
-                                                <option value="late" <?php selected(get_post_meta($post->ID, 'season6-start-part', true), 'late'); ?>>Late</option>
-                                            </select>
-                                        </div>
-
-                                        <div>
-                                            <strong><label for="season6-end-month">End Month:</label></strong><br>
-                                            <select name="season6-end-month" id="season6-end-month" style="width: 130px;">
-                                                <option value="0">Not Set</option>
-                                                <?php
-                                                $selected_end = isset($sbm_stored_travel_meta['season6-end-month']) ? $sbm_stored_travel_meta['season6-end-month'][0] : '';
-                                                foreach($months as $num => $name) {
-                                                    $selected = ($selected_end == $num) ? 'selected' : '';
-                                                    echo "<option value='$num' $selected>$name</option>";
-                                                }
-                                                ?>
-                                            </select>
-                                        </div>
-
-                                        <div>
-                                            <strong><label for="season6-end-part">End Period:</label></strong><br>
-                                            <select name="season6-end-part" id="season6-end-part" style="width: 100px;">
-                                                <option value="full" <?php selected(get_post_meta($post->ID, 'season6-end-part', true), 'full'); ?>>Full Month</option>
-                                                <option value="early" <?php selected(get_post_meta($post->ID, 'season6-end-part', true), 'early'); ?>>Early</option>
-                                                <option value="mid" <?php selected(get_post_meta($post->ID, 'season6-end-part', true), 'mid'); ?>>Mid</option>
-                                                <option value="late" <?php selected(get_post_meta($post->ID, 'season6-end-part', true), 'late'); ?>>Late</option>
-                                            </select>
-                                        </div>
-
-                                        <div>
-                                            <strong><label for="season6-color">Color:</label></strong><br>
-                                            <input type="color" name="season6-color" id="season6-color" value="<?php echo esc_attr(get_post_meta($post->ID, 'season6-color', true) ?: '#2ecc71'); ?>" style="width: 60px; height: 30px;">
-                                        </div>
-                                    </div>
-
-                                    <div>
-                                        <strong><label for="season6-name">Season Name:</label></strong><br>
-                                        <input type="text" name="season6-name" id="season6-name" value="<?php echo esc_attr(get_post_meta($post->ID, 'season6-name', true) ?: 'Alt Season C'); ?>" style="width: 200px;" placeholder="e.g., Shoulder Push">
-                                    </div>
-                                </div>
-
-                                <!-- Preview 2 -->
-                                <div class="season-preview-2" style="margin-top: 20px;">
-                                    <strong>Second Calendar Preview:</strong>
-                                    <div class="month-range-preview-2" style="display: flex; gap: 5px; margin-top: 10px; flex-wrap: wrap;">
-                                        <?php
-                                        $months_short = array(1 => 'Jan', 2 => 'Feb', 3 => 'Mar', 4 => 'Apr', 5 => 'May', 6 => 'Jun', 7 => 'Jul', 8 => 'Aug', 9 => 'Sep', 10 => 'Oct', 11 => 'Nov', 12 => 'Dec');
-                                        foreach($months_short as $num => $name): ?>
-                                            <div class="month-preview-multi-2" data-month="<?php echo $num; ?>" style="
-                                                width: 60px;
-                                                height: 50px;
-                                                border: 1px solid #ccc;
-                                                display: flex;
-                                                flex-direction: column;
-                                                align-items: center;
-                                                justify-content: center;
-                                                font-size: 10px;
-                                                background: #f8f8f8;
-                                                position: relative;
-                                            ">
-                                                <div class="month-name"><?php echo $name; ?></div>
-                                                <div class="month-periods" style="display: flex; width: 100%; height: 15px; margin-top: 2px;">
-                                                    <div class="period-early" style="flex: 1; height: 100%;"></div>
-                                                    <div class="period-mid" style="flex: 1; height: 100%;"></div>
-                                                    <div class="period-late" style="flex: 1; height: 100%;"></div>
-                                                </div>
-                                            </div>
-                                        <?php endforeach; ?>
-                                    </div>
-
-                                    <!-- Legend 2 -->
-                                    <div class="preview-legend-2" style="margin-top: 15px; display: flex; gap: 20px; flex-wrap: wrap;">
-                                        <div class="legend-item" style="display: flex; align-items: center; gap: 5px;">
-                                            <div class="legend-color season4-legend" style="width: 15px; height: 15px; background: #8e44ad;"></div>
-                                            <span class="legend-text season4-text">Alt Season A</span>
-                                        </div>
-                                        <div class="legend-item" style="display: flex; align-items: center; gap: 5px;">
-                                            <div class="legend-color season5-legend" style="width: 15px; height: 15px; background: #e67e22;"></div>
-                                            <span class="legend-text season5-text">Alt Season B</span>
-                                        </div>
-                                        <div class="legend-item" style="display: flex; align-items: center; gap: 5px;">
-                                            <div class="legend-color season6-legend" style="width: 15px; height: 15px; background: #2ecc71;"></div>
-                                            <span class="legend-text season6-text">Alt Season C</span>
-                                        </div>
+                                    <div class="legend-item season3-legend-2-container" style="display: none; align-items: center; gap: 5px;">
+                                        <div class="legend-color season3-legend-2" style="width: 15px; height: 15px; background: #17a2b8;"></div>
+                                        <span class="legend-text season3-text-2">Third Season (Alt)</span>
                                     </div>
                                 </div>
                             </div>
-                        
-                        <script>
-                            document.addEventListener('DOMContentLoaded', function() {
-                                function updateMultiSeasonPreview2() {
-                                    // Reset all months in second preview
-                                    document.querySelectorAll('.month-preview-multi-2 .month-periods div').forEach(function(el) {
-                                        el.style.backgroundColor = '#f8f8f8';
-                                    });
-
-                                    // Update legend 2
-                                    var l4 = document.querySelector('.season4-legend'); if (l4) l4.style.backgroundColor = (document.getElementById('season4-color')||{}).value || '#8e44ad';
-                                    var t4 = document.querySelector('.season4-text'); if (t4) t4.textContent = (document.getElementById('season4-name')||{}).value || 'Alt Season A';
-                                    var l5 = document.querySelector('.season5-legend'); if (l5) l5.style.backgroundColor = (document.getElementById('season5-color')||{}).value || '#e67e22';
-                                    var t5 = document.querySelector('.season5-text'); if (t5) t5.textContent = (document.getElementById('season5-name')||{}).value || 'Alt Season B';
-                                    var l6 = document.querySelector('.season6-legend'); if (l6) l6.style.backgroundColor = (document.getElementById('season6-color')||{}).value || '#2ecc71';
-                                    var t6 = document.querySelector('.season6-text'); if (t6) t6.textContent = (document.getElementById('season6-name')||{}).value || 'Alt Season C';
-
-                                    // Apply season colors for seasons 4..6
-                                    for (let season = 4; season <= 6; season++) {
-                                        const startMonthEl = document.getElementById(`season${season}-start-month`);
-                                        const endMonthEl = document.getElementById(`season${season}-end-month`);
-                                        if (!startMonthEl || !endMonthEl) continue;
-                                        const startMonth = parseInt(startMonthEl.value);
-                                        const endMonth = parseInt(endMonthEl.value);
-                                        const startPart = (document.getElementById(`season${season}-start-part`)||{}).value || 'full';
-                                        const endPart = (document.getElementById(`season${season}-end-part`)||{}).value || 'full';
-                                        const color = (document.getElementById(`season${season}-color`)||{}).value || '#8e44ad';
-
-                                        if (startMonth > 0 && endMonth > 0) {
-                                            for (let month = 1; month <= 12; month++) {
-                                                let inSeason = false;
-
-                                                if (startMonth <= endMonth) {
-                                                    inSeason = month >= startMonth && month <= endMonth;
-                                                } else {
-                                                    inSeason = month >= startMonth || month <= endMonth;
-                                                }
-
-                                                if (inSeason) {
-                                                    const monthEl = document.querySelector(`.month-preview-multi-2[data-month="${month}"]`);
-                                                    const periods = ['early', 'mid', 'late'];
-
-                                                    periods.forEach(period => {
-                                                        let shouldColor = false;
-
-                                                        if (month === startMonth && month === endMonth) {
-                                                            // Same month start and end
-                                                            const startIdx = periods.indexOf(startPart);
-                                                            const endIdx = periods.indexOf(endPart);
-                                                            const periodIdx = periods.indexOf(period);
-                                                            shouldColor = periodIdx >= startIdx && periodIdx <= endIdx;
-                                                        } else if (month === startMonth) {
-                                                            // Start month
-                                                            if (startPart === 'full') shouldColor = true;
-                                                            else {
-                                                                const startIdx = periods.indexOf(startPart);
-                                                                const periodIdx = periods.indexOf(period);
-                                                                shouldColor = periodIdx >= startIdx;
-                                                            }
-                                                        } else if (month === endMonth) {
-                                                            // End month
-                                                            if (endPart === 'full') shouldColor = true;
-                                                            else {
-                                                                const endIdx = periods.indexOf(endPart);
-                                                                const periodIdx = periods.indexOf(period);
-                                                                shouldColor = periodIdx <= endIdx;
-                                                            }
-                                                        } else {
-                                                            // Full months in between
-                                                            shouldColor = true;
-                                                        }
-
-                                                        if (shouldColor && monthEl) {
-                                                            monthEl.querySelector(`.period-${period}`).style.backgroundColor = color;
-                                                        }
-                                                    });
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-
-                                // Add event listeners for all season controls 4..6
-                                for (let season = 4; season <= 6; season++) {
-                                    ['start-month', 'end-month', 'start-part', 'end-part', 'color', 'name'].forEach(field => {
-                                        const element = document.getElementById(`season${season}-${field}`);
-                                        if (element) {
-                                            element.addEventListener('change', updateMultiSeasonPreview2);
-                                        }
-                                    });
-                                }
-
-                                // Initial preview
-                                updateMultiSeasonPreview2();
-                            });
-                        </script>
+                         
+                         
+                         <!-- Add second Preview of second Season Calendar -->
                          
                          
                         </div>
 
                         <script>
                             document.addEventListener('DOMContentLoaded', function() {
+                                function applyRangeToCell(acc, month, startMonth, endMonth, startPart, endPart, color) {
+                                    if (!(startMonth > 0 && endMonth > 0)) return;
+                                    let inSeason;
+                                    if (startMonth <= endMonth) {
+                                        inSeason = month >= startMonth && month <= endMonth;
+                                    } else {
+                                        inSeason = month >= startMonth || month <= endMonth; // wrap
+                                    }
+                                    if (!inSeason) return;
+                                    const periods = ['early', 'mid', 'late'];
+                                    periods.forEach(period => {
+                                        let shouldColor = false;
+                                        if (month === startMonth && month === endMonth) {
+                                            const startIdx = periods.indexOf(startPart);
+                                            const endIdx = periods.indexOf(endPart);
+                                            const periodIdx = periods.indexOf(period);
+                                            shouldColor = periodIdx >= startIdx && periodIdx <= endIdx;
+                                        } else if (month === startMonth) {
+                                            if (startPart === 'full') shouldColor = true; else {
+                                                const startIdx = periods.indexOf(startPart);
+                                                const periodIdx = periods.indexOf(period);
+                                                shouldColor = periodIdx >= startIdx;
+                                            }
+                                        } else if (month === endMonth) {
+                                            if (endPart === 'full') shouldColor = true; else {
+                                                const endIdx = periods.indexOf(endPart);
+                                                const periodIdx = periods.indexOf(period);
+                                                shouldColor = periodIdx <= endIdx;
+                                            }
+                                        } else {
+                                            shouldColor = true;
+                                        }
+                                        if (shouldColor) {
+                                            acc[period] = acc[period] || [];
+                                            if (!acc[period].includes(color)) acc[period].push(color);
+                                        }
+                                    });
+                                }
+
                                 function updateMultiSeasonPreview() {
                                     // Reset all months
                                     document.querySelectorAll('.month-preview-multi .month-periods div').forEach(function(el) {
-                                        el.style.backgroundColor = '#f8f8f8';
+                                        el.style.background = '#f8f8f8';
                                     });
 
-                                    // Update legend
-                                    document.querySelector('.season1-legend').style.backgroundColor = document.getElementById('season1-color').value;
-                                    document.querySelector('.season1-text').textContent = document.getElementById('season1-name').value || 'Primary Season';
-                                    document.querySelector('.season2-legend').style.backgroundColor = document.getElementById('season2-color').value;
-                                    document.querySelector('.season2-text').textContent = document.getElementById('season2-name').value || 'Secondary Season';
-                                    document.querySelector('.season3-legend').style.backgroundColor = document.getElementById('season3-color').value;
-                                    document.querySelector('.season3-text').textContent = document.getElementById('season3-name').value || 'Third Season';
+                                    // Update legend primary (note: preview legend still shows one per season)
+                                    const s1c = document.getElementById('season1-color');
+                                    const s2c = document.getElementById('season2-color');
+                                    const s3c = document.getElementById('season3-color');
+                                    if (s1c) document.querySelector('.season1-legend').style.backgroundColor = s1c.value;
+                                    if (s2c) document.querySelector('.season2-legend').style.backgroundColor = s2c.value;
+                                    if (s3c) document.querySelector('.season3-legend').style.backgroundColor = s3c.value;
+                                    const s1n = document.getElementById('season1-name');
+                                    const s2n = document.getElementById('season2-name');
+                                    const s3n = document.getElementById('season3-name');
+                                    document.querySelector('.season1-text').textContent = (s1n && s1n.value) ? s1n.value : 'Primary Season';
+                                    document.querySelector('.season2-text').textContent = (s2n && s2n.value) ? s2n.value : 'Secondary Season';
+                                    document.querySelector('.season3-text').textContent = (s3n && s3n.value) ? s3n.value : 'Third Season';
 
-                                    // Apply season colors
-                                    for (let season = 1; season <= 3; season++) {
-                                        const startMonth = parseInt(document.getElementById(`season${season}-start-month`).value);
-                                        const endMonth = parseInt(document.getElementById(`season${season}-end-month`).value);
-                                        const startPart = document.getElementById(`season${season}-start-part`).value;
-                                        const endPart = document.getElementById(`season${season}-end-part`).value;
-                                        const color = document.getElementById(`season${season}-color`).value;
+                                    // Update legend for Range 2 entries
+                                    const s1c2 = document.getElementById('season1-color-2');
+                                    const s2c2 = document.getElementById('season2-color-2');
+                                    const s3c2 = document.getElementById('season3-color-2');
+                                    const s1n2 = document.getElementById('season1-name-2');
+                                    const s2n2 = document.getElementById('season2-name-2');
+                                    const s3n2 = document.getElementById('season3-name-2');
+                                    const s1n2Val = (s1n2?.value || '').trim();
+                                    const s2n2Val = (s2n2?.value || '').trim();
+                                    const s3n2Val = (s3n2?.value || '').trim();
+                                    const elS1L2 = document.querySelector('.season1-legend-2');
+                                    const elS2L2 = document.querySelector('.season2-legend-2');
+                                    const elS3L2 = document.querySelector('.season3-legend-2');
+                                    const elS1T2 = document.querySelector('.season1-text-2');
+                                    const elS2T2 = document.querySelector('.season2-text-2');
+                                    const elS3T2 = document.querySelector('.season3-text-2');
+                                    const elS1C2 = document.querySelector('.season1-legend-2-container');
+                                    const elS2C2 = document.querySelector('.season2-legend-2-container');
+                                    const elS3C2 = document.querySelector('.season3-legend-2-container');
 
-                                        if (startMonth > 0 && endMonth > 0) {
-                                            for (let month = 1; month <= 12; month++) {
-                                                let inSeason = false;
+                                    // Show Range 2 legend items only if a Name (Range 2) is provided (non-empty)
+                                    if (elS1C2) elS1C2.style.display = s1n2Val !== '' ? 'flex' : 'none';
+                                    if (elS2C2) elS2C2.style.display = s2n2Val !== '' ? 'flex' : 'none';
+                                    if (elS3C2) elS3C2.style.display = s3n2Val !== '' ? 'flex' : 'none';
+                                    if (elS1L2 && s1c2) elS1L2.style.backgroundColor = s1c2.value || (s1c ? s1c.value : '#2ecc71');
+                                    if (elS2L2 && s2c2) elS2L2.style.backgroundColor = s2c2.value || (s2c ? s2c.value : '#f1c40f');
+                                    if (elS3L2 && s3c2) elS3L2.style.backgroundColor = s3c2.value || (s3c ? s3c.value : '#17a2b8');
+                                    if (elS1T2) elS1T2.textContent = s1n2Val;
+                                    if (elS2T2) elS2T2.textContent = s2n2Val;
+                                    if (elS3T2) elS3T2.textContent = s3n2Val;
 
-                                                if (startMonth <= endMonth) {
-                                                    inSeason = month >= startMonth && month <= endMonth;
-                                                } else {
-                                                    inSeason = month >= startMonth || month <= endMonth;
-                                                }
+                                    for (let month = 1; month <= 12; month++) {
+                                        const monthEl = document.querySelector(`[data-month="${month}"]`);
+                                        if (!monthEl) continue;
+                                        const periodsAcc = { early: [], mid: [], late: [] };
 
-                                                if (inSeason) {
-                                                    const monthEl = document.querySelector(`[data-month="${month}"]`);
-                                                    const periods = ['early', 'mid', 'late'];
+                                        for (let season = 1; season <= 3; season++) {
+                                            const startMonth = parseInt(document.getElementById(`season${season}-start-month`).value || '0');
+                                            const endMonth = parseInt(document.getElementById(`season${season}-end-month`).value || '0');
+                                            const startPart = document.getElementById(`season${season}-start-part`).value || 'full';
+                                            const endPart = document.getElementById(`season${season}-end-part`).value || 'full';
+                                            const color = document.getElementById(`season${season}-color`).value || '#cccccc';
 
-                                                    periods.forEach(period => {
-                                                        let shouldColor = false;
+                                            applyRangeToCell(periodsAcc, month, startMonth, endMonth, startPart, endPart, color);
 
-                                                        if (month === startMonth && month === endMonth) {
-                                                            // Same month start and end
-                                                            const startIdx = periods.indexOf(startPart);
-                                                            const endIdx = periods.indexOf(endPart);
-                                                            const periodIdx = periods.indexOf(period);
-                                                            shouldColor = periodIdx >= startIdx && periodIdx <= endIdx;
-                                                        } else if (month === startMonth) {
-                                                            // Start month
-                                                            if (startPart === 'full') shouldColor = true;
-                                                            else {
-                                                                const startIdx = periods.indexOf(startPart);
-                                                                const periodIdx = periods.indexOf(period);
-                                                                shouldColor = periodIdx >= startIdx;
-                                                            }
-                                                        } else if (month === endMonth) {
-                                                            // End month
-                                                            if (endPart === 'full') shouldColor = true;
-                                                            else {
-                                                                const endIdx = periods.indexOf(endPart);
-                                                                const periodIdx = periods.indexOf(period);
-                                                                shouldColor = periodIdx <= endIdx;
-                                                            }
-                                                        } else {
-                                                            // Full months in between
-                                                            shouldColor = true;
-                                                        }
+                                            // Range 2
+                                            const startMonth2 = parseInt(document.getElementById(`season${season}-start-month-2`)?.value || '0');
+                                            const endMonth2 = parseInt(document.getElementById(`season${season}-end-month-2`)?.value || '0');
+                                            const startPart2 = document.getElementById(`season${season}-start-part-2`)?.value || 'full';
+                                            const endPart2 = document.getElementById(`season${season}-end-part-2`)?.value || 'full';
+                                            const color2 = document.getElementById(`season${season}-color-2`)?.value || color;
 
-                                                        if (shouldColor) {
-                                                            monthEl.querySelector(`.period-${period}`).style.backgroundColor = color;
-                                                        }
-                                                    });
-                                                }
-                                            }
+                                            applyRangeToCell(periodsAcc, month, startMonth2, endMonth2, startPart2, endPart2, color2);
                                         }
+
+                                        ['early', 'mid', 'late'].forEach(period => {
+                                            const el = monthEl.querySelector(`.period-${period}`);
+                                            const colors = periodsAcc[period];
+                                            if (!colors || colors.length === 0) {
+                                                el.style.background = '#f8f8f8';
+                                            } else if (colors.length === 1) {
+                                                el.style.background = colors[0];
+                                            } else {
+                                                // blend first two colors
+                                                el.style.background = `linear-gradient(90deg, ${colors[0]} 0%, ${colors[0]} 50%, ${colors[1]} 50%, ${colors[1]} 100%)`;
+                                            }
+                                        });
                                     }
                                 }
 
                                 // Add event listeners for all season controls
+                                const fields = ['start-month','end-month','start-part','end-part','color','name','start-month-2','end-month-2','start-part-2','end-part-2','color-2','name-2'];
                                 for (let season = 1; season <= 3; season++) {
-                                    ['start-month', 'end-month', 'start-part', 'end-part', 'color', 'name'].forEach(field => {
+                                    fields.forEach(field => {
                                         const element = document.getElementById(`season${season}-${field}`);
-                                        if (element) {
-                                            element.addEventListener('change', updateMultiSeasonPreview);
-                                        }
+                                        if (element) element.addEventListener('change', updateMultiSeasonPreview);
                                     });
                                 }
 
-                                // Initial preview
                                 updateMultiSeasonPreview();
                             });
                         </script>
