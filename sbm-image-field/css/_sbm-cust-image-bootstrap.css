@@ -6,6 +6,19 @@
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 
+/* Add on CSS */
+.d-flex {
+    display: flex;
+}
+
+.justify-content-center {
+    justify-content: center;
+}
+.align-items-center {
+    align-items: center;
+}
+
+/* Bootstrap 3.3.7 */
 a {
   color: #337ab7;
   text-decoration: none;
