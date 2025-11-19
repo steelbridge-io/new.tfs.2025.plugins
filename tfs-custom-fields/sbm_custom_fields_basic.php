@@ -16,10 +16,15 @@
           global $post;
           if(!empty($post)){
               $pageTemplate = get_post_meta($post->ID, '_wp_page_template', true);
-              if($pageTemplate == 'page-templates/basic-page-template.php') {
-                    $types = array('post', 'page', 'travel_cpt', 'esb_lodge', 'schools_cpt', 'adventures', 'guide_service', 'fishcamp_cpt', 'lower48', 'lower48blog');
-                    foreach($types as $type) {
-                    add_meta_box( 'basic_meta', __( 'Basic Template Options &amp; Content', 'tfs-basic-textdomain' ), 'tfs_basic_callback', $type, 'normal', 'high' );
+              if(
+                  $pageTemplate == 'page-templates/basic-page-template.php' ||
+                  $pageTemplate == 'page-templates/single-column-template.php' ||
+                  $pageTemplate == 'page-templates/travel-lodges-camps-template.php'
+              ) {
+                  $types = array('post', 'page', 'travel_cpt', 'esb_lodge', 'schools_cpt', 'adventures', 'guide_service', 'fishcamp_cpt', 'lower48', 'lower48blog');
+
+                foreach($types as $type) {
+                add_meta_box( 'basic_meta', __( 'Basic Template Options &amp; Content', 'tfs-basic-textdomain' ), 'tfs_basic_callback', $type, 'normal', 'high' );
                 }
             }
         }
