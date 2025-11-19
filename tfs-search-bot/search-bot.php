@@ -12,7 +12,9 @@ function search_bot_enqueue_scripts() {
     wp_enqueue_script('search-bot-script', plugins_url('js/script.js', __FILE__), array('jquery'), '2.0', true);
     wp_localize_script('search-bot-script', 'searchBotAjax', array(
         'ajaxurl' => admin_url('admin-ajax.php'),
-        'nonce' => wp_create_nonce('search_bot_nonce')
+        'nonce' => wp_create_nonce('search_bot_nonce'),
+        // Expose whether the bot is interfacing with AI (OpenAI) or using basic fallback
+        'aiEnabled' => defined('TFS_OPENAI_API_KEY') && !empty(TFS_OPENAI_API_KEY),
     ));
 }
 add_action('wp_enqueue_scripts', 'search_bot_enqueue_scripts');
@@ -26,6 +28,13 @@ function search_bot_add_interface() {
     <div id="search-bot-chat">
         <button id="search-bot-close"></button>
         <button id="search-bot-clear" title="Clear chat">🗑️</button>
+        <div id="search-bot-status" aria-live="polite" style="font-size:12px;color:#666;margin:4px 0 8px;">
+            <?php if (defined('TFS_OPENAI_API_KEY') && !empty(TFS_OPENAI_API_KEY)) : ?>
+                AI: On
+            <?php else : ?>
+                AI: Off (basic search)
+            <?php endif; ?>
+        </div>
         <div id="search-bot-messages"></div>
         <div>
             <input type="text" id="search-bot-input" placeholder="Type your question...">
@@ -71,6 +80,13 @@ function ai_chat_response() {
     // Get and sanitize input
     $api_key = defined('TFS_OPENAI_API_KEY') ? TFS_OPENAI_API_KEY : '';
     $query = sanitize_text_field($_POST['query']);
+    $query = trim(preg_replace('/\s+/', ' ', $query));
+    // Minimal length guard: avoid heavy work on 0-1 char inputs
+    $bare = preg_replace('/[^\p{L}\p{N}]/u', '', $query);
+    if (mb_strlen($bare) < 2) {
+        wp_send_json_success(['response' => 'Please type a bit more so I can help. For example: "Belize bonefish trip" or "Sage 5wt fly rod".']);
+        return;
+    }
     $history = isset($_POST['history']) ? json_decode(stripslashes($_POST['history']), true) : [];
 
     if (!is_array($history)) {
@@ -92,7 +108,17 @@ function process_conversational_query($query, $history, $api_key) {
     // Get site context
     $site_context = get_site_context();
     
-    // If no API key, use basic search
+    // Fast-path: act like a search bar. If we can produce good results quickly,
+    // return them without calling AI (reduces latency and cost).
+    $pre_results = perform_smart_search($query);
+    $word_count = str_word_count($query);
+    if (!empty($pre_results) && ($word_count <= 4 || empty($api_key))) {
+        // Short/navigational queries or when AI is off: return quick results
+        $ai_text = 'Here are the top results for “' . $query . '”. Let me know if you want something more specific.';
+        return format_conversational_response($ai_text, $pre_results, $query);
+    }
+    
+    // If no API key at this point, use basic search fallback
     if (empty($api_key)) {
         return basic_conversational_search($query);
     }
@@ -296,6 +322,9 @@ function extract_search_terms($query, $ai_response) {
         'lodge' => ['lodge', 'lodges'],
         'private' => ['private waters'],
         'black bear lodge' => ['black bear', 'black bear lodge'],
+        'fishing report' => ['fishing report', 'stream report', 'fishing reports'],
+        'fishing guide' => ['fishing guide', 'guide service'],
+        'guided fly fishing' => ['guided fly fishing', 'guided fishing'],
     ];
     
     $query_lower = strtolower($query);
@@ -323,6 +352,16 @@ function extract_search_terms($query, $ai_response) {
 function perform_smart_search($query) {
     $results = [];
 
+    // Caching: normalize query and attempt to serve from cache for speed
+    $normalized = normalize_query($query);
+    if (mb_strlen($normalized) >= 2) {
+        $cache_key = build_search_cache_key('tfs_smart', $normalized);
+        $cached = get_transient($cache_key);
+        if ($cached !== false) {
+            return $cached;
+        }
+    }
+
     // Check mapped pages first
     $mapped_result = check_mapped_pages($query);
     if ($mapped_result) {
@@ -332,6 +371,11 @@ function perform_smart_search($query) {
     // Search WordPress content
     $wp_results = search_wordpress_content($query);
     $results = array_merge($results, $wp_results);
+
+    // Store in cache for 10 minutes when query is reasonable length
+    if (isset($cache_key)) {
+        set_transient($cache_key, $results, 10 * MINUTE_IN_SECONDS);
+    }
 
     return $results;
 }
@@ -343,13 +387,15 @@ function perform_smart_search($query) {
  */
 function check_mapped_pages($query) {
     $page_map = [
-            'stream report' => ['path' => '/streamreport', 'title' => 'Fishing Stream Report'],
+            'stream report' => ['path' => '/streamreport.html', 'title' => 'Fishing Stream Report'],
+            'fishing reports' => ['path' => '/streamreport.html', 'title' => 'Fishing Stream Report'],
             'fly fishing travel' => ['path' => '/travel/index', 'title' => 'Fly Fishing Travel'],
             'travel alaska' => ['path' => '/travel/alaska', 'title' => 'Alaska Fly Fishing'],
             'alaska' => ['path' => '/travel/alaska', 'title' => 'Alaska Fly Fishing'],
             'private waters' => ['path' => '/adventures/private', 'title' => 'Private Waters'],
-            'guide service' => ['path' => '/adventures/guideservice', 'title' => 'Guide Services'],
-            'fishing guide' => ['path' => '/adventures/meetg', 'title' => 'Meet Our Guides'],
+            'guide service' => ['path' => '/adventures/guideservice.html', 'title' => 'Guide Services'],
+            'guided fishing' => ['path' => '/adventures/guideservice.html', 'title' => 'Guide Services'],
+            'fishing guide' => ['path' => '/adventures/meetg.html', 'title' => 'Meet Our Guides'],
             'patagonia' => ['path' => '/travel/argentina', 'title' => 'Patagonia Fly Fishing'],
             'argentina' => ['path' => '/travel/argentina', 'title' => 'Argentina Fly Fishing'],
             'belize' => ['path' => '/travel/saltwater/belize', 'title' => 'Belize Fly Fishing'],
@@ -395,6 +441,17 @@ function check_mapped_pages($query) {
 function search_wordpress_content($query, $limit = 4) {
     global $wpdb;
     
+    // Cache WP content search by normalized query and limit
+    $normalized = normalize_query($query);
+    $cache_key = null;
+    if (mb_strlen($normalized) >= 2) {
+        $cache_key = build_search_cache_key('tfs_wp', $normalized . '|' . (int)$limit);
+        $cached = get_transient($cache_key);
+        if ($cached !== false) {
+            return $cached;
+        }
+    }
+
     $post_types = get_post_types(['public' => true], 'names');
     unset($post_types['attachment']);
     
@@ -448,7 +505,13 @@ function search_wordpress_content($query, $limit = 4) {
         return $b['relevance'] - $a['relevance'];
     });
 
-    return array_slice($results, 0, $limit);
+    $final = array_slice($results, 0, $limit);
+
+    if ($cache_key) {
+        set_transient($cache_key, $final, 10 * MINUTE_IN_SECONDS);
+    }
+
+    return $final;
 }
 
 /**
@@ -490,6 +553,26 @@ function search_post_meta($query, $post_types, $limit, $exclude_ids = []) {
     }
     
     return $results;
+}
+
+/**
+ * Normalize user query to maximize cache hit ratio
+ */
+function normalize_query($q) {
+    $q = strtolower(trim($q));
+    // Collapse whitespace
+    $q = preg_replace('/\s+/', ' ', $q);
+    return $q;
+}
+
+/**
+ * Build a stable transient cache key for searches
+ */
+function build_search_cache_key($prefix, $normalized_query) {
+    // keep key length small and safe; include site URL to avoid multisite collision
+    $site_hash = md5(home_url());
+    $q_hash = md5($normalized_query);
+    return $prefix . '_' . substr($site_hash, 0, 8) . '_' . $q_hash;
 }
 
 /**
