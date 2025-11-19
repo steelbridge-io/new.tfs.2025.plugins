@@ -13,7 +13,7 @@ function newstemplate_custom_meta() { global $post;
     $pageTemplate = get_post_meta ($post -> ID, '_wp_page_template', true);
 	  $types = array( 'post', 'page', 'lower48', 'lower48blog', 'travel-blog' );
     foreach ($types as $type) {
-      if($pageTemplate == 'page-templates/news-blog-template.php') {
+      if($pageTemplate == 'page-templates/news-blog-template.php' || $pageTemplate == 'page-templates/news-blog-wide-template.php') {
         add_meta_box ( 'news_blog_template_meta', __('News Template Options', 'the-fly-shop' ), 'newstemplate_meta_calback', $type, 'normal', 'high');
       }
     }
@@ -32,9 +32,12 @@ $news_template_stored_meta = get_post_meta( $post->ID );?>
   <div class="meta-field">
    <div class="panel editor">
    <div class="panel-body">
-    <div class="row">
+    <div class="row justify-content-center align-items-center d-flex">
 
-     <div class="col-lg-4">
+    <?php
+    $page_template = get_post_meta( $post->ID, '_wp_page_template', true );
+    if ( 'page-templates/news-blog-wide-template.php' !== $page_template ) : ?>
+     <div class="col-lg-3">
       <p>
         <label for="news-template-select-sidebar" class="prfx-row-title"><h3><?php _e( 'Sidebar Select', 'The_Fly_Shop' )?></h3></label>
         <select name="news-template-select-sidebar" id="news-template-select-sidebar">
@@ -51,8 +54,9 @@ $news_template_stored_meta = get_post_meta( $post->ID );?>
         </select>
       </p>
      </div>
+    <?php endif; ?>
 
-     <div class="col-lg-4">
+     <div class="col-lg-3">
       <p><!-- === Featured Post === -->
         <label for="news-template-select-post" class="prfx-row-title"><h3><?php _e( 'Select Featured Post', 'The_Fly_Shop' )?></h3></label>
         <select name="news-template-select-post" id="news-template-select-post">
@@ -64,7 +68,7 @@ $news_template_stored_meta = get_post_meta( $post->ID );?>
       </p>
      </div>
 
-     <div class="col-lg-4">
+     <div class="col-lg-3">
       <p> <!-- ==== Blog Logo ==== -->
         <label for="news-template-logo" class="travel-row-title"><?php _e( '<h3>TFS Logo</h3>', 'The_Fly_Shop' );?></label>
         <input type="text" name="news-template-logo" id="news-template-logo" value="<?php if ( isset ( $news_template_stored_meta['news-template-logo'] ) ) echo $news_template_stored_meta['news-template-logo'][0];?>" /><br>
