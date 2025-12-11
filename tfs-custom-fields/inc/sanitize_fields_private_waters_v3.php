@@ -66,6 +66,7 @@ function sbm_private_waters_v3_meta_save($post_id)
   }
 
   // Monthly Range Season Controls - NEW FIELDS
+  // Monthly range calendar toggle
   if (isset($_POST['monthly-range-checkbox'])) {
     update_post_meta($post_id, 'monthly-range-checkbox', 'yes');
   } else {
@@ -88,11 +89,7 @@ function sbm_private_waters_v3_meta_save($post_id)
     update_post_meta($post_id, 'feature-3-get-to-title', $_POST['feature-3-get-to-title']);
   }
 
-  if (isset($_POST['monthly-range-checkbox'])) {
-    update_post_meta($post_id, 'monthly-range-checkbox', 'yes');
-  } else {
-    update_post_meta($post_id, 'monthly-range-checkbox', '');
-  }
+  // (Removed duplicate monthly-range-checkbox setter)
 
   for ($season = 1; $season <= 3; $season++) {
     if (isset($_POST["season{$season}-start-month"])) {
@@ -117,6 +114,31 @@ function sbm_private_waters_v3_meta_save($post_id)
 
     if (isset($_POST["season{$season}-name"])) {
       update_post_meta($post_id, "season{$season}-name", sanitize_text_field($_POST["season{$season}-name"]));
+    }
+
+    // Range 2 (optional) fields per season
+    if (isset($_POST["season{$season}-start-month-2"])) {
+      update_post_meta($post_id, "season{$season}-start-month-2", intval($_POST["season{$season}-start-month-2"]));
+    }
+
+    if (isset($_POST["season{$season}-end-month-2"])) {
+      update_post_meta($post_id, "season{$season}-end-month-2", intval($_POST["season{$season}-end-month-2"]));
+    }
+
+    if (isset($_POST["season{$season}-start-part-2"])) {
+      update_post_meta($post_id, "season{$season}-start-part-2", sanitize_text_field($_POST["season{$season}-start-part-2"]));
+    }
+
+    if (isset($_POST["season{$season}-end-part-2"])) {
+      update_post_meta($post_id, "season{$season}-end-part-2", sanitize_text_field($_POST["season{$season}-end-part-2"]));
+    }
+
+    if (isset($_POST["season{$season}-color-2"])) {
+      update_post_meta($post_id, "season{$season}-color-2", sanitize_hex_color($_POST["season{$season}-color-2"]));
+    }
+
+    if (isset($_POST["season{$season}-name-2"])) {
+      update_post_meta($post_id, "season{$season}-name-2", sanitize_text_field($_POST["season{$season}-name-2"]));
     }
   }
 
