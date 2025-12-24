@@ -429,7 +429,7 @@ class BrindleChute_Booking {
 				display: flex;
 				align-items: center;
 				justify-content: center;
-				width: 20px;
+				width: 25px;
 				height: 150px;
 				overflow: hidden;
 			}
@@ -478,6 +478,11 @@ class BrindleChute_Booking {
 				line-height: 1.3;
 				font-weight: normal;
 			}
+            @media screen and (max-width: 768px) {
+                .brindle-main-content {
+                padding: 1.118em !important;
+                }
+            }
 		</style>
 		<div class="brindlechute-side-tab" onclick="if(window.brindlechute) { <?php echo esc_attr( $js_call ); ?> } else { alert('Booking system is still loading...'); }">
 			<span class="tab-text">BOOK ONLINE</span>
