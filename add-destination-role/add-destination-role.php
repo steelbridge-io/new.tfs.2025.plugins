@@ -186,7 +186,7 @@ function add_custom_user_meta_field($user) {
              </td>
          </tr>
      </table>
- <?php }
+<?php }
 }
 add_action('show_user_profile', 'add_custom_user_meta_field');
 add_action('edit_user_profile', 'add_custom_user_meta_field');
@@ -261,7 +261,7 @@ function add_multi_destination_url_meta_fields($user) {
              </td>
          </tr>
      </table>
- <?php }
+<?php }
 }
 add_action('show_user_profile', 'add_multi_destination_url_meta_fields');
 add_action('edit_user_profile', 'add_multi_destination_url_meta_fields');

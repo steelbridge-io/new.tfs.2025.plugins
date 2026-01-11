@@ -108,5 +108,5 @@ function streamreport_meta_callback( $post ) {
 
 		</p>
 
-    <?php
+<?php
 }

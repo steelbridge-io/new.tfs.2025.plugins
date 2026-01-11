@@ -72,14 +72,14 @@
 				<th>Pattern</th>
 				<th>Actions</th>
 			</tr>
-			<?php foreach ($content_list as $index => $row) : ?>
+<?php foreach ($content_list as $index => $row) : ?>
 				<tr>
 					<td><input type="text" name="column1_<?php echo strtolower($month); ?>[]" value="<?php echo esc_attr($row['column1']); ?>" /></td>
 					<td><input type="text" name="column2_<?php echo strtolower($month); ?>[]" value="<?php echo esc_attr($row['column2']); ?>" /></td>
 					<td><input type="text" name="column3_<?php echo strtolower($month); ?>[]" value="<?php echo esc_attr($row['column3']); ?>" /></td>
 					<td><button class="deleteRow">Delete Row</button></td>
 				</tr>
-			<?php endforeach; ?>
+<?php endforeach; ?>
 			<tr class="row-template" style="display: none;">
 				<td><input type="text" name="column1_<?php echo strtolower($month); ?>[]" /></td>
 				<td><input type="text" name="column2_<?php echo strtolower($month); ?>[]" /></td>
@@ -137,7 +137,7 @@
 				}
 			});
 		</script>
-		<?php
+<?php
 		echo ob_get_clean();
 	}
 	

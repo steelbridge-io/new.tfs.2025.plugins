@@ -204,7 +204,7 @@ class TFS_Image_Widget extends WP_Widget {
           height: auto;
         }
       </style>
-		<?php
+<?php
 	}
 	
 	/**

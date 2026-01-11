@@ -333,8 +333,8 @@ function custom_permalink_get_sample_permalink_html($html, $id, $new_title, $new
   
   ob_start();
   ?>
-  <?php custom_permalinks_form($permalink, ($post->post_type == "page" ? custom_permalinks_original_page_link($id) : custom_permalinks_original_post_link($id)), false); ?>
-  <?php
+<?php custom_permalinks_form($permalink, ($post->post_type == "page" ? custom_permalinks_original_page_link($id) : custom_permalinks_original_post_link($id)), false); ?>
+<?php
   $content = ob_get_contents();
   ob_end_clean();
     
@@ -375,10 +375,10 @@ function custom_permalinks_post_options() {
   <div class="postbox closed">
   <h3><?php _e('Custom Permalink', 'custom-permalinks') ?></h3>
   <div class="inside">
-  <?php custom_permalinks_form($permalink, custom_permalinks_original_post_link($post_id)); ?>
+<?php custom_permalinks_form($permalink, custom_permalinks_original_post_link($post_id)); ?>
   </div>
   </div>
-  <?php
+<?php
 }
 
 /**
@@ -400,10 +400,10 @@ function custom_permalinks_page_options() {
   <div class="postbox closed">
   <h3><?php _e('Custom Permalink', 'custom-permalinks') ?></h3>
   <div class="inside">
-  <?php custom_permalinks_form($permalink, custom_permalinks_original_page_link($post_id)); ?>
+<?php custom_permalinks_form($permalink, custom_permalinks_original_page_link($post_id)); ?>
   </div>
   </div>
-  <?php
+<?php
 }
 
 /**
@@ -436,7 +436,7 @@ function custom_permalinks_term_options($object) {
     button.remove().insertAfter(jQuery('#custom_permalink_form'));
   });
   </script>
-  <?php
+<?php
 }
 
 /**
@@ -450,34 +450,34 @@ function custom_permalinks_form($permalink, $original="", $renderContainers=true
   <input value="true" type="hidden" name="custom_permalinks_edit" />
   <input value="<?php echo htmlspecialchars(urldecode($permalink)) ?>" type="hidden" name="custom_permalink" id="custom_permalink" />
   
-  <?php if ( $renderContainers ) : ?>
+<?php if ( $renderContainers ) : ?>
   <table class="form-table" id="custom_permalink_form">
   <tr>
     <th scope="row"><?php _e('Custom Permalink', 'custom-permalinks') ?></th>
     <td>
-  <?php endif; ?>
+<?php endif; ?>
   
-  <?php
+<?php
     if ($permalink == '') {
       $original = custom_permalinks_check_conflicts($original);
     }
   ?>
   
-      <?php echo home_url() ?>/
+<?php echo home_url() ?>/
       <span id="editable-post-name" title="Click to edit this part of the permalink">
         <input type="text" id="new-post-slug" class="text" value="<?php echo htmlspecialchars($permalink ? urldecode($permalink) : urldecode($original)) ?>"
           style="width: 250px; <?php if ( !$permalink ) echo 'color: #ddd;' ?>"
           onfocus="if ( this.style.color = '#ddd' ) { this.style.color = '#000'; }"
           onblur="document.getElementById('custom_permalink').value = this.value; if ( this.value == '' || this.value == '<?php echo htmlspecialchars(urldecode($original)) ?>' ) { this.value = '<?php echo htmlspecialchars(urldecode($original)) ?>'; this.style.color = '#ddd'; }"/>
       </span>
-  <?php if ( $renderContainers ) : ?>
+<?php if ( $renderContainers ) : ?>
       <br />
       <small><?php _e('Leave blank to disable', 'custom-permalinks') ?></small>
       
     </td>
   </tr>
   </table>
-  <?php
+<?php
   endif;
 }
 
@@ -616,7 +616,7 @@ function custom_permalinks_options_page() {
     <script type="text/javascript">
     document.location = '<?php echo $redirectUrl ?>'
     </script>
-    <?php ;
+<?php ;
   }
   
   ?>
@@ -624,7 +624,7 @@ function custom_permalinks_options_page() {
   <h2><?php _e('Custom Permalinks', 'custom-permalinks') ?></h2>
   
   <form method="post" action="<?php echo $_SERVER['REQUEST_URI'] ?>">
-  <?php wp_nonce_field('custom-permalinks-bulk') ?>
+<?php wp_nonce_field('custom-permalinks-bulk') ?>
   
   <div class="tablenav">
   <div class="alignleft">
@@ -643,7 +643,7 @@ function custom_permalinks_options_page() {
     </tr>
     </thead>
     <tbody>
-  <?php
+<?php
   $rows = custom_permalinks_admin_rows();
   foreach ( $rows as $row ) {
     ?>
@@ -652,18 +652,18 @@ function custom_permalinks_options_page() {
     <td><strong><a class="row-title" href="<?php echo htmlspecialchars($row['editlink']) ?>"><?php echo htmlspecialchars($row['title']) ?></a></strong></td>
     <td><?php echo htmlspecialchars($row['type']) ?></td>
     <td><a href="<?php echo $row['permalink'] ?>" target="_blank" title="<?php printf(__('Visit %s', 'custom-permalinks'), htmlspecialchars($row['title'])) ?>">
-      <?php echo htmlspecialchars(urldecode($row['permalink'])) ?>
+<?php echo htmlspecialchars(urldecode($row['permalink'])) ?>
       </a>
     </td>
     </tr>
-    <?php
+<?php
   }
   ?>
   </tbody>
   </table>
   </form>
   </div>
-  <?php
+<?php
 }
 
 /**

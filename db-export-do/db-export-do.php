@@ -42,7 +42,7 @@ function dbedo_missing_aws_sdk_notice() {
  <div class="notice notice-error">
   <p><?php _e('DB Export to DigitalOcean Spaces requires the AWS SDK for PHP. Please install it using Composer.', 'db-export-do'); ?></p>
  </div>
- <?php
+<?php
 }
 
 // Register activation hook

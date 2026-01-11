@@ -124,7 +124,7 @@ class BrindleChute_Booking {
 			<h1>BrindleChute Booking Settings</h1>
 
 			<form method="post" style="margin-bottom: 20px; padding: 15px; background: #fff; border: 1px solid #ccd0d4;">
-				<?php wp_nonce_field( 'save_env_action', 'save_env_nonce' ); ?>
+<?php wp_nonce_field( 'save_env_action', 'save_env_nonce' ); ?>
 				<h2>Environment Settings</h2>
 				<p><em>Note: If the development domain (.dev) does not resolve in your environment, please use the "Custom Script URL" below to set it to the .com version or another valid URL.</em></p>
   		<label>
@@ -171,7 +171,7 @@ class BrindleChute_Booking {
 			<div style="background: #fff; border: 1px solid #ccd0d4; padding: 15px; margin-bottom: 20px;">
 				<h2>Add New Modal Shortcode</h2>
 				<form method="post">
-					<?php wp_nonce_field( 'add_modal_action', 'add_modal_nonce' ); ?>
+<?php wp_nonce_field( 'add_modal_action', 'add_modal_nonce' ); ?>
 					<table class="form-table">
 						<tr>
 							<th><label for="title">Title</label></th>
@@ -211,12 +211,12 @@ class BrindleChute_Booking {
 					</tr>
 				</thead>
 				<tbody>
-					<?php if ( empty( $settings['modals'] ) ) : ?>
+<?php if ( empty( $settings['modals'] ) ) : ?>
 						<tr>
 							<td colspan="6">No shortcodes created yet.</td>
 						</tr>
-					<?php else : ?>
-						<?php foreach ( $settings['modals'] as $id => $modal ) : 
+<?php else : ?>
+<?php foreach ( $settings['modals'] as $id => $modal ) : 
 							$ids_array = explode( ',', $modal['ids'] );
 							$ids_array = array_map( 'trim', $ids_array );
 							$ids_array = array_filter( $ids_array, 'is_numeric' );
@@ -238,12 +238,12 @@ class BrindleChute_Booking {
 									<a href="<?php echo wp_nonce_url( admin_url( 'admin.php?page=brindlechute-booking&delete=' . $id ), 'delete_modal_' . $id ); ?>" class="button button-link-delete" onclick="return confirm('Are you sure?')">Delete</a>
 								</td>
 							</tr>
-						<?php endforeach; ?>
-					<?php endif; ?>
+<?php endforeach; ?>
+<?php endif; ?>
 				</tbody>
 			</table>
 		</div>
-		<?php
+<?php
 	}
 
 	public function render_shortcode( $atts ) {
@@ -324,7 +324,7 @@ class BrindleChute_Booking {
 		<button type="button" class="brindlechute-booking-button" onclick="if(window.brindlechute) { <?php echo esc_attr( $js_call ); ?> } else { alert('Booking system is still loading. Please try again in a moment.'); console.error('BrindleChute not loaded'); }">
 			Book Today Online
 		</button>
-		<?php
+<?php
 		return ob_get_clean();
 	}
 
@@ -349,7 +349,7 @@ class BrindleChute_Booking {
 		<label for="brindlechute_side_tab">Enter BrindleChute Shortcode:</label>
 		<input type="text" name="brindlechute_side_tab" id="brindlechute_side_tab" value="<?php echo esc_attr( $value ); ?>" class="widefat" placeholder='[brindlechute id="..."]'>
 		<p class="description">If provided, a floating "Book Online" tab will appear on the left side of this page.</p>
-		<?php
+<?php
 	}
 
 	public function save_side_tab_meta( $post_id ) {
@@ -493,7 +493,7 @@ class BrindleChute_Booking {
 				</div>
 			</div>
 		</div>
-		<?php
+<?php
 	}
 
 	// Removed old method

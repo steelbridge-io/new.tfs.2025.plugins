@@ -181,7 +181,7 @@ if (!current_user_can('manage_options')) {
 			
 			</div>
 			
-			<?php
+<?php
 			settings_fields( 'meta_field_content_settings' );
 			do_settings_sections( 'meta_field_content_settings' );
 			submit_button();

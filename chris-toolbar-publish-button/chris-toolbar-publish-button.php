@@ -410,7 +410,7 @@ class tpb {
 
                                 <form method="post" action="options.php">
 
-                                    <?php settings_fields( 'wpuxss_tpb_settings' ); ?>
+<?php settings_fields( 'wpuxss_tpb_settings' ); ?>
 
                                     <table class="form-table">
 
@@ -478,7 +478,7 @@ class tpb {
 
                                     </table>
 
-                                    <?php submit_button(); ?>
+<?php submit_button(); ?>
 
                                 </form>
 
@@ -532,7 +532,7 @@ class tpb {
 
         </div>
 
-        <?php
+<?php
     }
 
 

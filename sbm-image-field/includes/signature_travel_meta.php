@@ -103,7 +103,7 @@ function signature_travel_meta_callback( $post ) {
         <div class="signature-travel-row-content">
           <label for="signature-travel-csel-checkbox">
             <input type="checkbox" name="signature-travel-csel-checkbox" id="signature-travel-csel-checkbox" value="yes" <?php if ( isset ( $signature_travel_stored_meta['signature-travel-csel-checkbox'] ) ) checked( $signature_travel_stored_meta['signature-travel-csel-checkbox'][0], 'yes' ); ?> />
-            <?php _e( 'Check box to show carousel.', 'the-fly-shop' )?>
+<?php _e( 'Check box to show carousel.', 'the-fly-shop' )?>
           </label>
         </div>
         
@@ -2066,5 +2066,5 @@ function signature_travel_meta_callback( $post ) {
   </div>
   
   
-  <?php
+<?php
 }

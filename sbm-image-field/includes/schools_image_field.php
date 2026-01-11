@@ -236,7 +236,7 @@ function schools_meta_callback( $post ) {
     
 		</p>
 
-   <?php }
+<?php }
 /* ==== Loads the image management javascript using wp enqueue media ==== */
  /*function schools_image_enqueue() {
     global $typenow;

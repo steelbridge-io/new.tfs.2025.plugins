@@ -185,13 +185,13 @@ class outfittersPostsExcerpts extends WP_Widget {
         </p>
 
         <p><label for="<?php echo $this->get_field_id('outfitters'); ?>"><?php _e('Limit to category:', 'outfitters_posts_excerpts'); ?>
-				<?php wp_dropdown_categories(array('taxonomy' => 'outfitters','name' => $this->get_field_name('outfitters'), 'show_option_all' => __('None (all categories)'), 'hide_empty'=>0, 'hierarchical'=>1, 'selected'=>$instance['outfitters'])); ?></label></p>
+<?php wp_dropdown_categories(array('taxonomy' => 'outfitters','name' => $this->get_field_name('outfitters'), 'show_option_all' => __('None (all categories)'), 'hide_empty'=>0, 'hierarchical'=>1, 'selected'=>$instance['outfitters'])); ?></label></p>
         <p>
             <label for="<?php echo $this->get_field_id('tag'); ?>"><?php _e('Limit to tags:', 'outfitters_posts_excerpts'); ?></label>
             <input class="widefat" id="<?php echo $this->get_field_id('tag'); ?>" name="<?php echo $this->get_field_name('tag'); ?>" type="text" value="<?php echo esc_attr($instance['tag']); ?>" />
             <br /><small><?php _e('Enter post tags separated by commas ("cat,dog")', 'outfitters_posts_excerpts'); ?></small>
         </p>
-		<?php if (function_exists('the_excerpt_reloaded')) { ?>
+<?php if (function_exists('the_excerpt_reloaded')) { ?>
             <p>
                 <label for="<?php echo $this->get_field_id('words'); ?>"><?php _e('Limit excerpt to how many words?', 'outfitters_posts_excerpts'); ?></label>
                 <input class="widefat" id="<?php echo $this->get_field_id('words'); ?>" name="<?php echo $this->get_field_name('words'); ?>" type="text" value="<?php echo esc_attr($instance['words']); ?>" />
@@ -204,7 +204,7 @@ class outfittersPostsExcerpts extends WP_Widget {
 						'&lt;p&gt;&lt;div&gt;&lt;span&gt;&lt;br&gt;&lt;img&gt;&lt;a&gt;&lt;blockquote&gt;&lt;cite&gt;&lt;em&gt;&lt;i&gt;&lt;strong&gt;&lt;b&gt;&lt;h2&gt;&lt;h3&gt;&lt;h4&gt;&lt;h5&gt;&lt;h6&gt;');
 					?>
                 </small></p>
-		<?php } ?>
+<?php } ?>
         <p>
             <label for="<?php echo $this->get_field_id('thumb'); ?>"><?php _e('Show featured images in excerpts?', 'outfitters_posts_excerpts'); ?></label>
             <input id="<?php echo $this->get_field_id('thumb'); ?>" name="<?php echo $this->get_field_name('thumb'); ?>" type="checkbox" value="1" <?php checked($instance['thumb'], '1'); ?> />
@@ -221,7 +221,7 @@ class outfittersPostsExcerpts extends WP_Widget {
         <p><label for="<?php echo $this->get_field_id('thumbsize'); ?>"><?php _e('Featured image size:', 'outfitters_posts_excerpts'); ?></label> <br />
             <select id="<?php echo $this->get_field_id('thumbsize'); ?>" name="<?php echo $this->get_field_name('thumbsize'); ?>">
                 <option value=""<?php selected( $instance['thumbsize'], '' ); ?>>&nbsp;</option>
-				<?php
+<?php
 				global $_wp_additional_image_sizes;
 				$sizes = array();
 				foreach( get_intermediate_image_sizes() as $s ){
@@ -240,7 +240,7 @@ class outfittersPostsExcerpts extends WP_Widget {
 				?>
             </select>
         </p>
-		<?php
+<?php
 	}
 }
 

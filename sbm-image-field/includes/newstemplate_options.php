@@ -34,7 +34,7 @@ $news_template_stored_meta = get_post_meta( $post->ID );?>
    <div class="panel-body">
     <div class="row justify-content-center align-items-center d-flex">
 
-    <?php
+<?php
     $page_template = get_post_meta( $post->ID, '_wp_page_template', true );
     if ( 'page-templates/news-blog-wide-template.php' !== $page_template ) : ?>
      <div class="col-lg-3">
@@ -54,7 +54,7 @@ $news_template_stored_meta = get_post_meta( $post->ID );?>
         </select>
       </p>
      </div>
-    <?php endif; ?>
+<?php endif; ?>
 
      <div class="col-lg-3">
       <p><!-- === Featured Post === -->

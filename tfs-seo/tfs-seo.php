@@ -51,11 +51,11 @@ function seotfs_meta_callback( $post ) {
     
     <p>
         <label for="seo-no-index" class="seotfs-row-title"><input type="checkbox" name="seo-no-index" id="seo-no-index" value="yes" <?php if ( isset ( $seotfs_stored_meta['seo-no-index'] ) ) checked( $seotfs_stored_meta['seo-no-index'][0], 'yes' ); ?> />
-        <?php _e( '<strong>Check box only if this page should not be found in search.</strong>', 'seotfs-textdomain' )?>
+<?php _e( '<strong>Check box only if this page should not be found in search.</strong>', 'seotfs-textdomain' )?>
         </label>
     </p>
 
-    <?php
+<?php
 }
 
 /**

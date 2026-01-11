@@ -35,8 +35,8 @@ function fppc_settings_page() {
  <div class="wrap">
 	<h1>Front Page Product Carousel</h1>
 	<form method="post" action="options.php">
-	 <?php settings_fields('fppc_settings'); ?>
-	 <?php do_settings_sections('fppc_settings'); ?>
+<?php settings_fields('fppc_settings'); ?>
+<?php do_settings_sections('fppc_settings'); ?>
 
 	 <table class="form-table" id="carousel-items-table">
 		<thead>
@@ -49,8 +49,8 @@ function fppc_settings_page() {
 		</tr>
 		</thead>
 		<tbody>
-		<?php if (!empty($carousel_items)): ?>
-		 <?php foreach ($carousel_items as $index => $item): ?>
+<?php if (!empty($carousel_items)): ?>
+<?php foreach ($carousel_items as $index => $item): ?>
 			<tr>
 			 <td><input type="text" name="fppc_carousel_items[<?php echo $index; ?>][image]" value="<?php echo esc_attr($item['image']); ?>" class="widefat"></td>
 			 <td><input type="text" name="fppc_carousel_items[<?php echo $index; ?>][title]" value="<?php echo esc_attr($item['title']); ?>" class="widefat"></td>
@@ -58,17 +58,17 @@ function fppc_settings_page() {
 			 <td><input type="url" name="fppc_carousel_items[<?php echo $index; ?>][url]" value="<?php echo esc_attr($item['url']); ?>" class="widefat"></td>
 			 <td><button type="button" class="button fppc-remove-item">Remove</button></td>
 			</tr>
-		 <?php endforeach; ?>
-		<?php endif; ?>
+<?php endforeach; ?>
+<?php endif; ?>
 		</tbody>
 	 </table>
 
 	 <button type="button" class="button button-secondary" id="fppc-add-item">Add Item</button>
 	 <br><br>
-	 <?php submit_button(); ?>
+<?php submit_button(); ?>
 	</form>
  </div>
- <?php
+<?php
 }
 
 // Enqueue JavaScript for "Add Item" functionality

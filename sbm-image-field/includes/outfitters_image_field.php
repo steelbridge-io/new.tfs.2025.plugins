@@ -1,4 +1,4 @@
-    <?php
+<?php
 
     /*
     * Outfitters Meta
@@ -35,7 +35,7 @@
         <input style="width: 100%;" type="url" name="hero-video-url" id="hero-video-url" value="<?php if ( isset ( $outfittersblog_stored_meta['hero-video-url'] ) ) echo $outfittersblog_stored_meta['hero-video-url'][0]; ?>" />
     </p>
     <div>
-    <?php
+<?php
     // Retrieve the custom field value
     $custom_range_value = get_post_meta($post->ID, 'opacity-range', true);
 
@@ -73,15 +73,15 @@
     <p>
     <label for="outfitters-select-sidebar" class="prfx-row-title"><h3><?php _e( 'Sidebar Select', 'The_Fly_Shop' )?></h3></label>
     <select name="outfitters-select-sidebar" id="outfitters-select-sidebar">
-      <option value="" <?php if ( isset ( $outfittersblog_stored_meta['outfitters-select-sidebar'] ) ) selected( $outfittersblog_stored_meta['outfitters-select-sidebar'][0], '' ); ?>><?php _e( 'Default', 'The_Fly_Shop' )?></option>';
-      <option value="esblodge" <?php if ( isset ( $outfittersblog_stored_meta['outfitters-select-sidebar'] ) ) selected( $outfittersblog_stored_meta['outfitters-select-sidebar'][0], 'esblodge' ); ?>><?php _e( 'ESB Lodge', 'The_Fly_Shop' )?></option>';
-      <option value="lavacreeklodge" <?php if ( isset ( $outfittersblog_stored_meta['outfitters-select-sidebar'] ) ) selected( $outfittersblog_stored_meta['outfitters-select-sidebar'][0], 'lavacreeklodge' ); ?>><?php _e( 'Lava Creek Lodge', 'The_Fly_Shop' )?></option>';
-      <option value="lower48" <?php if ( isset ( $outfittersblog_stored_meta['outfitters-select-sidebar'] ) ) selected( $outfittersblog_stored_meta['outfitters-select-sidebar'][0], 'lower48' ); ?>><?php _e( 'Lower 48', 'The_Fly_Shop' )?></option>';
-      <option value="news" <?php if ( isset ( $outfittersblog_stored_meta['outfitters-select-sidebar'] ) ) selected( $outfittersblog_stored_meta['outfitters-select-sidebar'][0], 'news' ); ?>><?php _e( 'News', 'The_Fly_Shop' )?></option>';
-      <option value="outfitter" <?php if ( isset ( $outfittersblog_stored_meta['outfitters-select-sidebar'] ) ) selected( $outfittersblog_stored_meta['outfitters-select-sidebar'][0], 'outfitter' ); ?>><?php _e( 'Outfitters', 'The_Fly_Shop' )?></option>';
-      <option value="retail" <?php if ( isset ( $outfittersblog_stored_meta['outfitters-select-sidebar'] ) ) selected( $outfittersblog_stored_meta['outfitters-select-sidebar'][0], 'retail' ); ?>><?php _e( 'Retail', 'The_Fly_Shop' )?></option>';
-      <option value="survey" <?php if ( isset ( $outfittersblog_stored_meta['outfitters-select-sidebar'] ) ) selected( $outfittersblog_stored_meta['outfitters-select-sidebar'][0], 'survey' ); ?>><?php _e( 'Survey', 'The_Fly_Shop' )?></option>';
-      <option value="travel" <?php if ( isset ( $outfittersblog_stored_meta['outfitters-select-sidebar'] ) ) selected( $outfittersblog_stored_meta['outfitters-select-sidebar'][0], 'travel' ); ?>><?php _e( 'Travel', 'The_Fly_Shop' )?></option>';
+      <option value="" <?php if ( isset ( $outfittersblog_stored_meta['outfitters-select-sidebar'] ) ) selected( $outfittersblog_stored_meta['outfitters-select-sidebar'][0], '' ); ?>><?php _e( 'Default', 'The_Fly_Shop' )?></option>
+      <option value="esblodge" <?php if ( isset ( $outfittersblog_stored_meta['outfitters-select-sidebar'] ) ) selected( $outfittersblog_stored_meta['outfitters-select-sidebar'][0], 'esblodge' ); ?>><?php _e( 'ESB Lodge', 'The_Fly_Shop' )?></option>
+      <option value="lavacreeklodge" <?php if ( isset ( $outfittersblog_stored_meta['outfitters-select-sidebar'] ) ) selected( $outfittersblog_stored_meta['outfitters-select-sidebar'][0], 'lavacreeklodge' ); ?>><?php _e( 'Lava Creek Lodge', 'The_Fly_Shop' )?></option>
+      <option value="lower48" <?php if ( isset ( $outfittersblog_stored_meta['outfitters-select-sidebar'] ) ) selected( $outfittersblog_stored_meta['outfitters-select-sidebar'][0], 'lower48' ); ?>><?php _e( 'Lower 48', 'The_Fly_Shop' )?></option>
+      <option value="news" <?php if ( isset ( $outfittersblog_stored_meta['outfitters-select-sidebar'] ) ) selected( $outfittersblog_stored_meta['outfitters-select-sidebar'][0], 'news' ); ?>><?php _e( 'News', 'The_Fly_Shop' )?></option>
+      <option value="outfitter" <?php if ( isset ( $outfittersblog_stored_meta['outfitters-select-sidebar'] ) ) selected( $outfittersblog_stored_meta['outfitters-select-sidebar'][0], 'outfitter' ); ?>><?php _e( 'Outfitters', 'The_Fly_Shop' )?></option>
+      <option value="retail" <?php if ( isset ( $outfittersblog_stored_meta['outfitters-select-sidebar'] ) ) selected( $outfittersblog_stored_meta['outfitters-select-sidebar'][0], 'retail' ); ?>><?php _e( 'Retail', 'The_Fly_Shop' )?></option>
+      <option value="survey" <?php if ( isset ( $outfittersblog_stored_meta['outfitters-select-sidebar'] ) ) selected( $outfittersblog_stored_meta['outfitters-select-sidebar'][0], 'survey' ); ?>><?php _e( 'Survey', 'The_Fly_Shop' )?></option>
+      <option value="travel" <?php if ( isset ( $outfittersblog_stored_meta['outfitters-select-sidebar'] ) ) selected( $outfittersblog_stored_meta['outfitters-select-sidebar'][0], 'travel' ); ?>><?php _e( 'Travel', 'The_Fly_Shop' )?></option>
     </select>
     </p>
 
@@ -95,14 +95,14 @@
 
     <!-- Preview container -->
     <div id="outfitters-blog-logo-preview" style="margin-top: 10px;">
-        <?php if ( isset( $outfittersblog_stored_meta['outfitters-blog-logo'] ) && $outfittersblog_stored_meta['outfitters-blog-logo'][0] != '' ) : ?>
+<?php if ( isset( $outfittersblog_stored_meta['outfitters-blog-logo'] ) && $outfittersblog_stored_meta['outfitters-blog-logo'][0] != '' ) : ?>
             <img src="<?php echo esc_url( $outfittersblog_stored_meta['outfitters-blog-logo'][0] ); ?>"
                  style="max-width: 250px; max-height: 250px; border: 1px solid #ddd; padding: 5px;"
                  alt="Preview" />
             <br><button type="button" id="outfitters-blog-logo-remove" class="button" style="margin-top: 5px;">Remove Image</button>
-        <?php endif; ?>
+<?php endif; ?>
     </div>
 
     </div>
 
-    <?php  }
+<?php  }

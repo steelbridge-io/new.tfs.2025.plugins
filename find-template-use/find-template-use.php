@@ -30,9 +30,9 @@ function list_pages_using_template_display() {
             <input type="submit" value="<?php esc_attr_e('Search', 'list-pages-using-template'); ?>" class="button button-primary">
         </form>
 			
-			<?php if (!empty($template_path)): ?>
+<?php if (!empty($template_path)): ?>
           <h3><?php echo sprintf(esc_html__('Pages Using Template: %s', 'list-pages-using-template'), esc_html($template_path)); ?></h3>
-				<?php
+<?php
 				// Retrieve pages using the specified template
 				$pages = get_pages(array(
 					'meta_key' => '_wp_page_template',
@@ -42,17 +42,17 @@ function list_pages_using_template_display() {
 				
 				if (!empty($pages)): ?>
             <ul>
-							<?php
+<?php
 							foreach ($pages as $page_id):
 								$title = get_the_title($page_id);
 								?>
                   <li><a href="<?php echo esc_url(get_edit_post_link($page_id)); ?>"><?php echo esc_html($title); ?></a></li>
-							<?php endforeach; ?>
+<?php endforeach; ?>
             </ul>
-				<?php else: ?>
+<?php else: ?>
             <p><?php esc_html_e('No pages found using this template.', 'list-pages-using-template'); ?></p>
-				<?php endif; ?>
-			<?php endif; ?>
+<?php endif; ?>
+<?php endif; ?>
     </div>
-	<?php
+<?php
 }

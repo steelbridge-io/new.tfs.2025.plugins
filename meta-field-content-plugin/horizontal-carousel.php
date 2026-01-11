@@ -231,7 +231,7 @@ function horizontal_slider_settings_page() {
     
 			</div>
 			
-			<?php
+<?php
 			settings_fields( 'hs_meta_field_content_settings' );
 			do_settings_sections( 'hs_meta_field_content_settings' );
 			submit_button();
@@ -239,6 +239,6 @@ function horizontal_slider_settings_page() {
    
 		</form>
 	</div>
-	<?php
+<?php
 }
 ?>

@@ -599,7 +599,7 @@ include( plugin_dir_path( __FILE__ ) . '../inc/sanitize_front_page_image.php');
           <div class="travel-row-content">
           <label for="flip-page-2-checkbox">
           <input type="checkbox" name="flip-page-2-checkbox" id="flip-page-2-checkbox" value="yes" <?php if ( isset ( $front_page_stored_meta['flip-page-2-checkbox'] ) ) checked( $front_page_stored_meta['flip-page-2-checkbox'][0], 'yes' ); ?> />
-          <?php _e( 'Check box to activate Flip Page #2', 'the-fly-shop' )?>
+<?php _e( 'Check box to activate Flip Page #2', 'the-fly-shop' )?>
           </label>
           </div>
           
@@ -653,7 +653,7 @@ include( plugin_dir_path( __FILE__ ) . '../inc/sanitize_front_page_image.php');
           <div class="travel-row-content">
           <label for="flip-page-3-checkbox">
           <input type="checkbox" name="flip-page-3-checkbox" id="flip-page-3-checkbox" value="yes" <?php if ( isset ( $front_page_stored_meta['flip-page-3-checkbox'] ) ) checked( $front_page_stored_meta['flip-page-3-checkbox'][0], 'yes' ); ?> />
-          <?php _e( 'Check box to activate Flip Page #3', 'the-fly-shop' )?>
+<?php _e( 'Check box to activate Flip Page #3', 'the-fly-shop' )?>
           </label>
           </div>
           
@@ -707,7 +707,7 @@ include( plugin_dir_path( __FILE__ ) . '../inc/sanitize_front_page_image.php');
           <div class="travel-row-content">
           <label for="flip-page-4-checkbox">
           <input type="checkbox" name="flip-page-4-checkbox" id="flip-page-4-checkbox" value="yes" <?php if ( isset ( $front_page_stored_meta['flip-page-4-checkbox'] ) ) checked( $front_page_stored_meta['flip-page-4-checkbox'][0], 'yes' ); ?> />
-          <?php _e( 'Check box to activate Flip Page #4', 'the-fly-shop' )?>
+<?php _e( 'Check box to activate Flip Page #4', 'the-fly-shop' )?>
           </label>
           </div>
           

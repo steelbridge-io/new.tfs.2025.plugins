@@ -29,18 +29,18 @@ function search_bot_add_interface() {
         <button id="search-bot-close"></button>
         <button id="search-bot-clear" title="Clear chat">🗑️</button>
         <div id="search-bot-status" aria-live="polite" style="font-size:12px;color:#666;margin:4px 0 8px;">
-            <?php if (defined('TFS_OPENAI_API_KEY') && !empty(TFS_OPENAI_API_KEY)) : ?>
+<?php if (defined('TFS_OPENAI_API_KEY') && !empty(TFS_OPENAI_API_KEY)) : ?>
                 AI: On
-            <?php else : ?>
+<?php else : ?>
                 AI: Off (basic search)
-            <?php endif; ?>
+<?php endif; ?>
         </div>
         <div id="search-bot-messages"></div>
         <div>
             <input type="text" id="search-bot-input" placeholder="Type your question...">
         </div>
     </div>
-    <?php
+<?php
 }
 add_action('wp_footer', 'search_bot_add_interface');
 

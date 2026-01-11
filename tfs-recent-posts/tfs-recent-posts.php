@@ -85,15 +85,15 @@ class TFS_Widget_Recent_Posts extends WP_Widget {
       return;
     }
     ?>
-    <?php echo $args['before_widget']; ?>
-    <?php
+<?php echo $args['before_widget']; ?>
+<?php
     if ( $title ) {
       echo $args['before_title'] . $title . $args['after_title'];
     }
     ?>
     <ul>
-      <?php foreach ( $r->posts as $recent_post ) : ?>
-        <?php
+<?php foreach ( $r->posts as $recent_post ) : ?>
+<?php
         $post_title   = get_the_title( $recent_post->ID );
         $title        = ( ! empty( $post_title ) ) ? $post_title : __( '(no title)' );
         $aria_current = '';
@@ -104,13 +104,13 @@ class TFS_Widget_Recent_Posts extends WP_Widget {
         ?>
         <li>
           <a href="<?php the_permalink( $recent_post->ID ); ?>"<?php echo $aria_current; ?>><?php echo $title; ?></a>
-          <?php if ( $show_date ) : ?>
+<?php if ( $show_date ) : ?>
             <span class="post-date"><?php echo get_the_date( '', $recent_post->ID ); ?></span>
-          <?php endif; ?>
+<?php endif; ?>
         </li>
-      <?php endforeach; ?>
+<?php endforeach; ?>
     </ul>
-    <?php
+<?php
     echo $args['after_widget'];
   }
   
@@ -152,6 +152,6 @@ class TFS_Widget_Recent_Posts extends WP_Widget {
     
     <p><input class="checkbox" type="checkbox"<?php checked( $show_date ); ?> id="<?php echo $this->get_field_id( 'show_date' ); ?>" name="<?php echo $this->get_field_name( 'show_date' ); ?>" />
       <label for="<?php echo $this->get_field_id( 'show_date' ); ?>"><?php _e( 'Display post date?' ); ?></label></p>
-    <?php
+<?php
   }
 }

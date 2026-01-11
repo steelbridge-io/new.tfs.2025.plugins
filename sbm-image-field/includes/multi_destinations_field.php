@@ -479,7 +479,7 @@
                                             checked($multi_dest_stored_meta['sections-2-video-image-checkbox'][0],
                                                     'yes');
                                         } ?> />
-                                        <?php _e('Check box if you are importing video. Leave unchecked for image.',
+<?php _e('Check box if you are importing video. Leave unchecked for image.',
                                                 'the-fly-shop') ?>
                                     </label>
                                 </div>
@@ -808,7 +808,7 @@
                                     checked($multi_dest_stored_meta['sections-3-video-image-checkbox'][0],
                                             'yes');
                                 } ?> />
-                                <?php _e('Check box if you are importing video. Leave unchecked for image.',
+<?php _e('Check box if you are importing video. Leave unchecked for image.',
                                         'the-fly-shop') ?>
                             </label>
                         </div>
@@ -1140,7 +1140,7 @@
                                     checked($multi_dest_stored_meta['sections-4-video-image-checkbox'][0],
                                             'yes');
                                 } ?> />
-                                <?php _e('Check box if you are importing video. Leave unchecked for image.',
+<?php _e('Check box if you are importing video. Leave unchecked for image.',
                                         'the-fly-shop') ?>
                             </label>
                         </div>
@@ -1473,7 +1473,7 @@
                                     checked($multi_dest_stored_meta['sections-5-video-image-checkbox'][0],
                                             'yes');
                                 } ?> />
-                                <?php _e('Check box if you are importing video. Leave unchecked for image.',
+<?php _e('Check box if you are importing video. Leave unchecked for image.',
                                         'the-fly-shop') ?>
                             </label>
                         </div>
@@ -1807,7 +1807,7 @@
                                         checked($multi_dest_stored_meta['sections-6-video-image-checkbox'][0],
                                                 'yes');
                                     } ?> />
-                                    <?php _e('Check box if you are importing video. Leave unchecked for image.',
+<?php _e('Check box if you are importing video. Leave unchecked for image.',
                                             'the-fly-shop') ?>
                                 </label>
                             </div>
@@ -2140,7 +2140,7 @@
                                         checked($multi_dest_stored_meta['sections-7-video-image-checkbox'][0],
                                                 'yes');
                                     } ?> />
-                                    <?php _e('Check box if you are importing video. Leave unchecked for image.',
+<?php _e('Check box if you are importing video. Leave unchecked for image.',
                                             'the-fly-shop') ?>
                                 </label>
                             </div>
@@ -2474,7 +2474,7 @@
                                         checked($multi_dest_stored_meta['sections-8-video-image-checkbox'][0],
                                                 'yes');
                                     } ?> />
-                                    <?php _e('Check box if you are importing video. Leave unchecked for image.',
+<?php _e('Check box if you are importing video. Leave unchecked for image.',
                                             'the-fly-shop') ?>
                                 </label>
                             </div>
@@ -2809,7 +2809,7 @@
                                         checked($multi_dest_stored_meta['sections-9-video-image-checkbox'][0],
                                                 'yes');
                                     } ?> />
-                                    <?php _e('Check box if you are importing video. Leave unchecked for image.',
+<?php _e('Check box if you are importing video. Leave unchecked for image.',
                                             'the-fly-shop') ?>
                                 </label>
                             </div>
@@ -3144,7 +3144,7 @@
                                         checked($multi_dest_stored_meta['sections-10-video-image-checkbox'][0],
                                                 'yes');
                                     } ?> />
-                                    <?php _e('Check box if you are importing video. Leave unchecked for image.',
+<?php _e('Check box if you are importing video. Leave unchecked for image.',
                                             'the-fly-shop') ?>
                                 </label>
                             </div>
@@ -3667,5 +3667,5 @@
 
         </div>
 
-        <?php
+<?php
     }
