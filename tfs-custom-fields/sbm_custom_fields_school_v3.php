@@ -1,4 +1,4 @@
-    <?php
+<?php
     /**
     * Description: School Custom Meta Fields
     *

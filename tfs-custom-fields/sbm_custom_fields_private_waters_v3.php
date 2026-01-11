@@ -1,4 +1,4 @@
-    <?php
+<?php
     /**
     * Description: Private Waters Custom Meta Fields
     *
