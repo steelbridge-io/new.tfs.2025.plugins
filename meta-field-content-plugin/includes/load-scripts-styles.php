@@ -10,17 +10,39 @@
  * @return void
  */
 function enqueue_and_localize_scripts() {
-    wp_enqueue_style( 'my_vertical_scroller_css', plugins_url( '../css/carousel.css', __FILE__ ) );
-    wp_enqueue_style('slick-css', '//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css', array(), '1.8.1', 'all');
-    wp_register_script( 'carousel-js', plugins_url( '../js/carousel.js', __FILE__ ), array( 'jquery' ), '1.8.1', true );
-	
-    // Check if title option exists and fallback to empty string if not
-    $title1 = get_option('title1') ? get_option('title1') : '';
+	// Check if the carousel containers exist on this page
+	global $post;
+
+	// Default to false
+	$has_vertical_carousel = false;
+	$has_horizontal_carousel = false;
+
+	// Check if we're on a singular post/page and search for the carousel IDs
+	if (is_singular() && isset($post->post_content)) {
+	 $has_vertical_carousel = strpos($post->post_content, 'id="myScroller"') !== false;
+	 $has_horizontal_carousel = strpos($post->post_content, 'id="myHorizontalScroller"') !== false;
+	}
+
+	// Also check for shortcodes if you're using them
+	// $has_vertical_carousel = $has_vertical_carousel || has_shortcode($post->post_content, 'your_vertical_carousel_shortcode');
+	// $has_horizontal_carousel = $has_horizontal_carousel || has_shortcode($post->post_content, 'your_horizontal_carousel_shortcode');
+
+	// Only enqueue if at least one carousel is present
+	if (!$has_vertical_carousel && !$has_horizontal_carousel) {
+	 return;
+	}
+
+	wp_enqueue_style( 'my_vertical_scroller_css', plugins_url( '../css/carousel.css', __FILE__ ) );
+	wp_enqueue_style('slick-css', '//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css', array(), '1.8.1', 'all');
+	wp_register_script( 'carousel-js', plugins_url( '../js/carousel.js', __FILE__ ), array( 'jquery' ), '1.8.1', true );
+
+	// Check if title option exists and fallback to empty string if not
+	$title1 = get_option('title1') ? get_option('title1') : '';
 	$subtitle1 = get_option('subtitle1') ? get_option('subtitle1') : '';
-    $image1 = get_option('image1') ? esc_url(get_option('image1')) : '';
-    $description1 = get_option('description1') ? get_option('description1') : '';
+	$image1 = get_option('image1') ? esc_url(get_option('image1')) : '';
+	$description1 = get_option('description1') ? get_option('description1') : '';
 	$link1 = get_option('link1') ? esc_url(get_option('link1')) : '';
-	
+
 	$title2 = get_option('title2') ? get_option('title2') : '';
 	$subtitle2 = get_option('subtitle2') ? get_option('subtitle2') : '';
 	$image2 = get_option('image2') ? esc_url(get_option('image2')) : '';
@@ -151,7 +173,7 @@ function enqueue_and_localize_scripts() {
     $localize_data = array(
 		/* Footer Verticle Carousel */
         'title1' => $title1,
-		'subtitle1' => $subtitle1,
+				'subtitle1' => $subtitle1,
         'image1' => $image1,
         'description1' => $description1,
         'link1' => $link1,
