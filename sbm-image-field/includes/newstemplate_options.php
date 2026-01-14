@@ -88,6 +88,43 @@ $news_template_stored_meta = get_post_meta( $post->ID );?>
      </p>
     </div>
    </div>
+
+   <div class="panel editor">
+       <div class="panel-body">
+           <!-- Overlay Opacity Range Selector -->
+		   <?php
+		   // Retrieve the custom field value
+		   $news_temp_opacity_range = get_post_meta($post->ID, 'news-temp-opacity-range', true);
+
+		   // Set a default value if the custom field is empty
+		   if (empty($news_temp_opacity_range)) {
+			   $news_temp_opacity_range = 0.1; // Set your desired default value here
+		   }
+		   // Output the HTML for the custom range input
+		   ?>
+           <label for="news-temp-opacity-range"><b>Custom Range Value</b></label>
+           <div style="background-color: #f5f5f5; padding: 1em;">
+               <div>
+                   <span>The "Custom Range Value" below selects the opacity of the image or video overlay. Setting this value helps contrast logo, title, telephone against the background media.</span>
+               </div>
+               <label for="news-temp-opacity-range"><b>Custom Range Value:</b></label>
+               <input type="range" name="news-temp-opacity-range" id="news-temp-opacity-range" min="0.1" max="1" step="0.01" value="<?php echo esc_attr($news_temp_opacity_range); ?>">
+               <span id="news_range_value_display"><?php echo esc_attr($news_temp_opacity_range); ?></span>
+           </div>
+
+           <!-- Script renders range selector value to the right of range selector -->
+           <script>
+               document.addEventListener('DOMContentLoaded', function() {
+                   const rangeInput = document.getElementById('news-temp-opacity-range');
+                   const rangeValueDisplay = document.getElementById('news_range_value_display');
+
+                   rangeInput.addEventListener('input', function() {
+                       rangeValueDisplay.textContent = rangeInput.value;
+                   });
+               });
+           </script>
+       </div>
+   </div>
   </div>
 
   <div class="meta-field">

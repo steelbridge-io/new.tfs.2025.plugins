@@ -23,9 +23,11 @@ function load_streamreport_css() {
 
 function load_hero_overlay_css() {
  $guidedest_hero_opacity_range = get_post_meta(get_the_ID(), 'signature-temp-opacity-range', true);
+ $news_temp_opacity_range = get_post_meta(get_the_ID(), 'news-temp-opacity-range', true);
  $guidedest_template_opacity_range = '';
 
- $guidedest_template_opacity_range .='
+ if (!empty($guidedest_hero_opacity_range)) {
+     $guidedest_template_opacity_range .='
 			 #banner .guide-temp-hero-overlay .overlay {
 			    opacity: ' . $guidedest_hero_opacity_range . ';
 			    position: absolute;
@@ -37,6 +39,22 @@ function load_hero_overlay_css() {
 			    z-index: 1;
 			 }
 			 ';
+ }
+
+ if (is_page_template('page-templates/news-blog-wide-template.php') || is_page_template('page-templates/news-blog-template.php') && !empty($news_temp_opacity_range)) {
+     $guidedest_template_opacity_range .= '
+            .travel-template-hero .hero-image .overlay {
+                opacity: ' . $news_temp_opacity_range . ';
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: 100%;
+                width: 100%;
+                background-color: black;
+                z-index: 1;
+            }
+     ';
+ }
 
  return $guidedest_template_opacity_range;
 }

@@ -27,6 +27,10 @@ function news_template_meta_save( $post_id ) {
     update_post_meta( $post_id, 'news-template-description', $_POST[ 'news-template-description' ] );
   }
 
+  if (isset($_POST['news-temp-opacity-range'])) {
+      update_post_meta($post_id, 'news-temp-opacity-range', sanitize_text_field($_POST['news-temp-opacity-range']));
+  }
+
   if( isset( $_POST[ 'news-template-select-post' ] ) ) {
     update_post_meta( $post_id, 'news-template-select-post', $_POST[ 'news-template-select-post' ] );
   }
