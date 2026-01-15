@@ -210,7 +210,7 @@ function custom_permalinks_request($query) {
       if( $posts[0]->post_type == 'page' ) {
         $originalUrl = "?page_id=" . $posts[0]->ID;
       } else {
-        $originalUrl = "?post_type=".$posts[0]->post_type."&p=" . $posts[0]->ID;
+        $originalUrl = "?post_type=" . $posts[0]->post_type . "&p=" . $posts[0]->ID;
       }
     } else {
       $originalUrl =  preg_replace( '@/+@', '/', str_replace( trim( strtolower($posts[0]->meta_value),'/' ),
@@ -266,7 +266,8 @@ function custom_permalinks_request($query) {
     $oldValues = array();
     if ( is_array($queryArray) )
     foreach ( $queryArray as $key => $value ) {
-      $oldValues[$key] = $_REQUEST[$key];
+      //$oldValues[$key] = $_REQUEST[$key];
+      $oldValues[$key] = isset($_REQUEST[$key]) ? $_REQUEST[$key] : null;
       $_REQUEST[$key] = $_GET[$key] = $value;
     }
 
