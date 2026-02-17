@@ -275,7 +275,7 @@ class BrindleChute_Booking {
 		if ( ! $this->shortcode_used ) {
 			$default_css = "
 				.brindlechute-booking-button {
-					background-color: #0073aa;
+					background-color: #A21418;
 					color: #fff;
 					padding: 10px 20px;
 					border: none;
@@ -286,7 +286,7 @@ class BrindleChute_Booking {
 					display: inline-block;
 				}
 				.brindlechute-booking-button:hover {
-					background-color: #005177;
+					background-color: #A21418;
 				}
 			";
 			
@@ -458,8 +458,8 @@ class BrindleChute_Booking {
 				display: block;
 			}
 			.brindlechute-side-tab-button {
-				background: #f5f5f5;
-				color: #000;
+				background: #A21418;
+				color: #fff;
 				border: 0.5 solid #ccc;
 				padding: 12px 15px;
 				border-radius: 4px;
@@ -478,13 +478,44 @@ class BrindleChute_Booking {
 				line-height: 1.3;
 				font-weight: normal;
 			}
+			@keyframes growAndShake {
+				0% { 
+					transform: translateY(-50%);
+					width: 25px;
+					height: 150px;
+				}
+				10% { 
+					transform: translateY(-50%);
+					width: 40px;
+					height: 180px;
+					background-color: #A21418;
+				}
+				15% { transform: translateY(-50%) rotate(3deg); width: 40px; height: 180px; }
+				20% { transform: translateY(-50%) rotate(-3deg); width: 40px; height: 180px; }
+				25% { transform: translateY(-50%) rotate(3deg); width: 40px; height: 180px; }
+				30% { transform: translateY(-50%) rotate(-3deg); width: 40px; height: 180px; }
+				35% { transform: translateY(-50%) rotate(3deg); width: 40px; height: 180px; }
+				40% { transform: translateY(-50%) rotate(-3deg); width: 40px; height: 180px; }
+				45% { transform: translateY(-50%) rotate(3deg); width: 40px; height: 180px; }
+				50% { transform: translateY(-50%) rotate(-3deg); width: 40px; height: 180px; }
+				55% { transform: translateY(-50%) rotate(3deg); width: 40px; height: 180px; }
+				60% { transform: translateY(-50%) rotate(0deg); width: 40px; height: 180px; }
+				100% { 
+					transform: translateY(-50%);
+					width: 25px;
+					height: 150px;
+				}
+			}
+			.brindlechute-side-tab.animate-attention {
+				animation: growAndShake 2s ease-in-out;
+			}
             @media screen and (max-width: 768px) {
                 .brindle-main-content {
                 padding: 1.118em !important;
                 }
             }
 		</style>
-		<div class="brindlechute-side-tab" onclick="if(window.brindlechute) { <?php echo esc_attr( $js_call ); ?> } else { alert('Booking system is still loading...'); }">
+		<div id="brindlechute-side-tab" class="brindlechute-side-tab" onclick="if(window.brindlechute) { <?php echo esc_attr( $js_call ); ?> } else { alert('Booking system is still loading...'); }">
 			<span class="tab-text">BOOK ONLINE</span>
 			<div class="hover-content">
 				<button type="button" class="brindlechute-side-tab-button">Book Today Online</button>
@@ -493,6 +524,36 @@ class BrindleChute_Booking {
 				</div>
 			</div>
 		</div>
+		<script>
+		(function() {
+			// Check if already triggered this session
+			if (sessionStorage.getItem('brindlechute_animated')) {
+				return;
+			}
+
+			var tabTriggered = false;
+			window.addEventListener('scroll', function() {
+				if (!tabTriggered && window.scrollY > 300) {
+					var tab = document.getElementById('brindlechute-side-tab');
+					if (tab) {
+						tab.classList.add('animate-attention');
+						tabTriggered = true;
+						
+						// Mark session as animated so it doesn't repeat on refresh/navigation
+						sessionStorage.setItem('brindlechute_animated', 'true');
+
+						// Shiver one more time after 15 seconds
+						setTimeout(function() {
+							tab.classList.remove('animate-attention');
+							// Trigger reflow to restart animation
+							void tab.offsetWidth;
+							tab.classList.add('animate-attention');
+						}, 15000);
+					}
+				}
+			});
+		})();
+		</script>
 <?php
 	}
 
