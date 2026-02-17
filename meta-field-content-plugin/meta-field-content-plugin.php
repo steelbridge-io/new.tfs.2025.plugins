@@ -16,6 +16,7 @@ require_once plugin_dir_path( __FILE__ ).'horizontal-carousel.php';
 require_once plugin_dir_path( __FILE__ ).'verticle-carousel.php';
 include_once 'includes/load-scripts-styles.php';
 include_once 'includes/shortcode.php';
+include_once 'includes/responsive-hero-meta.php';
 
 /**
  * Retrieve custom fields for a specific post.
@@ -211,6 +212,7 @@ function hs_meta_field_content_register_settings() {
 function my_admin_enqueue_scripts() {
 	wp_enqueue_media();  // This will enqueue the Media Uploader script
 	wp_enqueue_script('my-admin-script', plugins_url('admin-script.js', __FILE__), array('jquery'));
+	wp_enqueue_script('responsive-hero-uploader', plugins_url('js/responsive-hero-uploader.js', __FILE__), array('jquery'), '1.0', true);
 }
 add_action( 'admin_enqueue_scripts', 'my_admin_enqueue_scripts' );
 
