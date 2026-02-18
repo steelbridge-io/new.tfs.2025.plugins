@@ -50,7 +50,7 @@ function tfs_responsive_hero_meta_box() {
         );
         
         if (in_array($pageTemplate, $allowed_templates)) {
-            $post_types = array('post', 'page', 'travel_cpt', 'lower48', 'guide_service', 'fishcamp_cpt', 'schools_cpt', 'adventures');
+            $post_types = array('post', 'page', 'travel_cpt', 'lower48', 'guide_service', 'fishcamp_cpt', 'schools_cpt', 'adventures', 'travel-blog', 'esb_lodge', 'fish_report');
             
             foreach ($post_types as $type) {
                 add_meta_box(
