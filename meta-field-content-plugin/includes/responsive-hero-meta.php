@@ -70,6 +70,16 @@ function tfs_responsive_hero_meta_callback($post) {
         <p class="description" style="margin-bottom: 8px; font-size: 12px;">
             For phones in portrait mode. Recommended: 768x1024px (vertical).
         </p>
+        
+        <!-- Image Preview -->
+        <div id="hero-image-mobile-preview" style="margin-bottom: 10px; text-align: center; background: #f0f0f0; padding: 10px; border-radius: 4px; min-height: 150px; display: flex; align-items: center; justify-content: center;">
+            <?php if (isset($stored_meta['hero-image-mobile']) && $stored_meta['hero-image-mobile'][0]): ?>
+                <img src="<?php echo esc_url($stored_meta['hero-image-mobile'][0]); ?>" style="max-width: 100%; max-height: 200px; height: auto; border-radius: 3px;" alt="Preview">
+            <?php else: ?>
+                <span style="color: #666; font-size: 12px;">No image selected</span>
+            <?php endif; ?>
+        </div>
+        
         <input 
             type="text" 
             name="hero-image-mobile" 
@@ -94,6 +104,16 @@ function tfs_responsive_hero_meta_callback($post) {
         <p class="description" style="margin-bottom: 8px; font-size: 12px;">
             For phones in landscape mode. Recommended: 1024x768px (horizontal).
         </p>
+        
+        <!-- Image Preview -->
+        <div id="hero-image-mobile-landscape-preview" style="margin-bottom: 10px; text-align: center; background: #f0f0f0; padding: 10px; border-radius: 4px; min-height: 120px; display: flex; align-items: center; justify-content: center;">
+            <?php if (isset($stored_meta['hero-image-mobile-landscape']) && $stored_meta['hero-image-mobile-landscape'][0]): ?>
+                <img src="<?php echo esc_url($stored_meta['hero-image-mobile-landscape'][0]); ?>" style="max-width: 100%; max-height: 150px; height: auto; border-radius: 3px;" alt="Preview">
+            <?php else: ?>
+                <span style="color: #666; font-size: 12px;">No image selected</span>
+            <?php endif; ?>
+        </div>
+        
         <input 
             type="text" 
             name="hero-image-mobile-landscape" 
@@ -118,6 +138,16 @@ function tfs_responsive_hero_meta_callback($post) {
         <p class="description" style="margin-bottom: 8px; font-size: 12px;">
             For tablets in portrait mode (768-1280px). Recommended: 768x1024px (vertical).
         </p>
+        
+        <!-- Image Preview -->
+        <div id="hero-image-tablet-portrait-preview" style="margin-bottom: 10px; text-align: center; background: #f0f0f0; padding: 10px; border-radius: 4px; min-height: 150px; display: flex; align-items: center; justify-content: center;">
+            <?php if (isset($stored_meta['hero-image-tablet-portrait']) && $stored_meta['hero-image-tablet-portrait'][0]): ?>
+                <img src="<?php echo esc_url($stored_meta['hero-image-tablet-portrait'][0]); ?>" style="max-width: 100%; max-height: 200px; height: auto; border-radius: 3px;" alt="Preview">
+            <?php else: ?>
+                <span style="color: #666; font-size: 12px;">No image selected</span>
+            <?php endif; ?>
+        </div>
+        
         <input 
             type="text" 
             name="hero-image-tablet-portrait" 
@@ -142,6 +172,16 @@ function tfs_responsive_hero_meta_callback($post) {
         <p class="description" style="margin-bottom: 8px; font-size: 12px;">
             For tablets in landscape mode (768-1280px). Includes iPad @ 1024px. Recommended: 1024x768px or 1280x800px (horizontal).
         </p>
+        
+        <!-- Image Preview -->
+        <div id="hero-image-tablet-landscape-preview" style="margin-bottom: 10px; text-align: center; background: #f0f0f0; padding: 10px; border-radius: 4px; min-height: 120px; display: flex; align-items: center; justify-content: center;">
+            <?php if (isset($stored_meta['hero-image-tablet-landscape']) && $stored_meta['hero-image-tablet-landscape'][0]): ?>
+                <img src="<?php echo esc_url($stored_meta['hero-image-tablet-landscape'][0]); ?>" style="max-width: 100%; max-height: 150px; height: auto; border-radius: 3px;" alt="Preview">
+            <?php else: ?>
+                <span style="color: #666; font-size: 12px;">No image selected</span>
+            <?php endif; ?>
+        </div>
+        
         <input 
             type="text" 
             name="hero-image-tablet-landscape" 

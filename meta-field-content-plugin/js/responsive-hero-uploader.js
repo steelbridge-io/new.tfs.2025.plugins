@@ -24,6 +24,8 @@ jQuery(document).ready(function($){ "use strict";
             var media_attachment = selection.first().toJSON();
             console.log('Image URL:', media_attachment.url);
             $('#hero-image-mobile').val(media_attachment.url);
+            // Update preview
+            $('#hero-image-mobile-preview').html('<img src="' + media_attachment.url + '" style="max-width: 100%; max-height: 200px; height: auto; border-radius: 3px;" alt="Preview">');
             frame.close();
         });
         
@@ -46,6 +48,8 @@ jQuery(document).ready(function($){ "use strict";
             if (!selection) return;
             var media_attachment = selection.first().toJSON();
             $('#hero-image-mobile-landscape').val(media_attachment.url);
+            // Update preview
+            $('#hero-image-mobile-landscape-preview').html('<img src="' + media_attachment.url + '" style="max-width: 100%; max-height: 150px; height: auto; border-radius: 3px;" alt="Preview">');
             frame.close();
         });
         
@@ -68,6 +72,8 @@ jQuery(document).ready(function($){ "use strict";
             if (!selection) return;
             var media_attachment = selection.first().toJSON();
             $('#hero-image-tablet-portrait').val(media_attachment.url);
+            // Update preview
+            $('#hero-image-tablet-portrait-preview').html('<img src="' + media_attachment.url + '" style="max-width: 100%; max-height: 200px; height: auto; border-radius: 3px;" alt="Preview">');
             frame.close();
         });
         
@@ -90,6 +96,8 @@ jQuery(document).ready(function($){ "use strict";
             if (!selection) return;
             var media_attachment = selection.first().toJSON();
             $('#hero-image-tablet-landscape').val(media_attachment.url);
+            // Update preview
+            $('#hero-image-tablet-landscape-preview').html('<img src="' + media_attachment.url + '" style="max-width: 100%; max-height: 150px; height: auto; border-radius: 3px;" alt="Preview">');
             frame.close();
         });
         
