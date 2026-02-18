@@ -26,9 +26,10 @@ function tfs_responsive_hero_meta_box() {
         // Templates that should have responsive hero options
         $allowed_templates = array(
             'page-templates/destination-v3-template.php',
+            'page-templates/fish-camp-template-v3.php',
             // Add more templates here as we roll this out:
-            // 'page-templates/fish-camp-template-v3.php',
             // 'page-templates/private-waters-template-v3.php',
+            // 'page-templates/schools-template-v3.php',
         );
         
         if (in_array($pageTemplate, $allowed_templates)) {
