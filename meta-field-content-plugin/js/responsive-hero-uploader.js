@@ -30,11 +30,13 @@ jQuery(document).ready(function($){ "use strict";
             var media_attachment = hero_mobile_portrait_frame.state().get('selection').first().toJSON();
             console.log('Image URL:', media_attachment.url);
             $('#hero-image-mobile').val(media_attachment.url);
-            console.log('Value set, now closing...');
         });
         
-        hero_mobile_portrait_frame.open();
-        console.log('Frame opened');
+        // Open after tiny delay to ensure event binding completes
+        setTimeout(function() {
+            hero_mobile_portrait_frame.open();
+            console.log('Frame opened');
+        }, 50);
     });
     
     // Mobile landscape image uploader
@@ -59,7 +61,9 @@ jQuery(document).ready(function($){ "use strict";
             $('#hero-image-mobile-landscape').val(media_attachment.url);
         });
         
-        hero_mobile_landscape_frame.open();
+        setTimeout(function() {
+            hero_mobile_landscape_frame.open();
+        }, 50);
     });
     
     // Tablet portrait image uploader
@@ -84,7 +88,9 @@ jQuery(document).ready(function($){ "use strict";
             $('#hero-image-tablet-portrait').val(media_attachment.url);
         });
         
-        hero_tablet_portrait_frame.open();
+        setTimeout(function() {
+            hero_tablet_portrait_frame.open();
+        }, 50);
     });
     
     // Tablet landscape image uploader
@@ -109,7 +115,9 @@ jQuery(document).ready(function($){ "use strict";
             $('#hero-image-tablet-landscape').val(media_attachment.url);
         });
         
-        hero_tablet_landscape_frame.open();
+        setTimeout(function() {
+            hero_tablet_landscape_frame.open();
+        }, 50);
     });
     
 });
