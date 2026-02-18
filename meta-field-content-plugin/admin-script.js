@@ -1,4 +1,3 @@
-
 jQuery(document).ready(function($){
 
     /* Footer Carousel */
@@ -13,6 +12,7 @@ jQuery(document).ready(function($){
                 console.log(uploaded_image);
                 var image_url1 = uploaded_image.toJSON().url;
                 $('#image_url1').val(image_url1);
+                image.close();
             });
     });
 
@@ -27,6 +27,7 @@ jQuery(document).ready(function($){
                 console.log(uploaded_image);
                 var image_url2 = uploaded_image.toJSON().url;
                 $('#image_url2').val(image_url2);
+                image.close();
             });
     });
 
@@ -41,6 +42,7 @@ jQuery(document).ready(function($){
                 console.log(uploaded_image);
                 var image_url3 = uploaded_image.toJSON().url;
                 $('#image_url3').val(image_url3);
+                image.close();
             });
     });
 
@@ -55,6 +57,7 @@ jQuery(document).ready(function($){
                 console.log(uploaded_image);
                 var image_url4 = uploaded_image.toJSON().url;
                 $('#image_url4').val(image_url4);
+                image.close();
             });
     });
 
@@ -69,6 +72,7 @@ jQuery(document).ready(function($){
                 console.log(uploaded_image);
                 var image_url5 = uploaded_image.toJSON().url;
                 $('#image_url5').val(image_url5);
+                image.close();
             });
     });
 
@@ -83,6 +87,7 @@ jQuery(document).ready(function($){
                 console.log(uploaded_image);
                 var image_url6 = uploaded_image.toJSON().url;
                 $('#image_url6').val(image_url6);
+                image.close();
             });
     });
 
@@ -97,6 +102,7 @@ jQuery(document).ready(function($){
                 console.log(uploaded_image);
                 var image_url7 = uploaded_image.toJSON().url;
                 $('#image_url7').val(image_url7);
+                image.close();
             });
     });
 
@@ -111,6 +117,7 @@ jQuery(document).ready(function($){
                 console.log(uploaded_image);
                 var image_url8 = uploaded_image.toJSON().url;
                 $('#image_url8').val(image_url8);
+                image.close();
             });
     });
 
@@ -126,6 +133,7 @@ jQuery(document).ready(function($){
                 console.log(uploaded_image);
                 var hs_image_url1 = uploaded_image.toJSON().url;
                 $('#hs_image_url1').val(hs_image_url1);
+                image.close();
             });
     });
 
@@ -140,6 +148,7 @@ jQuery(document).ready(function($){
                 console.log(uploaded_image);
                 var hs_image_url2 = uploaded_image.toJSON().url;
                 $('#hs_image_url2').val(hs_image_url2);
+                image.close();
             });
     });
 
@@ -154,6 +163,7 @@ jQuery(document).ready(function($){
                 console.log(uploaded_image);
                 var hs_image_url3 = uploaded_image.toJSON().url;
                 $('#hs_image_url3').val(hs_image_url3);
+                image.close();
             });
     });
 
@@ -168,6 +178,7 @@ jQuery(document).ready(function($){
                 console.log(uploaded_image);
                 var hs_image_url4 = uploaded_image.toJSON().url;
                 $('#hs_image_url4').val(hs_image_url4);
+                image.close();
             });
     });
 
@@ -182,6 +193,7 @@ jQuery(document).ready(function($){
                 console.log(uploaded_image);
                 var hs_image_url5 = uploaded_image.toJSON().url;
                 $('#hs_image_url5').val(hs_image_url5);
+                image.close();
             });
     });
 
@@ -196,6 +208,7 @@ jQuery(document).ready(function($){
                 console.log(uploaded_image);
                 var hs_image_url6 = uploaded_image.toJSON().url;
                 $('#hs_image_url6').val(hs_image_url6);
+                image.close();
             });
     });
 
@@ -210,6 +223,7 @@ jQuery(document).ready(function($){
                 console.log(uploaded_image);
                 var hs_image_url7 = uploaded_image.toJSON().url;
                 $('#hs_image_url7').val(hs_image_url7);
+                image.close();
             });
     });
 
@@ -224,6 +238,7 @@ jQuery(document).ready(function($){
                 console.log(uploaded_image);
                 var hs_image_url8 = uploaded_image.toJSON().url;
                 $('#hs_image_url8').val(hs_image_url8);
+                image.close();
             });
     });
 });
