@@ -30,6 +30,7 @@ function tfs_responsive_hero_meta_box() {
             'page-templates/travel-template.php',
             'page-templates/signature-template.php',
             'page-templates/guide-service-template.php',
+            'page-templates/guide-destination-template.php',
             // Add more templates here as we roll this out:
             // 'page-templates/private-waters-template-v3.php',
             // 'page-templates/schools-template-v3.php',
