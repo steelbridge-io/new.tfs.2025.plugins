@@ -34,6 +34,7 @@ function tfs_responsive_hero_meta_box() {
             'page-templates/staff-template.php',
             'page-templates/travel-lodges-camps-template.php',
             'page-templates/sections-template.php',
+            'page-templates/private-waters-template.php',
             // Add more templates here as we roll this out:
             // 'page-templates/private-waters-template-v3.php',
             // 'page-templates/schools-template-v3.php',
