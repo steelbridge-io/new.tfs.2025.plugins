@@ -5,7 +5,7 @@
 
 jQuery(document).ready(function($) {
     
-    // Mobile image uploader
+    // Mobile portrait image uploader
     var mobileFrame;
     $('#hero-image-mobile-button').on('click', function(e) {
         e.preventDefault();
@@ -16,7 +16,7 @@ jQuery(document).ready(function($) {
         }
         
         mobileFrame = wp.media({
-            title: 'Choose Mobile Hero Image',
+            title: 'Choose Mobile Portrait Hero Image',
             button: {
                 text: 'Use this image'
             },
@@ -29,6 +29,32 @@ jQuery(document).ready(function($) {
         });
         
         mobileFrame.open();
+    });
+    
+    // Mobile landscape image uploader
+    var mobileLandscapeFrame;
+    $('#hero-image-mobile-landscape-button').on('click', function(e) {
+        e.preventDefault();
+        
+        if (mobileLandscapeFrame) {
+            mobileLandscapeFrame.open();
+            return;
+        }
+        
+        mobileLandscapeFrame = wp.media({
+            title: 'Choose Mobile Landscape Hero Image',
+            button: {
+                text: 'Use this image'
+            },
+            multiple: false
+        });
+        
+        mobileLandscapeFrame.on('select', function() {
+            var attachment = mobileLandscapeFrame.state().get('selection').first().toJSON();
+            $('#hero-image-mobile-landscape').val(attachment.url);
+        });
+        
+        mobileLandscapeFrame.open();
     });
     
     // Tablet image uploader

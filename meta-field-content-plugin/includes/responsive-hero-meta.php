@@ -62,13 +62,13 @@ function tfs_responsive_hero_meta_callback($post) {
         Leave empty to use the Featured Image on all devices.
     </p>
     
-    <!-- Mobile Hero Image (< 768px) -->
+    <!-- Mobile Portrait Hero Image (< 768px portrait) -->
     <div style="margin-bottom: 20px;">
         <label for="hero-image-mobile" style="font-weight: 600; display: block; margin-bottom: 5px;">
-            <?php _e('Mobile Hero Image', 'meta-field-content-plugin'); ?>
+            <?php _e('Mobile Portrait Image', 'meta-field-content-plugin'); ?>
         </label>
         <p class="description" style="margin-bottom: 8px; font-size: 12px;">
-            For phones (&lt; 768px). Recommended: 768x1024px or similar portrait aspect.
+            For phones in portrait mode. Recommended: 768x1024px (vertical).
         </p>
         <input 
             type="text" 
@@ -82,7 +82,31 @@ function tfs_responsive_hero_meta_callback($post) {
             id="hero-image-mobile-button" 
             class="button button-secondary" 
             style="width: 100%;"
-            value="<?php _e('Choose Mobile Image', 'meta-field-content-plugin'); ?>"
+            value="<?php _e('Choose Portrait Image', 'meta-field-content-plugin'); ?>"
+        />
+    </div>
+    
+    <!-- Mobile Landscape Hero Image (< 768px landscape) -->
+    <div style="margin-bottom: 20px;">
+        <label for="hero-image-mobile-landscape" style="font-weight: 600; display: block; margin-bottom: 5px;">
+            <?php _e('Mobile Landscape Image', 'meta-field-content-plugin'); ?>
+        </label>
+        <p class="description" style="margin-bottom: 8px; font-size: 12px;">
+            For phones in landscape mode. Recommended: 1024x768px (horizontal).
+        </p>
+        <input 
+            type="text" 
+            name="hero-image-mobile-landscape" 
+            id="hero-image-mobile-landscape" 
+            style="width: 100%; margin-bottom: 8px;"
+            value="<?php echo isset($stored_meta['hero-image-mobile-landscape']) ? esc_attr($stored_meta['hero-image-mobile-landscape'][0]) : ''; ?>"
+        />
+        <input 
+            type="button" 
+            id="hero-image-mobile-landscape-button" 
+            class="button button-secondary" 
+            style="width: 100%;"
+            value="<?php _e('Choose Landscape Image', 'meta-field-content-plugin'); ?>"
         />
     </div>
     
@@ -137,9 +161,14 @@ function tfs_responsive_hero_save_meta($post_id) {
         return $post_id;
     }
     
-    // Save mobile image
+    // Save mobile portrait image
     if (isset($_POST['hero-image-mobile'])) {
         update_post_meta($post_id, 'hero-image-mobile', sanitize_text_field($_POST['hero-image-mobile']));
+    }
+    
+    // Save mobile landscape image
+    if (isset($_POST['hero-image-mobile-landscape'])) {
+        update_post_meta($post_id, 'hero-image-mobile-landscape', sanitize_text_field($_POST['hero-image-mobile-landscape']));
     }
     
     // Save tablet image
