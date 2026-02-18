@@ -45,13 +45,14 @@ function tfs_responsive_hero_meta_box() {
             'page-templates/single-column-template.php',
             'page-templates/blog-template-travel.php',
             'page-templates/blog-template-basic.php',
+            'page-templates/blog-template-outfitters.php',
             // Add more templates here as we roll this out:
             // 'page-templates/private-waters-template-v3.php',
             // 'page-templates/schools-template-v3.php',
         );
         
         if (in_array($pageTemplate, $allowed_templates)) {
-            $post_types = array('post', 'page', 'travel_cpt', 'lower48', 'guide_service', 'fishcamp_cpt', 'schools_cpt', 'adventures', 'travel-blog', 'travel_blog', 'lower48blog', 'esb_lodge', 'fish_report');
+            $post_types = array('post', 'page', 'travel_cpt', 'lower48', 'guide_service', 'fishcamp_cpt', 'schools_cpt', 'adventures', 'travel-blog', 'travel_blog', 'lower48blog', 'esb_lodge', 'fish_report', 'flyfishing-news');
             
             foreach ($post_types as $type) {
                 add_meta_box(
