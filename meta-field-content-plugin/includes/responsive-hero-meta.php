@@ -41,6 +41,7 @@ function tfs_responsive_hero_meta_box() {
             'page-templates/fish-camp-template.php',
             'page-templates/basic-page-template.php',
             'page-templates/stream-report-template.php',
+            'page-templates/news-blog-wide-template.php',
             // Add more templates here as we roll this out:
             // 'page-templates/private-waters-template-v3.php',
             // 'page-templates/schools-template-v3.php',
