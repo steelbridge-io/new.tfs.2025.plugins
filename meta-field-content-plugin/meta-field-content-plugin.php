@@ -214,7 +214,8 @@ function my_admin_enqueue_scripts() {
 	wp_enqueue_script('my-admin-script', plugins_url('admin-script.js', __FILE__), array('jquery'));
 	
 	// Enqueue with media-views dependency and higher priority to avoid conflicts
-	wp_enqueue_script('responsive-hero-uploader', plugins_url('js/responsive-hero-uploader.js', __FILE__), array('jquery', 'media-views'), '1.0.2', true);
+	// Cache buster: force browser to reload
+	wp_enqueue_script('responsive-hero-uploader', plugins_url('js/responsive-hero-uploader.js', __FILE__), array('jquery', 'media-views'), time(), true);
 	
 	// Localize script with button text (required for proper event handling)
 	wp_localize_script('responsive-hero-uploader', 'responsive_hero_image',
