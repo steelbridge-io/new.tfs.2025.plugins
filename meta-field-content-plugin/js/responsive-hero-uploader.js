@@ -3,110 +3,113 @@
  * Handles mobile and tablet image selection
  */
 
-jQuery(document).ready(function($) { "use strict";
+jQuery(document).ready(function($){ "use strict";
     
     // Mobile portrait image uploader
-    $('#hero-image-mobile-button').click(function(e) {
+    var hero_mobile_portrait_frame;
+    
+    $('#hero-image-mobile-button').click(function(e){
         e.preventDefault();
         console.log('Mobile portrait button clicked');
         
-        if (wp.media.frames.mobileFrame) {
+        if (hero_mobile_portrait_frame) {
             console.log('Frame exists, reopening');
-            wp.media.frames.mobileFrame.open();
+            hero_mobile_portrait_frame.open();
             return;
         }
         
         console.log('Creating new frame');
-        wp.media.frames.mobileFrame = wp.media({
-            title: 'Choose Mobile Portrait Hero Image',
-            button: { text: 'Use this image' },
+        hero_mobile_portrait_frame = wp.media.frames.hero_mobile_portrait_frame = wp.media({
+            title: responsive_hero_image.title,
+            button: { text:  responsive_hero_image.button },
             library: { type: 'image' }
         });
         
-        // Try both select and insert events
-        wp.media.frames.mobileFrame.on('select insert', function() {
-            console.log('SELECT/INSERT EVENT FIRED!');
-            var media_attachment = wp.media.frames.mobileFrame.state().get('selection').first().toJSON();
+        hero_mobile_portrait_frame.on('select', function(){
+            console.log('SELECT EVENT FIRED!');
+            var media_attachment = hero_mobile_portrait_frame.state().get('selection').first().toJSON();
             console.log('Image URL:', media_attachment.url);
             $('#hero-image-mobile').val(media_attachment.url);
-            console.log('Calling close...');
-            wp.media.frames.mobileFrame.close();
-            console.log('Close called');
+            console.log('Value set, now closing...');
         });
         
-        wp.media.frames.mobileFrame.open();
+        hero_mobile_portrait_frame.open();
+        console.log('Frame opened');
     });
     
     // Mobile landscape image uploader
-    $('#hero-image-mobile-landscape-button').click(function(e) {
+    var hero_mobile_landscape_frame;
+    
+    $('#hero-image-mobile-landscape-button').click(function(e){
         e.preventDefault();
         
-        if (wp.media.frames.mobileLandscapeFrame) {
-            wp.media.frames.mobileLandscapeFrame.open();
+        if (hero_mobile_landscape_frame) {
+            hero_mobile_landscape_frame.open();
             return;
         }
         
-        wp.media.frames.mobileLandscapeFrame = wp.media({
-            title: 'Choose Mobile Landscape Hero Image',
-            button: { text: 'Use this image' },
+        hero_mobile_landscape_frame = wp.media.frames.hero_mobile_landscape_frame = wp.media({
+            title: responsive_hero_image.title,
+            button: { text:  responsive_hero_image.button },
             library: { type: 'image' }
         });
         
-        wp.media.frames.mobileLandscapeFrame.on('select', function() {
-            var media_attachment = wp.media.frames.mobileLandscapeFrame.state().get('selection').first().toJSON();
+        hero_mobile_landscape_frame.on('select', function(){
+            var media_attachment = hero_mobile_landscape_frame.state().get('selection').first().toJSON();
             $('#hero-image-mobile-landscape').val(media_attachment.url);
-            wp.media.frames.mobileLandscapeFrame.close();
         });
         
-        wp.media.frames.mobileLandscapeFrame.open();
+        hero_mobile_landscape_frame.open();
     });
     
     // Tablet portrait image uploader
-    $('#hero-image-tablet-portrait-button').click(function(e) {
+    var hero_tablet_portrait_frame;
+    
+    $('#hero-image-tablet-portrait-button').click(function(e){
         e.preventDefault();
         
-        if (wp.media.frames.tabletPortraitFrame) {
-            wp.media.frames.tabletPortraitFrame.open();
+        if (hero_tablet_portrait_frame) {
+            hero_tablet_portrait_frame.open();
             return;
         }
         
-        wp.media.frames.tabletPortraitFrame = wp.media({
-            title: 'Choose Tablet Portrait Hero Image',
-            button: { text: 'Use this image' },
+        hero_tablet_portrait_frame = wp.media.frames.hero_tablet_portrait_frame = wp.media({
+            title: responsive_hero_image.title,
+            button: { text:  responsive_hero_image.button },
             library: { type: 'image' }
         });
         
-        wp.media.frames.tabletPortraitFrame.on('select', function() {
-            var media_attachment = wp.media.frames.tabletPortraitFrame.state().get('selection').first().toJSON();
+        hero_tablet_portrait_frame.on('select', function(){
+            var media_attachment = hero_tablet_portrait_frame.state().get('selection').first().toJSON();
             $('#hero-image-tablet-portrait').val(media_attachment.url);
-            wp.media.frames.tabletPortraitFrame.close();
         });
         
-        wp.media.frames.tabletPortraitFrame.open();
+        hero_tablet_portrait_frame.open();
     });
     
     // Tablet landscape image uploader
-    $('#hero-image-tablet-landscape-button').click(function(e) {
+    var hero_tablet_landscape_frame;
+    
+    $('#hero-image-tablet-landscape-button').click(function(e){
         e.preventDefault();
         
-        if (wp.media.frames.tabletLandscapeFrame) {
-            wp.media.frames.tabletLandscapeFrame.open();
+        if (hero_tablet_landscape_frame) {
+            hero_tablet_landscape_frame.open();
             return;
         }
         
-        wp.media.frames.tabletLandscapeFrame = wp.media({
-            title: 'Choose Tablet Landscape Hero Image',
-            button: { text: 'Use this image' },
+        hero_tablet_landscape_frame = wp.media.frames.hero_tablet_landscape_frame = wp.media({
+            title: responsive_hero_image.title,
+            button: { text:  responsive_hero_image.button },
             library: { type: 'image' }
         });
         
-        wp.media.frames.tabletLandscapeFrame.on('select', function() {
-            var media_attachment = wp.media.frames.tabletLandscapeFrame.state().get('selection').first().toJSON();
+        hero_tablet_landscape_frame.on('select', function(){
+            var media_attachment = hero_tablet_landscape_frame.state().get('selection').first().toJSON();
             $('#hero-image-tablet-landscape').val(media_attachment.url);
-            wp.media.frames.tabletLandscapeFrame.close();
         });
         
-        wp.media.frames.tabletLandscapeFrame.open();
+        hero_tablet_landscape_frame.open();
     });
     
 });
