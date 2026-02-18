@@ -110,13 +110,13 @@ function tfs_responsive_hero_meta_callback($post) {
         />
     </div>
     
-    <!-- Tablet Portrait Hero Image (768-992px portrait) -->
+    <!-- Tablet Portrait Hero Image (768-1280px portrait) -->
     <div style="margin-bottom: 20px;">
         <label for="hero-image-tablet-portrait" style="font-weight: 600; display: block; margin-bottom: 5px;">
             <?php _e('Tablet Portrait Image', 'meta-field-content-plugin'); ?>
         </label>
         <p class="description" style="margin-bottom: 8px; font-size: 12px;">
-            For tablets in portrait mode. Recommended: 768x1024px (vertical).
+            For tablets in portrait mode (768-1280px). Recommended: 768x1024px (vertical).
         </p>
         <input 
             type="text" 
@@ -134,13 +134,13 @@ function tfs_responsive_hero_meta_callback($post) {
         />
     </div>
     
-    <!-- Tablet Landscape Hero Image (768-992px landscape) -->
+    <!-- Tablet Landscape Hero Image (768-1280px landscape) -->
     <div style="margin-bottom: 10px;">
         <label for="hero-image-tablet-landscape" style="font-weight: 600; display: block; margin-bottom: 5px;">
             <?php _e('Tablet Landscape Image', 'meta-field-content-plugin'); ?>
         </label>
         <p class="description" style="margin-bottom: 8px; font-size: 12px;">
-            For tablets in landscape mode. Recommended: 1024x768px (horizontal).
+            For tablets in landscape mode (768-1280px). Includes iPad @ 1024px. Recommended: 1024x768px or 1280x800px (horizontal).
         </p>
         <input 
             type="text" 
