@@ -110,27 +110,51 @@ function tfs_responsive_hero_meta_callback($post) {
         />
     </div>
     
-    <!-- Tablet Hero Image (768-992px) -->
-    <div style="margin-bottom: 10px;">
-        <label for="hero-image-tablet" style="font-weight: 600; display: block; margin-bottom: 5px;">
-            <?php _e('Tablet Hero Image', 'meta-field-content-plugin'); ?>
+    <!-- Tablet Portrait Hero Image (768-992px portrait) -->
+    <div style="margin-bottom: 20px;">
+        <label for="hero-image-tablet-portrait" style="font-weight: 600; display: block; margin-bottom: 5px;">
+            <?php _e('Tablet Portrait Image', 'meta-field-content-plugin'); ?>
         </label>
         <p class="description" style="margin-bottom: 8px; font-size: 12px;">
-            For tablets (768-992px). Recommended: 1024x768px or similar.
+            For tablets in portrait mode. Recommended: 768x1024px (vertical).
         </p>
         <input 
             type="text" 
-            name="hero-image-tablet" 
-            id="hero-image-tablet" 
+            name="hero-image-tablet-portrait" 
+            id="hero-image-tablet-portrait" 
             style="width: 100%; margin-bottom: 8px;"
-            value="<?php echo isset($stored_meta['hero-image-tablet']) ? esc_attr($stored_meta['hero-image-tablet'][0]) : ''; ?>"
+            value="<?php echo isset($stored_meta['hero-image-tablet-portrait']) ? esc_attr($stored_meta['hero-image-tablet-portrait'][0]) : ''; ?>"
         />
         <input 
             type="button" 
-            id="hero-image-tablet-button" 
+            id="hero-image-tablet-portrait-button" 
             class="button button-secondary" 
             style="width: 100%;"
-            value="<?php _e('Choose Tablet Image', 'meta-field-content-plugin'); ?>"
+            value="<?php _e('Choose Portrait Image', 'meta-field-content-plugin'); ?>"
+        />
+    </div>
+    
+    <!-- Tablet Landscape Hero Image (768-992px landscape) -->
+    <div style="margin-bottom: 10px;">
+        <label for="hero-image-tablet-landscape" style="font-weight: 600; display: block; margin-bottom: 5px;">
+            <?php _e('Tablet Landscape Image', 'meta-field-content-plugin'); ?>
+        </label>
+        <p class="description" style="margin-bottom: 8px; font-size: 12px;">
+            For tablets in landscape mode. Recommended: 1024x768px (horizontal).
+        </p>
+        <input 
+            type="text" 
+            name="hero-image-tablet-landscape" 
+            id="hero-image-tablet-landscape" 
+            style="width: 100%; margin-bottom: 8px;"
+            value="<?php echo isset($stored_meta['hero-image-tablet-landscape']) ? esc_attr($stored_meta['hero-image-tablet-landscape'][0]) : ''; ?>"
+        />
+        <input 
+            type="button" 
+            id="hero-image-tablet-landscape-button" 
+            class="button button-secondary" 
+            style="width: 100%;"
+            value="<?php _e('Choose Landscape Image', 'meta-field-content-plugin'); ?>"
         />
     </div>
     
@@ -171,9 +195,14 @@ function tfs_responsive_hero_save_meta($post_id) {
         update_post_meta($post_id, 'hero-image-mobile-landscape', sanitize_text_field($_POST['hero-image-mobile-landscape']));
     }
     
-    // Save tablet image
-    if (isset($_POST['hero-image-tablet'])) {
-        update_post_meta($post_id, 'hero-image-tablet', sanitize_text_field($_POST['hero-image-tablet']));
+    // Save tablet portrait image
+    if (isset($_POST['hero-image-tablet-portrait'])) {
+        update_post_meta($post_id, 'hero-image-tablet-portrait', sanitize_text_field($_POST['hero-image-tablet-portrait']));
+    }
+    
+    // Save tablet landscape image
+    if (isset($_POST['hero-image-tablet-landscape'])) {
+        update_post_meta($post_id, 'hero-image-tablet-landscape', sanitize_text_field($_POST['hero-image-tablet-landscape']));
     }
 }
 add_action('save_post', 'tfs_responsive_hero_save_meta');

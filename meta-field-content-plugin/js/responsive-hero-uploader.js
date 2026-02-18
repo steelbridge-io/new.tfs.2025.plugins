@@ -57,30 +57,56 @@ jQuery(document).ready(function($) {
         mobileLandscapeFrame.open();
     });
     
-    // Tablet image uploader
-    var tabletFrame;
-    $('#hero-image-tablet-button').on('click', function(e) {
+    // Tablet portrait image uploader
+    var tabletPortraitFrame;
+    $('#hero-image-tablet-portrait-button').on('click', function(e) {
         e.preventDefault();
         
-        if (tabletFrame) {
-            tabletFrame.open();
+        if (tabletPortraitFrame) {
+            tabletPortraitFrame.open();
             return;
         }
         
-        tabletFrame = wp.media({
-            title: 'Choose Tablet Hero Image',
+        tabletPortraitFrame = wp.media({
+            title: 'Choose Tablet Portrait Hero Image',
             button: {
                 text: 'Use this image'
             },
             multiple: false
         });
         
-        tabletFrame.on('select', function() {
-            var attachment = tabletFrame.state().get('selection').first().toJSON();
-            $('#hero-image-tablet').val(attachment.url);
+        tabletPortraitFrame.on('select', function() {
+            var attachment = tabletPortraitFrame.state().get('selection').first().toJSON();
+            $('#hero-image-tablet-portrait').val(attachment.url);
         });
         
-        tabletFrame.open();
+        tabletPortraitFrame.open();
+    });
+    
+    // Tablet landscape image uploader
+    var tabletLandscapeFrame;
+    $('#hero-image-tablet-landscape-button').on('click', function(e) {
+        e.preventDefault();
+        
+        if (tabletLandscapeFrame) {
+            tabletLandscapeFrame.open();
+            return;
+        }
+        
+        tabletLandscapeFrame = wp.media({
+            title: 'Choose Tablet Landscape Hero Image',
+            button: {
+                text: 'Use this image'
+            },
+            multiple: false
+        });
+        
+        tabletLandscapeFrame.on('select', function() {
+            var attachment = tabletLandscapeFrame.state().get('selection').first().toJSON();
+            $('#hero-image-tablet-landscape').val(attachment.url);
+        });
+        
+        tabletLandscapeFrame.open();
     });
     
 });
