@@ -23,8 +23,9 @@ jQuery(document).ready(function($) { "use strict";
             library: { type: 'image' }
         });
         
-        wp.media.frames.mobileFrame.on('select', function() {
-            console.log('SELECT EVENT FIRED!');
+        // Try both select and insert events
+        wp.media.frames.mobileFrame.on('select insert', function() {
+            console.log('SELECT/INSERT EVENT FIRED!');
             var media_attachment = wp.media.frames.mobileFrame.state().get('selection').first().toJSON();
             console.log('Image URL:', media_attachment.url);
             $('#hero-image-mobile').val(media_attachment.url);

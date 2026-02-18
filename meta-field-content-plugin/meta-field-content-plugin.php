@@ -212,8 +212,17 @@ function hs_meta_field_content_register_settings() {
 function my_admin_enqueue_scripts() {
 	wp_enqueue_media();  // This will enqueue the Media Uploader script
 	wp_enqueue_script('my-admin-script', plugins_url('admin-script.js', __FILE__), array('jquery'));
+	
 	// Enqueue with media-views dependency and higher priority to avoid conflicts
-	wp_enqueue_script('responsive-hero-uploader', plugins_url('js/responsive-hero-uploader.js', __FILE__), array('jquery', 'media-views'), '1.0.1', true);
+	wp_enqueue_script('responsive-hero-uploader', plugins_url('js/responsive-hero-uploader.js', __FILE__), array('jquery', 'media-views'), '1.0.2', true);
+	
+	// Localize script with button text (required for proper event handling)
+	wp_localize_script('responsive-hero-uploader', 'responsive_hero_image',
+		array(
+			'title' => __('Choose or Upload an Image', 'meta-field-content-plugin'),
+			'button' => __('Use this image', 'meta-field-content-plugin'),
+		)
+	);
 }
 add_action( 'admin_enqueue_scripts', 'my_admin_enqueue_scripts', 20 );
 
