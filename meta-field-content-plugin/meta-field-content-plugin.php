@@ -211,7 +211,7 @@ function hs_meta_field_content_register_settings() {
 
 function my_admin_enqueue_scripts() {
 	wp_enqueue_media();  // This will enqueue the Media Uploader script
-	wp_enqueue_script('my-admin-script', plugins_url('admin-script.js', __FILE__), array('jquery'));
+	wp_enqueue_script('my-admin-script', plugins_url('admin-script.js', __FILE__), array('jquery'), time());
 	
 	// Enqueue with media-views dependency and higher priority to avoid conflicts
 	// Cache buster: force browser to reload

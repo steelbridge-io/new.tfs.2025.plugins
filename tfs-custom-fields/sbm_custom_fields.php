@@ -44,7 +44,7 @@ function load_custom_private_admin_style() {
     wp_enqueue_script( 'custom_meta_field_js', plugin_dir_url( __FILE__ ) . 'js/custom-meta.js', array('wp-color-picker'), '', false );
 
     // Registers and enqueues the required javascript for image management within wp dashboard.
-    wp_register_script( 'tfs-custom-fields-image', plugin_dir_url(__FILE__) . 'tfs-custom-fields-image.js', array( 'jquery' ) );
+    wp_register_script( 'tfs-custom-fields-image', plugin_dir_url(__FILE__) . 'tfs-custom-fields-image.js', array( 'jquery' ), time() );
     wp_localize_script( 'tfs-custom-fields-image', 'meta_image',
       array(
         'title' => __( 'Choose or Upload an Image', 'the-fly-shop' ),
@@ -55,7 +55,7 @@ function load_custom_private_admin_style() {
 
 	// Load 'publications-cta-images.js' only for a specific URL.
 	if ( isset( $_GET['post'] ) && $_GET['post'] == 194 && isset( $_GET['action'] ) && $_GET['action'] == 'edit' ) {
-		wp_register_script( 'publications-cta-img', plugin_dir_url( __FILE__ ) . 'publications-cta-img.js', array( 'jquery' ) );
+		wp_register_script( 'publications-cta-img', plugin_dir_url( __FILE__ ) . 'publications-cta-img.js', array( 'jquery' ), time() );
 		wp_localize_script( 'publications-cta-img', 'meta_image',
 			array(
 				'title' => __( 'Choose or Upload an Image', 'the-fly-shop' ),

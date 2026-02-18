@@ -50,7 +50,7 @@ function tfs_image_enqueue() {
 		wp_enqueue_script( 'custom-js', plugin_dir_url( __FILE__ ) . 'js/custom.js', array('wp-color-picker'), '', false );
 
 		// Registers and enqueues the required javascript for image management within wp dashboard.
-		wp_register_script( 'meta-box-image', plugin_dir_url( __FILE__ ) . 'meta-box-image.js', array( 'jquery' ) );
+		wp_register_script( 'meta-box-image', plugin_dir_url( __FILE__ ) . 'meta-box-image.js', array( 'jquery' ), time() );
 		wp_localize_script( 'meta-box-image', 'meta_image',
 			array(
 				'title' => __( 'Choose or Upload an Image', 'streamreport-textdomain' ),
@@ -59,7 +59,7 @@ function tfs_image_enqueue() {
 		);
 		wp_enqueue_script( 'meta-box-image' );
 
-		wp_register_script( 'holiday-template-meta-box-image', plugin_dir_url( __FILE__ ) . 'js/holiday-template-images.js', array( 'jquery' ) );
+		wp_register_script( 'holiday-template-meta-box-image', plugin_dir_url( __FILE__ ) . 'js/holiday-template-images.js', array( 'jquery' ), time() );
 		wp_localize_script( 'holiday-template-meta-box-image', 'meta_image',
 			array(
 				'title' => __( 'Chose or Upload an Image', 'streamreport-textdomain'),

@@ -6,7 +6,12 @@ jQuery(document).ready(function($){
 	imageWidget = {
 
 		// Call this from the upload button to initiate the upload frame.
-		uploader : function( widget_id, widget_id_string ) {
+		uploader : function( widget_id, widget_id_string, event ) {
+
+			if ( event ) {
+				event.preventDefault();
+				event.stopImmediatePropagation();
+			}
 
 			var frame = wp.media({
 				title : TribeImageWidget.frame_title,
@@ -16,9 +21,10 @@ jQuery(document).ready(function($){
 			});
 
 			// Handle results from media manager.
-			frame.on('close',function( ) {
-				var attachments = frame.state().get('selection').toJSON();
-				imageWidget.render( widget_id, widget_id_string, attachments[0] );
+			frame.on('select', function() {
+				var attachment = frame.state().get('selection').first().toJSON();
+				imageWidget.render( widget_id, widget_id_string, attachment );
+				frame.close();
 			});
 
 			frame.open();

@@ -32,7 +32,7 @@ function tfs_parent_options_enqueue() {
 		}
 
 		// Registers and enqueues the required javascript for image management within wp dashboard.
-		wp_register_script( 'wp-meta-box-image', plugin_dir_url( __FILE__ ) . 'js/wp-image-api.js', array( 'jquery' ) );
+		wp_register_script( 'wp-meta-box-image', plugin_dir_url( __FILE__ ) . 'js/wp-image-api.js', array( 'jquery' ), time() );
 		wp_localize_script( 'wp-meta-box-image', 'meta_image',
 			array(
 				'title' => __( 'Choose or Upload an Image', 'landing-page-textdomain' ),

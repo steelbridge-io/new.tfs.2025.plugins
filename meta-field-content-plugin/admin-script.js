@@ -3,6 +3,7 @@ jQuery(document).ready(function($){
     /* Footer Carousel */
     $('#upload_image_button1').click(function(e) {
         e.preventDefault();
+        e.stopImmediatePropagation();
         var image = wp.media({
             title: 'Upload Image',
             // multiple: false
@@ -18,6 +19,7 @@ jQuery(document).ready(function($){
 
     $('#upload_image_button2').click(function(e) {
         e.preventDefault();
+        e.stopImmediatePropagation();
         var image = wp.media({
             title: 'Upload Image',
             // multiple: false
@@ -33,6 +35,7 @@ jQuery(document).ready(function($){
 
     $('#upload_image_button3').click(function(e) {
         e.preventDefault();
+        e.stopImmediatePropagation();
         var image = wp.media({
             title: 'Upload Image',
             // multiple: false
@@ -48,6 +51,7 @@ jQuery(document).ready(function($){
 
     $('#upload_image_button4').click(function(e) {
         e.preventDefault();
+        e.stopImmediatePropagation();
         var image = wp.media({
             title: 'Upload Image',
             // multiple: false
@@ -63,6 +67,7 @@ jQuery(document).ready(function($){
 
     $('#upload_image_button5').click(function(e) {
         e.preventDefault();
+        e.stopImmediatePropagation();
         var image = wp.media({
             title: 'Upload Image',
             // multiple: false
@@ -78,6 +83,7 @@ jQuery(document).ready(function($){
 
     $('#upload_image_button6').click(function(e) {
         e.preventDefault();
+        e.stopImmediatePropagation();
         var image = wp.media({
             title: 'Upload Image',
             // multiple: false
@@ -93,6 +99,7 @@ jQuery(document).ready(function($){
 
     $('#upload_image_button7').click(function(e) {
         e.preventDefault();
+        e.stopImmediatePropagation();
         var image = wp.media({
             title: 'Upload Image',
             // multiple: false
@@ -108,6 +115,7 @@ jQuery(document).ready(function($){
 
     $('#upload_image_button8').click(function(e) {
         e.preventDefault();
+        e.stopImmediatePropagation();
         var image = wp.media({
             title: 'Upload Image',
             // multiple: false
@@ -124,6 +132,7 @@ jQuery(document).ready(function($){
     /* Horizontal Slider */
     $('#hs_upload_image_button1').click(function(e) {
         e.preventDefault();
+        e.stopImmediatePropagation();
         var image = wp.media({
             title: 'Upload Image',
             // multiple: false
@@ -139,6 +148,7 @@ jQuery(document).ready(function($){
 
     $('#hs_upload_image_button2').click(function(e) {
         e.preventDefault();
+        e.stopImmediatePropagation();
         var image = wp.media({
             title: 'Upload Image',
             // multiple: false
@@ -154,6 +164,7 @@ jQuery(document).ready(function($){
 
     $('#hs_upload_image_button3').click(function(e) {
         e.preventDefault();
+        e.stopImmediatePropagation();
         var image = wp.media({
             title: 'Upload Image',
             // multiple: false
@@ -169,6 +180,7 @@ jQuery(document).ready(function($){
 
     $('#hs_upload_image_button4').click(function(e) {
         e.preventDefault();
+        e.stopImmediatePropagation();
         var image = wp.media({
             title: 'Upload Image',
             // multiple: false
@@ -184,6 +196,7 @@ jQuery(document).ready(function($){
 
     $('#hs_upload_image_button5').click(function(e) {
         e.preventDefault();
+        e.stopImmediatePropagation();
         var image = wp.media({
             title: 'Upload Image',
             // multiple: false
@@ -199,6 +212,7 @@ jQuery(document).ready(function($){
 
     $('#hs_upload_image_button6').click(function(e) {
         e.preventDefault();
+        e.stopImmediatePropagation();
         var image = wp.media({
             title: 'Upload Image',
             // multiple: false
@@ -214,6 +228,7 @@ jQuery(document).ready(function($){
 
     $('#hs_upload_image_button7').click(function(e) {
         e.preventDefault();
+        e.stopImmediatePropagation();
         var image = wp.media({
             title: 'Upload Image',
             // multiple: false
@@ -229,6 +244,7 @@ jQuery(document).ready(function($){
 
     $('#hs_upload_image_button8').click(function(e) {
         e.preventDefault();
+        e.stopImmediatePropagation();
         var image = wp.media({
             title: 'Upload Image',
             // multiple: false

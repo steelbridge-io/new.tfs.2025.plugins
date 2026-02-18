@@ -69,7 +69,7 @@ class TFS_Image_Widget extends WP_Widget {
 	 */
 	public function admin_setup() {
 		wp_enqueue_media();
-		wp_enqueue_script( 'tfsimg-image-widget', plugins_url('resources/js/tfs-image-widget.js', __FILE__), array( 'jquery', 'media-upload', 'media-views' ), self::VERSION );
+			wp_enqueue_script( 'tfsimg-image-widget', plugins_url('resources/js/tfs-image-widget.js', __FILE__), array( 'jquery', 'media-upload', 'media-views' ), time() );
 		
 		wp_localize_script( 'tfsimg-image-widget', 'TribeImageWidget', array(
 			'frame_title' => __( 'Select an Image', 'tfssbm_img' ),

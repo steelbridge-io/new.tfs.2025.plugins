@@ -11,7 +11,7 @@ if ( !defined('ABSPATH') )
 ?>
 
 <div class="uploader">
-	<input type="submit" class="button" name="<?php echo $this->get_field_name('uploader_button'); ?>" id="<?php echo $this->get_field_id('uploader_button'); ?>" value="<?php _e('Select an Image', 'tfssbm_img'); ?>" onclick="imageWidget.uploader( '<?php echo $this->id; ?>', '<?php echo $id_prefix; ?>' ); return false;" />
+	<input type="submit" class="button" name="<?php echo $this->get_field_name('uploader_button'); ?>" id="<?php echo $this->get_field_id('uploader_button'); ?>" value="<?php _e('Select an Image', 'tfssbm_img'); ?>" onclick="imageWidget.uploader( '<?php echo $this->id; ?>', '<?php echo $id_prefix; ?>', event ); return false;" />
 	
 	<div class="tfsimg_preview" id="<?php echo $this->get_field_id('preview'); ?>">
 		<?php echo $this->get_image_html($instance, false); ?>

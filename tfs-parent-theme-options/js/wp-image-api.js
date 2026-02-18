@@ -1,6 +1,8 @@
 
     jQuery(function($){
-    $('#landing-page-logo-button').on('click', function () {
+    $('#landing-page-logo-button').on('click', function (e) {
+        e.preventDefault();
+        e.stopImmediatePropagation();
         var _this = $(this);
         var frame = wp.media({
             title: 'Select or Upload an Image',
@@ -14,12 +16,15 @@
             var attachment = frame.state().get('selection').first().toJSON();
             _this.prev('#landing-page-logo').val(attachment.url);
             $('#landing-page-logo-preview').attr('src', attachment.url);
+            frame.close();
         });
 
         frame.open();
     });
 
-        $('#landing-page-image-button').on('click', function () {
+        $('#landing-page-image-button').on('click', function (e) {
+            e.preventDefault();
+            e.stopImmediatePropagation();
             var _this = $(this);
             var frame = wp.media({
                 title: 'Select or Upload an Image',
@@ -33,12 +38,15 @@
                 var attachment = frame.state().get('selection').first().toJSON();
                 _this.prev('#landing-page-image').val(attachment.url);
                 $('#landing-page-image-preview').attr('src', attachment.url);
+                frame.close();
             });
 
             frame.open();
         });
 
-        $('#grid-item-1-img-button').on('click', function () {
+        $('#grid-item-1-img-button').on('click', function (e) {
+            e.preventDefault();
+            e.stopImmediatePropagation();
             var _this = $(this);
             var frame = wp.media({
                 title: 'Select or Upload an Image',
@@ -52,12 +60,15 @@
                 var attachment = frame.state().get('selection').first().toJSON();
                 _this.prev('#grid-item-1-img').val(attachment.url);
                 $('#grid-item-1-img-preview').attr('src', attachment.url);
+                frame.close();
             });
 
             frame.open();
         });
 
-        $('#grid-item-2-img-button').on('click', function () {
+        $('#grid-item-2-img-button').on('click', function (e) {
+            e.preventDefault();
+            e.stopImmediatePropagation();
             var _this = $(this);
             var frame = wp.media({
                 title: 'Select or Upload an Image',
@@ -71,12 +82,15 @@
                 var attachment = frame.state().get('selection').first().toJSON();
                 _this.prev('#grid-item-2-img').val(attachment.url);
                 $('#grid-item-2-img-preview').attr('src', attachment.url);
+                frame.close();
             });
 
             frame.open();
         });
 
-        $('#grid-item-3-img-button').on('click', function () {
+        $('#grid-item-3-img-button').on('click', function (e) {
+            e.preventDefault();
+            e.stopImmediatePropagation();
             var _this = $(this);
             var frame = wp.media({
                 title: 'Select or Upload an Image',
@@ -90,12 +104,15 @@
                 var attachment = frame.state().get('selection').first().toJSON();
                 _this.prev('#grid-item-3-img').val(attachment.url);
                 $('#grid-item-3-img-preview').attr('src', attachment.url);
+                frame.close();
             });
 
             frame.open();
         });
 
-        $('#grid-item-4-img-button').on('click', function () {
+        $('#grid-item-4-img-button').on('click', function (e) {
+            e.preventDefault();
+            e.stopImmediatePropagation();
             var _this = $(this);
             var frame = wp.media({
                 title: 'Select or Upload an Image',
@@ -109,6 +126,7 @@
                 var attachment = frame.state().get('selection').first().toJSON();
                 _this.prev('#grid-item-4-img').val(attachment.url);
                 $('#grid-item-4-img-preview').attr('src', attachment.url);
+                frame.close();
             });
 
             frame.open();
