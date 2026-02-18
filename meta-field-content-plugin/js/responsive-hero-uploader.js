@@ -8,12 +8,15 @@ jQuery(document).ready(function($) { "use strict";
     // Mobile portrait image uploader
     $('#hero-image-mobile-button').click(function(e) {
         e.preventDefault();
+        console.log('Mobile portrait button clicked');
         
         if (wp.media.frames.mobileFrame) {
+            console.log('Frame exists, reopening');
             wp.media.frames.mobileFrame.open();
             return;
         }
         
+        console.log('Creating new frame');
         wp.media.frames.mobileFrame = wp.media({
             title: 'Choose Mobile Portrait Hero Image',
             button: { text: 'Use this image' },
@@ -21,9 +24,13 @@ jQuery(document).ready(function($) { "use strict";
         });
         
         wp.media.frames.mobileFrame.on('select', function() {
+            console.log('SELECT EVENT FIRED!');
             var media_attachment = wp.media.frames.mobileFrame.state().get('selection').first().toJSON();
+            console.log('Image URL:', media_attachment.url);
             $('#hero-image-mobile').val(media_attachment.url);
+            console.log('Calling close...');
             wp.media.frames.mobileFrame.close();
+            console.log('Close called');
         });
         
         wp.media.frames.mobileFrame.open();
