@@ -27,6 +27,7 @@ function tfs_responsive_hero_meta_box() {
         $allowed_templates = array(
             'page-templates/destination-v3-template.php',
             'page-templates/fish-camp-template-v3.php',
+            'page-templates/travel-template.php',
             // Add more templates here as we roll this out:
             // 'page-templates/private-waters-template-v3.php',
             // 'page-templates/schools-template-v3.php',
