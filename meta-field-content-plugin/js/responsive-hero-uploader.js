@@ -26,6 +26,7 @@ jQuery(document).ready(function($) {
         mobileFrame.on('select', function() {
             var attachment = mobileFrame.state().get('selection').first().toJSON();
             $('#hero-image-mobile').val(attachment.url);
+            mobileFrame.close();
         });
         
         mobileFrame.open();
@@ -52,6 +53,7 @@ jQuery(document).ready(function($) {
         mobileLandscapeFrame.on('select', function() {
             var attachment = mobileLandscapeFrame.state().get('selection').first().toJSON();
             $('#hero-image-mobile-landscape').val(attachment.url);
+            mobileLandscapeFrame.close();
         });
         
         mobileLandscapeFrame.open();
@@ -78,6 +80,7 @@ jQuery(document).ready(function($) {
         tabletPortraitFrame.on('select', function() {
             var attachment = tabletPortraitFrame.state().get('selection').first().toJSON();
             $('#hero-image-tablet-portrait').val(attachment.url);
+            tabletPortraitFrame.close();
         });
         
         tabletPortraitFrame.open();
@@ -104,6 +107,7 @@ jQuery(document).ready(function($) {
         tabletLandscapeFrame.on('select', function() {
             var attachment = tabletLandscapeFrame.state().get('selection').first().toJSON();
             $('#hero-image-tablet-landscape').val(attachment.url);
+            tabletLandscapeFrame.close();
         });
         
         tabletLandscapeFrame.open();
