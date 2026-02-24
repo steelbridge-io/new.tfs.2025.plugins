@@ -435,7 +435,7 @@ class BrindleChute_Booking {
 			}
 			.brindlechute-side-tab:hover {
 				width: 200px;
-				background-color: #A21418;
+				background-color: #ffffff;
 			}
 			.brindlechute-side-tab .tab-text {
 				writing-mode: vertical-rl;
@@ -470,7 +470,7 @@ class BrindleChute_Booking {
 				margin-bottom: 10px;
 			}
 			.brindlechute-side-tab-button:hover {
-				background: #f0f0f0;
+				background: #A21418;
 			}
 			.brindlechute-side-tab-note {
 				font-size: 11px;
