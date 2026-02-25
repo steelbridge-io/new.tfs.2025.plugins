@@ -3,8 +3,8 @@
 Plugin Name: Meta Field Content Plugin
 Plugin URI: https://steelbridge.io
 Description: A plugin for The Fly Shop that contains all the custom meta
-field code.
-Version: 1.0
+field code. Includes signature destinations repeater and dynamic CSS.
+Version: 1.1
 Requires at least: 6.5.2
 Author: Chris Parsons
 Author URI: https://steelbridge.io
@@ -17,6 +17,8 @@ require_once plugin_dir_path( __FILE__ ).'verticle-carousel.php';
 include_once 'includes/load-scripts-styles.php';
 include_once 'includes/shortcode.php';
 include_once 'includes/responsive-hero-meta.php';
+include_once 'includes/signature-destinations-meta.php';
+include_once 'includes/signature-destinations-css.php';
 
 /**
  * Retrieve custom fields for a specific post.
@@ -212,17 +214,29 @@ function hs_meta_field_content_register_settings() {
 function my_admin_enqueue_scripts() {
 	wp_enqueue_media();  // This will enqueue the Media Uploader script
 	wp_enqueue_script('my-admin-script', plugins_url('admin-script.js', __FILE__), array('jquery'), time());
-	
+
 	// Enqueue with media-views dependency and higher priority to avoid conflicts
 	// Cache buster: force browser to reload
 	wp_enqueue_script('responsive-hero-uploader', plugins_url('js/responsive-hero-uploader.js', __FILE__), array('jquery', 'media-views'), time(), true);
-	
+
 	// Localize script with button text (required for proper event handling)
 	wp_localize_script('responsive-hero-uploader', 'responsive_hero_image',
 		array(
 			'title' => __('Choose or Upload an Image', 'meta-field-content-plugin'),
 			'button' => __('Use this image', 'meta-field-content-plugin'),
 		)
+	);
+
+	// Enqueue jQuery UI for sortable functionality
+	wp_enqueue_script('jquery-ui-sortable');
+
+	// Signature Destinations admin script
+	wp_enqueue_script(
+		'signature-destinations-admin',
+		plugins_url('js/signature-destinations-admin.js', __FILE__),
+		array('jquery', 'media-views', 'jquery-ui-sortable'),
+		time(),
+		true
 	);
 }
 add_action( 'admin_enqueue_scripts', 'my_admin_enqueue_scripts', 20 );
