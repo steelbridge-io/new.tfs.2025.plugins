@@ -16,8 +16,38 @@ jQuery(document).ready(function($){ "use strict";
         const newIndex = rowCount++;
         const template = getDestinationRowTemplate(newIndex);
 
-        $('.signature-destinations-container').append(template);
+        const $container = $('.signature-destinations-container');
+        $container.append(template);
         updateRowNumbers();
+
+        // Scroll to the new row
+        const $newRow = $container.find('.signature-destination-row').last();
+        if ($newRow.length) {
+            $('html, body').animate({
+                scrollTop: $newRow.offset().top - 150
+            }, 500);
+
+            // Highlight the new row briefly
+            $newRow.css('background-color', '#fff9c4');
+            setTimeout(function() {
+                $newRow.css('background-color', '#fff');
+            }, 2000);
+        }
+    });
+
+    /**
+     * Scroll to bottom
+     */
+    $(document).on('click', '.scroll-to-bottom', function(e) {
+        e.preventDefault();
+        const $container = $('.signature-destinations-container');
+        const $lastRow = $container.find('.signature-destination-row').last();
+
+        if ($lastRow.length) {
+            $('html, body').animate({
+                scrollTop: $lastRow.offset().top - 150
+            }, 500);
+        }
     });
 
     /**

@@ -162,11 +162,18 @@ function signature_destinations_meta_box_callback($post) {
     </script>
 
     <div id="signature-destinations-repeater" class="signature-destinations-wrapper">
-        <div class="signature-destinations-header">
-            <p><strong>Add signature destinations with images, titles, links and descriptions.</strong></p>
-            <button type="button" class="button button-primary add-destination-row" style="margin-bottom: 15px;">
-                <span class="dashicons dashicons-plus-alt" style="vertical-align: middle;"></span> Add Destination
-            </button>
+        <div class="signature-destinations-header sticky-header">
+            <div class="header-content">
+                <p><strong>Add signature destinations with images, titles, links and descriptions.</strong></p>
+                <div class="header-actions">
+                    <button type="button" class="button button-primary add-destination-row">
+                        <span class="dashicons dashicons-plus-alt" style="vertical-align: middle;"></span> Add Destination
+                    </button>
+                    <button type="button" class="button scroll-to-bottom" title="Scroll to bottom">
+                        <span class="dashicons dashicons-arrow-down-alt"></span>
+                    </button>
+                </div>
+            </div>
         </div>
 
         <div class="signature-destinations-container">
@@ -182,6 +189,46 @@ function signature_destinations_meta_box_callback($post) {
             padding: 15px;
             border: 1px solid #ddd;
             border-radius: 3px;
+            position: relative;
+        }
+        .signature-destinations-header.sticky-header {
+            position: sticky;
+            top: 32px; /* WordPress admin bar height */
+            z-index: 100;
+            background: #f9f9f9;
+            padding: 10px 15px;
+            margin: -15px -15px 15px -15px;
+            border-bottom: 1px solid #ddd;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            transition: top 0.2s;
+        }
+        #postbox-container-1 .signature-destinations-header.sticky-header {
+            top: 0; /* In side column it might be different, but this is usually normal column */
+        }
+        /* Handle Gutenberg editor offset if applicable */
+        .block-editor-page .signature-destinations-header.sticky-header {
+            top: 0;
+        }
+        /* Adjust for when admin menu is folded or on mobile */
+        @media screen and (max-width: 782px) {
+            .signature-destinations-header.sticky-header {
+                top: 46px;
+            }
+        }
+        .signature-destinations-header .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .signature-destinations-header p {
+            margin: 0;
+        }
+        .signature-destinations-header .header-actions {
+            display: flex;
+            gap: 10px;
+            align-items: center;
         }
         .signature-destination-row {
             background: #fff;
