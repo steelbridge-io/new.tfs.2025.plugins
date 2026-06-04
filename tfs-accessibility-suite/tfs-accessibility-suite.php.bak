@@ -1,0 +1,183 @@
+<?php
+/**
+ * Plugin Name: Fly Shop ADA Compliance Fixer
+ * Plugin URI: https://theflyshop.com
+ * Description: Emergency ADA/WCAG 2.0 AA compliance fixes for The Fly Shop website. Auto-fixes missing alt tags, color contrast issues, and ARIA labels.
+ * Version: 1.0.0
+ * Author: The Fly Shop Dev Team
+ * License: GPL v2 or later
+ * Text Domain: flyshop-ada
+ */
+
+// Prevent direct access
+if (!defined('ABSPATH')) {
+    exit;
+}
+
+// Plugin constants
+define('FLYSHOP_ADA_VERSION', '1.0.0');
+define('FLYSHOP_ADA_PLUGIN_DIR', plugin_dir_path(__FILE__));
+define('FLYSHOP_ADA_PLUGIN_URL', plugin_dir_url(__FILE__));
+
+/**
+ * Enqueue frontend scripts and styles
+ */
+function flyshop_ada_enqueue_scripts() {
+    // CSS fixes for color contrast
+    wp_enqueue_style(
+        'flyshop-ada-contrast',
+        FLYSHOP_ADA_PLUGIN_URL . 'assets/css/ada-overrides.css',
+        array(),
+        FLYSHOP_ADA_VERSION
+    );
+    
+    // JavaScript fixes for alt tags and ARIA
+    wp_enqueue_script(
+        'flyshop-ada-fixes',
+        FLYSHOP_ADA_PLUGIN_URL . 'assets/js/ada-fixes.js',
+        array('jquery'),
+        FLYSHOP_ADA_VERSION,
+        true // Load in footer
+    );
+    
+    // Pass settings to JavaScript
+    wp_localize_script('flyshop-ada-fixes', 'flyshopADA', array(
+        'logFixes' => get_option('flyshop_ada_log_fixes', true),
+        'debugMode' => get_option('flyshop_ada_debug_mode', false),
+    ));
+}
+add_action('wp_enqueue_scripts', 'flyshop_ada_enqueue_scripts');
+
+/**
+ * Add admin menu
+ */
+function flyshop_ada_admin_menu() {
+    add_menu_page(
+        'ADA Compliance',
+        'ADA Fixes',
+        'manage_options',
+        'flyshop-ada',
+        'flyshop_ada_admin_page',
+        'dashicons-universal-access',
+        80
+    );
+}
+add_action('admin_menu', 'flyshop_ada_admin_menu');
+
+/**
+ * Admin page
+ */
+function flyshop_ada_admin_page() {
+    ?>
+    <div class="wrap">
+        <h1>🛡️ ADA Compliance Dashboard</h1>
+        
+        <div class="notice notice-warning">
+            <p><strong>⚠️ Emergency Compliance Mode Active</strong></p>
+            <p>This plugin is applying automatic fixes to improve ADA/WCAG 2.0 AA compliance. These are temporary measures while permanent theme fixes are implemented.</p>
+        </div>
+        
+        <h2>Active Fixes</h2>
+        <table class="widefull fixed striped">
+            <thead>
+                <tr>
+                    <th>Fix Type</th>
+                    <th>Status</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>✅ Alt Text Injection</td>
+                    <td><span class="dashicons dashicons-yes-alt" style="color: green;"></span> Active</td>
+                    <td>Auto-adds alt attributes to images missing them</td>
+                </tr>
+                <tr>
+                    <td>✅ Color Contrast Override</td>
+                    <td><span class="dashicons dashicons-yes-alt" style="color: green;"></span> Active</td>
+                    <td>CSS overrides for WCAG AA contrast compliance</td>
+                </tr>
+                <tr>
+                    <td>✅ ARIA Label Injection</td>
+                    <td><span class="dashicons dashicons-yes-alt" style="color: green;"></span> Active</td>
+                    <td>Adds accessible names to icon-only buttons</td>
+                </tr>
+                <tr>
+                    <td>✅ List Structure Fix</td>
+                    <td><span class="dashicons dashicons-yes-alt" style="color: green;"></span> Active</td>
+                    <td>Ensures lists contain only valid child elements</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <h2>Known Issues (From Last Scan)</h2>
+        <ul>
+            <li><strong>Homepage:</strong> 19 errors (15 contrast, 3 button labels, 1 list structure)</li>
+            <li><strong>Travel Page:</strong> 23 errors (11 missing alt tags, 10 contrast, 2 other)</li>
+            <li><strong>Guide Services:</strong> 27 errors (14 missing alt tags, 11 contrast, 2 other)</li>
+        </ul>
+        
+        <h2>Settings</h2>
+        <form method="post" action="options.php">
+            <?php settings_fields('flyshop_ada_settings'); ?>
+            <table class="form-table">
+                <tr>
+                    <th>Log All Fixes</th>
+                    <td>
+                        <input type="checkbox" name="flyshop_ada_log_fixes" value="1" <?php checked(get_option('flyshop_ada_log_fixes', true)); ?> />
+                        <p class="description">Track all automatic fixes in browser console (for testing)</p>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Debug Mode</th>
+                    <td>
+                        <input type="checkbox" name="flyshop_ada_debug_mode" value="1" <?php checked(get_option('flyshop_ada_debug_mode', false)); ?> />
+                        <p class="description">Show detailed debugging info (admin only)</p>
+                    </td>
+                </tr>
+            </table>
+            <?php submit_button(); ?>
+        </form>
+        
+        <h2>Next Steps</h2>
+        <ol>
+            <li><strong>Test with screen readers:</strong> VoiceOver (Mac) or NVDA (Windows)</li>
+            <li><strong>Run WebAIM WAVE:</strong> <a href="https://wave.webaim.org/" target="_blank">https://wave.webaim.org/</a></li>
+            <li><strong>Schedule theme fixes:</strong> Replace plugin fixes with proper theme updates</li>
+            <li><strong>Add accessibility statement:</strong> Create a page explaining compliance efforts</li>
+        </ol>
+        
+        <h2>Resources</h2>
+        <ul>
+            <li><a href="https://www.w3.org/WAI/WCAG21/quickref/" target="_blank">WCAG 2.1 Quick Reference</a></li>
+            <li><a href="https://webaim.org/resources/contrastchecker/" target="_blank">WebAIM Contrast Checker</a></li>
+            <li><a href="https://www.deque.com/axe/devtools/" target="_blank">axe DevTools Browser Extension</a></li>
+        </ul>
+    </div>
+    <?php
+}
+
+/**
+ * Register settings
+ */
+function flyshop_ada_register_settings() {
+    register_setting('flyshop_ada_settings', 'flyshop_ada_log_fixes');
+    register_setting('flyshop_ada_settings', 'flyshop_ada_debug_mode');
+}
+add_action('admin_init', 'flyshop_ada_register_settings');
+
+/**
+ * Add admin notice
+ */
+function flyshop_ada_admin_notice() {
+    $screen = get_current_screen();
+    if ($screen->id === 'toplevel_page_flyshop-ada') {
+        return; // Don't show on our own page
+    }
+    ?>
+    <div class="notice notice-info is-dismissible">
+        <p><strong>🛡️ ADA Compliance Plugin Active</strong> - Automatic accessibility fixes are running. <a href="<?php echo admin_url('admin.php?page=flyshop-ada'); ?>">View Dashboard</a></p>
+    </div>
+    <?php
+}
+add_action('admin_notices', 'flyshop_ada_admin_notice');

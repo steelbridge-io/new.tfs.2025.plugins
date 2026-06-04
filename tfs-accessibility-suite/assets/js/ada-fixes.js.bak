@@ -1,0 +1,230 @@
+/**
+ * Fly Shop ADA Compliance Fixes
+ * Auto-fixes for missing alt tags, ARIA labels, and list structures
+ */
+
+(function($) {
+    'use strict';
+    
+    const log = (message, data) => {
+        if (window.flyshopADA && window.flyshopADA.logFixes) {
+            console.log(`[ADA Fix] ${message}`, data || '');
+        }
+    };
+    
+    /**
+     * Fix 1: Add missing alt attributes to images
+     */
+    function fixMissingAltTags() {
+        let fixedCount = 0;
+        
+        $('img:not([alt])').each(function() {
+            const $img = $(this);
+            const src = $img.attr('src') || '';
+            
+            // Try to generate meaningful alt text
+            let altText = '';
+            
+            // Check for title attribute
+            if ($img.attr('title')) {
+                altText = $img.attr('title');
+            }
+            // Check parent link text
+            else if ($img.closest('a').length) {
+                altText = $img.closest('a').text().trim();
+            }
+            // Check nearby heading
+            else if ($img.closest('div').find('h1, h2, h3').first().length) {
+                altText = $img.closest('div').find('h1, h2, h3').first().text().trim();
+            }
+            // Use filename as fallback
+            else if (src) {
+                const filename = src.split('/').pop().split('.')[0];
+                altText = filename
+                    .replace(/[-_]/g, ' ')
+                    .replace(/\d+/g, '')
+                    .trim();
+            }
+            
+            // Default if nothing works
+            if (!altText) {
+                altText = 'Image';
+            }
+            
+            $img.attr('alt', altText);
+            $img.attr('data-alt-injected', 'true');
+            fixedCount++;
+            
+            log(`Alt tag added to image: "${altText}"`, src);
+        });
+        
+        if (fixedCount > 0) {
+            log(`✅ Fixed ${fixedCount} missing alt tags`);
+        }
+    }
+    
+    /**
+     * Fix 2: Add ARIA labels to buttons without accessible text
+     */
+    function fixButtonLabels() {
+        let fixedCount = 0;
+        
+        // Specific fixes for known buttons
+        const buttonFixes = {
+            '#tfs-search-close': 'Close search',
+            '#customPrev': 'Previous',
+            '#customNext': 'Next',
+            '#search-bot-open': 'Open search assistant'
+        };
+        
+        Object.keys(buttonFixes).forEach(selector => {
+            const $btn = $(selector);
+            if ($btn.length && !$btn.attr('aria-label')) {
+                $btn.attr('aria-label', buttonFixes[selector]);
+                fixedCount++;
+                log(`Button label added: ${selector}`, buttonFixes[selector]);
+            }
+        });
+        
+        // Generic fix for icon-only buttons
+        $('button:not([aria-label])').each(function() {
+            const $btn = $(this);
+            const text = $btn.text().trim();
+            
+            // Only fix if button has no text
+            if (text === '' || text.length < 2) {
+                const $icon = $btn.find('i, svg, .icon');
+                let label = 'Button';
+                
+                if ($icon.length) {
+                    const classes = $icon.attr('class') || '';
+                    
+                    // Try to guess from icon classes
+                    if (classes.match(/chevron.*left|arrow.*left|prev/i)) label = 'Previous';
+                    else if (classes.match(/chevron.*right|arrow.*right|next/i)) label = 'Next';
+                    else if (classes.match(/close|times|x\b/i)) label = 'Close';
+                    else if (classes.match(/search|magnif/i)) label = 'Search';
+                    else if (classes.match(/menu|bars|hamburger/i)) label = 'Menu';
+                    else if (classes.match(/play/i)) label = 'Play';
+                    else if (classes.match(/pause/i)) label = 'Pause';
+                }
+                
+                $btn.attr('aria-label', label);
+                $btn.attr('data-aria-injected', 'true');
+                fixedCount++;
+                
+                log(`Button ARIA label added: "${label}"`, $btn[0]);
+            }
+        });
+        
+        if (fixedCount > 0) {
+            log(`✅ Fixed ${fixedCount} button labels`);
+        }
+    }
+    
+    /**
+     * Fix 3: Fix invalid list structures
+     */
+    function fixListStructures() {
+        let fixedCount = 0;
+        
+        $('ul, ol').each(function() {
+            const $list = $(this);
+            const children = $list[0].childNodes;
+            
+            Array.from(children).forEach(node => {
+                // Check for text nodes with content
+                if (node.nodeType === 3 && node.textContent.trim()) {
+                    const $li = $('<li>').text(node.textContent.trim());
+                    $(node).replaceWith($li);
+                    fixedCount++;
+                    log('Fixed text node in list', node.textContent.trim());
+                }
+                // Check for non-li, non-script elements
+                else if (node.nodeType === 1 && 
+                         node.tagName !== 'LI' && 
+                         node.tagName !== 'SCRIPT' && 
+                         node.tagName !== 'TEMPLATE') {
+                    const $li = $('<li>').html($(node).html());
+                    $(node).replaceWith($li);
+                    fixedCount++;
+                    log('Fixed invalid list child', node.tagName);
+                }
+            });
+        });
+        
+        if (fixedCount > 0) {
+            log(`✅ Fixed ${fixedCount} list structure issues`);
+        }
+    }
+    
+    /**
+     * Fix 4: Add role="img" and aria-label to decorative SVGs
+     */
+    function fixSVGAccessibility() {
+        let fixedCount = 0;
+        
+        $('svg:not([role])').each(function() {
+            const $svg = $(this);
+            const title = $svg.find('title').text();
+            
+            if (title) {
+                $svg.attr('role', 'img');
+                $svg.attr('aria-label', title);
+            } else {
+                $svg.attr('role', 'presentation');
+                $svg.attr('aria-hidden', 'true');
+            }
+            fixedCount++;
+        });
+        
+        if (fixedCount > 0) {
+            log(`✅ Fixed ${fixedCount} SVG accessibility issues`);
+        }
+    }
+    
+    /**
+     * Run all fixes on page load
+     */
+    $(document).ready(function() {
+        log('🛡️ ADA Compliance Fixes Starting...');
+        
+        fixMissingAltTags();
+        fixButtonLabels();
+        fixListStructures();
+        fixSVGAccessibility();
+        
+        log('✅ All ADA fixes applied');
+    });
+    
+    /**
+     * Re-run fixes when content is dynamically loaded
+     */
+    if (window.MutationObserver) {
+        const observer = new MutationObserver(function(mutations) {
+            let shouldRerun = false;
+            
+            mutations.forEach(mutation => {
+                if (mutation.addedNodes.length > 0) {
+                    shouldRerun = true;
+                }
+            });
+            
+            if (shouldRerun) {
+                log('🔄 New content detected, re-running fixes...');
+                setTimeout(() => {
+                    fixMissingAltTags();
+                    fixButtonLabels();
+                    fixListStructures();
+                    fixSVGAccessibility();
+                }, 100);
+            }
+        });
+        
+        observer.observe(document.body, {
+            childList: true,
+            subtree: true
+        });
+    }
+    
+})(jQuery);

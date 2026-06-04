@@ -1,0 +1,271 @@
+/**
+ * Fly Shop ADA Compliance - Color Contrast Overrides
+ * WCAG 2.0 AA requires 4.5:1 contrast ratio for normal text
+ */
+
+/* ========================================
+   NAVIGATION - Fix low contrast links
+   ======================================== */
+
+/* Main navigation links */
+.nav-link,
+.navbar-nav .nav-link {
+    /*color: #1a1a1a !important;*/
+    font-weight: 500 !important;
+}
+
+.nav-link:hover,
+.navbar-nav .nav-link:hover {
+    color: #003d5c !important;
+}
+
+/* Dark backgrounds - ensure white text is on dark enough bg */
+.bg-dark .nav-link,
+.navbar-dark .nav-link {
+    color: #ffffff !important;
+}
+
+/* ========================================
+   HERO / BANNER TEXT
+   ======================================== */
+
+/* Text over images - add strong shadow for readability */
+.carousel-caption h1,
+.carousel-caption h2,
+.carousel-caption h3,
+.carousel-caption p,
+.hero h1,
+.hero h2,
+.hero h3,
+.hero p {
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9),
+                 0 0 12px rgba(0, 0, 0, 0.8) !important;
+    color: #ffffff !important;
+}
+
+/* Specific fix for "America's Fly Fishing Outfitter" text */
+#carouselExampleFade h1,
+#carouselExampleFade h2 {
+    text-shadow: 3px 3px 10px rgba(0, 0, 0, 1),
+                 0 0 20px rgba(0, 0, 0, 0.9) !important;
+}
+
+/* ========================================
+   BUTTONS & CALLS TO ACTION
+   ======================================== */
+
+/* Primary buttons - ensure sufficient contrast */
+.btn-primary,
+button.btn-primary,
+a.btn-primary {
+    background-color: #003d5c !important;
+    color: #ffffff !important;
+    border: 2px solid #003d5c !important;
+}
+
+.btn-primary:hover {
+    background-color: #002a42 !important;
+    border-color: #002a42 !important;
+}
+
+/* Secondary buttons */
+.btn-secondary {
+    background-color: #555555 !important;
+    color: #ffffff !important;
+}
+
+/* Text-only button links */
+.btn-link {
+    color: #003d5c !important;
+    text-decoration: underline !important;
+}
+
+/* Search button */
+#search-bot-open {
+    background-color: #003d5c !important;
+    color: #ffffff !important;
+}
+
+/* ========================================
+   CARDS & CONTENT BLOCKS
+   ======================================== */
+
+/* News/blog card overlays */
+.card-img-overlay h3 a,
+.card-img-overlay .text-white {
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.95) !important;
+    color: #ffffff !important;
+}
+
+/* Ensure card text is readable */
+.card-title,
+.card-text {
+    color: #1a1a1a !important;
+}
+
+/* ========================================
+   FOOTER
+   ======================================== */
+
+/* Footer links */
+#colophon a,
+.footer a {
+    color: #ffffff !important;
+    text-decoration: underline !important;
+}
+
+#colophon a:hover,
+.footer a:hover {
+    color: #d0e8f2 !important;
+}
+
+/* Footer text on dark background */
+#colophon,
+.footer {
+    color: #ffffff !important;
+}
+
+/* ========================================
+   FEATURED SECTIONS
+   ======================================== */
+
+/* Collection/category links with background images */
+.collection-item h3,
+.collection-item .link-text {
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.9) !important;
+    color: #ffffff !important;
+}
+
+/* Featured product text */
+.product-card h3 a {
+    color: #1a1a1a !important;
+}
+
+.price-item {
+    color: #003d5c !important;
+    font-weight: 600 !important;
+}
+
+/* ========================================
+   HOTSPOTS / INTERACTIVE ELEMENTS
+   ======================================== */
+
+/* Hotspot numbers on images */
+.hotspot__number,
+.hotspot {
+    background-color: #003d5c !important;
+    color: #ffffff !important;
+    border: 2px solid #ffffff !important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* ========================================
+   FORMS
+   ======================================== */
+
+/* Ensure form labels are visible */
+label,
+.form-label {
+    color: #1a1a1a !important;
+    font-weight: 500 !important;
+}
+
+/* Input focus states */
+input:focus,
+textarea:focus,
+select:focus {
+    border-color: #003d5c !important;
+    box-shadow: 0 0 0 0.2rem rgba(0, 61, 92, 0.25) !important;
+}
+
+/* ========================================
+   SKIP LINKS (Keyboard Navigation)
+   ======================================== */
+
+/* Add skip link for keyboard users */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: #003d5c;
+    color: #ffffff;
+    padding: 8px 16px;
+    text-decoration: none;
+    z-index: 10000;
+}
+
+.skip-link:focus {
+    top: 0;
+}
+
+/* ========================================
+   FOCUS INDICATORS
+   ======================================== */
+
+/* Remove default outline on click (mouse users) */
+a:focus,
+button:focus {
+    outline: none;
+}
+
+/* Show outline ONLY for keyboard navigation (accessibility) */
+a:focus-visible,
+button:focus-visible,
+input:focus,
+select:focus,
+textarea:focus {
+    outline: 3px solid #003d5c !important;
+    outline-offset: 2px !important;
+}
+
+/* ========================================
+   UTILITY CLASSES
+   ======================================== */
+
+/* Override problematic utility classes */
+.text-white {
+    /* Only allow on dark backgrounds */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8) !important;
+}
+
+.text-muted {
+    /* Ensure muted text still has enough contrast */
+    color: #555555 !important;
+}
+
+/* ========================================
+   RESPONSIVE FIXES
+   ======================================== */
+
+@media (max-width: 768px) {
+    /* Mobile nav adjustments */
+    .navbar-nav .nav-link {
+        font-size: 18px !important;
+        padding: 12px 16px !important;
+    }
+    
+    /* Larger tap targets */
+    button,
+    .btn {
+        min-height: 44px !important;
+        min-width: 44px !important;
+    }
+}
+
+/* ========================================
+   PRINT STYLES
+   ======================================== */
+
+@media print {
+    /* Remove text shadows for print */
+    * {
+        text-shadow: none !important;
+        box-shadow: none !important;
+    }
+    
+    /* Ensure black text on white */
+    body {
+        color: #000000 !important;
+        background: #ffffff !important;
+    }
+}
